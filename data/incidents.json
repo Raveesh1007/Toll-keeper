@@ -1,0 +1,8 @@
+[
+  {"date": "2026-10-01", "product": "NEAR Intents contract", "layer": "intents_contract", "loss_usd": 3800000, "made_whole": true,
+   "summary": "Deposit bug; $3.8M taken, all returned, users made whole",
+   "source": "https://thedefiant.io/news/security/near-intents-postmortem-links-3-8-million-exploit-to-deposit-bug"},
+  {"date": "2026-11-08", "product": "NEAR AI (SGLang)", "layer": "near_ai", "loss_usd": 0, "made_whole": true,
+   "summary": "SGLang RCE breach; data only, no funds",
+   "source": "https://thehackernews.com/2026/11/sglang-rce-exploit-breaches-near-ai.html"}
+]

@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NEAR Thesis Tracker</title>
+<style>
+:root{--bg:#fbfaf7;--fg:#1d1d1b;--mut:#6b6a65;--line:#e4e1d8;--card:#fff;--a:#1f6feb;--b:#c2410c;--c:#15803d;--bear:#b91c1c;--bull:#15803d;--neu:#6b6a65}
+@media (prefers-color-scheme:dark){:root{--bg:#141413;--fg:#ecebe6;--mut:#9c9a92;--line:#2c2b28;--card:#1c1c1a;--a:#6ea8ff;--b:#fb923c;--c:#4ade80;--bear:#f87171;--bull:#4ade80;--neu:#9c9a92}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:1100px;margin:0 auto;padding:24px 16px 64px}
+h1{font-size:22px;margin:0 0 4px}h2{font-size:17px;margin:36px 0 10px}
+.mut{color:var(--mut)}.num{font-variant-numeric:tabular-nums}
+.banner{border:1px solid var(--line);background:var(--card);border-radius:10px;padding:18px 20px;margin:18px 0;display:flex;flex-wrap:wrap;gap:8px 28px;align-items:baseline}
+.verdict{font-size:26px;font-weight:700;letter-spacing:.02em}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px}
+.kpi{border:1px solid var(--line);background:var(--card);border-radius:8px;padding:10px 12px}
+.kpi b{display:block;font-size:20px}.kpi span{font-size:12.5px;color:var(--mut)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,480px),1fr));gap:14px}
+.card{border:1px solid var(--line);background:var(--card);border-radius:10px;padding:14px}
+.card h3{margin:0 0 2px;font-size:14.5px}.card p{margin:0 0 6px;font-size:12.5px;color:var(--mut)}
+svg{width:100%;height:auto;display:block}svg text{fill:var(--mut);font-size:11px}
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12px;color:var(--mut)}.legend i{display:inline-block;width:14px;height:3px;margin-right:5px;vertical-align:middle}
+.scroll{overflow-x:auto;border:1px solid var(--line);border-radius:8px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:13px}th,td{padding:6px 9px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{font-weight:600;background:var(--bg);position:sticky;top:0}td.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.st{font-weight:700;font-size:12px}.st.BEAR,.st.VOID{color:var(--bear)}.st.BULL{color:var(--bull)}.st.neither{color:var(--neu)}
+.tag{font-size:11px;font-weight:700;border:1px solid var(--line);border-radius:4px;padding:0 5px}
+details{margin-top:10px}summary{cursor:pointer;font-weight:600}
+a{color:var(--a)}code{font-size:12.5px}
+</style>
+</head>
+<body>
+<main>
+<h1>NEAR: a toll on cross-chain settlement, if the toll can pay for the road</h1>
+<div class="mut" id="sub"></div>
+<div class="banner"><span class="verdict" id="verdict"></span><span class="mut" id="reg"></span></div>
+<div class="kpis" id="kpis"></div>
+
+<h2>Three converging curves</h2>
+<div class="grid">
+  <div class="card"><h3>Monthly NEAR revenue vs monthly issuance cost</h3><p>Revenue: DefiLlama dailyRevenue. Cost: NEAR issued that month x average price.</p><div id="c1"></div></div>
+  <div class="card"><h3>Capture rate (bps of volume), monthly</h3><p>Shaded: before 2026-03-01 (pre fee-switch, excluded from growth math).</p><div id="c2"></div></div>
+  <div class="card"><h3>MPC signing network: threshold and participants</h3><p><code>v1.signer.state</code> at the first block of each month, FastNEAR archival.</p><div id="c3"></div></div>
+  <div class="card"><h3>Hurdle: revenue run-rate needed to cover 1.6% issuance by the full cut</h3><p>Pre-registered path at the hurdle growth rate from the first snapshot, path needed from today, and monthly revenue annualized.</p><div id="c4"></div></div>
+</div>
+
+<h2>Tripwires (pre-registered)</h2>
+<div class="scroll"><table id="trip"></table></div>
+<h2>Dated predictions</h2>
+<div class="scroll"><table id="pred"></table></div>
+<h2>Claim register</h2>
+<div class="scroll"><table id="claims"></table></div>
+
+<h2>All the data</h2>
+<details open><summary>Intents by month (DefiLlama)</summary><div class="scroll"><table id="monthly"></table></div></details>
+<details><summary>Issuance and its cost by month (archival total_supply)</summary><div class="scroll"><table id="budget"></table></div></details>
+<details><summary>MPC network by month (archival v1.signer)</summary><div class="scroll"><table id="mpc"></table></div></details>
+<p class="mut">Machine-readable: <a href="metrics.json">metrics.json</a>. Raw inputs: <code>data/raw/&lt;date&gt;/</code>. Rebuild: <code>python collect.py &amp;&amp; python build.py</code>.</p>
+</main>
+<script src="metrics.js"></script>
+<script>
+const D = window.METRICS, M = D.metrics;
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const usd = x => x == null ? "n/a" : Math.abs(x) >= 1e9 ? "$" + (x/1e9).toPrecision(3) + "B" : Math.abs(x) >= 1e6 ? "$" + (x/1e6).toPrecision(3) + "M" : Math.abs(x) >= 1e3 ? "$" + (x/1e3).toPrecision(3) + "k" : "$" + Math.round(x);
+const pct = (x, d = 1) => x == null ? "n/a" : (x*100).toFixed(d) + "%";
+const n0 = x => x == null ? "n/a" : Math.round(x).toLocaleString("en-US");
+const md = s => esc(s).replace(/\*\*(.+?)\*\*/g, "<b>$1</b>").replace(/`(.+?)`/g, "<code>$1</code>").replace(/\[(.+?)\]\((https?:[^)]+)\)/g, '<a href="$2">$1</a>');
+const mdate = s => new Date(s.slice(0, 7) + "-01T00:00:00Z").getTime();
+
+$("sub").textContent = `Data as of ${D.asof} · block ${n0(D.block)} · DefiLlama through ${D.defillama_through} · NEAR $${M.price_usd.toFixed(2)}`;
+$("verdict").textContent = D.verdict;
+$("reg").innerHTML = `Tripwires pre-registered in commit <code>${esc(D.preregistration.commit.slice(0, 7))}</code> (${esc(D.preregistration.status)} registration)`;
+$("kpis").innerHTML = [
+  [usd(M.revenue_per_day_t90) + "/day", "NEAR revenue, trailing 90 d"], ["x" + M.growth_6m.toFixed(2), "vs 90 d ending 180 d earlier"],
+  [M.capture_bps_t90.toFixed(2) + " bps", "capture of volume, t90"], [pct(M.coverage_usd, 0), `coverage: ${usd(M.revenue_run_rate)} run-rate / ${usd(M.security_budget_usd)} issuance`],
+  [pct(M.required_cagr, 0) + "/yr", "growth needed to cover 1.6% issuance"], [`${M.mpc_threshold}-of-${M.mpc_participants}`, `MPC; ${M.tee_entries} TEE entries, ${M.signer_access_keys} access keys`],
+  [pct(M.staked_pct, 2), `staked; ${M.validators} validators, Nakamoto ${M.nakamoto_33}`], [pct(M.issuance_rate_31d, 2) + "/yr", "realized net issuance, 31 d"],
+].map(([v, l]) => `<div class="kpi"><b class="num">${esc(v)}</b><span>${esc(l)}</span></div>`).join("");
+
+// ---- minimal SVG line chart: series = [{name, color, pts:[[t,y]], step, dash, dots}] ----
+function chart(el, series, {yFmt = usd, shadeTo = null, hline = null} = {}) {
+  const W = 520, H = 250, L = 56, R = 22, T = 12, B = 26;
+  const all = series.flatMap(s => s.pts).filter(p => p[1] != null);
+  const x0 = Math.min(...all.map(p => p[0])), x1 = Math.max(...all.map(p => p[0]));
+  let y1 = Math.max(...all.map(p => p[1]), hline ? hline.y : 0) * 1.08, y0 = 0;
+  const X = t => L + (t - x0) / (x1 - x0 || 1) * (W - L - R), Y = v => T + (1 - (v - y0) / (y1 - y0 || 1)) * (H - T - B);
+  const step = 10 ** Math.floor(Math.log10(y1 / 4)), mul = [1, 2, 2.5, 5, 10].find(m => y1 / (step * m) <= 5);
+  let g = "";
+  if (shadeTo && shadeTo > x0) g += `<rect x="${L}" y="${T}" width="${X(Math.min(shadeTo, x1)) - L}" height="${H - T - B}" fill="currentColor" opacity=".06"/>`;
+  for (let v = 0; v <= y1; v += step * mul) g += `<line x1="${L}" x2="${W - R}" y1="${Y(v)}" y2="${Y(v)}" stroke="var(--line)"/><text x="${L - 6}" y="${Y(v) + 4}" text-anchor="end">${esc(yFmt(v))}</text>`;
+  const d0 = new Date(x0), months = (new Date(x1).getUTCFullYear() - d0.getUTCFullYear()) * 12 + new Date(x1).getUTCMonth() - d0.getUTCMonth();
+  const every = Math.max(1, Math.ceil(months / 8));
+  for (let i = 0; i <= months; i += every) { const t = Date.UTC(d0.getUTCFullYear(), d0.getUTCMonth() + i, 1); g += `<text x="${X(t)}" y="${H - 8}" text-anchor="middle">${new Date(t).toISOString().slice(2, 7)}</text>`; }
+  if (hline) g += `<line x1="${L}" x2="${W - R}" y1="${Y(hline.y)}" y2="${Y(hline.y)}" stroke="var(--fg)" stroke-dasharray="2 3" opacity=".5"/><text x="${W - R}" y="${Y(hline.y) - 5}" text-anchor="end">${esc(hline.label)}</text>`;
+  for (const s of series) {
+    const p = s.pts.filter(q => q[1] != null);
+    if (!p.length) continue;
+    let d = `M${X(p[0][0])},${Y(p[0][1])}`;
+    for (let i = 1; i < p.length; i++) d += s.step ? `H${X(p[i][0])}V${Y(p[i][1])}` : `L${X(p[i][0])},${Y(p[i][1])}`;
+    if (s.step) d += `H${X(x1)}`;
+    g += `<path d="${d}" fill="none" stroke="${s.color}" stroke-width="2" ${s.dash ? 'stroke-dasharray="5 4"' : ""}/>`;
+    if (s.dots) g += p.map(q => `<circle cx="${X(q[0])}" cy="${Y(q[1])}" r="3" fill="${s.color}"><title>${new Date(q[0]).toISOString().slice(0, 7)}: ${esc(yFmt(q[1]))}</title></circle>`).join("");
+  }
+  el.innerHTML = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(series.map(s => s.name).join(", "))}">${g}</svg>` +
+    `<div class="legend">${series.map(s => `<span><i style="background:${s.color}"></i>${esc(s.name)}</span>`).join("")}</div>`;
+}
+const css = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+const clean = mdate("2026-03");
+const bud = D.budget_monthly.filter(r => !r.partial);
+chart($("c1"), [
+  {name: "NEAR revenue", color: css("--a"), pts: bud.map(r => [mdate(r.month), r.revenue_usd]), dots: true},
+  {name: "Issuance cost", color: css("--b"), pts: bud.map(r => [mdate(r.month), r.issuance_cost_usd]), dots: true},
+], {shadeTo: clean});
+chart($("c2"), [{name: "Capture, bps", color: css("--a"), dots: true,
+  pts: D.monthly.filter(r => r.revenue && r.capture_bps != null && !r.note.startsWith("partial")).map(r => [mdate(r.month), r.capture_bps])}],
+  {yFmt: v => v.toFixed(1), shadeTo: clean});
+chart($("c3"), [
+  {name: "Participants", color: css("--c"), step: true, pts: D.mpc_history.map(r => [mdate(r.date), r.participants])},
+  {name: "Threshold", color: css("--b"), step: true, pts: D.mpc_history.map(r => [mdate(r.date), r.threshold])},
+], {yFmt: v => v.toFixed(0)});
+const H = D.hurdle;
+chart($("c4"), [
+  {name: `Pre-registered path (+${pct(H.hurdle_per_year, 0)}/yr from ${H.anchor_date})`, color: css("--b"), pts: H.path.map(r => [mdate(r.month), r.required_at_hurdle])},
+  {name: `Needed from today (+${pct(M.required_cagr, 0)}/yr)`, color: css("--b"), dash: true, pts: H.path.map(r => [mdate(r.month), r.required_live])},
+  {name: "Actual: monthly revenue x 365/days", color: css("--a"), dots: true, pts: H.actual.map(r => [mdate(r.month), r.annualized])},
+], {hline: {y: H.target, label: "1.6% issuance cost " + usd(H.target) + "/yr"}});
+
+const tbl = (id, head, rows, num = []) => $(id).innerHTML = `<tr>${head.map(h => `<th>${esc(h)}</th>`).join("")}</tr>` +
+  rows.map(r => `<tr>${r.map((c, i) => `<td${num.includes(i) ? ' class="n"' : ""}>${c}</td>`).join("")}</tr>`).join("");
+tbl("trip", ["ID", "Watch", "Now", "Bear trigger", "Bull trigger", "State", "Detail"],
+  D.tripwires.map(t => [t.id, esc(t.watch), esc(t.now), esc(t.bear_trigger), esc(t.bull_trigger), `<span class="st ${t.state}">${t.state}</span>`, esc(t.note)]));
+tbl("pred", ["By", "Prediction", "Now", "State"], D.predictions.map(p => [p.by, esc(p.text), esc(p.metric === "revenue_per_day_t90" ? usd(p.now) + "/day" : /pct|yoy/.test(p.metric) ? pct(p.now, 2) : p.now), esc(p.state)]));
+tbl("claims", ["#", "Claim", "Tag", "Value", "Reproduce"], D.claims.map(c => [c.id, md(c.claim), `<span class="tag">${esc(c.status)}</span>`, md(c.value), md(c.source)]));
+tbl("monthly", ["Month", "Days", "Volume", "Gross fees", "NEAR revenue", "Capture bps", "Share of fees", "Note"],
+  D.monthly.map(r => [r.month, r.days, usd(r.volume), usd(r.fees), usd(r.revenue), r.capture_bps == null ? "n/a" : r.capture_bps.toFixed(2), pct(r.share_of_fees, 0), esc(r.note)]), [1, 2, 3, 4, 5, 6]);
+tbl("budget", ["Month", "Supply at start", "NEAR issued", "Rate/yr", "Avg price", "Issuance cost", "NEAR revenue", "Revenue / cost"],
+  D.budget_monthly.map(r => [r.month + (r.partial ? " (partial)" : ""), n0(r.supply_start), n0(r.issued_near), pct(r.issuance_rate, 2), "$" + r.avg_price.toFixed(2), usd(r.issuance_cost_usd), usd(r.revenue_usd), pct(r.coverage, 0)]), [1, 2, 3, 4, 5, 6, 7]);
+tbl("mpc", ["Date", "Block", "Threshold", "Participants", "Margin", "TEE entries", "Version", "Buyback wallet (NEAR)"],
+  D.mpc_history.map(r => [r.date, n0(r.block), r.threshold, r.participants, r.margin, r.tee_entries ?? "n/a", esc(r.version), n0(r.buyback_near)]), [1, 2, 3, 4, 5, 7]);
+</script>
+</body>
+</html>
