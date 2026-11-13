@@ -15,7 +15,9 @@ A NEAR investment thesis where every number is computed from public data, re-che
 
 ## The thesis in 30 seconds
 
-NEAR Intents swaps tokens between blockchains and NEAR keeps a slice of each fee. NEAR also prints new tokens to pay for its security, which dilutes holders. **The bet: NEAR is a long-term hold if the fees it keeps grow until they cover that printing cost.**
+NEAR runs a service that swaps coins between blockchains, and it keeps a small fee on every swap. NEAR also creates new NEAR coins every year to pay the computers that keep the network running. More coins in circulation makes each existing coin a little less valuable.
+
+**The bet:** if the money NEAR earns from swaps grows big enough to buy back as many coins as NEAR creates, owners stop losing value to the new coins, and holding NEAR for years makes sense. This repo checks every day whether that is happening.
 
 | | Today | Needed by early 2029 |
 |---|---|---|
