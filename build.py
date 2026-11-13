@@ -122,9 +122,10 @@ def main():
     vol = {day(t): v for t, v in llama["volume"]["totalDataChart"]}
     fees = {day(t): v for t, v in llama["fees"]["totalDataChart"]}
     rev = {day(t): v for t, v in llama["revenue"]["totalDataChart"]}
-    for name, s in (("revenue", rev), ("volume", vol)):  # seed files must be a subset of today's pull
+    for name, s in (("revenue", rev), ("volume", vol)):  # seed files must match settled history; DefiLlama revises the latest days
         seed = {day(t): v for t, v in load(f"data/defillama/intents_{name}_daily.json")}
-        assert all(s.get(d) == v for d, v in seed.items()), f"seed {name} disagrees with live DefiLlama"
+        settled = max(s) - 7 * DAY
+        assert all(s.get(d) == v for d, v in seed.items() if d <= settled), f"seed {name} disagrees with live DefiLlama before {settled}"
     E = min(max(vol), max(fees), max(rev))  # last complete day in all three series
 
     def total(s, end, n):
@@ -340,6 +341,8 @@ def main():
 
     # ---------- formatted values for THESIS.md ----------
     V = {
+        "vol_start": min(vol).isoformat(), "fees_start": min(fees).isoformat(), "fee_switch": C["fee_switch_date"],
+        "rev_material": next(x["month"] for x in monthly if x["revenue"] and x["revenue"] >= 100_000),
         "asof": (E + DAY).isoformat(), "llama_end": E.isoformat(), "height": num(head["height"]), "price": f"{price:.2f}",
         "verdict": verdict, "verdict_lower": verdict.lower(),
         "fees_annual": usd(fees30 * 365 / 30), "fees_vs_target": pct(fees30 * 365 / 30 / budget_target, 0),

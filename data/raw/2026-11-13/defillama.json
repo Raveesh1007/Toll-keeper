@@ -7,8 +7,8 @@
    "Revenue": "NEAR's net captured revenue, measured as NEAR/wNEAR swept into its revenue wallets (reconciles with revenue.near.org and the on-chain buyback). Split by destination wallet into front-end affiliate revenue and Other. Transfers between those wallets are excluded.",
    "SupplySideRevenue": "Gross fees minus NEAR's captured revenue - the affiliate fees kept by solvers and third-party distribution channels (e.g. SwapKit)."
   },
-  "total24h": 16604,
-  "total30d": 5807392,
+  "total24h": 257492,
+  "total30d": 6048207,
   "total60dto30d": null,
   "totalDataChart": [
    [
@@ -2201,7 +2201,7 @@
    ],
    [
     1794096000,
-    194710
+    194711
    ],
    [
     1794182400,
@@ -2213,11 +2213,11 @@
    ],
    [
     1794355200,
-    233973
+    233899
    ],
    [
     1794441600,
-    16604
+    257492
    ]
   ]
  },
@@ -2229,8 +2229,8 @@
    "Revenue": "NEAR's net captured revenue, measured as NEAR/wNEAR swept into its revenue wallets (reconciles with revenue.near.org and the on-chain buyback). Split by destination wallet into front-end affiliate revenue and Other. Transfers between those wallets are excluded.",
    "SupplySideRevenue": "Gross fees minus NEAR's captured revenue - the affiliate fees kept by solvers and third-party distribution channels (e.g. SwapKit)."
   },
-  "total24h": 95652,
-  "total30d": 1836360,
+  "total24h": 99349,
+  "total30d": 1842648,
   "total60dto30d": null,
   "totalDataChart": [
    [
@@ -4435,15 +4435,15 @@
    ],
    [
     1794355200,
-    45228
+    47819
    ],
    [
     1794441600,
-    95652
+    99349
    ]
   ]
  },
- "tvl_usd": 180576218.2540125,
+ "tvl_usd": 182528104.27174938,
  "volume": {
   "methodology": {},
   "total24h": 176440686,

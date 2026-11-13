@@ -25,9 +25,11 @@ Reading: the money to fund NEAR's security is already flowing through NEAR's pro
 
 ## Pillar 2: Value captured is rising fast
 
-Every month DefiLlama has, from its daily series (`data/raw/<date>/defillama.json`; the provided seed files in `data/defillama/` are checked to be an exact subset):
+Every month DefiLlama has, from its daily series (`data/raw/<date>/defillama.json`; the provided seed files in `data/defillama/` are checked to match exactly for every day except the latest 7, which DefiLlama revises):
 
 {monthly_table}
+
+**Reading the gaps in this table.** `n/a` means DefiLlama has no figure for that month: its swap-volume series starts on {vol_start}, and its fee and revenue series start on {fees_start}. Revenue shows `$0` (or a few dollars) up to {rev_material}, and the capture rate there is `0.00`, because NEAR was not yet capturing revenue that DefiLlama counts; those zeros are reported values, not missing data. Revenue from {rev_material} up to the {fee_switch} fee switch (when buybacks began) is lumpy treasury sweeps rather than steady income, so read it with caution. The earlier window in the growth figure (claim P2.1) starts {prior_start}, which includes a few of those pre-switch days.
 
 {claims_P2}
 

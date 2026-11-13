@@ -115,7 +115,7 @@ For a past block use `https://archival-rpc.mainnet.fastnear.com` and replace `"f
 | `build.py` | Computes every metric, monthly table, tripwire state, verdict and dated prediction, then writes the outputs above. |
 | [`config/tripwires.json`](config/tripwires.json) | Seven alarms, the verdict rule and the dated predictions. Frozen in commit `d5491d7` before any data was collected; `build.py` flags any later edit in `THESIS.md`. |
 | `data/incidents.json` | Hand-entered, sourced incidents. The only input for T6 and T7, which can't be measured on chain. |
-| `data/defillama/` | Seed copies of the daily volume and revenue series; `build.py` asserts they are an exact subset of the live data. |
+| `data/defillama/` | Seed copies of the daily volume and revenue series; `build.py` asserts they match the live data for every day except the latest 7 (DefiLlama revises recent days). |
 | `site/index.html` | Static dashboard, vanilla JS, light and dark mode. Reads `site/metrics.js`. |
 | `.github/workflows/refresh.yml` | Daily 01:17 UTC: collect, test, build, commit, deploy `site/` to GitHub Pages. |
 
