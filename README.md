@@ -5,7 +5,7 @@
 **Can NEAR's tolls pay for its road?**
 A NEAR investment thesis where every number is computed from public data, re-checked daily, and judged by alarms written down in advance.
 
-[Thesis](THESIS.md) · [Dashboard](site/index.html) · [Live numbers (JSON)](data/metrics.json) · [Pre-registered alarms](config/tripwires.json)
+[**Live dashboard**](https://raveesh1007.github.io/Toll-keeper/) · [Thesis](THESIS.md) · [Live numbers (JSON)](data/metrics.json) · [Pre-registered alarms](config/tripwires.json)
 
 `Python 3.11+` · `standard library only` · `no API keys` · `MIT`
 
@@ -47,7 +47,7 @@ Every figure tagged **M** (measured on NEAR mainnet) or **D** (DefiLlama) in the
 |---|---|---|
 | 1 | `python collect.py` | About 2 minutes. Ends with `wrote data/raw/<YYYY-MM-DD>/ (block N)`; that folder holds `head.json`, `history.json`, `defillama.json`, `price.json`. |
 | 2 | `python build.py` | Prints `VERDICT: ...`, one line per tripwire T1-T7, and the key metrics. Rewrites `THESIS.md`, `data/metrics.json`, `data/history.csv`, `site/metrics.js`, `site/metrics.json`. Uses the newest `data/raw/<date>/`, so you can skip step 1 to rebuild from committed data. |
-| 3 | Open `site/index.html` | The dashboard shows the same verdict, block height and numbers as step 2. No server needed. |
+| 3 | Open the [live dashboard](https://raveesh1007.github.io/Toll-keeper/), or `site/index.html` locally | The dashboard shows the same verdict, block height and numbers as step 2. No server needed. |
 | 4 | `python build.py` again, then `git status --short` | No changes: the build is deterministic for the same raw files. |
 | 5 | `python test_build.py` | `ok` |
 | 6 | Hand-check two numbers (below) | They match a fresh `collect.py` run. |
