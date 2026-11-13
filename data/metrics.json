@@ -5,6 +5,7 @@
   {
    "avg_price": 2.472667,
    "coverage": 1e-06,
+   "coverage_t90_month_end": 1e-06,
    "issuance_cost_usd": 12466560.2791,
    "issuance_rate": 0.046449,
    "issued_near": 5041747.039952,
@@ -16,6 +17,7 @@
   {
    "avg_price": 2.214056,
    "coverage": 0.137824,
+   "coverage_t90_month_end": 0.045654,
    "issuance_cost_usd": 5572657.063388,
    "issuance_rate": 0.024096,
    "issued_near": 2516944.604584,
@@ -27,6 +29,7 @@
   {
    "avg_price": 1.598584,
    "coverage": 0.041632,
+   "coverage_t90_month_end": 0.07736,
    "issuance_cost_usd": 4242615.80691,
    "issuance_rate": 0.024176,
    "issued_near": 2653983.32856,
@@ -38,6 +41,7 @@
   {
    "avg_price": 1.62864,
    "coverage": 0.08553,
+   "coverage_t90_month_end": 0.105083,
    "issuance_cost_usd": 4200146.791143,
    "issuance_rate": 0.024063,
    "issued_near": 2578928.256082,
@@ -49,6 +53,7 @@
   {
    "avg_price": 1.06979,
    "coverage": 0.259129,
+   "coverage_t90_month_end": 0.144807,
    "issuance_cost_usd": 2559060.864674,
    "issuance_rate": 0.024396,
    "issued_near": 2392115.274978,
@@ -60,6 +65,7 @@
   {
    "avg_price": 1.275671,
    "coverage": 0.16707,
+   "coverage_t90_month_end": 0.160764,
    "issuance_cost_usd": 3372590.152692,
    "issuance_rate": 0.024328,
    "issued_near": 2643776.559057,
@@ -71,6 +77,7 @@
   {
    "avg_price": 1.341243,
    "coverage": 0.073457,
+   "coverage_t90_month_end": 0.140456,
    "issuance_cost_usd": 3522347.47952,
    "issuance_rate": 0.024812,
    "issued_near": 2626180.866266,
@@ -193,25 +200,25 @@
    "value": "**31.6%** ($1.84M of $5.81M)"
   },
   {
-   "claim": "Revenue per day, trailing 90 d vs the 90 d ending 180 d earlier (2026-03-01 to 2026-05-16; window clipped at 2026-03-01: 77 days)",
+   "claim": "Revenue per day, trailing 90 d vs the 90 d ending 180 d earlier (2026-02-16 to 2026-05-16; includes days before the 2026-02-23 fee switch)",
    "id": "P2.1",
    "source": "`build.py` `growth_at()`",
    "status": "D+arith",
-   "value": "$57.7k vs $13.3k = **x4.34** (+1859%/yr annualized)"
+   "value": "$57.7k vs $13.7k = **x4.22** (+1754%/yr annualized)"
   },
   {
    "claim": "Of which: volume",
    "id": "P2.2",
    "source": "same windows",
    "status": "D+arith",
-   "value": "x2.16 ($136M vs $62.8M a day)"
+   "value": "x2.17 ($136M vs $62.7M a day)"
   },
   {
    "claim": "Of which: capture rate",
    "id": "P2.3",
    "source": "revenue / volume",
    "status": "D+arith",
-   "value": "x2.00 (4.24 vs 2.12 bps); 47% of the growth in log terms"
+   "value": "x1.94 (4.24 vs 2.18 bps); 46% of the growth in log terms"
   },
   {
    "claim": "Fee switch to buybacks live since 2026-02-23",
@@ -312,9 +319,581 @@
    "value": "2026-10-01 NEAR Intents contract: Deposit bug; $3.8M taken, all returned, users made whole ([source](https://thedefiant.io/news/security/near-intents-postmortem-links-3-8-million-exploit-to-deposit-bug)); 2026-11-08 NEAR AI (SGLang): SGLang RCE breach; data only, no funds ([source](https://thehackernews.com/2026/11/sglang-rce-exploit-breaches-near-ai.html))"
   }
  ],
+ "daily_91d": [
+  {
+   "date": "2026-08-14",
+   "fees": 81532,
+   "revenue": 15902,
+   "volume": 77921510
+  },
+  {
+   "date": "2026-08-15",
+   "fees": 30598,
+   "revenue": 7223,
+   "volume": 31744839
+  },
+  {
+   "date": "2026-08-16",
+   "fees": 48854,
+   "revenue": 6492,
+   "volume": 50139274
+  },
+  {
+   "date": "2026-08-17",
+   "fees": 91373,
+   "revenue": 25889,
+   "volume": 90147865
+  },
+  {
+   "date": "2026-08-18",
+   "fees": 78925,
+   "revenue": 15352,
+   "volume": 80870447
+  },
+  {
+   "date": "2026-08-19",
+   "fees": 179826,
+   "revenue": 60832,
+   "volume": 134181536
+  },
+  {
+   "date": "2026-08-20",
+   "fees": 256874,
+   "revenue": 39966,
+   "volume": 136215921
+  },
+  {
+   "date": "2026-08-21",
+   "fees": 304079,
+   "revenue": 71250,
+   "volume": 165407797
+  },
+  {
+   "date": "2026-08-22",
+   "fees": 275924,
+   "revenue": 37752,
+   "volume": 142407166
+  },
+  {
+   "date": "2026-08-23",
+   "fees": 204259,
+   "revenue": 32726,
+   "volume": 111313731
+  },
+  {
+   "date": "2026-08-24",
+   "fees": 191573,
+   "revenue": 37127,
+   "volume": 145642189
+  },
+  {
+   "date": "2026-08-25",
+   "fees": 196928,
+   "revenue": 27170,
+   "volume": 145152506
+  },
+  {
+   "date": "2026-08-26",
+   "fees": 157295,
+   "revenue": 36945,
+   "volume": 126010720
+  },
+  {
+   "date": "2026-08-27",
+   "fees": 197928,
+   "revenue": 25295,
+   "volume": 133221354
+  },
+  {
+   "date": "2026-08-28",
+   "fees": 177386,
+   "revenue": 26210,
+   "volume": 110622273
+  },
+  {
+   "date": "2026-08-29",
+   "fees": 101288,
+   "revenue": 26382,
+   "volume": 56604956
+  },
+  {
+   "date": "2026-08-30",
+   "fees": 110331,
+   "revenue": 27238,
+   "volume": 68306432
+  },
+  {
+   "date": "2026-08-31",
+   "fees": 133489,
+   "revenue": 23922,
+   "volume": 123658848
+  },
+  {
+   "date": "2026-09-01",
+   "fees": 113515,
+   "revenue": 23011,
+   "volume": 131320550
+  },
+  {
+   "date": "2026-09-02",
+   "fees": 182270,
+   "revenue": 29958,
+   "volume": 143225567
+  },
+  {
+   "date": "2026-09-03",
+   "fees": 189877,
+   "revenue": 64906,
+   "volume": 169508996
+  },
+  {
+   "date": "2026-09-04",
+   "fees": 166252,
+   "revenue": 109183,
+   "volume": 209382036
+  },
+  {
+   "date": "2026-09-05",
+   "fees": 127209,
+   "revenue": 28981,
+   "volume": 101244339
+  },
+  {
+   "date": "2026-09-06",
+   "fees": 179520,
+   "revenue": 68915,
+   "volume": 141010447
+  },
+  {
+   "date": "2026-09-07",
+   "fees": 141528,
+   "revenue": 21453,
+   "volume": 109239532
+  },
+  {
+   "date": "2026-09-08",
+   "fees": 116689,
+   "revenue": 26021,
+   "volume": 104742194
+  },
+  {
+   "date": "2026-09-09",
+   "fees": 310488,
+   "revenue": 39358,
+   "volume": 198864845
+  },
+  {
+   "date": "2026-09-10",
+   "fees": 198245,
+   "revenue": 35167,
+   "volume": 150771716
+  },
+  {
+   "date": "2026-09-11",
+   "fees": 200758,
+   "revenue": 37305,
+   "volume": 147252230
+  },
+  {
+   "date": "2026-09-12",
+   "fees": 114257,
+   "revenue": 27755,
+   "volume": 111677869
+  },
+  {
+   "date": "2026-09-13",
+   "fees": 83603,
+   "revenue": 30849,
+   "volume": 87330458
+  },
+  {
+   "date": "2026-09-14",
+   "fees": 183447,
+   "revenue": 34816,
+   "volume": 121309892
+  },
+  {
+   "date": "2026-09-15",
+   "fees": 198043,
+   "revenue": 32832,
+   "volume": 131467577
+  },
+  {
+   "date": "2026-09-16",
+   "fees": 241336,
+   "revenue": 40751,
+   "volume": 134119473
+  },
+  {
+   "date": "2026-09-17",
+   "fees": 556429,
+   "revenue": 102442,
+   "volume": 303419794
+  },
+  {
+   "date": "2026-09-18",
+   "fees": 414402,
+   "revenue": 127733,
+   "volume": 227845909
+  },
+  {
+   "date": "2026-09-19",
+   "fees": 249210,
+   "revenue": 59836,
+   "volume": 126492193
+  },
+  {
+   "date": "2026-09-20",
+   "fees": 180169,
+   "revenue": 47877,
+   "volume": 118561598
+  },
+  {
+   "date": "2026-09-21",
+   "fees": 576218,
+   "revenue": 120972,
+   "volume": 270827432
+  },
+  {
+   "date": "2026-09-22",
+   "fees": 410219,
+   "revenue": 115821,
+   "volume": 223237663
+  },
+  {
+   "date": "2026-09-23",
+   "fees": 355621,
+   "revenue": 107775,
+   "volume": 215033741
+  },
+  {
+   "date": "2026-09-24",
+   "fees": 272938,
+   "revenue": 79756,
+   "volume": 175821655
+  },
+  {
+   "date": "2026-09-25",
+   "fees": 266210,
+   "revenue": 93621,
+   "volume": 180522864
+  },
+  {
+   "date": "2026-09-26",
+   "fees": 150152,
+   "revenue": 41268,
+   "volume": 93548366
+  },
+  {
+   "date": "2026-09-27",
+   "fees": 216809,
+   "revenue": 47489,
+   "volume": 120587818
+  },
+  {
+   "date": "2026-09-28",
+   "fees": 290827,
+   "revenue": 65755,
+   "volume": 167864177
+  },
+  {
+   "date": "2026-09-29",
+   "fees": 355494,
+   "revenue": 74042,
+   "volume": 213684038
+  },
+  {
+   "date": "2026-09-30",
+   "fees": 284057,
+   "revenue": 103865,
+   "volume": 173179408
+  },
+  {
+   "date": "2026-10-01",
+   "fees": 206596,
+   "revenue": 71388,
+   "volume": 125036685
+  },
+  {
+   "date": "2026-10-02",
+   "fees": 225596,
+   "revenue": 54327,
+   "volume": 124137317
+  },
+  {
+   "date": "2026-10-03",
+   "fees": 117971,
+   "revenue": 25842,
+   "volume": 76633486
+  },
+  {
+   "date": "2026-10-04",
+   "fees": 240708,
+   "revenue": 146154,
+   "volume": 64354236
+  },
+  {
+   "date": "2026-10-05",
+   "fees": 207150,
+   "revenue": 53207,
+   "volume": 117176998
+  },
+  {
+   "date": "2026-10-06",
+   "fees": 225250,
+   "revenue": 61629,
+   "volume": 126234797
+  },
+  {
+   "date": "2026-10-07",
+   "fees": 238952,
+   "revenue": 63423,
+   "volume": 119708258
+  },
+  {
+   "date": "2026-10-08",
+   "fees": 401457,
+   "revenue": 118720,
+   "volume": 256069392
+  },
+  {
+   "date": "2026-10-09",
+   "fees": 339710,
+   "revenue": 113449,
+   "volume": 255697796
+  },
+  {
+   "date": "2026-10-10",
+   "fees": 219737,
+   "revenue": 78515,
+   "volume": 153185460
+  },
+  {
+   "date": "2026-10-11",
+   "fees": 162447,
+   "revenue": 81286,
+   "volume": 122774330
+  },
+  {
+   "date": "2026-10-12",
+   "fees": 202627,
+   "revenue": 62759,
+   "volume": 139501825
+  },
+  {
+   "date": "2026-10-13",
+   "fees": 200723,
+   "revenue": 56520,
+   "volume": 133642221
+  },
+  {
+   "date": "2026-10-14",
+   "fees": 229844,
+   "revenue": 82736,
+   "volume": 145432171
+  },
+  {
+   "date": "2026-10-15",
+   "fees": 170811,
+   "revenue": 162768,
+   "volume": 99643158
+  },
+  {
+   "date": "2026-10-16",
+   "fees": 143463,
+   "revenue": 46209,
+   "volume": 88174962
+  },
+  {
+   "date": "2026-10-17",
+   "fees": 213822,
+   "revenue": 32347,
+   "volume": 130727860
+  },
+  {
+   "date": "2026-10-18",
+   "fees": 252096,
+   "revenue": 46284,
+   "volume": 138807317
+  },
+  {
+   "date": "2026-10-19",
+   "fees": 150645,
+   "revenue": 53083,
+   "volume": 97672919
+  },
+  {
+   "date": "2026-10-20",
+   "fees": 218703,
+   "revenue": 78180,
+   "volume": 121452063
+  },
+  {
+   "date": "2026-10-21",
+   "fees": 214208,
+   "revenue": 63787,
+   "volume": 151452049
+  },
+  {
+   "date": "2026-10-22",
+   "fees": 160494,
+   "revenue": 58819,
+   "volume": 132262403
+  },
+  {
+   "date": "2026-10-23",
+   "fees": 147974,
+   "revenue": 38629,
+   "volume": 95545767
+  },
+  {
+   "date": "2026-10-24",
+   "fees": 164861,
+   "revenue": 47262,
+   "volume": 85994134
+  },
+  {
+   "date": "2026-10-25",
+   "fees": 127083,
+   "revenue": 61742,
+   "volume": 89290005
+  },
+  {
+   "date": "2026-10-26",
+   "fees": 190376,
+   "revenue": 79250,
+   "volume": 134322214
+  },
+  {
+   "date": "2026-10-27",
+   "fees": 158080,
+   "revenue": 76747,
+   "volume": 141264151
+  },
+  {
+   "date": "2026-10-28",
+   "fees": 144527,
+   "revenue": 57359,
+   "volume": 112385956
+  },
+  {
+   "date": "2026-10-29",
+   "fees": 199177,
+   "revenue": 94993,
+   "volume": 141723823
+  },
+  {
+   "date": "2026-10-30",
+   "fees": 387696,
+   "revenue": 75590,
+   "volume": 191904557
+  },
+  {
+   "date": "2026-10-31",
+   "fees": 125292,
+   "revenue": 46517,
+   "volume": 73433291
+  },
+  {
+   "date": "2026-11-01",
+   "fees": 148144,
+   "revenue": 28867,
+   "volume": 81928562
+  },
+  {
+   "date": "2026-11-02",
+   "fees": 163928,
+   "revenue": 33483,
+   "volume": 155286804
+  },
+  {
+   "date": "2026-11-03",
+   "fees": 164946,
+   "revenue": 42975,
+   "volume": 137911779
+  },
+  {
+   "date": "2026-11-04",
+   "fees": 255718,
+   "revenue": 49088,
+   "volume": 143981404
+  },
+  {
+   "date": "2026-11-05",
+   "fees": 228625,
+   "revenue": 60331,
+   "volume": 131020261
+  },
+  {
+   "date": "2026-11-06",
+   "fees": 252865,
+   "revenue": 87700,
+   "volume": 141555971
+  },
+  {
+   "date": "2026-11-07",
+   "fees": 187467,
+   "revenue": 43279,
+   "volume": 114752674
+  },
+  {
+   "date": "2026-11-08",
+   "fees": 194710,
+   "revenue": 31110,
+   "volume": 87673580
+  },
+  {
+   "date": "2026-11-09",
+   "fees": 263808,
+   "revenue": 58512,
+   "volume": 166233299
+  },
+  {
+   "date": "2026-11-10",
+   "fees": 297452,
+   "revenue": 57833,
+   "volume": 152754904
+  },
+  {
+   "date": "2026-11-11",
+   "fees": 233973,
+   "revenue": 45228,
+   "volume": 113124728
+  },
+  {
+   "date": "2026-11-12",
+   "fees": 16604,
+   "revenue": 95652,
+   "volume": 176440686
+  }
+ ],
  "defillama_through": "2026-11-12",
  "hurdle": {
   "actual": [
+   {
+    "annualized": 219.0,
+    "month": "2025-09"
+   },
+   {
+    "annualized": 212.0,
+    "month": "2025-10"
+   },
+   {
+    "annualized": 9344572.0,
+    "month": "2025-11"
+   },
+   {
+    "annualized": 2079664.0,
+    "month": "2025-12"
+   },
+   {
+    "annualized": 4229761.0,
+    "month": "2026-01"
+   },
+   {
+    "annualized": 8644334.0,
+    "month": "2026-02"
+   },
    {
     "annualized": 6634287.0,
     "month": "2026-03"
@@ -503,9 +1082,9 @@
   "coverage_buyback": 0.11366,
   "coverage_usd": 0.182332,
   "fees_30d": 5807392,
-  "growth_6m": 4.336831,
-  "growth_capture_ratio": 2.003193,
-  "growth_vol_ratio": 2.164959,
+  "growth_6m": 4.220214,
+  "growth_capture_ratio": 1.943778,
+  "growth_vol_ratio": 2.17114,
   "intents_tvl_usd": 180576218.254012,
   "issuance_net_per_year_31d": 32251052.129112,
   "issuance_net_per_year_384d": 31932100.591515,
@@ -519,7 +1098,7 @@
   "nakamoto_33": 10,
   "price_usd": 3.58,
   "required_cagr": 0.773519,
-  "rev_growth_annualized": 18.590445,
+  "rev_growth_annualized": 17.536993,
   "revenue_30d": 1836360,
   "revenue_per_day_t90": 57676.255556,
   "revenue_run_rate": 21051833.277778,
@@ -991,8 +1570,8 @@
    "bull": false,
    "bull_trigger": ">= 75%/yr at 4 quarter-ends running",
    "id": "T1",
-   "note": "quarter-ends: 2025-12-31 n/a, 2026-03-31 n/a, 2026-06-30 n/a, 2026-09-30 n/a (n/a = prior window has < 60 clean days)",
-   "now": "+1859%/yr (x4.34 in 6 mo)",
+   "note": "quarter-ends: 2025-12-31 n/a, 2026-03-31 > +10000%, 2026-06-30 +151%, 2026-09-30 +260% (n/a = no revenue data that far back)",
+   "now": "+1754%/yr (x4.22 in 6 mo)",
    "state": "neither",
    "void": false,
    "watch": "Captured revenue, trailing 90 d vs the 90 d ending 180 d earlier, annualized"
@@ -1003,7 +1582,7 @@
    "bull": true,
    "bull_trigger": "> 50%",
    "id": "T2",
-   "note": "quarter-ends: 2025-12-31 n/a, 2026-03-31 +16581%, 2026-06-30 +1816%, 2026-09-30 +825%; year-earlier windows fall in Intents' 2025 ramp-up, which inflates this",
+   "note": "quarter-ends: 2025-12-31 n/a, 2026-03-31 > +10000%, 2026-06-30 +1816%, 2026-09-30 +825%; year-earlier windows fall in Intents' 2025 ramp-up, which inflates this",
    "now": "+212.9% (month to date +3.6%)",
    "state": "BULL",
    "void": false,
@@ -1015,7 +1594,7 @@
    "bull": false,
    "bull_trigger": ">= 50%",
    "id": "T3",
-   "note": "month-end coverage: 2026-05 10%, 2026-06 9%, 2026-07 12%, 2026-08 13%, 2026-09 12%, 2026-10 12%",
+   "note": "month-end coverage: 2025-10 0%, 2025-11 5%, 2025-12 8%, 2026-01 11%, 2026-02 14%, 2026-03 16%, 2026-04 14%, 2026-05 10%, 2026-06 9%, 2026-07 12%, 2026-08 13%, 2026-09 12%, 2026-10 12%",
    "now": "18%",
    "state": "neither",
    "void": false,

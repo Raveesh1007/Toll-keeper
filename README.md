@@ -1,4 +1,4 @@
-# NEAR investment thesis, reproducible
+# Toll-keeper: NEAR investment thesis, reproducible
 
 Built at NEAR HACKATHON, Investment Thesis track. The thesis is [`THESIS.md`](THESIS.md). Every number tagged **M** (NEAR mainnet / archival RPC) or **D** (DefiLlama) in it is computed by `build.py` from raw files that `collect.py` fetches. The tripwires and verdict rule in [`config/tripwires.json`](config/tripwires.json) were committed before the first data run (commit `d5491d7`); `build.py` prints a warning into THESIS.md if that file is ever edited afterwards.
 
@@ -8,7 +8,7 @@ Other project by the same author at this hackathon: **TODO: name + URL** (Q-015)
 
 ## Requirements
 
-Python 3.11+, standard library only. No API keys, no `pip install`. Network access to `rpc.mainnet.near.org`, `archival-rpc.mainnet.fastnear.com`, `api.llama.fi`, `coins.llama.fi`, `api.coingecko.com`.
+Python 3.11+, standard library only. No API keys, no `pip install`. The dashboard (`site/index.html`) loads the Onest font from a public CDN; without network access it still renders with a fallback font. Network access to `rpc.mainnet.near.org`, `archival-rpc.mainnet.fastnear.com`, `api.llama.fi`, `coins.llama.fi`, `api.coingecko.com`.
 
 ## Do X → see Y
 
@@ -47,7 +47,7 @@ Python 3.11+, standard library only. No API keys, no `pip install`. Network acce
 ## Method notes
 
 - History blocks are chosen by timestamp (estimate from block rate, one correction step), so "31 d" is 31 days of wall time, and issuance is annualized by the real seconds between blocks.
-- Revenue growth compares the trailing 90 days with the 90 days ending 180 days earlier, clipped so no day before 2026-03-01 is used (DefiLlama revenue before the 2026-02-23 fee switch is lumpy treasury sweeps). The clipped window length is printed in claim P2.1.
+- Revenue growth compares the trailing 90 days with the full 90 days ending 180 days earlier. Today that earlier window starts on 2026-02-15, so it includes a few days before the 2026-02-23 fee switch, when DefiLlama revenue was lumpy treasury sweeps. Claim P2.1 prints the exact window.
 - Year-on-year volume is reported two ways: month-to-date vs the same days a year earlier, and 90 days vs the same 90 days a year earlier (T2). They differ a lot right now because Intents was still ramping up in 2025; both are shown.
 - Validator stake at past blocks is not served by archival nodes, so stake history (T4) starts at this repo's first snapshot (`data/history.csv`).
 - On Windows, `collect.py` builds its TLS context from the Windows ROOT store only, because the intermediate store can hold an expired ISRG cross-signature that makes Python reject FastNEAR's valid certificate. Verification stays on.

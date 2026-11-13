@@ -135,12 +135,13 @@ def main():
     vol365 = total(vol, E, 365)
 
     def growth_at(end):
-        cur, _ = window(rev, end, 90, clean)
-        pri, n = window(rev, end - 180 * DAY, 90, clean)
-        if n < C["min_prior_window_days"] or end - 89 * DAY < clean or not pri:
+        # full 90-day windows, no March cutoff (author's choice, 2026-11-13; same method as draft 3)
+        cur, _ = window(rev, end, 90)
+        pri, n = window(rev, end - 180 * DAY, 90)
+        if end - 269 * DAY < min(rev) or not pri:
             return None
         vc, _ = window(vol, end, 90)
-        vp, _ = window(vol, end - 180 * DAY, 90, clean)
+        vp, _ = window(vol, end - 180 * DAY, 90)
         g = cur / pri
         return {"end": end, "rev": cur, "rev_prior": pri, "prior_days": n, "vol": vc, "vol_prior": vp,
                 "ratio": g, "annualized": g ** (365 / 180) - 1, "vol_ratio": vc / vp,
@@ -219,7 +220,7 @@ def main():
                "issuance_cost_usd": cost, "revenue_usd": rv, "coverage": rv / cost if rv is not None else None}
         if b is not head:  # month-end coverage, the T3 series (t90 run-rate vs that month's issuance cost)
             me = db - DAY
-            if me - 89 * DAY >= clean:
+            if me - 89 * DAY >= min(rev):
                 row["coverage_t90_month_end"] = window(rev, me, 90)[0] * 365 / (per_year(a, b, supply(a), supply(b)) * px)
         budget_rows.append(row)
 
@@ -272,11 +273,11 @@ def main():
     t1b, t1u = T["T1"]["bear"], T["T1"]["bull"]
     t2b, t2u = T["T2"]["bear"], T["T2"]["bull"]
     t5b = T["T5"]["bear"]
-    qfmt = lambda vals: ", ".join(f"{q:%Y-%m-%d} {pct(v, 0, True) if v is not None else 'n/a'}" for q, v in vals[-4:])
+    qfmt = lambda vals: ", ".join(f"{q:%Y-%m-%d} " + ("n/a" if v is None else "> +10000%" if v > 100 else pct(v, 0, True)) for q, v in vals[-4:])
     trip = [
         ("T1", pct(G["annualized"], 0, True) + f"/yr (x{mult(G['ratio'])} in 6 mo)",
          last_n([v for _, v in g_q], t1b["quarters"], t1b), last_n([v for _, v in g_q], t1u["quarters"], t1u),
-         f"quarter-ends: {qfmt(g_q)} (n/a = prior window has < {C['min_prior_window_days']} clean days)"),
+         f"quarter-ends: {qfmt(g_q)} (n/a = no revenue data that far back)"),
         ("T2", pct(yoy90, 1, True) + f" (month to date {pct(vol_yoy_mtd, 1, True)})",
          last_n([v for _, v in y_q], t2b["quarters"], t2b), hit(t2u, yoy90), f"quarter-ends: {qfmt(y_q)}; year-earlier windows fall in Intents' 2025 ramp-up, which inflates this"),
         ("T3", pct(coverage, 0),
@@ -335,7 +336,7 @@ def main():
         path_pts.append({"month": m.strftime("%Y-%m"), "required_at_hurdle": r(anchor * (1 + hurdle) ** max(t, 0), 0),
                          "required_live": r(run_rate * (1 + required_cagr) ** max((m - E).days / 365, 0), 0)})
     actual = [{"month": row["month"], "annualized": r(row["revenue"] * 365 / row["days"], 0)}
-              for row in monthly if row["revenue"] is not None and row["month"] >= clean.strftime("%Y-%m")]
+              for row in monthly if row["revenue"]]
 
     # ---------- formatted values for THESIS.md ----------
     V = {
@@ -373,7 +374,7 @@ def main():
         ("P1.2", "Gross fees users paid, last 30 d", "D", f"**{usd(fees30)}** = {V['fee_bps']} bps of volume = **{V['fees_annual']}/yr**", "`summary/fees/near-intents?dataType=dailyFees`"),
         ("P1.3", f"Gross fees vs security budget at {pct(C['target_issuance'])} issuance ({usd(budget_target)}/yr)", "arith", f"**{V['fees_vs_target']}**", "P1.2 / (1.6% x supply x price)"),
         ("P1.4", "NEAR's captured share of fees, last 30 d", "D", f"**{V['share30']}** ({usd(rev30)} of {usd(fees30)})", "`dataType=dailyRevenue`"),
-        ("P2.1", f"Revenue per day, trailing 90 d vs the 90 d ending 180 d earlier ({V['prior_start']} to {V['prior_end']}; window clipped at {clean}: {G['prior_days']} days)", "D+arith",
+        ("P2.1", f"Revenue per day, trailing 90 d vs the 90 d ending 180 d earlier ({V['prior_start']} to {V['prior_end']}" + ("; includes days before the 2026-02-23 fee switch" if V["prior_start"] < C["fee_switch_date"] else "") + ")", "D+arith",
          f"{usd(G['rev'])} vs {usd(G['rev_prior'])} = **x{V['growth']}** ({V['growth_ann']}/yr annualized)", "`build.py` `growth_at()`"),
         ("P2.2", "Of which: volume", "D+arith", f"x{mult(G['vol_ratio'])} ({usd(G['vol'])} vs {usd(G['vol_prior'])} a day)", "same windows"),
         ("P2.3", "Of which: capture rate", "D+arith", f"x{mult(G['cap_ratio'])} ({bps(G['cap'])} vs {bps(G['cap_prior'])} bps); {V['cap_share']} of the growth in log terms", "revenue / volume"),
@@ -433,6 +434,8 @@ def main():
             "intents_tvl_usd": llama["tvl_usd"]}.items()},
         "tripwires": tripwires, "predictions": predictions,
         "claims": [dict(zip(("id", "claim", "status", "value", "source"), c)) for c in claims],
+        "daily_91d": [{"date": (E - DAY * i).isoformat(), "volume": r(vol.get(E - DAY * i), 0), "fees": r(fees.get(E - DAY * i), 0),
+                       "revenue": r(rev.get(E - DAY * i), 0)} for i in range(90, -1, -1)],
         "monthly": [{k: r(v) if isinstance(v, float) else v for k, v in x.items()} for x in monthly],
         "budget_monthly": [{k: r(v) if isinstance(v, float) else v for k, v in x.items()} for x in budget_rows],
         "mpc_history": [{k: r(v) if isinstance(v, float) else v for k, v in x.items()} for x in mpc_rows],

@@ -7,13 +7,13 @@ Every number tagged M or D below is computed by `python build.py` from the raw f
 
 ## The long-term case in one paragraph
 
-NEAR is turning into a paid settlement layer for value that moves between chains. Users already pay about **$70.7M a year** in fees to move value through NEAR Intents. That is 94% of what it would cost to secure NEAR once issuance falls to 1.6%. Three things are moving in the holder's favour at once: the **cost of security is falling by design**, NEAR is **keeping a growing share of each swap**, and the **trust layer those swaps depend on is hardening**. NEAR is a long-term hold if its captured revenue compounds at **about 77% a year** until the issuance cut is fully in place (2029-01-31) without a failure in the signing layer. Over the last six months it grew far faster than that, but 47% of that growth came from a rise in the capture rate, and volume is not compounding yet: Nov 1-12 averaged $134M a day, +3.6% on the same days of 2025. (The 90-day year-on-year figure, +212.9%, compares against Intents' 2025 ramp-up, so it overstates the trend.) So the case is **on track, unproven**.
+NEAR is turning into a paid settlement layer for value that moves between chains. Users already pay about **$70.7M a year** in fees to move value through NEAR Intents. That is 94% of what it would cost to secure NEAR once issuance falls to 1.6%. Three things are moving in the holder's favour at once: the **cost of security is falling by design**, NEAR is **keeping a growing share of each swap**, and the **trust layer those swaps depend on is hardening**. NEAR is a long-term hold if its captured revenue compounds at **about 77% a year** until the issuance cut is fully in place (2029-01-31) without a failure in the signing layer. Over the last six months it grew far faster than that, but 46% of that growth came from a rise in the capture rate, and volume is not compounding yet: Nov 1-12 averaged $134M a day, +3.6% on the same days of 2025. (The 90-day year-on-year figure, +212.9%, compares against Intents' 2025 ramp-up, so it overstates the trend.) So the case is **on track, unproven**.
 
 ## Verdict: ON TRACK, UNPROVEN
 
 | Test | Hurdle | Observed | Pass? |
 |---|---|---|---|
-| Revenue growth | >= 75%/yr (pre-registered; 77%/yr is what today's numbers need) | x4.34 in six months (+1859%/yr annualized) | **Yes**, but see the decomposition below |
+| Revenue growth | >= 75%/yr (pre-registered; 77%/yr is what today's numbers need) | x4.22 in six months (+1754%/yr annualized) | **Yes**, but see the decomposition below |
 | Coverage of security cost | 100% | 18% (revenue run-rate $21.1M vs $115M issuance) | No, 3.6x gap at 1.6% issuance |
 | Trust layer | No loss in the signing core; decentralizing | 5-of-8 180 days ago, 11-of-16 now; no signing-layer loss | **Yes** |
 
@@ -61,9 +61,9 @@ Every month DefiLlama has, from its daily series (`data/raw/<date>/defillama.jso
 
 | # | Claim | Status | Value | Reproduce |
 |---|---|---|---|---|
-| P2.1 | Revenue per day, trailing 90 d vs the 90 d ending 180 d earlier (2026-03-01 to 2026-05-16; window clipped at 2026-03-01: 77 days) | D+arith | $57.7k vs $13.3k = **x4.34** (+1859%/yr annualized) | `build.py` `growth_at()` |
-| P2.2 | Of which: volume | D+arith | x2.16 ($136M vs $62.8M a day) | same windows |
-| P2.3 | Of which: capture rate | D+arith | x2.00 (4.24 vs 2.12 bps); 47% of the growth in log terms | revenue / volume |
+| P2.1 | Revenue per day, trailing 90 d vs the 90 d ending 180 d earlier (2026-02-16 to 2026-05-16; includes days before the 2026-02-23 fee switch) | D+arith | $57.7k vs $13.7k = **x4.22** (+1754%/yr annualized) | `build.py` `growth_at()` |
+| P2.2 | Of which: volume | D+arith | x2.17 ($136M vs $62.7M a day) | same windows |
+| P2.3 | Of which: capture rate | D+arith | x1.94 (4.24 vs 2.18 bps); 46% of the growth in log terms | revenue / volume |
 | P2.4 | Fee switch to buybacks live since 2026-02-23 | D | DefiLlama methodology; [revenue.near.org](https://revenue.near.org/) | `methodology` field |
 | P2.5 | Capture rate trend confirmed independently | S | [Nansen Q2 2026](https://nansen.ai/post/nansen-near-quarterly-report-q2-2026): 11.5% lifetime to 30.5% trailing 30 d | - |
 | P2.6 | Buyback wallet balance (lower bound on purchases) | M | 2,275,462 NEAR now, 1,974,712 at -30 d; +311,207 over 31 d = 11% of net issuance in the same period | `view_account buybacks.multisignature.near` |
@@ -133,7 +133,7 @@ Intents moves real assets across 35+ chains through the Chain Signatures MPC net
 ## The bear case (kept in full)
 
 - **Volume is cyclical, not compounding yet.** Nov 1-12 volume averaged $134M a day, against $129M a day in the same days a year earlier: **+3.6% year on year**. The 90-day year-on-year figure (+212.9%) compares against Intents' 2025 ramp-up (see the monthly table). The six-month surge partly recovers a dip, not a new trend. Last 30 days vs the 30 before: volume -21.6%, fees -29.1%, revenue -19.6%.
-- **Capture rate has a ceiling.** 47% of the x4.34 came from NEAR taking more per swap. Gross fees are 15.4 bps; NEAR already keeps 31.6%. Squeezing distribution partners harder risks losing volume to them. From here growth must mostly come from volume.
+- **Capture rate has a ceiling.** 46% of the x4.22 came from NEAR taking more per swap. Gross fees are 15.4 bps; NEAR already keeps 31.6%. Squeezing distribution partners harder risks losing volume to them. From here growth must mostly come from volume.
 - **Price works against holders.** Buybacks are paid in dollars, so a higher NEAR price buys fewer NEAR, and the issuance bill in dollars rises. A rally widens the gap unless revenue outruns it.
 - **Bought-back NEAR is held, not burned.** The buyback wallet went from 146,161 NEAR 180 days ago to 2,275,462 now, while supply kept growing 2.46% a year. Holders are still diluted today.
 - **Lower issuance thins the security budget.** Gross staking yield falls from ~5.5% to ~3.6% at 1.6%. If stakers leave, the base chain weakens exactly when the toll road needs it.
@@ -148,9 +148,9 @@ At today's capture rate of 4.24 bps, revenue of $75.1M/yr needs about **$485M of
 
 | ID | Watch | Now | Bear trigger | Bull trigger | State | Detail |
 |---|---|---|---|---|---|---|
-| T1 | Captured revenue, trailing 90 d vs the 90 d ending 180 d earlier, annualized | +1859%/yr (x4.34 in 6 mo) | < 75%/yr at 2 quarter-ends running | >= 75%/yr at 4 quarter-ends running | **neither** | quarter-ends: 2025-12-31 n/a, 2026-03-31 n/a, 2026-06-30 n/a, 2026-09-30 n/a (n/a = prior window has < 60 clean days) |
-| T2 | Intents volume, 90 d, year on year | +212.9% (month to date +3.6%) | < 0% at 2 quarter-ends running | > 50% | **BULL** | quarter-ends: 2025-12-31 n/a, 2026-03-31 +16581%, 2026-06-30 +1816%, 2026-09-30 +825%; year-earlier windows fall in Intents' 2025 ramp-up, which inflates this |
-| T3 | Revenue coverage of issuance (run-rate / security budget) | 18% | falls 3 month-ends running | >= 50% | **neither** | month-end coverage: 2026-05 10%, 2026-06 9%, 2026-07 12%, 2026-08 13%, 2026-09 12%, 2026-10 12% |
+| T1 | Captured revenue, trailing 90 d vs the 90 d ending 180 d earlier, annualized | +1754%/yr (x4.22 in 6 mo) | < 75%/yr at 2 quarter-ends running | >= 75%/yr at 4 quarter-ends running | **neither** | quarter-ends: 2025-12-31 n/a, 2026-03-31 > +10000%, 2026-06-30 +151%, 2026-09-30 +260% (n/a = no revenue data that far back) |
+| T2 | Intents volume, 90 d, year on year | +212.9% (month to date +3.6%) | < 0% at 2 quarter-ends running | > 50% | **BULL** | quarter-ends: 2025-12-31 n/a, 2026-03-31 > +10000%, 2026-06-30 +1816%, 2026-09-30 +825%; year-earlier windows fall in Intents' 2025 ramp-up, which inflates this |
+| T3 | Revenue coverage of issuance (run-rate / security budget) | 18% | falls 3 month-ends running | >= 50% | **neither** | month-end coverage: 2025-10 0%, 2025-11 5%, 2025-12 8%, 2026-01 11%, 2026-02 14%, 2026-03 16%, 2026-04 14%, 2026-05 10%, 2026-06 9%, 2026-07 12%, 2026-08 13%, 2026-09 12%, 2026-10 12% |
 | T4 | Staked share of supply during the HSP-029 ramp | 44.95% | < 40% | >= 45% held through ramp | **neither** | ramp 2027-01-31 to 2029-01-31; 0 snapshots in ramp so far |
 | T5 | MPC liveness margin (participants - threshold) | 5 (11-of-16) | < 4, or threshold < 9 | >= 7 | **neither** |  |
 | T6 | Loss traced to the MPC signing layer | 0 | any -> thesis VOID | - | **neither** | from data/incidents.json (layer = mpc_signing) |

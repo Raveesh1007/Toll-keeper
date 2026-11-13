@@ -3,143 +3,491 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>NEAR Thesis Tracker</title>
+<title>NEAR Toll Road</title>
+<script>try{var t=localStorage.getItem("theme");if(t==="dark"||t==="light")document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#fbfaf7;--fg:#1d1d1b;--mut:#6b6a65;--line:#e4e1d8;--card:#fff;--a:#1f6feb;--b:#c2410c;--c:#15803d;--bear:#b91c1c;--bull:#15803d;--neu:#6b6a65}
-@media (prefers-color-scheme:dark){:root{--bg:#141413;--fg:#ecebe6;--mut:#9c9a92;--line:#2c2b28;--card:#1c1c1a;--a:#6ea8ff;--b:#fb923c;--c:#4ade80;--bear:#f87171;--bull:#4ade80;--neu:#9c9a92}}
+:root{
+  --bg:#ececef; --shell:#f7f7f8; --card:#ffffff; --ink:#17171a; --soft:#6f6f78; --faint:#a1a1aa; --line:#ececf0;
+  --hatch-a:#f2f2f5; --hatch-b:#e6e6eb;
+  --acc:#7c3aed; --acc2:#a46bff; --acc-soft:#efe7ff;
+  --up:#16a34a; --up-bg:#dcfce7; --down:#dc2626; --down-bg:#fee2e2; --mid:#c2410c; --mid-bg:#ffedd5;
+  --cost:#f97316;
+  --r:22px; --font:"Onest",system-ui,sans-serif;
+}
+:root[data-theme="dark"]{
+  --bg:#0c0c0e; --shell:#131316; --card:#1b1b1f; --ink:#f2f2f4; --soft:#a0a0aa; --faint:#6b6b75; --line:#2a2a30;
+  --hatch-a:#222227; --hatch-b:#2b2b31; --acc:#9b5cff; --acc2:#b98bff; --acc-soft:#2a1d45;
+  --up:#4ade80; --up-bg:#123321; --down:#f87171; --down-bg:#3a1517; --mid:#fb923c; --mid-bg:#3a2210; --cost:#fb923c;}
+@media (prefers-color-scheme:dark){:root:not([data-theme]){
+  --bg:#0c0c0e; --shell:#131316; --card:#1b1b1f; --ink:#f2f2f4; --soft:#a0a0aa; --faint:#6b6b75; --line:#2a2a30;
+  --hatch-a:#222227; --hatch-b:#2b2b31; --acc:#9b5cff; --acc2:#b98bff; --acc-soft:#2a1d45;
+  --up:#4ade80; --up-bg:#123321; --down:#f87171; --down-bg:#3a1517; --mid:#fb923c; --mid-bg:#3a2210; --cost:#fb923c;}}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
-main{max-width:1100px;margin:0 auto;padding:24px 16px 64px}
-h1{font-size:22px;margin:0 0 4px}h2{font-size:17px;margin:36px 0 10px}
-.mut{color:var(--mut)}.num{font-variant-numeric:tabular-nums}
-.banner{border:1px solid var(--line);background:var(--card);border-radius:10px;padding:18px 20px;margin:18px 0;display:flex;flex-wrap:wrap;gap:8px 28px;align-items:baseline}
-.verdict{font-size:26px;font-weight:700;letter-spacing:.02em}
-.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px}
-.kpi{border:1px solid var(--line);background:var(--card);border-radius:8px;padding:10px 12px}
-.kpi b{display:block;font-size:20px}.kpi span{font-size:12.5px;color:var(--mut)}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,480px),1fr));gap:14px}
-.card{border:1px solid var(--line);background:var(--card);border-radius:10px;padding:14px}
-.card h3{margin:0 0 2px;font-size:14.5px}.card p{margin:0 0 6px;font-size:12.5px;color:var(--mut)}
-svg{width:100%;height:auto;display:block}svg text{fill:var(--mut);font-size:11px}
-.legend{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12px;color:var(--mut)}.legend i{display:inline-block;width:14px;height:3px;margin-right:5px;vertical-align:middle}
-.scroll{overflow-x:auto;border:1px solid var(--line);border-radius:8px;background:var(--card)}
-table{border-collapse:collapse;width:100%;font-size:13px}th,td{padding:6px 9px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
-th{font-weight:600;background:var(--bg);position:sticky;top:0}td.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
-.st{font-weight:700;font-size:12px}.st.BEAR,.st.VOID{color:var(--bear)}.st.BULL{color:var(--bull)}.st.neither{color:var(--neu)}
-.tag{font-size:11px;font-weight:700;border:1px solid var(--line);border-radius:4px;padding:0 5px}
-details{margin-top:10px}summary{cursor:pointer;font-weight:600}
-a{color:var(--a)}code{font-size:12.5px}
+html{scroll-behavior:smooth}
+body{margin:0;color:var(--ink);background:radial-gradient(900px 520px at 12% -6%,color-mix(in srgb,var(--acc) 16%,transparent),transparent 60%),radial-gradient(800px 520px at 100% 8%,color-mix(in srgb,var(--cost) 11%,transparent),transparent 60%),var(--bg) fixed;font:400 14.5px/1.5 var(--font);-webkit-font-smoothing:antialiased}
+.shell{max-width:1240px;margin:24px auto;background:color-mix(in srgb,var(--shell) 80%,transparent);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-radius:30px;padding:18px 22px 30px;position:relative;z-index:1;box-shadow:0 30px 80px -40px rgba(20,20,40,.35)}
+@media (max-width:700px){.shell{margin:0;border-radius:0;padding:14px 16px 28px}}
+a{color:var(--acc)}
+
+.live{position:relative;transition:transform .18s ease-out,background-color .35s,box-shadow .3s;will-change:transform}
+.live:hover{box-shadow:0 18px 40px -22px color-mix(in srgb,var(--acc) 55%,transparent)}
+.live::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .3s;
+  background:radial-gradient(280px circle at var(--mx,50%) var(--my,50%),color-mix(in srgb,var(--acc) 15%,transparent),transparent 62%)}
+.live::after{content:"";position:absolute;inset:0;border-radius:inherit;padding:1.5px;pointer-events:none;opacity:0;transition:opacity .3s;
+  background:radial-gradient(200px circle at var(--mx,50%) var(--my,50%),var(--acc),transparent 70%);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0)}
+.live:hover::before,.live:hover::after{opacity:1}
+.tbtn{border:0;cursor:pointer;font:inherit;font-size:13px;color:var(--ink);transition:background-color .2s}
+.tbtn:hover{background:var(--acc-soft)}.tbtn svg{width:16px;height:16px}
+/* top bar */
+.top{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:9px;background:var(--card);border-radius:999px;padding:9px 16px 9px 10px;font-weight:600;font-size:15px}
+.logo{width:24px;height:24px;border-radius:8px;background:linear-gradient(135deg,var(--acc),var(--acc2));display:grid;place-items:center;color:#fff;font-size:13px;font-weight:700}
+nav{display:flex;gap:6px;flex-wrap:wrap;margin-left:auto;margin-right:auto}
+nav a{background:var(--card);color:var(--ink);text-decoration:none;font-size:13px;padding:9px 15px;border-radius:999px;display:inline-flex;gap:7px;align-items:center;transition:background .2s,color .2s}
+nav a.on,nav a:hover{background:var(--ink);color:var(--card)}
+.pill{background:var(--card);border-radius:999px;padding:9px 15px;font-size:13px;color:var(--soft);display:inline-flex;align-items:center;gap:8px}
+.cta{background:var(--acc);color:#fff;text-decoration:none;border-radius:999px;padding:9px 16px;font-size:13px;font-weight:500;display:inline-flex;gap:8px;align-items:center}
+.cta:hover{filter:brightness(1.08)}
+
+/* header */
+.head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin:26px 2px 18px}
+h1{font-weight:500;font-size:clamp(26px,3.6vw,36px);letter-spacing:-.02em;margin:0;line-height:1.1}
+.sub{color:var(--soft);margin-top:6px;max-width:640px}
+.verdict{display:flex;align-items:center;gap:10px;background:var(--card);border-radius:999px;padding:8px 8px 8px 16px;font-size:13px;color:var(--soft)}
+.verdict b{background:var(--mid-bg);color:var(--mid);font-weight:600;border-radius:999px;padding:6px 12px}
+
+/* grid + cards */
+.grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:14px}
+.card{background:var(--card);border-radius:var(--r);padding:18px 20px;min-width:0;position:relative}
+.c-5{grid-column:span 5}.c-4{grid-column:span 4}.c-3{grid-column:span 3}.c-6{grid-column:span 6}.c-12{grid-column:span 12}.c-7{grid-column:span 7}
+.stack{display:grid;gap:14px}
+@media (max-width:1060px){.c-5,.c-4,.c-3,.c-7{grid-column:span 6}}
+@media (max-width:700px){.c-5,.c-4,.c-3,.c-6,.c-7{grid-column:span 12}}
+.ct{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.ct h3{margin:0;font-weight:500;font-size:15.5px}
+.hint{font-size:12.5px;color:var(--soft);margin:2px 0 0}
+.big{font-weight:400;font-size:clamp(38px,4.4vw,52px);letter-spacing:-.035em;line-height:1;margin:14px 0 4px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.mid{font-weight:400;font-size:34px;letter-spacing:-.03em;line-height:1;margin:10px 0 4px}
+.d{font-size:11px;font-weight:600;border-radius:999px;padding:3px 8px;display:inline-block;letter-spacing:.01em;line-height:1.4;white-space:nowrap}
+.d.up{background:var(--up-bg);color:var(--up)}.d.down{background:var(--down-bg);color:var(--down)}.d.mid{background:var(--mid-bg);color:var(--mid)}.d.acc{background:var(--acc-soft);color:var(--acc)}
+.vs{font-size:11.5px;color:var(--faint);font-weight:400;letter-spacing:0}
+.tag{font-size:12px;color:var(--soft);background:var(--shell);border-radius:999px;padding:6px 11px;white-space:nowrap}
+.hatch{background:repeating-linear-gradient(135deg,var(--hatch-a) 0 5px,var(--hatch-b) 5px 10px)}
+
+/* bar chart */
+.bars{position:relative;height:210px;margin-top:18px;display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:10px;align-items:end;padding-bottom:24px}
+.bars .col{position:relative;height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center}
+.bars .b{width:100%;border-radius:14px;min-height:6px;transform-origin:bottom;animation:grow .9s cubic-bezier(.2,.8,.2,1) both}
+.bars .b.on{background:linear-gradient(180deg,var(--acc2),var(--acc))}
+.bars .col .d{position:absolute;margin-bottom:6px}
+.bars .m{position:absolute;bottom:-22px;font-size:12px;color:var(--soft)}
+.bars .col.on .m{color:var(--ink);font-weight:600}
+.goal{position:absolute;left:0;right:0;border-top:1.5px dashed var(--faint)}
+.goal span{position:absolute;right:0;top:-24px;background:var(--ink);color:var(--card);font-size:10.5px;border-radius:6px;padding:3px 7px;white-space:nowrap}
+@keyframes grow{from{transform:scaleY(0)}}
+
+/* progress */
+.prog{height:30px;border-radius:999px;overflow:hidden;margin-top:12px;position:relative}
+.prog i{position:absolute;inset:0 auto 0 0;border-radius:999px;background:linear-gradient(90deg,var(--acc),var(--acc2));width:0;transition:width 1.3s cubic-bezier(.2,.8,.2,1)}
+.prog em{position:absolute;top:0;bottom:0;border-left:2px dashed var(--ink);opacity:.55}
+.tgt{font-size:11.5px;color:var(--faint);margin-top:8px}.tgt b{color:var(--acc);font-weight:600}
+
+/* operators */
+.ops{display:grid;grid-template-columns:repeat(8,1fr);gap:8px;margin:16px 0 6px}
+.op{aspect-ratio:1;border-radius:12px;display:grid;place-items:center;font-size:11px;color:var(--faint)}
+.op.on{background:linear-gradient(135deg,var(--acc2),var(--acc));color:#fff}
+.mini{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+.mini>div{background:var(--shell);border-radius:16px;padding:12px 14px}
+.mini small{font-size:12px;color:var(--soft)}.mini b{display:block;font-weight:400;font-size:26px;letter-spacing:-.03em;margin:4px 0 6px}
+
+/* table */
+.filters{display:flex;gap:4px;background:var(--shell);border-radius:999px;padding:4px;flex-wrap:wrap}
+.filters button{border:0;background:none;font:inherit;font-size:12px;padding:6px 12px;border-radius:999px;color:var(--soft);cursor:pointer}
+.filters button.on{background:var(--acc);color:#fff}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{font-weight:500;color:var(--soft);text-align:left;padding:10px 8px;border-bottom:1px solid var(--line);font-size:12.5px}
+td{padding:11px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:0}
+td small{display:block;color:var(--soft);font-size:12px}
+.tw{overflow-x:auto;margin-top:10px}
+
+/* heatmap */
+.heat{display:grid;grid-template-columns:34px repeat(var(--w),1fr);gap:5px;margin-top:16px;align-items:center}
+.heat span{font-size:11px;color:var(--soft)}
+.heat i{aspect-ratio:1;border-radius:6px;display:block}
+.l0{background:var(--hatch-a)}.l1{background:#e4d6ff}.l2{background:#c4a3ff}.l3{background:#9a62ff}.l4{background:var(--acc)}
+:root[data-theme="dark"] .l1{background:#352458}:root[data-theme="dark"] .l2{background:#55349a}
+@media (prefers-color-scheme:dark){:root:not([data-theme]) .l1{background:#352458}:root:not([data-theme]) .l2{background:#55349a}}
+.keys{display:flex;gap:14px;flex-wrap:wrap;margin-top:14px;font-size:11.5px;color:var(--soft)}
+.keys i{display:inline-block;width:12px;height:12px;border-radius:4px;margin-right:6px;vertical-align:-2px}
+
+/* promo + note */
+.promo{background:radial-gradient(circle at 100% 0,rgba(255,255,255,.16) 0 95px,transparent 96px),linear-gradient(135deg,#6d28d9,#9b5cff 60%,#c4a3ff);color:#fff;overflow:hidden}
+.promo small{opacity:.8;font-size:11.5px}.promo h3{font-weight:500;font-size:22px;line-height:1.2;margin:6px 0 10px;color:#fff}
+.promo p{margin:0 0 14px;opacity:.92;font-size:13.5px}
+.btn{background:#fff;color:#2e1065;border-radius:999px;padding:8px 14px;font-size:12.5px;font-weight:600;text-decoration:none;display:inline-block}
+.note small{color:var(--soft)}.note b{display:block;font-weight:500;margin-top:2px}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-bottom:14px}
+@media (max-width:900px){.steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.steps{grid-template-columns:1fr}}
+.step{background:var(--card);border-radius:18px;padding:14px 16px;display:flex;gap:12px;align-items:flex-start}
+.step .n{flex:none;width:28px;height:28px;border-radius:9px;background:var(--acc-soft);color:var(--acc);display:grid;place-items:center;font-weight:600;font-size:13px}
+.step b{display:block;font-weight:500;font-size:14px}.step p{margin:2px 0 0;color:var(--soft);font-size:12.8px}
+
+/* line charts */
+svg{width:100%;height:auto;display:block;overflow:visible}svg text{fill:var(--faint);font:11px var(--font)}
+.lg{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--soft);margin-top:8px}.lg i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px}
+
+h2{font-weight:500;font-size:20px;letter-spacing:-.01em;margin:30px 2px 12px}
+details{background:var(--card);border-radius:16px;padding:14px 18px;margin-top:10px}
+summary{cursor:pointer;font-weight:500}
+dl{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px;margin:0}
+dl>div{background:var(--card);border-radius:16px;padding:14px 16px}
+dt{font-weight:500}dd{margin:3px 0 0;color:var(--soft);font-size:13px}
+footer{margin:26px 2px 0;color:var(--soft);font-size:12.5px}
+code{font-size:12px}
+.rise{animation:rise .6s cubic-bezier(.2,.8,.2,1) backwards}
+@keyframes rise{from{opacity:0;transform:translateY(10px)}}
+@media (prefers-reduced-motion:reduce){.rise,.bars .b{animation:none}.prog i{transition:none}html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
-<main>
-<h1>NEAR: a toll on cross-chain settlement, if the toll can pay for the road</h1>
-<div class="mut" id="sub"></div>
-<div class="banner"><span class="verdict" id="verdict"></span><span class="mut" id="reg"></span></div>
-<div class="kpis" id="kpis"></div>
+<div class="shell">
+  <div class="top">
+    <div class="brand"><span class="logo">N</span>NEAR Toll Road</div>
+    <nav>
+      <a href="#overview" class="on">Overview</a><a href="#alarms">Alarms</a><a href="#charts">Trends</a><a href="#words">Glossary</a><a href="#data">Data</a>
+    </nav>
+    <button class="pill tbtn" id="theme" type="button"></button>
+    <span class="pill" id="asof"></span>
+    <a class="cta" href="metrics.json" download>Download data ↓</a>
+  </div>
 
-<h2>Three converging curves</h2>
-<div class="grid">
-  <div class="card"><h3>Monthly NEAR revenue vs monthly issuance cost</h3><p>Revenue: DefiLlama dailyRevenue. Cost: NEAR issued that month x average price.</p><div id="c1"></div></div>
-  <div class="card"><h3>Capture rate (bps of volume), monthly</h3><p>Shaded: before 2026-03-01 (pre fee-switch, excluded from growth math).</p><div id="c2"></div></div>
-  <div class="card"><h3>MPC signing network: threshold and participants</h3><p><code>v1.signer.state</code> at the first block of each month, FastNEAR archival.</p><div id="c3"></div></div>
-  <div class="card"><h3>Hurdle: revenue run-rate needed to cover 1.6% issuance by the full cut</h3><p>Pre-registered path at the hurdle growth rate from the first snapshot, path needed from today, and monthly revenue annualized.</p><div id="c4"></div></div>
+  <div class="head" id="overview">
+    <div>
+      <h1>Can NEAR's tolls pay for its road?</h1>
+      <div class="sub">NEAR keeps a small toll on every cross-chain swap. It also prints new tokens to pay for its security. If the tolls grow to cover that cost, NEAR holders win. This page checks that every day from public data.</div>
+    </div>
+    <div class="verdict">Verdict <b id="verdict"></b></div>
+  </div>
+
+  <div class="steps" id="steps"></div>
+
+  <div class="grid">
+    <!-- revenue bars -->
+    <div class="card c-5 rise">
+      <div class="ct"><div><h3>Revenue NEAR keeps</h3><p class="hint">Per month. The dashed line is the monthly amount that would cover security after the cut.</p></div><span class="tag">Monthly</span></div>
+      <div class="big"><span id="rr"></span><span><span class="d up" id="rrd"></span><br><span class="vs" id="rrv"></span></span></div>
+      <div class="bars" id="bars"></div>
+    </div>
+
+    <!-- coverage + swaps -->
+    <div class="c-4 stack">
+      <div class="card rise" style="animation-delay:.05s">
+        <div class="ct"><div><h3>Security cost covered</h3><p class="hint">Revenue ÷ cost of new tokens printed</p></div><span class="d mid">Not yet</span></div>
+        <div class="mid" id="cov"></div>
+        <div class="prog hatch" id="covbar"><i></i></div>
+        <div class="tgt" id="covt"></div>
+      </div>
+      <div class="card rise" style="animation-delay:.1s">
+        <div class="ct"><div><h3>Swaps per day</h3><p class="hint">Average over the last 90 days</p></div><span class="d" id="voly"></span></div>
+        <div class="mid" id="vol"></div>
+        <div class="prog hatch" id="volbar"><i></i></div>
+        <div class="tgt" id="volt"></div>
+      </div>
+    </div>
+
+    <!-- signing network -->
+    <div class="card c-3 rise" style="animation-delay:.15s">
+      <div class="ct"><div><h3>Signing network</h3><p class="hint">Operators who must jointly sign every cross-chain transfer</p></div></div>
+      <div class="ops" id="ops"></div>
+      <div class="hint" id="opst"></div>
+      <div class="mini">
+        <div><small>Staked</small><b id="stk"></b><span class="d up" id="stkd"></span></div>
+        <div><small>Validators</small><b id="val"></b><span class="d acc" id="nak"></span></div>
+      </div>
+    </div>
+
+    <!-- alarms -->
+    <div class="card c-7 rise" id="alarms" style="animation-delay:.2s">
+      <div class="ct" style="flex-wrap:wrap"><div><h3>Alarms</h3><p class="hint">Written down before any data was collected, so they can't be moved later.</p></div>
+        <div class="filters" id="filters"><button class="on" data-f="all">All</button><button data-f="BULL">Good signs</button><button data-f="BEAR">Warnings</button><button data-f="neither">Quiet</button></div></div>
+      <div class="tw"><table id="atable"></table></div>
+    </div>
+
+    <!-- heatmap -->
+    <div class="card c-5 rise" style="animation-delay:.25s">
+      <div class="ct"><div><h3>Daily revenue</h3><p class="hint">Last 13 weeks; darker = more revenue that day</p></div><span class="tag" id="heatsum"></span></div>
+      <div class="heat" id="heat"></div>
+      <div class="keys" id="keys"></div>
+    </div>
+
+    <!-- checkpoint + promo -->
+    <div class="c-12 grid" style="gap:14px">
+      <div class="card c-6 note rise" style="animation-delay:.3s">
+        <div class="ct"><div><small>Next checkpoint</small><b id="pdate"></b></div><span class="tag" id="pstate"></span></div>
+        <div class="tw"><table id="ptable"></table></div>
+      </div>
+      <div class="card c-6 promo rise" style="animation-delay:.35s">
+        <small>What has to happen</small>
+        <h3 id="needh"></h3>
+        <p id="needp"></p>
+        <a class="btn" href="#charts">See the trend ↓</a>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="charts">Trends</h2>
+  <div class="grid">
+    <div class="card c-6"><div class="ct"><div><h3>Revenue vs cost of new tokens</h3><p class="hint">Monthly dollars. The cost jumps when the NEAR price rises.</p></div></div><div id="ch1" style="margin-top:12px"></div></div>
+    <div class="card c-6"><div class="ct"><div><h3>Path to the goal</h3><p class="hint">Revenue at a yearly pace vs the growth path set in advance.</p></div></div><div id="ch2" style="margin-top:12px"></div></div>
+    <div class="card c-6"><div class="ct"><div><h3>NEAR's cut per swap</h3><p class="hint">Dollars kept per $10,000 swapped, monthly.</p></div></div><div id="ch3" style="margin-top:12px"></div></div>
+    <div class="card c-6"><div class="ct"><div><h3>Signing network over time</h3><p class="hint">Operators in the group, and how many must agree.</p></div></div><div id="ch4" style="margin-top:12px"></div></div>
+  </div>
+
+  <h2 id="words">Words used here</h2>
+  <dl>
+    <div><dt>NEAR Intents</dt><dd>NEAR's service that swaps tokens between blockchains, e.g. Bitcoin to Ethereum. Each swap pays a small fee.</dd></div>
+    <div><dt>Revenue</dt><dd>The part of those fees NEAR keeps. Since Feb 2026 it buys NEAR tokens on the market.</dd></div>
+    <div><dt>Security cost</dt><dd>New NEAR printed each year to pay validators. It dilutes holders, so it is a real cost.</dd></div>
+    <div><dt>Coverage</dt><dd>Revenue ÷ security cost. At 100%, buybacks cancel out the printing.</dd></div>
+    <div><dt>Signing network</dt><dd>Independent operators who jointly hold the keys that move assets across chains. "11 of 16" = any 11 must agree.</dd></div>
+    <div><dt>Staked</dt><dd>Share of all NEAR locked up to secure the network.</dd></div>
+  </dl>
+
+  <h2 id="data">Every number, for checking</h2>
+  <p class="hint" style="margin:0 2px 6px">From the NEAR blockchain (M), DefiLlama (D) or named sources (S). Rebuild with <code>python collect.py</code> then <code>python build.py</code>.</p>
+  <details><summary>Claim register, with sources</summary><div class="tw"><table id="claims"></table></div></details>
+  <details><summary>Swaps, fees and revenue by month</summary><div class="tw"><table id="monthly"></table></div></details>
+  <details><summary>Security cost by month</summary><div class="tw"><table id="budget"></table></div></details>
+  <details><summary>Signing network by month</summary><div class="tw"><table id="mpc"></table></div></details>
+  <details><summary>Alarm details (technical)</summary><div class="tw"><table id="trip"></table></div></details>
+  <footer id="foot"></footer>
 </div>
 
-<h2>Tripwires (pre-registered)</h2>
-<div class="scroll"><table id="trip"></table></div>
-<h2>Dated predictions</h2>
-<div class="scroll"><table id="pred"></table></div>
-<h2>Claim register</h2>
-<div class="scroll"><table id="claims"></table></div>
-
-<h2>All the data</h2>
-<details open><summary>Intents by month (DefiLlama)</summary><div class="scroll"><table id="monthly"></table></div></details>
-<details><summary>Issuance and its cost by month (archival total_supply)</summary><div class="scroll"><table id="budget"></table></div></details>
-<details><summary>MPC network by month (archival v1.signer)</summary><div class="scroll"><table id="mpc"></table></div></details>
-<p class="mut">Machine-readable: <a href="metrics.json">metrics.json</a>. Raw inputs: <code>data/raw/&lt;date&gt;/</code>. Rebuild: <code>python collect.py &amp;&amp; python build.py</code>.</p>
-</main>
 <script src="metrics.js"></script>
 <script>
-const D = window.METRICS, M = D.metrics;
+const D = window.METRICS, M = D.metrics, H = D.hurdle;
 const $ = id => document.getElementById(id);
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const usd = x => x == null ? "n/a" : Math.abs(x) >= 1e9 ? "$" + (x/1e9).toPrecision(3) + "B" : Math.abs(x) >= 1e6 ? "$" + (x/1e6).toPrecision(3) + "M" : Math.abs(x) >= 1e3 ? "$" + (x/1e3).toPrecision(3) + "k" : "$" + Math.round(x);
-const pct = (x, d = 1) => x == null ? "n/a" : (x*100).toFixed(d) + "%";
+const pct = (x, d = 0) => x == null ? "n/a" : (x*100).toFixed(d) + "%";
+const sgn = (x, d = 0) => (x >= 0 ? "+" : "") + (x*100).toFixed(d) + "%";
 const n0 = x => x == null ? "n/a" : Math.round(x).toLocaleString("en-US");
 const md = s => esc(s).replace(/\*\*(.+?)\*\*/g, "<b>$1</b>").replace(/`(.+?)`/g, "<code>$1</code>").replace(/\[(.+?)\]\((https?:[^)]+)\)/g, '<a href="$2">$1</a>');
-const mdate = s => new Date(s.slice(0, 7) + "-01T00:00:00Z").getTime();
+const mdate = s => Date.UTC(+s.slice(0, 4), +s.slice(5, 7) - 1, 1);
+const css = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+const fmtDay = s => new Date(s + "T00:00:00Z").toLocaleDateString("en-GB", {day: "numeric", month: "short", year: "numeric", timeZone: "UTC"});
+const mon = s => new Date(mdate(s)).toLocaleDateString("en-GB", {month: "short", timeZone: "UTC"});
+const verdictPlain = {"ON TRACK, UNPROVEN": "On track, not proven", "HOLD": "Hold", "DON'T HOLD": "Don't hold", "VOID": "Void"}[D.verdict] || D.verdict;
 
-$("sub").textContent = `Data as of ${D.asof} · block ${n0(D.block)} · DefiLlama through ${D.defillama_through} · NEAR $${M.price_usd.toFixed(2)}`;
-$("verdict").textContent = D.verdict;
-$("reg").innerHTML = `Tripwires pre-registered in commit <code>${esc(D.preregistration.commit.slice(0, 7))}</code> (${esc(D.preregistration.status)} registration)`;
-$("kpis").innerHTML = [
-  [usd(M.revenue_per_day_t90) + "/day", "NEAR revenue, trailing 90 d"], ["x" + M.growth_6m.toFixed(2), "vs 90 d ending 180 d earlier"],
-  [M.capture_bps_t90.toFixed(2) + " bps", "capture of volume, t90"], [pct(M.coverage_usd, 0), `coverage: ${usd(M.revenue_run_rate)} run-rate / ${usd(M.security_budget_usd)} issuance`],
-  [pct(M.required_cagr, 0) + "/yr", "growth needed to cover 1.6% issuance"], [`${M.mpc_threshold}-of-${M.mpc_participants}`, `MPC; ${M.tee_entries} TEE entries, ${M.signer_access_keys} access keys`],
-  [pct(M.staked_pct, 2), `staked; ${M.validators} validators, Nakamoto ${M.nakamoto_33}`], [pct(M.issuance_rate_31d, 2) + "/yr", "realized net issuance, 31 d"],
-].map(([v, l]) => `<div class="kpi"><b class="num">${esc(v)}</b><span>${esc(l)}</span></div>`).join("");
+$("asof").textContent = "📅 " + fmtDay(D.asof);
+$("verdict").textContent = verdictPlain;
 
-// ---- minimal SVG line chart: series = [{name, color, pts:[[t,y]], step, dash, dots}] ----
-function chart(el, series, {yFmt = usd, shadeTo = null, hline = null} = {}) {
-  const W = 520, H = 250, L = 56, R = 22, T = 12, B = 26;
+// four steps
+const feesYear = M.fees_30d * 365 / 30;
+$("steps").innerHTML = [
+  ["People pay to swap", `${usd(feesYear)}/yr in fees on cross-chain swaps.`],
+  ["NEAR keeps a slice", `${usd(M.revenue_run_rate)}/yr, used to buy back NEAR.`],
+  ["Security costs money", `${usd(M.security_budget_usd)}/yr of new tokens; a vote cuts it to ${usd(M.security_budget_target_usd)}.`],
+  ["The bet", `Revenue grows until it covers that cost.`],
+].map(([t, p], i) => `<div class="step rise" style="animation-delay:${i * .04}s"><span class="n">${i + 1}</span><div><b>${t}</b><p>${p}</p></div></div>`).join("");
+
+// revenue card + bars
+const full = D.monthly.filter(r => r.revenue != null && !r.note.startsWith("partial") && r.month >= "2026-03");
+const goalMonth = M.security_budget_target_usd / 12;
+$("rr").textContent = usd(full[full.length - 1].revenue);
+$("rrd").textContent = "×" + M.growth_6m.toFixed(1) + " in 6 months";
+$("rrv").textContent = "in " + new Date(mdate(full[full.length - 1].month)).toLocaleDateString("en-GB", {month: "long", timeZone: "UTC"}) + " · growth uses 90-day averages";
+const ymax = goalMonth * 1.12, last = full.length - 1;
+$("bars").innerHTML = full.map((r, i) => {
+  const ch = i ? r.revenue / full[i - 1].revenue - 1 : null;
+  const h = r.revenue / ymax * 100;
+  return `<div class="col ${i === last ? "on" : ""}" title="${r.month}: ${usd(r.revenue)}"><span class="d ${ch == null ? "acc" : ch >= 0 ? "up" : "down"}" style="bottom:${h}%">${ch == null ? usd(r.revenue) : Math.abs(ch) < .005 ? "0%" : sgn(ch)}</span><div class="b ${i === last ? "on" : "hatch"}" style="height:${h}%;animation-delay:${i * .05}s"></div><span class="m">${mon(r.month)}</span></div>`;
+}).join("") + `<div class="goal" style="bottom:calc(24px + (100% - 24px) * ${goalMonth / ymax})"><span>Goal ${usd(goalMonth)}/mo</span></div>`;
+
+// coverage + volume progress
+const covCut = M.revenue_run_rate / M.security_budget_target_usd;
+$("cov").textContent = pct(M.coverage_usd);
+$("covbar").insertAdjacentHTML("beforeend", `<em style="left:${covCut * 100}%" title="after the issuance cut"></em>`);
+$("covt").innerHTML = `Goal <b>100%</b> · ${pct(covCut)} after the issuance cut, with no growth`;
+$("vol").textContent = usd(M.volume_per_day_t90);
+$("voly").className = "d " + (M.vol_yoy_mtd >= 0 ? "up" : "down");
+$("voly").textContent = sgn(M.vol_yoy_mtd, 1) + " YoY";
+$("volt").innerHTML = `Target <b>${usd(M.breakeven_vol_per_day)}</b>/day to cover security at today's cut (${(M.breakeven_vol_per_day / M.volume_per_day_t90).toFixed(1)}×)`;
+setTimeout(() => {
+  $("covbar").querySelector("i").style.width = Math.min(M.coverage_usd, 1) * 100 + "%";
+  $("volbar").querySelector("i").style.width = Math.min(M.volume_per_day_t90 / M.breakeven_vol_per_day, 1) * 100 + "%";
+}, 200);
+
+// operators
+const asof = new Date(D.asof + "T00:00:00Z");
+const past = D.mpc_history.filter(r => (asof - new Date(r.date + "T00:00:00Z")) / 864e5 >= 170).pop() || D.mpc_history[0];
+$("ops").innerHTML = Array.from({length: M.mpc_participants}, (_, i) => `<span class="op ${i < M.mpc_threshold ? "on" : "hatch"}">${i + 1}</span>`).join("");
+$("opst").innerHTML = `Any <b>${M.mpc_threshold} of ${M.mpc_participants}</b> must agree. In ${new Date(past.date + "T00:00:00Z").toLocaleDateString("en-GB", {month: "long", timeZone: "UTC"})} it was ${past.threshold} of ${past.participants}. No losses, no admin key.`;
+$("stk").textContent = pct(M.staked_pct, 1);
+$("stkd").textContent = "alarm < 40%";
+$("val").textContent = M.validators;
+$("nak").textContent = M.nakamoto_33 + " hold ⅓";
+
+// alarms
+const plain = {
+  T1: ["Revenue growth", "Warning if it grows under 75%/yr for two quarters"],
+  T2: ["Swap volume", "Warning if it shrinks year on year for two quarters"],
+  T3: ["Coverage", "Warning if it falls three months in a row"],
+  T4: ["Staking", "Warning if under 40% of NEAR is staked"],
+  T5: ["Signing group size", "Warning if under 4 spare operators or under 9 must agree"],
+  T6: ["Signing network losses", "Any loss here voids the whole thesis"],
+  T7: ["Unpaid user losses", "Warning if users lose money and aren't repaid"],
+};
+const chip = {neither: ["Quiet", "acc"], BULL: ["Good sign", "up"], BEAR: ["Warning", "down"], VOID: ["Void", "down"]};
+function drawAlarms(f) {
+  $("atable").innerHTML = "<tr><th>Alarm</th><th>Now</th><th>Status</th></tr>" + D.tripwires.filter(t => f === "all" || t.state === f)
+    .map(t => `<tr><td>${plain[t.id][0]}<small>${plain[t.id][1]}</small></td><td>${esc(t.now.replace(/ \(.*\)$/, ""))}</td><td><span class="d ${chip[t.state][1]}">${chip[t.state][0]}</span></td></tr>`).join("")
+    || "<tr><td colspan=3 class='hint'>None right now.</td></tr>";
+}
+drawAlarms("all");
+$("filters").onclick = e => { const b = e.target.closest("button"); if (!b) return;
+  $("filters").querySelectorAll("button").forEach(x => x.classList.toggle("on", x === b)); drawAlarms(b.dataset.f); };
+
+// heatmap: columns = weeks, rows = weekdays
+const days = D.daily_91d, first = new Date(days[0].date + "T00:00:00Z");
+const offset = (first.getUTCDay() + 6) % 7, weeks = Math.ceil((days.length + offset) / 7);
+const vals = days.map(d => d.revenue || 0).sort((a, b) => a - b), q = p => vals[Math.floor(p * (vals.length - 1))];
+const cuts = [q(.25), q(.5), q(.75), q(.92)];
+const lvl = v => v <= 0 ? 0 : 1 + cuts.slice(0, 3).filter(c => v > c).length;
+let cells = "";
+["Mon", "", "Wed", "", "Fri", "", "Sun"].forEach((name, row) => {
+  cells += `<span>${name}</span>`;
+  for (let w = 0; w < weeks; w++) {
+    const d = days[w * 7 + row - offset];
+    cells += d ? `<i class="l${lvl(d.revenue)}" title="${d.date}: ${usd(d.revenue)} revenue, ${usd(d.volume)} swapped"></i>` : "<i></i>";
+  }
+});
+$("heat").style.setProperty("--w", weeks);
+$("heat").innerHTML = cells;
+$("keys").innerHTML = [[1, `< ${usd(cuts[0])}`], [2, `${usd(cuts[0])}–${usd(cuts[1])}`], [3, `${usd(cuts[1])}–${usd(cuts[2])}`], [4, `> ${usd(cuts[2])}`]]
+  .map(([l, t]) => `<span><i class="l${l}"></i>${t}</span>`).join("");
+$("heatsum").textContent = usd(days.reduce((s, d) => s + (d.revenue || 0), 0)) + " total";
+
+// checkpoint + promo
+const P = D.predictions;
+$("pdate").textContent = "Predictions due " + fmtDay(P[0].by);
+const ahead = P.filter(p => p.state.includes("on course")).length;
+$("pstate").textContent = `${ahead} of ${P.length} on course`;
+const pnow = p => p.metric === "revenue_per_day_t90" ? usd(p.now) + "/day" : /pct|yoy/.test(p.metric) ? pct(p.now, 1) : p.now;
+$("ptable").innerHTML = P.map(p => `<tr><td>${esc(p.text.replace(">=", "≥"))}</td><td>${esc(pnow(p))}</td><td><span class="d ${p.state.includes("on course") ? "up" : "mid"}">${p.state.includes("on course") ? "On course" : "Behind"}</span></td></tr>`).join("");
+$("needh").textContent = `Swaps need to reach ${usd(M.breakeven_vol_per_day)} a day`;
+$("needp").textContent = `That's ${(M.breakeven_vol_per_day / M.volume_per_day_t90).toFixed(1)}× today's ${usd(M.volume_per_day_t90)}, within about ${Math.round(M.months_to_full_cut)} months, at today's cut of $${M.capture_bps_t90.toFixed(2)} per $10,000. Revenue must grow about ${pct(M.required_cagr)} a year to get there.`;
+
+// line charts
+function chart(series, {yFmt = usd, hline = null, h = 220} = {}) {
+  const W = 520, L = 48, R = 12, T = 12, B = 24;
   const all = series.flatMap(s => s.pts).filter(p => p[1] != null);
   const x0 = Math.min(...all.map(p => p[0])), x1 = Math.max(...all.map(p => p[0]));
-  let y1 = Math.max(...all.map(p => p[1]), hline ? hline.y : 0) * 1.08, y0 = 0;
-  const X = t => L + (t - x0) / (x1 - x0 || 1) * (W - L - R), Y = v => T + (1 - (v - y0) / (y1 - y0 || 1)) * (H - T - B);
-  const step = 10 ** Math.floor(Math.log10(y1 / 4)), mul = [1, 2, 2.5, 5, 10].find(m => y1 / (step * m) <= 5);
+  const y1 = Math.max(...all.map(p => p[1]), hline ? hline.y : 0) * 1.1;
+  const X = t => L + (t - x0) / (x1 - x0 || 1) * (W - L - R), Y = v => T + (1 - v / (y1 || 1)) * (h - T - B);
+  const st = 10 ** Math.floor(Math.log10(y1 / 4)), k = [1, 2, 2.5, 5, 10].find(m => y1 / (st * m) <= 5);
   let g = "";
-  if (shadeTo && shadeTo > x0) g += `<rect x="${L}" y="${T}" width="${X(Math.min(shadeTo, x1)) - L}" height="${H - T - B}" fill="currentColor" opacity=".06"/>`;
-  for (let v = 0; v <= y1; v += step * mul) g += `<line x1="${L}" x2="${W - R}" y1="${Y(v)}" y2="${Y(v)}" stroke="var(--line)"/><text x="${L - 6}" y="${Y(v) + 4}" text-anchor="end">${esc(yFmt(v))}</text>`;
-  const d0 = new Date(x0), months = (new Date(x1).getUTCFullYear() - d0.getUTCFullYear()) * 12 + new Date(x1).getUTCMonth() - d0.getUTCMonth();
-  const every = Math.max(1, Math.ceil(months / 8));
-  for (let i = 0; i <= months; i += every) { const t = Date.UTC(d0.getUTCFullYear(), d0.getUTCMonth() + i, 1); g += `<text x="${X(t)}" y="${H - 8}" text-anchor="middle">${new Date(t).toISOString().slice(2, 7)}</text>`; }
-  if (hline) g += `<line x1="${L}" x2="${W - R}" y1="${Y(hline.y)}" y2="${Y(hline.y)}" stroke="var(--fg)" stroke-dasharray="2 3" opacity=".5"/><text x="${W - R}" y="${Y(hline.y) - 5}" text-anchor="end">${esc(hline.label)}</text>`;
+  for (let v = 0; v <= y1; v += st * k) g += `<line x1="${L}" x2="${W - R}" y1="${Y(v)}" y2="${Y(v)}" stroke="var(--line)"/><text x="${L - 8}" y="${Y(v) + 4}" text-anchor="end">${esc(yFmt(v))}</text>`;
+  const a = new Date(x0), b = new Date(x1), n = (b.getUTCFullYear() - a.getUTCFullYear()) * 12 + b.getUTCMonth() - a.getUTCMonth();
+  for (let i = 0, e = Math.max(1, Math.ceil(n / 6)); i <= n; i += e) {
+    const t = Date.UTC(a.getUTCFullYear(), a.getUTCMonth() + i, 1);
+    g += `<text x="${X(t)}" y="${h - 4}" text-anchor="middle">${new Date(t).toLocaleDateString("en-GB", {month: "short", year: "2-digit", timeZone: "UTC"})}</text>`;
+  }
+  if (hline) g += `<line x1="${L}" x2="${W - R}" y1="${Y(hline.y)}" y2="${Y(hline.y)}" stroke="var(--faint)" stroke-dasharray="4 4"/><text x="${W - R}" y="${Y(hline.y) - 6}" text-anchor="end">${esc(hline.label)}</text>`;
   for (const s of series) {
     const p = s.pts.filter(q => q[1] != null);
-    if (!p.length) continue;
     let d = `M${X(p[0][0])},${Y(p[0][1])}`;
     for (let i = 1; i < p.length; i++) d += s.step ? `H${X(p[i][0])}V${Y(p[i][1])}` : `L${X(p[i][0])},${Y(p[i][1])}`;
     if (s.step) d += `H${X(x1)}`;
-    g += `<path d="${d}" fill="none" stroke="${s.color}" stroke-width="2" ${s.dash ? 'stroke-dasharray="5 4"' : ""}/>`;
-    if (s.dots) g += p.map(q => `<circle cx="${X(q[0])}" cy="${Y(q[1])}" r="3" fill="${s.color}"><title>${new Date(q[0]).toISOString().slice(0, 7)}: ${esc(yFmt(q[1]))}</title></circle>`).join("");
+    if (s.area) g += `<path d="${d}L${X(p[p.length - 1][0])},${Y(0)}L${X(p[0][0])},${Y(0)}Z" fill="${s.color}" opacity=".1"/>`;
+    g += `<path d="${d}" fill="none" stroke="${s.color}" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" ${s.dash ? 'stroke-dasharray="6 5"' : ""}/>`;
+    if (s.dots) g += p.map(q => `<circle cx="${X(q[0])}" cy="${Y(q[1])}" r="3.4" fill="var(--card)" stroke="${s.color}" stroke-width="2"><title>${new Date(q[0]).toISOString().slice(0, 7)}: ${esc(yFmt(q[1]))}</title></circle>`).join("");
   }
-  el.innerHTML = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(series.map(s => s.name).join(", "))}">${g}</svg>` +
-    `<div class="legend">${series.map(s => `<span><i style="background:${s.color}"></i>${esc(s.name)}</span>`).join("")}</div>`;
+  return `<svg viewBox="0 0 ${W} ${h}" role="img" aria-label="${esc(series.map(s => s.name).join(", "))}">${g}</svg><div class="lg">${series.map(s => `<span><i style="background:${s.color}"></i>${esc(s.name)}</span>`).join("")}</div>`;
 }
-const css = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
-const clean = mdate("2026-03");
-const bud = D.budget_monthly.filter(r => !r.partial);
-chart($("c1"), [
-  {name: "NEAR revenue", color: css("--a"), pts: bud.map(r => [mdate(r.month), r.revenue_usd]), dots: true},
-  {name: "Issuance cost", color: css("--b"), pts: bud.map(r => [mdate(r.month), r.issuance_cost_usd]), dots: true},
-], {shadeTo: clean});
-chart($("c2"), [{name: "Capture, bps", color: css("--a"), dots: true,
-  pts: D.monthly.filter(r => r.revenue && r.capture_bps != null && !r.note.startsWith("partial")).map(r => [mdate(r.month), r.capture_bps])}],
-  {yFmt: v => v.toFixed(1), shadeTo: clean});
-chart($("c3"), [
-  {name: "Participants", color: css("--c"), step: true, pts: D.mpc_history.map(r => [mdate(r.date), r.participants])},
-  {name: "Threshold", color: css("--b"), step: true, pts: D.mpc_history.map(r => [mdate(r.date), r.threshold])},
-], {yFmt: v => v.toFixed(0)});
-const H = D.hurdle;
-chart($("c4"), [
-  {name: `Pre-registered path (+${pct(H.hurdle_per_year, 0)}/yr from ${H.anchor_date})`, color: css("--b"), pts: H.path.map(r => [mdate(r.month), r.required_at_hurdle])},
-  {name: `Needed from today (+${pct(M.required_cagr, 0)}/yr)`, color: css("--b"), dash: true, pts: H.path.map(r => [mdate(r.month), r.required_live])},
-  {name: "Actual: monthly revenue x 365/days", color: css("--a"), dots: true, pts: H.actual.map(r => [mdate(r.month), r.annualized])},
-], {hline: {y: H.target, label: "1.6% issuance cost " + usd(H.target) + "/yr"}});
+function drawCharts() {
+const acc = css("--acc"), cost = css("--cost");
+const bud = D.budget_monthly.filter(r => !r.partial && r.revenue_usd);
+$("ch1").innerHTML = chart([
+  {name: "Revenue NEAR kept", color: acc, area: true, dots: true, pts: bud.map(r => [mdate(r.month), r.revenue_usd])},
+  {name: "Cost of new tokens", color: cost, dots: true, pts: bud.map(r => [mdate(r.month), r.issuance_cost_usd])}]);
+$("ch2").innerHTML = chart([
+  {name: "Actual (yearly pace)", color: acc, area: true, dots: true, pts: H.actual.filter(r => r.month >= "2026-01").map(r => [mdate(r.month), r.annualized])},
+  {name: `Needed (+${pct(H.hurdle_per_year)}/yr)`, color: cost, dash: true, pts: H.path.map(r => [mdate(r.month), r.required_at_hurdle])}],
+  {hline: {y: H.target, label: "Goal " + usd(H.target) + "/yr"}});
+$("ch3").innerHTML = chart([{name: "$ kept per $10,000 swapped", color: acc, area: true, dots: true,
+  pts: D.monthly.filter(r => r.revenue && r.capture_bps != null && !r.note.startsWith("partial")).map(r => [mdate(r.month), r.capture_bps])}], {yFmt: v => "$" + v.toFixed(1)});
+$("ch4").innerHTML = chart([
+  {name: "Operators", color: acc, step: true, pts: D.mpc_history.map(r => [mdate(r.date), r.participants])},
+  {name: "Must agree", color: cost, step: true, pts: D.mpc_history.map(r => [mdate(r.date), r.threshold])}], {yFmt: v => v.toFixed(0)});
+}
+drawCharts();
 
-const tbl = (id, head, rows, num = []) => $(id).innerHTML = `<tr>${head.map(h => `<th>${esc(h)}</th>`).join("")}</tr>` +
-  rows.map(r => `<tr>${r.map((c, i) => `<td${num.includes(i) ? ' class="n"' : ""}>${c}</td>`).join("")}</tr>`).join("");
-tbl("trip", ["ID", "Watch", "Now", "Bear trigger", "Bull trigger", "State", "Detail"],
-  D.tripwires.map(t => [t.id, esc(t.watch), esc(t.now), esc(t.bear_trigger), esc(t.bull_trigger), `<span class="st ${t.state}">${t.state}</span>`, esc(t.note)]));
-tbl("pred", ["By", "Prediction", "Now", "State"], D.predictions.map(p => [p.by, esc(p.text), esc(p.metric === "revenue_per_day_t90" ? usd(p.now) + "/day" : /pct|yoy/.test(p.metric) ? pct(p.now, 2) : p.now), esc(p.state)]));
-tbl("claims", ["#", "Claim", "Tag", "Value", "Reproduce"], D.claims.map(c => [c.id, md(c.claim), `<span class="tag">${esc(c.status)}</span>`, md(c.value), md(c.source)]));
-tbl("monthly", ["Month", "Days", "Volume", "Gross fees", "NEAR revenue", "Capture bps", "Share of fees", "Note"],
-  D.monthly.map(r => [r.month, r.days, usd(r.volume), usd(r.fees), usd(r.revenue), r.capture_bps == null ? "n/a" : r.capture_bps.toFixed(2), pct(r.share_of_fees, 0), esc(r.note)]), [1, 2, 3, 4, 5, 6]);
-tbl("budget", ["Month", "Supply at start", "NEAR issued", "Rate/yr", "Avg price", "Issuance cost", "NEAR revenue", "Revenue / cost"],
-  D.budget_monthly.map(r => [r.month + (r.partial ? " (partial)" : ""), n0(r.supply_start), n0(r.issued_near), pct(r.issuance_rate, 2), "$" + r.avg_price.toFixed(2), usd(r.issuance_cost_usd), usd(r.revenue_usd), pct(r.coverage, 0)]), [1, 2, 3, 4, 5, 6, 7]);
-tbl("mpc", ["Date", "Block", "Threshold", "Participants", "Margin", "TEE entries", "Version", "Buyback wallet (NEAR)"],
-  D.mpc_history.map(r => [r.date, n0(r.block), r.threshold, r.participants, r.margin, r.tee_entries ?? "n/a", esc(r.version), n0(r.buyback_near)]), [1, 2, 3, 4, 5, 7]);
+// data tables
+const tbl = (id, head, rows) => $(id).innerHTML = `<tr>${head.map(h => `<th>${esc(h)}</th>`).join("")}</tr>` + rows.map(r => `<tr>${r.map(c => `<td>${c}</td>`).join("")}</tr>`).join("");
+tbl("claims", ["#", "Claim", "Type", "Value", "Check it"], D.claims.map(c => [c.id, md(c.claim), c.status, md(c.value), md(c.source)]));
+tbl("monthly", ["Month", "Swaps", "Fees paid", "NEAR kept", "Cut (bps)", "Note"], D.monthly.map(r => [r.month, usd(r.volume), usd(r.fees), usd(r.revenue), r.capture_bps == null ? "n/a" : r.capture_bps.toFixed(2), esc(r.note)]));
+tbl("budget", ["Month", "New NEAR printed", "Yearly rate", "Avg price", "Cost", "NEAR kept", "Coverage"], D.budget_monthly.map(r => [r.month + (r.partial ? " (partial)" : ""), n0(r.issued_near), pct(r.issuance_rate, 2), "$" + r.avg_price.toFixed(2), usd(r.issuance_cost_usd), usd(r.revenue_usd), pct(r.coverage)]));
+tbl("mpc", ["Date", "Must agree", "Operators", "TEE entries", "Version", "Buyback wallet (NEAR)"], D.mpc_history.map(r => [r.date, r.threshold, r.participants, r.tee_entries ?? "n/a", esc(r.version), n0(r.buyback_near)]));
+tbl("trip", ["ID", "Watch", "Now", "Bear trigger", "Bull trigger", "State", "Detail"], D.tripwires.map(t => [t.id, esc(t.watch), esc(t.now), esc(t.bear_trigger), esc(t.bull_trigger), t.state, esc(t.note)]));
+$("foot").innerHTML = `Built at NEAR HACKATHON · block ${n0(D.block)} · DefiLlama through ${D.defillama_through} · alarms pre-registered in commit <code>${esc(D.preregistration.commit.slice(0, 7))}</code> (${esc(D.preregistration.status)} registration) · not investment advice.`;
+
+// nav highlight
+const secs = ["overview", "alarms", "charts", "words", "data"].map(id => $(id));
+addEventListener("scroll", () => { const y = scrollY + 120; let cur = secs[0];
+  secs.forEach(s => { if (s.getBoundingClientRect().top + scrollY <= y) cur = s; });
+  document.querySelectorAll("nav a").forEach(a => a.classList.toggle("on", a.getAttribute("href") === "#" + cur.id)); }, {passive: true});
+</script>
+<script>
+/* ===== theme toggle ===== */
+const root = document.documentElement;
+const effective = () => root.dataset.theme || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+const ICON = {
+  sun: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>',
+  moon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>'};
+function paintToggle() {
+  const dark = effective() === "dark", b = $("theme");
+  b.innerHTML = (dark ? ICON.sun : ICON.moon) + "<span>" + (dark ? "Light" : "Dark") + "</span>";
+  b.setAttribute("aria-label", "Switch to " + (dark ? "light" : "dark") + " mode");
+}
+$("theme").onclick = () => {
+  const next = effective() === "dark" ? "light" : "dark";
+  root.dataset.theme = next;
+  try { localStorage.setItem("theme", next); } catch (e) {}
+  paintToggle(); drawCharts();
+};
+paintToggle();
+document.querySelectorAll(".card,.step,dl>div").forEach(e => e.classList.add("live"));
+
+/* ===== per-card spotlight and tilt ===== */
+window.addEventListener("load", () => {
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let cur = null;
+  const release = el => { el.style.transform = ""; };
+
+
+  addEventListener("pointermove", e => {
+    const el = e.target.closest ? e.target.closest(".live") : null;
+    if (el !== cur) { if (cur) release(cur); cur = el; }
+    if (!el) return;
+    const r = el.getBoundingClientRect(), x = e.clientX - r.left, y = e.clientY - r.top;
+    el.style.setProperty("--mx", x + "px"); el.style.setProperty("--my", y + "px");
+    if (!reduce && e.pointerType !== "touch") {
+      const m = r.width > 700 ? 2 : r.width > 450 ? 3.5 : 6;
+      el.style.transform = `perspective(1000px) rotateX(${(0.5 - y / r.height) * m * 2}deg) rotateY(${(x / r.width - 0.5) * m * 2}deg) translateY(-3px)`;
+    }
+  }, {passive: true});
+  addEventListener("scroll", () => { if (cur) { release(cur); cur = null; } }, {passive: true});
+  root.addEventListener("mouseleave", () => { if (cur) release(cur); cur = null; });
+});
 </script>
 </body>
 </html>
