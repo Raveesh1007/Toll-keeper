@@ -31,14 +31,19 @@ TLS = tls_context()
 def http(url, body=None):
     data = json.dumps(body).encode() if body is not None else None
     req = urllib.request.Request(url, data=data, headers={"Content-Type": "application/json", "User-Agent": "near-thesis/1.0"})
-    for attempt in range(3):
+    time.sleep(0.25)  # pace requests: public nodes answer 429 to fast clients (seen on GitHub Actions)
+    for attempt in range(6):
         try:
             with urllib.request.urlopen(req, timeout=60, context=TLS) as r:
                 return json.load(r)
         except Exception as e:
-            if attempt == 2:
+            if attempt == 5:
                 raise RuntimeError(f"{url}: {e}") from e
-            time.sleep(2)
+            wait = 2
+            if getattr(e, "code", None) == 429:  # rate limited: honour Retry-After, else back off 5, 10, 20, 40 s
+                ra = e.headers.get("Retry-After", "")
+                wait = min(60, float(ra) if ra.isdigit() else 5 * 2 ** attempt)
+            time.sleep(wait)
 
 
 def rpc(method, params, url=RPC):

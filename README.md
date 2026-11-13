@@ -111,7 +111,7 @@ For a past block use `https://archival-rpc.mainnet.fastnear.com` and replace `"f
 | Path | Purpose |
 |---|---|
 | [`THESIS.md`](THESIS.md) | The thesis. Generated from `THESIS.template.md`; edit the template, not this file. |
-| `collect.py` | Fetches chain state now and at past blocks (30/31/90/180/365/384 days back and the 1st of each month since 2025-10), DefiLlama daily volume/fees/revenue/TVL, and NEAR price. Three tries, 2 s apart, on every HTTP call. |
+| `collect.py` | Fetches chain state now and at past blocks (30/31/90/180/365/384 days back and the 1st of each month since 2025-10), DefiLlama daily volume/fees/revenue/TVL, and NEAR price. Calls are paced (0.25 s apart) and retried up to 6 times, backing off on HTTP 429 rate limits. |
 | `build.py` | Computes every metric, monthly table, tripwire state, verdict and dated prediction, then writes the outputs above. |
 | [`config/tripwires.json`](config/tripwires.json) | Seven alarms, the verdict rule and the dated predictions. Frozen in commit `d5491d7` before any data was collected; `build.py` flags any later edit in `THESIS.md`. |
 | `data/incidents.json` | Hand-entered, sourced incidents. The only input for T6 and T7, which can't be measured on chain. |
