@@ -200,8 +200,12 @@ def main():
         note = []
         if ds[-1] == E and (E + DAY).month == E.month:
             note.append(f"partial: through {E}")
-        if m < clean and rv is not None:
-            note.append("revenue before 2026-02-23 is treasury sweeps; not used for growth")
+        if f is None or rv is None:
+            note.append("DefiLlama has no fee or revenue data for this month")
+        elif rv < 1000:
+            note.append("DefiLlama reports about $0 revenue: NEAR was not yet capturing revenue it counts")
+        elif m <= dt.date.fromisoformat(C["fee_switch_date"]):
+            note.append(f"before the {C['fee_switch_date']} fee switch: lumpy treasury sweeps, read with caution")
         monthly.append({"month": m.strftime("%Y-%m"), "days": len(ds), "volume": v, "fees": f, "revenue": rv,
                         "capture_bps": rv / v * 1e4 if rv is not None and v else None,
                         "share_of_fees": rv / f if rv is not None and f else None, "note": "; ".join(note)})
@@ -400,8 +404,8 @@ def main():
     for p in ("P1", "P2", "P3", "P4"):
         V["claims_" + p] = claim_rows(p + ".")
     V["monthly_table"] = table(["Month", "Days", "Volume", "Gross fees", "NEAR revenue", "Capture (bps)", "Share of fees", "Note"],
-                               [[x["month"], x["days"], usd(x["volume"]), usd(x["fees"]), usd(x["revenue"]),
-                                 bps(x["capture_bps"] / 1e4) if x["capture_bps"] is not None else "n/a", pct(x["share_of_fees"], 0), x["note"]] for x in monthly])
+                               [[x["month"], x["days"], usd(x["volume"]), usd(x["fees"]) if x["fees"] is not None else "not tracked", usd(x["revenue"]) if x["revenue"] is not None else "not tracked",
+                                 bps(x["capture_bps"] / 1e4) if x["capture_bps"] is not None else "not tracked", pct(x["share_of_fees"], 0) if x["share_of_fees"] is not None else "not tracked", x["note"]] for x in monthly])
     V["budget_table"] = table(["Month", "Supply at start", "NEAR issued", "Rate/yr", "Avg price", "Issuance cost", "NEAR revenue", "Revenue / cost"],
                               [[x["month"] + (" (partial)" if x["partial"] else ""), num(x["supply_start"]), num(x["issued_near"]), pct(x["issuance_rate"], 2),
                                 f"${x['avg_price']:.2f}", usd(x["issuance_cost_usd"]), usd(x["revenue_usd"]), pct(x["coverage"], 0)] for x in budget_rows])
@@ -439,6 +443,8 @@ def main():
         "claims": [dict(zip(("id", "claim", "status", "value", "source"), c)) for c in claims],
         "daily_91d": [{"date": (E - DAY * i).isoformat(), "volume": r(vol.get(E - DAY * i), 0), "fees": r(fees.get(E - DAY * i), 0),
                        "revenue": r(rev.get(E - DAY * i), 0)} for i in range(90, -1, -1)],
+        "data_notes": {"volume_starts": V["vol_start"], "fees_revenue_start": V["fees_start"], "revenue_material_from": V["rev_material"],
+                       "fee_switch": V["fee_switch"], "source": "DefiLlama api.llama.fi"},
         "monthly": [{k: r(v) if isinstance(v, float) else v for k, v in x.items()} for x in monthly],
         "budget_monthly": [{k: r(v) if isinstance(v, float) else v for k, v in x.items()} for x in budget_rows],
         "mpc_history": [{k: r(v) if isinstance(v, float) else v for k, v in x.items()} for x in mpc_rows],

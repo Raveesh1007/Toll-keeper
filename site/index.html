@@ -264,7 +264,7 @@ code{font-size:12px}
   <h2 id="data">Every number, for checking</h2>
   <p class="hint" style="margin:0 2px 6px">From the NEAR blockchain (M), DefiLlama (D) or named sources (S). Rebuild with <code>python collect.py</code> then <code>python build.py</code>.</p>
   <details><summary>Claim register, with sources</summary><div class="tw"><table id="claims"></table></div></details>
-  <details><summary>Swaps, fees and revenue by month</summary><div class="tw"><table id="monthly"></table></div></details>
+  <details><summary>Swaps, fees and revenue by month</summary><p class="hint" id="mnote" style="margin:10px 2px 0"></p><div class="tw"><table id="monthly"></table></div></details>
   <details><summary>Security cost by month</summary><div class="tw"><table id="budget"></table></div></details>
   <details><summary>Signing network by month</summary><div class="tw"><table id="mpc"></table></div></details>
   <details><summary>Alarm details (technical)</summary><div class="tw"><table id="trip"></table></div></details>
@@ -434,7 +434,9 @@ drawCharts();
 // data tables
 const tbl = (id, head, rows) => $(id).innerHTML = `<tr>${head.map(h => `<th>${esc(h)}</th>`).join("")}</tr>` + rows.map(r => `<tr>${r.map(c => `<td>${c}</td>`).join("")}</tr>`).join("");
 tbl("claims", ["#", "Claim", "Type", "Value", "Check it"], D.claims.map(c => [c.id, md(c.claim), c.status, md(c.value), md(c.source)]));
-tbl("monthly", ["Month", "Swaps", "Fees paid", "NEAR kept", "Cut (bps)", "Note"], D.monthly.map(r => [r.month, usd(r.volume), usd(r.fees), usd(r.revenue), r.capture_bps == null ? "n/a" : r.capture_bps.toFixed(2), esc(r.note)]));
+tbl("monthly", ["Month", "Swaps", "Fees paid", "NEAR kept", "Cut (bps)", "Note"], D.monthly.map(r => [r.month, usd(r.volume), r.fees == null ? "not tracked" : usd(r.fees), r.revenue == null ? "not tracked" : usd(r.revenue), r.capture_bps == null ? "not tracked" : r.capture_bps.toFixed(2), esc(r.note)]));
+const N = D.data_notes;
+$("mnote").innerHTML = `<b>Why some cells say "not tracked":</b> DefiLlama has no data for them. It records swap volume from ${N.volume_starts}, and fees and revenue only from ${N.fees_revenue_start}. Revenue is about $0 until ${N.revenue_material_from} because NEAR was not yet capturing revenue DefiLlama counts. Before the ${N.fee_switch} fee switch, revenue is lumpy treasury sweeps. If DefiLlama cannot be reached, data collection stops with an error and the last good data stays in place, so this page never shows empty numbers.`;
 tbl("budget", ["Month", "New NEAR printed", "Yearly rate", "Avg price", "Cost", "NEAR kept", "Coverage"], D.budget_monthly.map(r => [r.month + (r.partial ? " (partial)" : ""), n0(r.issued_near), pct(r.issuance_rate, 2), "$" + r.avg_price.toFixed(2), usd(r.issuance_cost_usd), usd(r.revenue_usd), pct(r.coverage)]));
 tbl("mpc", ["Date", "Must agree", "Operators", "TEE entries", "Version", "Buyback wallet (NEAR)"], D.mpc_history.map(r => [r.date, r.threshold, r.participants, r.tee_entries ?? "n/a", esc(r.version), n0(r.buyback_near)]));
 tbl("trip", ["ID", "Watch", "Now", "Bear trigger", "Bull trigger", "State", "Detail"], D.tripwires.map(t => [t.id, esc(t.watch), esc(t.now), esc(t.bear_trigger), esc(t.bull_trigger), t.state, esc(t.note)]));

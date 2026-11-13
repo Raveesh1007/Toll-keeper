@@ -34,21 +34,21 @@ Every month DefiLlama has, from its daily series (`data/raw/<date>/defillama.jso
 
 | Month | Days | Volume | Gross fees | NEAR revenue | Capture (bps) | Share of fees | Note |
 |---|---|---|---|---|---|---|---|
-| 2024-12 | 31 | $2.97M | n/a | n/a | n/a | n/a |  |
-| 2025-01 | 31 | $6.41M | n/a | n/a | n/a | n/a |  |
-| 2025-02 | 28 | $13.2M | n/a | n/a | n/a | n/a |  |
-| 2025-03 | 31 | $23.5M | n/a | n/a | n/a | n/a |  |
-| 2025-04 | 30 | $45.3M | n/a | n/a | n/a | n/a |  |
-| 2025-05 | 31 | $90.7M | $96 | $0 | 0.00 | 0% | revenue before 2026-02-23 is treasury sweeps; not used for growth |
-| 2025-06 | 30 | $184M | $95.4k | $0 | 0.00 | 0% | revenue before 2026-02-23 is treasury sweeps; not used for growth |
-| 2025-07 | 31 | $236M | $218k | $0 | 0.00 | 0% | revenue before 2026-02-23 is treasury sweeps; not used for growth |
-| 2025-08 | 31 | $332M | $420k | $0 | 0.00 | 0% | revenue before 2026-02-23 is treasury sweeps; not used for growth |
-| 2025-09 | 30 | $484M | $713k | $18 | 0.00 | 0% | revenue before 2026-02-23 is treasury sweeps; not used for growth |
-| 2025-10 | 31 | $1.72B | $2.5M | $18 | 0.00 | 0% | revenue before 2026-02-23 is treasury sweeps; not used for growth |
-| 2025-11 | 30 | $3.66B | $7.76M | $768k | 2.10 | 10% | revenue before 2026-02-23 is treasury sweeps; not used for growth |
-| 2025-12 | 31 | $2.01B | $4.12M | $177k | 0.88 | 4% | revenue before 2026-02-23 is treasury sweeps; not used for growth |
-| 2026-01 | 31 | $2.72B | $4.41M | $359k | 1.32 | 8% | revenue before 2026-02-23 is treasury sweeps; not used for growth |
-| 2026-02 | 28 | $2.38B | $4.13M | $663k | 2.79 | 16% | revenue before 2026-02-23 is treasury sweeps; not used for growth |
+| 2024-12 | 31 | $2.97M | not tracked | not tracked | not tracked | not tracked | DefiLlama has no fee or revenue data for this month |
+| 2025-01 | 31 | $6.41M | not tracked | not tracked | not tracked | not tracked | DefiLlama has no fee or revenue data for this month |
+| 2025-02 | 28 | $13.2M | not tracked | not tracked | not tracked | not tracked | DefiLlama has no fee or revenue data for this month |
+| 2025-03 | 31 | $23.5M | not tracked | not tracked | not tracked | not tracked | DefiLlama has no fee or revenue data for this month |
+| 2025-04 | 30 | $45.3M | not tracked | not tracked | not tracked | not tracked | DefiLlama has no fee or revenue data for this month |
+| 2025-05 | 31 | $90.7M | $96 | $0 | 0.00 | 0% | DefiLlama reports about $0 revenue: NEAR was not yet capturing revenue it counts |
+| 2025-06 | 30 | $184M | $95.4k | $0 | 0.00 | 0% | DefiLlama reports about $0 revenue: NEAR was not yet capturing revenue it counts |
+| 2025-07 | 31 | $236M | $218k | $0 | 0.00 | 0% | DefiLlama reports about $0 revenue: NEAR was not yet capturing revenue it counts |
+| 2025-08 | 31 | $332M | $420k | $0 | 0.00 | 0% | DefiLlama reports about $0 revenue: NEAR was not yet capturing revenue it counts |
+| 2025-09 | 30 | $484M | $713k | $18 | 0.00 | 0% | DefiLlama reports about $0 revenue: NEAR was not yet capturing revenue it counts |
+| 2025-10 | 31 | $1.72B | $2.5M | $18 | 0.00 | 0% | DefiLlama reports about $0 revenue: NEAR was not yet capturing revenue it counts |
+| 2025-11 | 30 | $3.66B | $7.76M | $768k | 2.10 | 10% | before the 2026-02-23 fee switch: lumpy treasury sweeps, read with caution |
+| 2025-12 | 31 | $2.01B | $4.12M | $177k | 0.88 | 4% | before the 2026-02-23 fee switch: lumpy treasury sweeps, read with caution |
+| 2026-01 | 31 | $2.72B | $4.41M | $359k | 1.32 | 8% | before the 2026-02-23 fee switch: lumpy treasury sweeps, read with caution |
+| 2026-02 | 28 | $2.38B | $4.13M | $663k | 2.79 | 16% | before the 2026-02-23 fee switch: lumpy treasury sweeps, read with caution |
 | 2026-03 | 31 | $2.08B | $3.59M | $563k | 2.71 | 16% |  |
 | 2026-04 | 30 | $1.9B | $3.21M | $259k | 1.36 | 8% |  |
 | 2026-05 | 31 | $2B | $3M | $620k | 3.10 | 21% |  |
@@ -59,7 +59,7 @@ Every month DefiLlama has, from its daily series (`data/raw/<date>/defillama.jso
 | 2026-10 | 31 | $3.99B | $6.39M | $2.19M | 5.49 | 34% |  |
 | 2026-11 | 12 | $1.6B | $2.65M | $640k | 4.00 | 24% | partial: through 2026-11-12 |
 
-**Reading the gaps in this table.** `n/a` means DefiLlama has no figure for that month: its swap-volume series starts on 2024-12-10, and its fee and revenue series start on 2025-05-10. Revenue shows `$0` (or a few dollars) up to 2025-11, and the capture rate there is `0.00`, because NEAR was not yet capturing revenue that DefiLlama counts; those zeros are reported values, not missing data. Revenue from 2025-11 up to the 2026-02-23 fee switch (when buybacks began) is lumpy treasury sweeps rather than steady income, so read it with caution. The earlier window in the growth figure (claim P2.1) starts 2026-02-16, which includes a few of those pre-switch days.
+**Reading the gaps in this table.** `not tracked` means DefiLlama has no figure for that month: its swap-volume series starts on 2024-12-10, and its fee and revenue series start on 2025-05-10. Revenue shows `$0` (or a few dollars) up to 2025-11, and the capture rate there is `0.00`, because NEAR was not yet capturing revenue that DefiLlama counts; those zeros are reported values, not missing data. Revenue from 2025-11 up to the 2026-02-23 fee switch (when buybacks began) is lumpy treasury sweeps rather than steady income, so read it with caution. The earlier window in the growth figure (claim P2.1) starts 2026-02-16, which includes a few of those pre-switch days.
 
 | # | Claim | Status | Value | Reproduce |
 |---|---|---|---|---|

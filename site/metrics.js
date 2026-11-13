@@ -867,6 +867,13 @@ window.METRICS = {
    "volume": 176440686
   }
  ],
+ "data_notes": {
+  "fee_switch": "2026-02-23",
+  "fees_revenue_start": "2025-05-10",
+  "revenue_material_from": "2025-11",
+  "source": "DefiLlama api.llama.fi",
+  "volume_starts": "2024-12-10"
+ },
  "defillama_through": "2026-11-12",
  "hurdle": {
   "actual": [
@@ -1123,7 +1130,7 @@ window.METRICS = {
    "days": 31,
    "fees": null,
    "month": "2024-12",
-   "note": "",
+   "note": "DefiLlama has no fee or revenue data for this month",
    "revenue": null,
    "share_of_fees": null,
    "volume": 2970992
@@ -1133,7 +1140,7 @@ window.METRICS = {
    "days": 31,
    "fees": null,
    "month": "2025-01",
-   "note": "",
+   "note": "DefiLlama has no fee or revenue data for this month",
    "revenue": null,
    "share_of_fees": null,
    "volume": 6405486
@@ -1143,7 +1150,7 @@ window.METRICS = {
    "days": 28,
    "fees": null,
    "month": "2025-02",
-   "note": "",
+   "note": "DefiLlama has no fee or revenue data for this month",
    "revenue": null,
    "share_of_fees": null,
    "volume": 13194437
@@ -1153,7 +1160,7 @@ window.METRICS = {
    "days": 31,
    "fees": null,
    "month": "2025-03",
-   "note": "",
+   "note": "DefiLlama has no fee or revenue data for this month",
    "revenue": null,
    "share_of_fees": null,
    "volume": 23456822
@@ -1163,7 +1170,7 @@ window.METRICS = {
    "days": 30,
    "fees": null,
    "month": "2025-04",
-   "note": "",
+   "note": "DefiLlama has no fee or revenue data for this month",
    "revenue": null,
    "share_of_fees": null,
    "volume": 45321918
@@ -1173,7 +1180,7 @@ window.METRICS = {
    "days": 31,
    "fees": 96,
    "month": "2025-05",
-   "note": "revenue before 2026-02-23 is treasury sweeps; not used for growth",
+   "note": "DefiLlama reports about $0 revenue: NEAR was not yet capturing revenue it counts",
    "revenue": 0,
    "share_of_fees": 0.0,
    "volume": 90736625
@@ -1183,7 +1190,7 @@ window.METRICS = {
    "days": 30,
    "fees": 95436.98,
    "month": "2025-06",
-   "note": "revenue before 2026-02-23 is treasury sweeps; not used for growth",
+   "note": "DefiLlama reports about $0 revenue: NEAR was not yet capturing revenue it counts",
    "revenue": 0,
    "share_of_fees": 0.0,
    "volume": 184121616
@@ -1193,7 +1200,7 @@ window.METRICS = {
    "days": 31,
    "fees": 217997,
    "month": "2025-07",
-   "note": "revenue before 2026-02-23 is treasury sweeps; not used for growth",
+   "note": "DefiLlama reports about $0 revenue: NEAR was not yet capturing revenue it counts",
    "revenue": 0,
    "share_of_fees": 0.0,
    "volume": 235933309
@@ -1203,7 +1210,7 @@ window.METRICS = {
    "days": 31,
    "fees": 419519,
    "month": "2025-08",
-   "note": "revenue before 2026-02-23 is treasury sweeps; not used for growth",
+   "note": "DefiLlama reports about $0 revenue: NEAR was not yet capturing revenue it counts",
    "revenue": 0,
    "share_of_fees": 0.0,
    "volume": 331560249
@@ -1213,7 +1220,7 @@ window.METRICS = {
    "days": 30,
    "fees": 712949,
    "month": "2025-09",
-   "note": "revenue before 2026-02-23 is treasury sweeps; not used for growth",
+   "note": "DefiLlama reports about $0 revenue: NEAR was not yet capturing revenue it counts",
    "revenue": 18,
    "share_of_fees": 2.5e-05,
    "volume": 483791180
@@ -1223,7 +1230,7 @@ window.METRICS = {
    "days": 31,
    "fees": 2496648,
    "month": "2025-10",
-   "note": "revenue before 2026-02-23 is treasury sweeps; not used for growth",
+   "note": "DefiLlama reports about $0 revenue: NEAR was not yet capturing revenue it counts",
    "revenue": 18,
    "share_of_fees": 7e-06,
    "volume": 1723102048
@@ -1233,7 +1240,7 @@ window.METRICS = {
    "days": 30,
    "fees": 7758092,
    "month": "2025-11",
-   "note": "revenue before 2026-02-23 is treasury sweeps; not used for growth",
+   "note": "before the 2026-02-23 fee switch: lumpy treasury sweeps, read with caution",
    "revenue": 768047,
    "share_of_fees": 0.098999,
    "volume": 3661054797
@@ -1243,7 +1250,7 @@ window.METRICS = {
    "days": 31,
    "fees": 4116558,
    "month": "2025-12",
-   "note": "revenue before 2026-02-23 is treasury sweeps; not used for growth",
+   "note": "before the 2026-02-23 fee switch: lumpy treasury sweeps, read with caution",
    "revenue": 176629,
    "share_of_fees": 0.042907,
    "volume": 2009785103
@@ -1253,7 +1260,7 @@ window.METRICS = {
    "days": 31,
    "fees": 4410217,
    "month": "2026-01",
-   "note": "revenue before 2026-02-23 is treasury sweeps; not used for growth",
+   "note": "before the 2026-02-23 fee switch: lumpy treasury sweeps, read with caution",
    "revenue": 359240,
    "share_of_fees": 0.081456,
    "volume": 2724468717
@@ -1263,7 +1270,7 @@ window.METRICS = {
    "days": 28,
    "fees": 4134501,
    "month": "2026-02",
-   "note": "revenue before 2026-02-23 is treasury sweeps; not used for growth",
+   "note": "before the 2026-02-23 fee switch: lumpy treasury sweeps, read with caution",
    "revenue": 663127,
    "share_of_fees": 0.160389,
    "volume": 2378261095
