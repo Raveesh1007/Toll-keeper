@@ -1,8 +1,9 @@
 """Fetch raw data into data/raw/<UTC date of head block>/. Standard library only, no keys."""
-import base64, datetime as dt, json, os, ssl, sys, time, urllib.request
+import base64, datetime as dt, glob, json, os, ssl, sys, time, urllib.request
 
 RPC = "https://rpc.mainnet.near.org"
-ARCHIVAL = "https://archival-rpc.mainnet.fastnear.com"
+ARCHIVAL = "archival"  # routed through ARCHIVALS below
+ARCHIVALS = ["https://archival-rpc.mainnet.fastnear.com", "https://archival-rpc.mainnet.near.org"]  # FastNEAR first; NEAR's own as fallback
 LLAMA = "https://api.llama.fi"
 BLOCKS_PER_DAY = 149_421
 SIGNER, BUYBACK = "v1.signer", "buybacks.multisignature.near"
@@ -48,7 +49,16 @@ def http(url, body=None):
 
 def rpc(method, params, url=RPC):
     """Result of a JSON-RPC call, or None if the node returns an error (e.g. missing block, no contract)."""
-    return http(url, {"jsonrpc": "2.0", "id": 1, "method": method, "params": params}).get("result")
+    body = {"jsonrpc": "2.0", "id": 1, "method": method, "params": params}
+    if url != ARCHIVAL:
+        return http(url, body).get("result")
+    while ARCHIVALS:  # an archival node that keeps failing (e.g. 429 to shared CI addresses) is dropped for the rest of the run
+        try:
+            return http(ARCHIVALS[0], body).get("result")
+        except RuntimeError as e:
+            print(f"  archival node dropped: {e}", file=sys.stderr)
+            ARCHIVALS.pop(0)
+    raise RuntimeError("no archival node available")
 
 
 def ref(height):
@@ -127,14 +137,30 @@ def main():
         "buyback": account(BUYBACK),
     }
 
-    print("history (archival-rpc.mainnet.fastnear.com)", file=sys.stderr)
+    print("history (archival nodes)", file=sys.stderr)
     head_s = int(head["timestamp_ns"]) / 1e9
-    history = [point(f"-{d}d", block_for_time(head_s - d * 86400, head)) for d in OFFSETS_DAYS]
     head_date = dt.datetime.fromtimestamp(head_s, dt.timezone.utc).date()
+    prev_files = sorted(glob.glob(os.path.join("data", "raw", "*", "history.json")))
+    prev = {p["label"]: p for p in json.load(open(prev_files[-1], encoding="utf-8"))} if prev_files else {}
+    history = []
+    for d in OFFSETS_DAYS:  # these move with the head, so fetch them each run
+        label = f"-{d}d"
+        try:
+            history.append(point(label, block_for_time(head_s - d * 86400, head)))
+        except RuntimeError as e:
+            if label not in prev:
+                raise
+            # ponytail: reuses yesterday's block when archives refuse; rates stay right (build uses real timestamps), the window is a day longer
+            print(f"  {label}: archives unavailable ({e}); reusing block {prev[label]['height']} from the previous snapshot", file=sys.stderr)
+            history.append({**prev[label], "stale": True})
     m = FIRST_MONTH
-    while m <= head_date:
-        t = dt.datetime(m.year, m.month, 1, tzinfo=dt.timezone.utc).timestamp()
-        history.append(point(m.isoformat(), block_for_time(t, head)))
+    while m <= head_date:  # first-of-month blocks never change: reuse them once collected
+        label = m.isoformat()
+        if label in prev:
+            history.append(prev[label])
+        else:
+            t = dt.datetime(m.year, m.month, 1, tzinfo=dt.timezone.utc).timestamp()
+            history.append(point(label, block_for_time(t, head)))
         m = dt.date(m.year + m.month // 12, m.month % 12 + 1, 1)
 
     print("defillama + price", file=sys.stderr)

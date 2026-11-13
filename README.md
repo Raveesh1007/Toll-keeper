@@ -141,6 +141,7 @@ For a past block use `https://archival-rpc.mainnet.fastnear.com` and replace `"f
 
 ## Method notes
 
+- Archival data comes from FastNEAR, falling back to NEAR's own archival node if FastNEAR refuses (it rate-limits GitHub's shared runners). First-of-month points never change, so they are reused from the previous snapshot instead of re-fetched; if both archives refuse, the moving points (-30 d etc.) reuse the previous snapshot's blocks and are marked `"stale": true` in `history.json`.
 - History blocks are chosen by timestamp, so "31 days" is 31 days of wall time, and issuance is annualized by the real seconds between blocks.
 - Revenue growth compares the trailing 90 days with the full 90 days ending 180 days earlier. That earlier window starts 2026-02-16, so it includes a few days before the 2026-02-23 fee switch, when DefiLlama revenue was lumpy treasury sweeps. Claim P2.1 prints the exact window.
 - Year-on-year volume is reported two ways, month-to-date and 90 days. They differ a lot because Intents was still ramping up in 2025; both are shown.
