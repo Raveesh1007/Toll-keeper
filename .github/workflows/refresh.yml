@@ -17,8 +17,7 @@ jobs:
       - if: github.event_name != 'push'
         run: |
           set -o pipefail
-          python collect.py 2>&1 | tee collect.log || { echo "::error title=collect.py failed::$(tail -n 5 collect.log | tr '
-' ' ' | cut -c1-900)"; exit 1; }
+          python collect.py 2>&1 | tee collect.log || { echo "::error title=collect.py failed::$(tail -n 4 collect.log | paste -sd' ' - | cut -c1-900)"; exit 1; }
       - run: python test_build.py && python build.py
       - name: commit refreshed data
         run: |
