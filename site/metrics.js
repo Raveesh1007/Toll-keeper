@@ -1,6 +1,6 @@
 window.METRICS = {
  "asof": "2026-11-13",
- "block": 224382807,
+ "block": 224386811,
  "budget_monthly": [
   {
    "avg_price": 2.472667,
@@ -160,10 +160,10 @@ window.METRICS = {
   },
   {
    "avg_price": 3.82442,
-   "coverage": 0.148589,
-   "issuance_cost_usd": 4309499.890254,
-   "issuance_rate": 0.024813,
-   "issued_near": 1126837.61468,
+   "coverage": 0.148595,
+   "issuance_cost_usd": 4309351.708283,
+   "issuance_rate": 0.02476,
+   "issued_near": 1126798.868417,
    "month": "2026-11",
    "partial": true,
    "revenue_usd": 640346,
@@ -186,11 +186,11 @@ window.METRICS = {
    "value": "**$6.05M** = 16.0 bps of volume = **$73.6M/yr**"
   },
   {
-   "claim": "Gross fees vs security budget at 1.6% issuance ($72.8M/yr)",
+   "claim": "Gross fees vs security budget at 1.6% issuance ($73.7M/yr)",
    "id": "P1.3",
    "source": "P1.2 / (1.6% x supply x price)",
    "status": "arith",
-   "value": "**101%**"
+   "value": "**100%**"
   },
   {
    "claim": "NEAR's captured share of fees, last 30 d",
@@ -239,7 +239,7 @@ window.METRICS = {
    "id": "P2.6",
    "source": "`view_account buybacks.multisignature.near`",
    "status": "M",
-   "value": "2,276,003 NEAR now, 1,975,119 at -30 d; +310,976 over 31 d = 11% of net issuance in the same period"
+   "value": "2,276,003 NEAR now, 1,975,954 at -30 d; +310,976 over 31 d = 11% of net issuance in the same period"
   },
   {
    "claim": "Max issuance today",
@@ -251,7 +251,7 @@ window.METRICS = {
   {
    "claim": "Realized net supply growth",
    "id": "P3.2",
-   "source": "`total_supply` at blocks 219837241, 169985117, 224382807",
+   "source": "`total_supply` at blocks 219841119, 169988811, 224386811",
    "status": "M",
    "value": "2.46%/yr (31 d), 2.43%/yr (384 d)"
   },
@@ -260,7 +260,7 @@ window.METRICS = {
    "id": "P3.3",
    "source": "P3.2 x price",
    "status": "M+arith",
-   "value": "32,251,885 NEAR/yr x $3.47 = **$112M/yr**"
+   "value": "32,252,924 NEAR/yr x $3.51 = **$113M/yr**"
   },
   {
    "claim": "Issuance path",
@@ -274,7 +274,7 @@ window.METRICS = {
    "id": "P3.5",
    "source": "P3.3 vs P1.3",
    "status": "arith",
-   "value": "break-even revenue falls from **$112M to $72.8M/yr** with no growth at all"
+   "value": "break-even revenue falls from **$113M to $73.7M/yr** with no growth at all"
   },
   {
    "claim": "MPC threshold history (month starts)",
@@ -950,152 +950,152 @@ window.METRICS = {
    {
     "month": "2026-12",
     "required_at_hurdle": 21700362.0,
-    "required_live": 21698950.0
+    "required_live": 21704781.0
    },
    {
     "month": "2027-01",
     "required_at_hurdle": 22756663.0,
-    "required_live": 22752765.0
+    "required_live": 22768859.0
    },
    {
     "month": "2027-02",
     "required_at_hurdle": 23864380.0,
-    "required_live": 23857759.0
+    "required_live": 23885104.0
    },
    {
     "month": "2027-03",
     "required_at_hurdle": 24911173.0,
-    "required_live": 24901872.0
+    "required_live": 24940288.0
    },
    {
     "month": "2027-04",
     "required_at_hurdle": 26123765.0,
-    "required_live": 26111238.0
+    "required_live": 26162987.0
    },
    {
     "month": "2027-05",
     "required_at_hurdle": 27353411.0,
-    "required_live": 27337485.0
+    "required_live": 27403288.0
    },
    {
     "month": "2027-06",
     "required_at_hurdle": 28684883.0,
-    "required_live": 28665137.0
+    "required_live": 28746735.0
    },
    {
     "month": "2027-07",
     "required_at_hurdle": 30035081.0,
-    "required_live": 30011321.0
+    "required_live": 30109523.0
    },
    {
     "month": "2027-08",
     "required_at_hurdle": 31497088.0,
-    "required_live": 31468829.0
+    "required_live": 31585644.0
    },
    {
     "month": "2027-09",
     "required_at_hurdle": 33030260.0,
-    "required_live": 32997120.0
+    "required_live": 33134132.0
    },
    {
     "month": "2027-10",
     "required_at_hurdle": 34584995.0,
-    "required_live": 34546745.0
+    "required_live": 34704912.0
    },
    {
     "month": "2027-11",
     "required_at_hurdle": 36268476.0,
-    "required_live": 36224517.0
+    "required_live": 36406323.0
    },
    {
     "month": "2027-12",
     "required_at_hurdle": 37975634.0,
-    "required_live": 37925708.0
+    "required_live": 38132226.0
    },
    {
     "month": "2028-01",
     "required_at_hurdle": 39824160.0,
-    "required_live": 39767579.0
+    "required_live": 40001661.0
    },
    {
     "month": "2028-02",
     "required_at_hurdle": 41762666.0,
-    "required_live": 41698902.0
+    "required_live": 41962744.0
    },
    {
     "month": "2028-03",
     "required_at_hurdle": 43661443.0,
-    "required_live": 43590449.0
+    "required_live": 43884254.0
    },
    {
     "month": "2028-04",
     "required_at_hurdle": 45786734.0,
-    "required_live": 45707430.0
+    "required_live": 46035682.0
    },
    {
     "month": "2028-05",
     "required_at_hurdle": 47941917.0,
-    "required_live": 47853962.0
+    "required_live": 48218082.0
    },
    {
     "month": "2028-06",
     "required_at_hurdle": 50275568.0,
-    "required_live": 50178002.0
+    "required_live": 50581976.0
    },
    {
     "month": "2028-07",
     "required_at_hurdle": 52642041.0,
-    "required_live": 52534483.0
+    "required_live": 52979901.0
    },
    {
     "month": "2028-08",
     "required_at_hurdle": 55204478.0,
-    "required_live": 55085833.0
+    "required_live": 55577243.0
    },
    {
     "month": "2028-09",
     "required_at_hurdle": 57891645.0,
-    "required_live": 57761091.0
+    "required_live": 58301921.0
    },
    {
     "month": "2028-10",
     "required_at_hurdle": 60616607.0,
-    "required_live": 60473691.0
+    "required_live": 61065823.0
    },
    {
     "month": "2028-11",
     "required_at_hurdle": 63567219.0,
-    "required_live": 63410612.0
+    "required_live": 64059578.0
    },
    {
     "month": "2028-12",
     "required_at_hurdle": 66559330.0,
-    "required_live": 66388528.0
+    "required_live": 67096431.0
    },
    {
     "month": "2029-01",
     "required_at_hurdle": 69799213.0,
-    "required_live": 69612704.0
+    "required_live": 70385838.0
    }
   ],
   "run_rate_now": 21077335.0,
-  "target": 72820022.0
+  "target": 73659443.0
  },
  "metrics": {
-  "breakeven_vol_per_day": 469983026.410334,
+  "breakeven_vol_per_day": 475400684.140598,
   "buyback_delta_31d": 310975.84708,
   "buyback_near": 2276003.039044,
   "capture_bps_t90": 4.244981,
   "coverage_buyback": 0.113576,
-  "coverage_usd": 0.188335,
+  "coverage_usd": 0.186183,
   "fees_30d": 6048207,
   "growth_6m": 4.225326,
   "growth_capture_ratio": 1.946133,
   "growth_vol_ratio": 2.17114,
   "intents_tvl_usd": 182528104.271749,
-  "issuance_net_per_year_31d": 32251885.110592,
-  "issuance_net_per_year_384d": 31932092.314817,
-  "issuance_rate_31d": 0.02459,
+  "issuance_net_per_year_31d": 32252923.525801,
+  "issuance_net_per_year_384d": 31932074.702418,
+  "issuance_rate_31d": 0.024591,
   "max_inflation_rate": 0.025,
   "months_to_full_cut": 26.644764,
   "mpc_domains": 8,
@@ -1103,19 +1103,19 @@ window.METRICS = {
   "mpc_participants": 16,
   "mpc_threshold": 11,
   "nakamoto_33": 10,
-  "price_usd": 3.47,
-  "required_cagr": 0.747813,
+  "price_usd": 3.51,
+  "required_cagr": 0.756858,
   "rev_growth_annualized": 17.582555,
   "revenue_30d": 1842648,
   "revenue_per_day_t90": 57746.122222,
   "revenue_run_rate": 21077334.611111,
-  "security_budget_target_usd": 72820021.663111,
-  "security_budget_usd": 111914041.333754,
+  "security_budget_target_usd": 73659443.367963,
+  "security_budget_usd": 113207761.57556,
   "signer_access_keys": 0,
   "staked_pct": 0.449508,
   "tee_accounts_unique": 16,
   "tee_entries": 17,
-  "total_supply": 1311599813.816835,
+  "total_supply": 1311599775.070571,
   "treasury_share": 0.0,
   "validators": 356,
   "vol_yoy_90d": 2.128936,
@@ -1508,7 +1508,7 @@ window.METRICS = {
    "version": "3.17.0"
   },
   {
-   "block": 224382807,
+   "block": 224386811,
    "buyback_near": 2276003.039044,
    "date": "2026-11-13",
    "margin": 5,
