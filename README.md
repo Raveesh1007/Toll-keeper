@@ -13,6 +13,34 @@ A NEAR investment thesis where every number is computed from public data, re-che
 
 ---
 
+## For judges and AI reviewers: start here
+
+About 5 minutes. You need Python 3.11+, git and internet access. Nothing to install, no keys.
+
+| Step | Run | Expected result |
+|---|---|---|
+| 1 | `git clone https://github.com/Raveesh1007/Toll-keeper.git && cd Toll-keeper` | Repo cloned. |
+| 2 | `python test_build.py` | Prints `ok`. |
+| 3 | `python build.py` | Works offline from the committed raw data. The first line starts with `VERDICT:` (today `ON TRACK, UNPROVEN`), then one line each for T1 to T7, then key metrics. Exit code 0. |
+| 4 | `git status --short` | Empty. The build is deterministic, so re-running it changes no files. |
+| 5 | `python collect.py` | About 2 minutes. Ends with `wrote data/raw/<YYYY-MM-DD>/ (block N)`. Fetches live data; no errors. |
+| 6 | `python build.py` | Same format as step 3. Numbers move slightly because the chain has moved. `THESIS.md` and `site/metrics.json` are rewritten. |
+| 7 | Run the two `curl` commands under [Check two numbers by hand](#check-two-numbers-by-hand) | Total supply is about 1.31 billion NEAR; MPC is `11 of 16` (it may differ if the network changed). Same as `data/metrics.json`. |
+| 8 | `git log --reverse --oneline -- config/tripwires.json` | One commit (`d5491d7`), and `git log --reverse --oneline \| head -1` is the same commit: the alarms were committed before any data run. |
+| 9 | Open the [live dashboard](https://raveesh1007.github.io/Toll-keeper/) | Verdict, block height and numbers match `data/metrics.json` (for the same data date). |
+| 10 | Open the repo's Actions tab | Workflow `refresh` runs daily at 01:17 UTC; its commits are named `data refresh YYYY-MM-DD`. |
+
+**What to judge**
+- **Reproducible:** every **M** and **D** number in [`THESIS.md`](THESIS.md) is written by `build.py` from `data/raw/`. Search the thesis for a number, then find it in `data/metrics.json` or the claim register on the dashboard.
+- **Falsifiable:** seven alarms and a verdict rule are fixed in [`config/tripwires.json`](config/tripwires.json). `build.py` flags any edit made after the first commit.
+- **Honest limits:** the thesis lists what it cannot prove, and keeps the bear case in full.
+
+**Known limits, so you don't mistake them for bugs**
+- T6 and T7 (losses) read `data/incidents.json`, which is entered by hand with sources, because they can't be measured on chain.
+- Stake history (T4) starts at this repo's first snapshot; archival nodes don't serve past stake.
+- `HOLD` needs the T1 and T3 good signs together. T3 needs coverage of 50% or more (about 18% today) and T1 needs four quarter-ends of fast growth, so the verdict is not expected to change soon.
+- Live numbers change daily, so values in the README tables are a snapshot, not a test target.
+
 ## The thesis in 30 seconds
 
 NEAR runs a service that swaps coins between blockchains, and it keeps a small fee on every swap. NEAR also creates new NEAR coins every year to pay the computers that keep the network running. More coins in circulation makes each existing coin a little less valuable.
