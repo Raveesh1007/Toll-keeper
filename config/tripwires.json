@@ -1,0 +1,36 @@
+{
+  "_note": "Pre-registered 2026-11-13, before the first data run. Do not edit; THESIS.md cites the commit that added this file.",
+  "constants": {
+    "clean_data_start": "2026-03-01",
+    "fee_switch_date": "2026-02-23",
+    "target_issuance": 0.016,
+    "full_cut_date": "2029-01-31",
+    "ramp_start": "2027-01-31",
+    "growth_hurdle_per_year": 0.75,
+    "min_prior_window_days": 60
+  },
+  "tripwires": [
+    {"id": "T1", "watch": "Captured revenue, trailing 90 d vs the 90 d ending 180 d earlier, annualized", "metric": "rev_growth_annualized",
+     "bear": {"op": "<", "value": 0.75, "quarters": 2}, "bull": {"op": ">=", "value": 0.75, "quarters": 4}},
+    {"id": "T2", "watch": "Intents volume, 90 d, year on year", "metric": "vol_yoy_90d",
+     "bear": {"op": "<", "value": 0.0, "quarters": 2}, "bull": {"op": ">", "value": 0.5}},
+    {"id": "T3", "watch": "Revenue coverage of issuance (run-rate / security budget)", "metric": "coverage_usd",
+     "bear": {"falls_month_ends": 3}, "bull": {"op": ">=", "value": 0.5}},
+    {"id": "T4", "watch": "Staked share of supply during the HSP-029 ramp", "metric": "staked_pct",
+     "bear": {"op": "<", "value": 0.40}, "bull": {"op": ">=", "value": 0.45, "held_through_ramp": true}},
+    {"id": "T5", "watch": "MPC liveness margin (participants - threshold)", "metric": "mpc_margin",
+     "bear": {"op": "<", "value": 4, "or_threshold_below": 9}, "bull": {"op": ">=", "value": 7}},
+    {"id": "T6", "watch": "Loss traced to the MPC signing layer", "metric": "mpc_layer_losses",
+     "void": {"op": ">=", "value": 1}},
+    {"id": "T7", "watch": "User loss not made whole in NEAR-run products, last 90 d", "metric": "unremedied_losses_90d",
+     "bear": {"op": ">=", "value": 1}}
+  ],
+  "verdict_rule": "VOID if T6 fires. DON'T HOLD if two or more bear triggers fire. HOLD if T1 and T3 bull triggers both fire and no bear trigger fires. Otherwise ON TRACK, UNPROVEN.",
+  "predictions": [
+    {"by": "2027-03-31", "metric": "revenue_per_day_t90", "op": ">=", "value": 80000, "text": "trailing-90-day revenue >= $80k/day"},
+    {"by": "2027-03-31", "metric": "vol_yoy_90d", "op": ">", "value": 0.0, "text": "volume YoY > 0%"},
+    {"by": "2027-03-31", "metric": "mpc_threshold", "op": ">=", "value": 11, "text": "MPC threshold >= 11"},
+    {"by": "2027-03-31", "metric": "mpc_participants", "op": ">=", "value": 16, "text": "MPC participants >= 16"},
+    {"by": "2027-03-31", "metric": "staked_pct", "op": ">=", "value": 0.42, "text": "staked share >= 42%"}
+  ]
+}
