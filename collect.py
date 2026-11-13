@@ -144,10 +144,13 @@ def main():
     }
     start = int(dt.datetime(2025, 9, 1, tzinfo=dt.timezone.utc).timestamp())
     days = (int(head_s) - start) // 86400 + 1
-    price = {
-        "spot_usd": http("https://api.coingecko.com/api/v3/simple/price?ids=near&vs_currencies=usd")["near"]["usd"],
-        "daily": http(f"https://coins.llama.fi/chart/coingecko:near?start={start}&span={days}&period=1d")["coins"]["coingecko:near"]["prices"],
-    }
+    daily = http(f"https://coins.llama.fi/chart/coingecko:near?start={start}&span={days}&period=1d")["coins"]["coingecko:near"]["prices"]
+    try:
+        spot, spot_source = http("https://api.coingecko.com/api/v3/simple/price?ids=near&vs_currencies=usd")["near"]["usd"], "coingecko"
+    except Exception as e:  # CoinGecko rate-limits shared CI addresses; fall back to the latest daily price
+        print(f"  coingecko spot failed ({e}); using latest coins.llama.fi price", file=sys.stderr)
+        spot, spot_source = daily[-1]["price"], "coins.llama.fi (latest daily)"
+    price = {"spot_usd": spot, "spot_source": spot_source, "daily": daily}
 
     out = os.path.join("data", "raw", head_date.isoformat())
     os.makedirs(out, exist_ok=True)
