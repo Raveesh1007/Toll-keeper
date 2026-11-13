@@ -125,7 +125,7 @@ For a past block use `https://archival-rpc.mainnet.fastnear.com` and replace `"f
 
 Built at NEAR HACKATHON, Investment Thesis track.
 
-- **Other project by the same author at this hackathon (Q-015):** TODO: name + URL
+- **Other project by the same author at this hackathon (Q-015):** **Inferents**: repo https://github.com/Raveesh1007/Inferents · demo https://inferents.vercel.app
 - **AI disclosure (Q-005):** `collect.py`, `build.py`, `test_build.py`, `site/index.html`, `.github/workflows/refresh.yml`, `THESIS.template.md` (adapted from the author's draft) and this README were written with an AI coding assistant. The thesis argument, the tripwire design and the data-source choices are the author's.
 
 Not investment advice.
