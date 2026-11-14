@@ -139,6 +139,7 @@ For a past block use `https://archival-rpc.mainnet.fastnear.com` and replace `"f
 | `data/incidents.json` | Incident ledger from cited sources only. The input for T6 and T7, which can't be measured on chain. |
 | `data/defillama/` | Seed copies of the daily volume and revenue series; `build.py` asserts they match the live data for every day except the latest 7 (DefiLlama revises recent days). |
 | `site/index.html` | Static dashboard, vanilla JS, light and dark mode. Reads `site/metrics.js`. |
+| `site/model.js`, `test_model.js` | "Run the model" sliders: the same formulas as `build.py`. `test_model.js` checks the JS model against `metrics.json` to 4 significant figures; `test_build.py` runs it when Node is installed. |
 | `.github/workflows/refresh.yml` | Daily 01:17 UTC: drift report, collect, test, build, verify, commit, deploy `site/` to GitHub Pages. |
 
 ### The alarms and the verdict

@@ -565,7 +565,7 @@ def main():
             "intents_tvl_usd": llama["tvl_usd"], "capture_bps_30d": capture30 * 1e4,
             "headline_growth_ratio": HG["ratio"], "headline_growth_volume_ratio": HG["vol_ratio"],
             "headline_growth_capture_ratio": HG["capture_ratio"], "headline_growth_capture_share": HG["capture_share"],
-            "coverage_month_end_latest": cov_me[-1][1]}.items()},
+            "coverage_month_end_latest": cov_me[-1][1], "target_issuance": C["target_issuance"]}.items()},
         "headline_growth": {"from_month": HG["from"], "to_month": HG["to"], "text": HG["text"]},
         "t1_validity": {"rule": T1_RULE, "added": "2026-11-14, after pre-registration", "uses_constant": f"clean_data_start = {C['clean_data_start']}",
                         "first_valid_comparison": t1_valid_from.isoformat(), "valid_quarter_ends": len(t1_valid_q),

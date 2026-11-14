@@ -12,4 +12,10 @@ assert pct(0.0359, 1, True) == "+3.6%"
 st = {"Running": {"parameters": {"threshold": 11, "participants": {"participants": [["a.near", 0, {}], ["b.near", 1, {}]]}},
                   "domains": {"domains": [{}, {}, {}]}}}
 assert mpc(st) == {"kind": "Running", "threshold": 11, "participants": 2, "ids": ["a.near", "b.near"], "domains": 3}
+import shutil, subprocess
+if shutil.which("node"):  # JS slider model must agree with build.py on today's defaults
+    r = subprocess.run(["node", "test_model.js"], capture_output=True, text=True)
+    assert r.returncode == 0, r.stdout + r.stderr
+else:
+    print("node not found: JS/Python model agreement check (test_model.js) skipped")
 print("ok")

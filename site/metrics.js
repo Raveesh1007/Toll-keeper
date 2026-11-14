@@ -1265,6 +1265,7 @@ window.METRICS = {
   "security_budget_usd": 107907743.126303,
   "signer_access_keys": 0,
   "staked_pct": 0.448902,
+  "target_issuance": 0.016,
   "tee_accounts_unique": 16,
   "tee_entries": 17,
   "total_supply": 1311650644.325954,

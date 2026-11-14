@@ -44,6 +44,9 @@ a{color:var(--acc)}
 .tbtn:hover{background:var(--acc-soft)}.tbtn svg{width:16px;height:16px}
 .score{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:-4px 2px 16px}
 .score .d{font-size:12.5px;padding:6px 11px}.score b{font-weight:500;margin-right:4px}
+.sl{display:grid;gap:14px;margin-top:14px}.sl label{display:flex;justify-content:space-between;font-size:13px;color:var(--soft)}
+.sl label b{color:var(--ink);font-weight:500}.sl input{width:100%;accent-color:var(--acc)}
+.rbtn{border:0;background:var(--shell);color:var(--ink);font:inherit;font-size:12px;padding:6px 12px;border-radius:999px;cursor:pointer}
 /* top bar */
 .top{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
 .brand{display:flex;align-items:center;gap:9px;background:var(--card);border-radius:999px;padding:9px 16px 9px 10px;font-weight:600;font-size:15px}
@@ -164,7 +167,7 @@ code{font-size:12px}
   <div class="top">
     <div class="brand"><span class="logo">N</span>NEAR Toll Road</div>
     <nav>
-      <a href="#overview" class="on">Overview</a><a href="#alarms">Alarms</a><a href="#guards">Guards</a><a href="#charts">Trends</a><a href="#words">Glossary</a><a href="#data">Data</a>
+      <a href="#overview" class="on">Overview</a><a href="#alarms">Alarms</a><a href="#guards">Guards</a><a href="#model">Model</a><a href="#charts">Trends</a><a href="#words">Glossary</a><a href="#data">Data</a>
     </nav>
     <button class="pill tbtn" id="theme" type="button"></button>
     <span class="pill" id="asof"></span>
@@ -266,6 +269,19 @@ code{font-size:12px}
       <p style="margin:10px 0 0" id="isum"></p><div class="tw"><table id="itable"></table></div></div>
   </div>
 
+  <h2 id="model">Run the model</h2>
+  <p class="hint" style="margin:-6px 2px 12px">Descriptive. Added 2026-11-14, after pre-registration. Not a tripwire. Same formulas as <code>build.py</code> (<code>site/model.js</code>); defaults are today's values. The issuance rate defaults to the 1.6% target.</p>
+  <div class="grid">
+    <div class="card c-7"><div class="ct"><div><h3>Inputs</h3></div><button class="rbtn" id="mreset" type="button">Reset to today</button></div><div class="sl" id="minputs"></div></div>
+    <div class="card c-5"><div class="ct"><div><h3>Outputs</h3><p class="hint">Recomputed as you move a slider.</p></div></div>
+      <div class="mini">
+        <div><small>Coverage at this issuance</small><b id="mo1"></b></div>
+        <div><small>Break-even volume / day</small><b id="mo2"></b></div>
+        <div><small>Required growth / yr to the full cut</small><b id="mo3"></b></div>
+        <div><small>Run-rate vs cost / yr</small><b id="mo4" style="font-size:17px"></b></div>
+      </div></div>
+  </div>
+
   <h2 id="charts">Trends</h2>
   <div class="grid">
     <div class="card c-6"><div class="ct"><div><h3>Revenue vs cost of new tokens</h3><p class="hint">Monthly dollars. The cost jumps when the NEAR price rises.</p></div></div><div id="ch1" style="margin-top:12px"></div></div>
@@ -296,6 +312,7 @@ code{font-size:12px}
 </div>
 
 <script src="metrics.js"></script>
+<script src="model.js"></script>
 <script>
 const D = window.METRICS, M = D.metrics, H = D.hurdle;
 const $ = id => document.getElementById(id);
@@ -496,6 +513,29 @@ drawCharts();
 }
 function LV_last() { const p = D.security.liveness.points; return p[p.length - 1]; }
 
+// run the model (site/model.js)
+{
+  const d0 = tollDefaults(M), cur = {...d0};
+  const F = [["volumePerDay", "Swap volume per day", 1e7, 1.5e9, 1e6, v => usd(v)],
+             ["captureBps", "NEAR's cut (bps of volume)", 0.5, 15, 0.01, v => v.toFixed(2) + " bps"],
+             ["price", "NEAR price", 0.5, 20, 0.01, v => "$" + v.toFixed(2)],
+             ["issuanceRate", "Issuance rate", 0.005, 0.05, 0.0005, v => pct(v, 2)]];
+  $("minputs").innerHTML = F.map(([k, l, lo, hi, st]) =>
+    `<div><label for="mi_${k}">${l}<b id="mv_${k}"></b></label><input type="range" id="mi_${k}" min="${lo}" max="${hi}" step="${st}"></div>`).join("");
+  const run = () => {
+    F.forEach(([k, , , , , f]) => { $("mv_" + k).textContent = f(cur[k]); });
+    const o = tollModel(cur);
+    $("mo1").textContent = pct(o.coverage);
+    $("mo2").textContent = usd(o.breakevenVolPerDay);
+    $("mo3").textContent = (o.requiredCagr >= 0 ? "+" : "") + pct(o.requiredCagr);
+    $("mo4").textContent = usd(o.runRate) + " vs " + usd(o.cost);
+  };
+  const reset = () => { Object.assign(cur, d0); F.forEach(([k]) => { $("mi_" + k).value = cur[k]; }); run(); };
+  F.forEach(([k]) => $("mi_" + k).addEventListener("input", e => { cur[k] = +e.target.value; run(); }));
+  $("mreset").onclick = reset;
+  reset();
+}
+
 // source revisions since snapshot (drift.py)
 {
   const R = D.drift, box = $("driftbox");
@@ -518,7 +558,7 @@ tbl("trip", ["ID", "Watch", "Now", "Bear trigger", "Bull trigger", "State", "Det
 $("foot").innerHTML = `Built at NEAR HACKATHON · block ${n0(D.block)} · DefiLlama through ${D.defillama_through} · alarms pre-registered in commit <code>${esc(D.preregistration.commit.slice(0, 7))}</code> (${esc(D.preregistration.status)} registration) · not investment advice.`;
 
 // nav highlight
-const secs = ["overview", "alarms", "guards", "charts", "words", "data"].map(id => $(id));
+const secs = ["overview", "alarms", "guards", "model", "charts", "words", "data"].map(id => $(id));
 addEventListener("scroll", () => { const y = scrollY + 120; let cur = secs[0];
   secs.forEach(s => { if (s.getBoundingClientRect().top + scrollY <= y) cur = s; });
   document.querySelectorAll("nav a").forEach(a => a.classList.toggle("on", a.getAttribute("href") === "#" + cur.id)); }, {passive: true});
