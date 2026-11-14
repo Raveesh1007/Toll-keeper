@@ -3,8 +3,8 @@
  "files": [
   {
    "path": "data/raw/2026-11-14/head.json",
-   "sha256": "72febe46c2e3be0aee576729c5aca56539f41df0a1f24f64a20524f6da5e7b77",
-   "fetched_at_utc": "2026-11-14T06:52:07Z",
+   "sha256": "1cfad74fdd9aacc7f9a23c3b8b289a90669602807f49db5346ad2e282a747a83",
+   "fetched_at_utc": "2026-11-14T06:55:20Z",
    "requests": [
     {
      "url": "https://rpc.mainnet.near.org",
@@ -17,7 +17,7 @@
        "finality": "final"
       }
      },
-     "fetched_at_utc": "2026-11-14T06:51:31Z"
+     "fetched_at_utc": "2026-11-14T06:54:46Z"
     },
     {
      "url": "https://rpc.mainnet.near.org",
@@ -30,7 +30,7 @@
        null
       ]
      },
-     "fetched_at_utc": "2026-11-14T06:51:34Z"
+     "fetched_at_utc": "2026-11-14T06:54:49Z"
     },
     {
      "url": "https://rpc.mainnet.near.org",
@@ -43,7 +43,7 @@
        "finality": "final"
       }
      },
-     "fetched_at_utc": "2026-11-14T06:51:38Z"
+     "fetched_at_utc": "2026-11-14T06:54:52Z"
     },
     {
      "url": "https://rpc.mainnet.near.org",
@@ -58,7 +58,7 @@
        "finality": "final"
       }
      },
-     "fetched_at_utc": "2026-11-14T06:51:41Z"
+     "fetched_at_utc": "2026-11-14T06:54:56Z"
     },
     {
      "url": "https://rpc.mainnet.near.org",
@@ -73,7 +73,7 @@
        "finality": "final"
       }
      },
-     "fetched_at_utc": "2026-11-14T06:51:44Z"
+     "fetched_at_utc": "2026-11-14T06:54:59Z"
     },
     {
      "url": "https://rpc.mainnet.near.org",
@@ -90,7 +90,7 @@
        "finality": "final"
       }
      },
-     "fetched_at_utc": "2026-11-14T06:51:48Z"
+     "fetched_at_utc": "2026-11-14T06:55:02Z"
     },
     {
      "url": "https://rpc.mainnet.near.org",
@@ -107,7 +107,7 @@
        "finality": "final"
       }
      },
-     "fetched_at_utc": "2026-11-14T06:51:51Z"
+     "fetched_at_utc": "2026-11-14T06:55:06Z"
     },
     {
      "url": "https://rpc.mainnet.near.org",
@@ -124,7 +124,7 @@
        "finality": "final"
       }
      },
-     "fetched_at_utc": "2026-11-14T06:51:55Z"
+     "fetched_at_utc": "2026-11-14T06:55:09Z"
     },
     {
      "url": "https://rpc.mainnet.near.org",
@@ -141,7 +141,7 @@
        "finality": "final"
       }
      },
-     "fetched_at_utc": "2026-11-14T06:51:58Z"
+     "fetched_at_utc": "2026-11-14T06:55:12Z"
     },
     {
      "url": "https://rpc.mainnet.near.org",
@@ -156,7 +156,7 @@
        "finality": "final"
       }
      },
-     "fetched_at_utc": "2026-11-14T06:52:01Z"
+     "fetched_at_utc": "2026-11-14T06:55:16Z"
     },
     {
      "url": "https://rpc.mainnet.near.org",
@@ -169,7 +169,7 @@
        "finality": "final"
       }
      },
-     "fetched_at_utc": "2026-11-14T06:52:05Z"
+     "fetched_at_utc": "2026-11-14T06:55:19Z"
     },
     {
      "url": "https://archival-rpc.mainnet.fastnear.com",
@@ -182,7 +182,7 @@
        "block_id": 224394737
       }
      },
-     "fetched_at_utc": "2026-11-14T06:52:05Z"
+     "fetched_at_utc": "2026-11-14T06:55:19Z"
     },
     {
      "url": "https://archival-rpc.mainnet.fastnear.com",
@@ -195,7 +195,7 @@
        "block_id": 224437936
       }
      },
-     "fetched_at_utc": "2026-11-14T06:52:06Z"
+     "fetched_at_utc": "2026-11-14T06:55:20Z"
     },
     {
      "url": "https://archival-rpc.mainnet.fastnear.com",
@@ -208,14 +208,14 @@
        "block_id": 224437937
       }
      },
-     "fetched_at_utc": "2026-11-14T06:52:07Z"
+     "fetched_at_utc": "2026-11-14T06:55:20Z"
     }
    ]
   },
   {
    "path": "data/raw/2026-11-14/history.json",
-   "sha256": "42f1f6462ccf030d4cc26670f02520e5538d2ccb1ab7b91cb297edd613029a6f",
-   "fetched_at_utc": "2026-11-14T06:52:23Z",
+   "sha256": "5b5487b2a409dbfdfc422068d28f65578c391a0318e43269a1d82037daf01208",
+   "fetched_at_utc": "2026-11-14T06:55:38Z",
    "requests": [
     {
      "url": "https://archival-rpc.mainnet.fastnear.com",
@@ -225,10 +225,10 @@
       "id": 1,
       "method": "block",
       "params": {
-       "block_id": 219995934
+       "block_id": 219996256
       }
      },
-     "fetched_at_utc": "2026-11-14T06:52:07Z"
+     "fetched_at_utc": "2026-11-14T06:55:21Z"
     },
     {
      "url": "https://archival-rpc.mainnet.fastnear.com",
@@ -238,10 +238,10 @@
       "id": 1,
       "method": "block",
       "params": {
-       "block_id": 220044098
+       "block_id": 220044433
       }
      },
-     "fetched_at_utc": "2026-11-14T06:52:08Z"
+     "fetched_at_utc": "2026-11-14T06:55:21Z"
     },
     {
      "url": "https://archival-rpc.mainnet.fastnear.com",
@@ -255,10 +255,10 @@
        "account_id": "v1.signer",
        "method_name": "state",
        "args_base64": "e30=",
-       "block_id": 220044098
+       "block_id": 220044433
       }
      },
-     "fetched_at_utc": "2026-11-14T06:52:08Z"
+     "fetched_at_utc": "2026-11-14T06:55:22Z"
     },
     {
      "url": "https://archival-rpc.mainnet.fastnear.com",
@@ -272,10 +272,10 @@
        "account_id": "v1.signer",
        "method_name": "version",
        "args_base64": "e30=",
-       "block_id": 220044098
+       "block_id": 220044433
       }
      },
-     "fetched_at_utc": "2026-11-14T06:52:09Z"
+     "fetched_at_utc": "2026-11-14T06:55:22Z"
     },
     {
      "url": "https://archival-rpc.mainnet.fastnear.com",
@@ -289,10 +289,10 @@
        "account_id": "v1.signer",
        "method_name": "get_tee_accounts",
        "args_base64": "e30=",
-       "block_id": 220044098
+       "block_id": 220044433
       }
      },
-     "fetched_at_utc": "2026-11-14T06:52:09Z"
+     "fetched_at_utc": "2026-11-14T06:55:23Z"
     },
     {
      "url": "https://archival-rpc.mainnet.fastnear.com",
@@ -304,10 +304,10 @@
       "params": {
        "request_type": "view_account",
        "account_id": "buybacks.multisignature.near",
-       "block_id": 220044098
+       "block_id": 220044433
       }
      },
-     "fetched_at_utc": "2026-11-14T06:52:10Z"
+     "fetched_at_utc": "2026-11-14T06:55:23Z"
     },
     {
      "url": "https://archival-rpc.mainnet.fastnear.com",
@@ -317,10 +317,10 @@
       "id": 1,
       "method": "block",
       "params": {
-       "block_id": 219846513
+       "block_id": 219846835
       }
      },
-     "fetched_at_utc": "2026-11-14T06:52:10Z"
+     "fetched_at_utc": "2026-11-14T06:55:24Z"
     },
     {
      "url": "https://archival-rpc.mainnet.fastnear.com",
@@ -330,10 +330,10 @@
       "id": 1,
       "method": "block",
       "params": {
-       "block_id": 219930101
+       "block_id": 219930425
       }
      },
-     "fetched_at_utc": "2026-11-14T06:52:11Z"
+     "fetched_at_utc": "2026-11-14T06:55:24Z"
     },
     {
      "url": "https://archival-rpc.mainnet.fastnear.com",
@@ -347,10 +347,10 @@
        "account_id": "v1.signer",
        "method_name": "state",
        "args_base64": "e30=",
-       "block_id": 219930101
+       "block_id": 219930425
       }
      },
-     "fetched_at_utc": "2026-11-14T06:52:11Z"
+     "fetched_at_utc": "2026-11-14T06:55:24Z"
     },
     {
      "url": "https://archival-rpc.mainnet.fastnear.com",
@@ -364,10 +364,10 @@
        "account_id": "v1.signer",
        "method_name": "version",
        "args_base64": "e30=",
-       "block_id": 219930101
+       "block_id": 219930425
       }
      },
-     "fetched_at_utc": "2026-11-14T06:52:11Z"
+     "fetched_at_utc": "2026-11-14T06:55:25Z"
     },
     {
      "url": "https://archival-rpc.mainnet.fastnear.com",
@@ -381,10 +381,10 @@
        "account_id": "v1.signer",
        "method_name": "get_tee_accounts",
        "args_base64": "e30=",
-       "block_id": 219930101
+       "block_id": 219930425
       }
      },
-     "fetched_at_utc": "2026-11-14T06:52:12Z"
+     "fetched_at_utc": "2026-11-14T06:55:26Z"
     },
     {
      "url": "https://archival-rpc.mainnet.fastnear.com",
@@ -396,10 +396,10 @@
       "params": {
        "request_type": "view_account",
        "account_id": "buybacks.multisignature.near",
-       "block_id": 219930101
+       "block_id": 219930425
       }
      },
-     "fetched_at_utc": "2026-11-14T06:52:12Z"
+     "fetched_at_utc": "2026-11-14T06:55:26Z"
     },
     {
      "url": "https://archival-rpc.mainnet.fastnear.com",
@@ -409,10 +409,10 @@
       "id": 1,
       "method": "block",
       "params": {
-       "block_id": 211030674
+       "block_id": 211030996
       }
      },
-     "fetched_at_utc": "2026-11-14T06:52:13Z"
+     "fetched_at_utc": "2026-11-14T06:55:26Z"
     },
     {
      "url": "https://archival-rpc.mainnet.fastnear.com",
@@ -422,10 +422,10 @@
       "id": 1,
       "method": "block",
       "params": {
-       "block_id": 211578218
+       "block_id": 211578531
       }
      },
-     "fetched_at_utc": "2026-11-14T06:52:13Z"
+     "fetched_at_utc": "2026-11-14T06:55:27Z"
     },
     {
      "url": "https://archival-rpc.mainnet.fastnear.com",
@@ -439,10 +439,10 @@
        "account_id": "v1.signer",
        "method_name": "state",
        "args_base64": "e30=",
-       "block_id": 211578218
+       "block_id": 211578531
       }
      },
-     "fetched_at_utc": "2026-11-14T06:52:14Z"
+     "fetched_at_utc": "2026-11-14T06:55:27Z"
     },
     {
      "url": "https://archival-rpc.mainnet.fastnear.com",
@@ -456,10 +456,10 @@
        "account_id": "v1.signer",
        "method_name": "version",
        "args_base64": "e30=",
-       "block_id": 211578218
+       "block_id": 211578531
       }
      },
-     "fetched_at_utc": "2026-11-14T06:52:14Z"
+     "fetched_at_utc": "2026-11-14T06:55:28Z"
     },
     {
      "url": "https://archival-rpc.mainnet.fastnear.com",
@@ -473,10 +473,10 @@
        "account_id": "v1.signer",
        "method_name": "get_tee_accounts",
        "args_base64": "e30=",
-       "block_id": 211578218
+       "block_id": 211578531
       }
      },
-     "fetched_at_utc": "2026-11-14T06:52:15Z"
+     "fetched_at_utc": "2026-11-14T06:55:29Z"
     },
     {
      "url": "https://archival-rpc.mainnet.fastnear.com",
@@ -488,10 +488,10 @@
       "params": {
        "request_type": "view_account",
        "account_id": "buybacks.multisignature.near",
-       "block_id": 211578218
+       "block_id": 211578531
       }
      },
-     "fetched_at_utc": "2026-11-14T06:52:15Z"
+     "fetched_at_utc": "2026-11-14T06:55:29Z"
     },
     {
      "url": "https://archival-rpc.mainnet.fastnear.com",
@@ -501,10 +501,10 @@
       "id": 1,
       "method": "block",
       "params": {
-       "block_id": 197582784
+       "block_id": 197583106
       }
      },
-     "fetched_at_utc": "2026-11-14T06:52:16Z"
+     "fetched_at_utc": "2026-11-14T06:55:30Z"
     },
     {
      "url": "https://archival-rpc.mainnet.fastnear.com",
@@ -514,10 +514,10 @@
       "id": 1,
       "method": "block",
       "params": {
-       "block_id": 198885539
+       "block_id": 198885867
       }
      },
-     "fetched_at_utc": "2026-11-14T06:52:16Z"
+     "fetched_at_utc": "2026-11-14T06:55:30Z"
     },
     {
      "url": "https://archival-rpc.mainnet.fastnear.com",
@@ -531,10 +531,10 @@
        "account_id": "v1.signer",
        "method_name": "state",
        "args_base64": "e30=",
-       "block_id": 198885539
+       "block_id": 198885867
       }
      },
-     "fetched_at_utc": "2026-11-14T06:52:16Z"
+     "fetched_at_utc": "2026-11-14T06:55:30Z"
     },
     {
      "url": "https://archival-rpc.mainnet.fastnear.com",
@@ -548,10 +548,10 @@
        "account_id": "v1.signer",
        "method_name": "version",
        "args_base64": "e30=",
-       "block_id": 198885539
+       "block_id": 198885867
       }
      },
-     "fetched_at_utc": "2026-11-14T06:52:17Z"
+     "fetched_at_utc": "2026-11-14T06:55:31Z"
     },
     {
      "url": "https://archival-rpc.mainnet.fastnear.com",
@@ -565,10 +565,10 @@
        "account_id": "v1.signer",
        "method_name": "get_tee_accounts",
        "args_base64": "e30=",
-       "block_id": 198885539
+       "block_id": 198885867
       }
      },
-     "fetched_at_utc": "2026-11-14T06:52:18Z"
+     "fetched_at_utc": "2026-11-14T06:55:32Z"
     },
     {
      "url": "https://archival-rpc.mainnet.fastnear.com",
@@ -580,10 +580,10 @@
       "params": {
        "request_type": "view_account",
        "account_id": "buybacks.multisignature.near",
-       "block_id": 198885539
+       "block_id": 198885867
       }
      },
-     "fetched_at_utc": "2026-11-14T06:52:18Z"
+     "fetched_at_utc": "2026-11-14T06:55:32Z"
     },
     {
      "url": "https://archival-rpc.mainnet.fastnear.com",
@@ -593,10 +593,10 @@
       "id": 1,
       "method": "block",
       "params": {
-       "block_id": 169939899
+       "block_id": 169940221
       }
      },
-     "fetched_at_utc": "2026-11-14T06:52:18Z"
+     "fetched_at_utc": "2026-11-14T06:55:33Z"
     },
     {
      "url": "https://archival-rpc.mainnet.fastnear.com",
@@ -606,10 +606,10 @@
       "id": 1,
       "method": "block",
       "params": {
-       "block_id": 172743042
+       "block_id": 172743361
       }
      },
-     "fetched_at_utc": "2026-11-14T06:52:19Z"
+     "fetched_at_utc": "2026-11-14T06:55:33Z"
     },
     {
      "url": "https://archival-rpc.mainnet.fastnear.com",
@@ -623,10 +623,10 @@
        "account_id": "v1.signer",
        "method_name": "state",
        "args_base64": "e30=",
-       "block_id": 172743042
+       "block_id": 172743361
       }
      },
-     "fetched_at_utc": "2026-11-14T06:52:19Z"
+     "fetched_at_utc": "2026-11-14T06:55:34Z"
     },
     {
      "url": "https://archival-rpc.mainnet.fastnear.com",
@@ -640,10 +640,10 @@
        "account_id": "v1.signer",
        "method_name": "version",
        "args_base64": "e30=",
-       "block_id": 172743042
+       "block_id": 172743361
       }
      },
-     "fetched_at_utc": "2026-11-14T06:52:20Z"
+     "fetched_at_utc": "2026-11-14T06:55:34Z"
     },
     {
      "url": "https://archival-rpc.mainnet.fastnear.com",
@@ -657,10 +657,10 @@
        "account_id": "v1.signer",
        "method_name": "get_tee_accounts",
        "args_base64": "e30=",
-       "block_id": 172743042
+       "block_id": 172743361
       }
      },
-     "fetched_at_utc": "2026-11-14T06:52:20Z"
+     "fetched_at_utc": "2026-11-14T06:55:35Z"
     },
     {
      "url": "https://archival-rpc.mainnet.fastnear.com",
@@ -672,10 +672,10 @@
       "params": {
        "request_type": "view_account",
        "account_id": "buybacks.multisignature.near",
-       "block_id": 172743042
+       "block_id": 172743361
       }
      },
-     "fetched_at_utc": "2026-11-14T06:52:20Z"
+     "fetched_at_utc": "2026-11-14T06:55:35Z"
     },
     {
      "url": "https://archival-rpc.mainnet.fastnear.com",
@@ -685,10 +685,10 @@
       "id": 1,
       "method": "block",
       "params": {
-       "block_id": 167100900
+       "block_id": 167101222
       }
      },
-     "fetched_at_utc": "2026-11-14T06:52:21Z"
+     "fetched_at_utc": "2026-11-14T06:55:36Z"
     },
     {
      "url": "https://archival-rpc.mainnet.fastnear.com",
@@ -698,10 +698,10 @@
       "id": 1,
       "method": "block",
       "params": {
-       "block_id": 170075750
+       "block_id": 170076062
       }
      },
-     "fetched_at_utc": "2026-11-14T06:52:21Z"
+     "fetched_at_utc": "2026-11-14T06:55:36Z"
     },
     {
      "url": "https://archival-rpc.mainnet.fastnear.com",
@@ -715,10 +715,10 @@
        "account_id": "v1.signer",
        "method_name": "state",
        "args_base64": "e30=",
-       "block_id": 170075750
+       "block_id": 170076062
       }
      },
-     "fetched_at_utc": "2026-11-14T06:52:22Z"
+     "fetched_at_utc": "2026-11-14T06:55:37Z"
     },
     {
      "url": "https://archival-rpc.mainnet.fastnear.com",
@@ -732,10 +732,10 @@
        "account_id": "v1.signer",
        "method_name": "version",
        "args_base64": "e30=",
-       "block_id": 170075750
+       "block_id": 170076062
       }
      },
-     "fetched_at_utc": "2026-11-14T06:52:22Z"
+     "fetched_at_utc": "2026-11-14T06:55:37Z"
     },
     {
      "url": "https://archival-rpc.mainnet.fastnear.com",
@@ -749,10 +749,10 @@
        "account_id": "v1.signer",
        "method_name": "get_tee_accounts",
        "args_base64": "e30=",
-       "block_id": 170075750
+       "block_id": 170076062
       }
      },
-     "fetched_at_utc": "2026-11-14T06:52:22Z"
+     "fetched_at_utc": "2026-11-14T06:55:37Z"
     },
     {
      "url": "https://archival-rpc.mainnet.fastnear.com",
@@ -764,10 +764,10 @@
       "params": {
        "request_type": "view_account",
        "account_id": "buybacks.multisignature.near",
-       "block_id": 170075750
+       "block_id": 170076062
       }
      },
-     "fetched_at_utc": "2026-11-14T06:52:23Z"
+     "fetched_at_utc": "2026-11-14T06:55:38Z"
     }
    ],
    "reused_from_previous_snapshot": [
@@ -790,63 +790,63 @@
   {
    "path": "data/raw/2026-11-14/defillama.json",
    "sha256": "d7ea3243c9c487810bd712e4c23b0a8bb9d98c3083fc8443ab7f5962aafe92cd",
-   "fetched_at_utc": "2026-11-14T06:52:24Z",
+   "fetched_at_utc": "2026-11-14T06:55:39Z",
    "requests": [
     {
      "url": "https://api.llama.fi/summary/dexs/near-intents?excludeTotalDataChartBreakdown=true",
      "method": "GET",
      "request_body": null,
-     "fetched_at_utc": "2026-11-14T06:52:23Z"
+     "fetched_at_utc": "2026-11-14T06:55:38Z"
     },
     {
      "url": "https://api.llama.fi/summary/fees/near-intents?dataType=dailyFees&excludeTotalDataChartBreakdown=true",
      "method": "GET",
      "request_body": null,
-     "fetched_at_utc": "2026-11-14T06:52:23Z"
+     "fetched_at_utc": "2026-11-14T06:55:39Z"
     },
     {
      "url": "https://api.llama.fi/summary/fees/near-intents?dataType=dailyRevenue&excludeTotalDataChartBreakdown=true",
      "method": "GET",
      "request_body": null,
-     "fetched_at_utc": "2026-11-14T06:52:24Z"
+     "fetched_at_utc": "2026-11-14T06:55:39Z"
     },
     {
      "url": "https://api.llama.fi/tvl/near-intents",
      "method": "GET",
      "request_body": null,
-     "fetched_at_utc": "2026-11-14T06:52:24Z"
+     "fetched_at_utc": "2026-11-14T06:55:39Z"
     }
    ]
   },
   {
    "path": "data/raw/2026-11-14/price.json",
-   "sha256": "a38b0d1ca32571a19da509a079bd4619ea892c5eeb3f2b740ae405f250be9c81",
-   "fetched_at_utc": "2026-11-14T06:52:26Z",
+   "sha256": "af5e2fb58065bce72b7951d48aa6b1bdc4a6927efa631e468245c7b6382ebea9",
+   "fetched_at_utc": "2026-11-14T06:55:41Z",
    "requests": [
     {
      "url": "https://coins.llama.fi/chart/coingecko:near?start=1756684800&span=440&period=1d",
      "method": "GET",
      "request_body": null,
-     "fetched_at_utc": "2026-11-14T06:52:25Z"
+     "fetched_at_utc": "2026-11-14T06:55:41Z"
     },
     {
      "url": "https://api.coingecko.com/api/v3/simple/price?ids=near&vs_currencies=usd",
      "method": "GET",
      "request_body": null,
-     "fetched_at_utc": "2026-11-14T06:52:26Z"
+     "fetched_at_utc": "2026-11-14T06:55:41Z"
     }
    ]
   },
   {
    "path": "data/raw/2026-11-14/security.json",
    "sha256": "a67532acd02cec6ccd4e2057208d814c4de2e13289b8680e51fea8b5d3a8c96b",
-   "fetched_at_utc": "2026-11-14T06:52:27Z",
+   "fetched_at_utc": "2026-11-14T06:55:43Z",
    "requests": [
     {
      "url": "https://api.llama.fi/protocol/near-intents",
      "method": "GET",
      "request_body": null,
-     "fetched_at_utc": "2026-11-14T06:52:27Z"
+     "fetched_at_utc": "2026-11-14T06:55:43Z"
     }
    ]
   }
