@@ -1,5 +1,6 @@
 """Fetch raw data into data/raw/<UTC date of head block>/. Standard library only, no keys."""
 import base64, datetime as dt, glob, json, os, ssl, sys, time, urllib.request
+import security
 
 RPC = "https://rpc.mainnet.near.org"
 ARCHIVAL = "archival"  # routed through ARCHIVALS below
@@ -200,9 +201,11 @@ def main():
         spot, spot_source = daily[-1]["price"], "coins.llama.fi (latest daily)"
     price = {"spot_usd": spot, "spot_source": spot_source, "daily": daily}
 
+    sec = security.fetch(http)
+
     out = os.path.join("data", "raw", head_date.isoformat())
     os.makedirs(out, exist_ok=True)
-    for name, obj in (("head", head_raw), ("history", history), ("defillama", llama), ("price", price)):
+    for name, obj in (("head", head_raw), ("history", history), ("defillama", llama), ("price", price), ("security", sec)):
         with open(os.path.join(out, name + ".json"), "w", encoding="utf-8", newline="\n") as f:
             json.dump(obj, f, indent=1, sort_keys=True)
     print(f"wrote {out}/ (block {head['height']})")

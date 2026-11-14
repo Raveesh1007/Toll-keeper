@@ -1,6 +1,7 @@
 """data/raw/<latest>/ -> data/metrics.json, data/history.csv, site/metrics.json, site/metrics.js, THESIS.md.
 Standard library only. Deterministic: same raw files + config + git history -> same outputs."""
 import csv, datetime as dt, glob, json, math, os, subprocess, sys
+import security
 
 DAY = dt.timedelta(1)
 YOCTO = 1e24
@@ -265,6 +266,8 @@ def main():
         if k != last:
             path.append(f"{k[0]}-of-{k[1]} ({row['date'][:7]})")
             last = k
+    raw_date = os.path.basename(raw.rstrip("/\\"))
+    SEC = security.derive(head, hist, raw_date, mpc, usd, load(raw + "security.json") if os.path.exists(raw + "security.json") else None)
     m180 = mpc(P["-180d"]["mpc_state"])
     m30 = mpc(P["-30d"]["mpc_state"])
 
@@ -541,7 +544,7 @@ def main():
                       "month_end_latest_month": cov_me[-1][0]},
         "issuance_gross_vs_net": {k: (r(v, 8) if isinstance(v, float) else v) for k, v in ISS.items()},
         "breakeven_variants": [{k: (r(v) if isinstance(v, float) else v) for k, v in x.items()} for x in BE],
-        "tripwires": tripwires, "predictions": predictions,
+        "tripwires": tripwires, "predictions": predictions, "security": SEC,
         "claims": [dict(zip(("id", "claim", "status", "value", "source"), c)) for c in claims],
         "daily_91d": [{"date": (E - DAY * i).isoformat(), "volume": r(vol.get(E - DAY * i), 0), "fees": r(fees.get(E - DAY * i), 0),
                        "revenue": r(rev.get(E - DAY * i), 0)} for i in range(90, -1, -1)],
@@ -556,6 +559,7 @@ def main():
     }
     js = json.dumps(out, indent=1, sort_keys=True, ensure_ascii=False)
     write("data/metrics.json", js + "\n")
+    write("data/derived/security.json", json.dumps(SEC, indent=1, sort_keys=True, ensure_ascii=False) + "\n")
     write("site/metrics.json", js + "\n")
     write("site/metrics.js", "window.METRICS = " + js + ";\n")
     with open("data/history.csv", "w", encoding="utf-8", newline="") as f:
@@ -568,9 +572,10 @@ def main():
     if a != -1 and b != -1:  # README scoreboard line is generated, never typed
         write("README.md", readme[:a] + f"<!-- scoreboard:start -->Scoreboard: {SB_TEXT}, data as of {V['asof']}" + readme[b:])
     print(f"VERDICT: {verdict}   (data as of {V['asof']}, block {V['height']}, DefiLlama through {E})")
-    print(f"  scoreboard: {SB_TEXT}")
     for t in tripwires:
         print(f"  {t['id']} {t['state']:8} now {t['now']}")
+    print(f"  scoreboard: {SB_TEXT}")
+    print(f"  guards: {SEC['value_vs_corruption']['sentence']}")
     m = out["metrics"]
     print(f"  supply {num(S)} NEAR | staked {pct(m['staked_pct'], 2)} | nakamoto {nakamoto} | MPC {V['mpc_now']}, TEE {len(tee)}, {head['mpc_version']}")
     print(f"  issuance {num(iss31)} NEAR/yr ({V['iss31_pct']}) -> budget {usd(budget)} | run-rate {usd(run_rate)} | coverage {V['coverage']}")

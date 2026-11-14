@@ -15,3 +15,5 @@ Limits only. Numbers are filled in by `build.py` from the same data as `data/met
 8. **The bond finding has a narrow scope.** The participant-bond result covers only the contract version and source files cited in it. → `data/derived/security.json` → `participant_bond`.
 9. **Incidents: n = {n_incidents}.** Net recorded user loss is {net_loss}. That is a record of {n_incidents} events, not a rate or a forecast. → `data/incidents.json`.
 10. **NEAR AI is excluded from the verdict.** Its revenue is not shown reaching NEAR holders, so AI adoption does not count toward the thesis.
+11. **Upgrade transactions are not listed.** The governance record shows version changes from monthly state reads (each change happened somewhere between two samples), not the actual proposal and vote transactions, which were not collected. → `data/derived/security.json` → `governance.upgrade_txs_reason`.
+12. **The liveness series is sampled.** Margin and threshold are read on the first block of each month plus the latest block; changes between samples are not seen. → `security.json` → `liveness.points`.

@@ -3,7 +3,7 @@
 
 > **Descriptive. Added 2026-11-14, after pre-registration. Not a tripwire.**
 
-Data as of 2026-11-14 (block 224,469,621; DefiLlama through 2026-11-13); NEAR price $3.35 (spot at collection).
+Data as of 2026-11-14 (block 224,470,533; DefiLlama through 2026-11-13); NEAR price $3.35 (spot at collection).
 
 ## Definitions
 

@@ -164,7 +164,7 @@ code{font-size:12px}
   <div class="top">
     <div class="brand"><span class="logo">N</span>NEAR Toll Road</div>
     <nav>
-      <a href="#overview" class="on">Overview</a><a href="#alarms">Alarms</a><a href="#charts">Trends</a><a href="#words">Glossary</a><a href="#data">Data</a>
+      <a href="#overview" class="on">Overview</a><a href="#alarms">Alarms</a><a href="#guards">Guards</a><a href="#charts">Trends</a><a href="#words">Glossary</a><a href="#data">Data</a>
     </nav>
     <button class="pill tbtn" id="theme" type="button"></button>
     <span class="pill" id="asof"></span>
@@ -244,6 +244,24 @@ code{font-size:12px}
         <a class="btn" href="#charts">See the trend ↓</a>
       </div>
     </div>
+  </div>
+
+  <h2 id="guards">What guards the toll</h2>
+  <p class="hint" style="margin:-6px 2px 12px">Descriptive. Added 2026-11-14, after pre-registration. Not a tripwire.</p>
+  <div class="grid">
+    <div class="card c-7"><div class="ct"><div><h3>Liveness margin</h3><p class="hint">Spare signers: participants minus the threshold that must sign. First-of-month points from <code>v1.signer.state</code>, plus today.</p></div></div>
+      <div id="sec1" style="margin-top:12px"></div><p class="hint" id="sectext" style="margin-top:10px"></p></div>
+    <div class="card c-5"><div class="ct"><div><h3>Value vs cost to corrupt</h3><p class="hint" id="vlabel"></p></div></div>
+      <div class="mini">
+        <div><small>Value held in Intents</small><b id="vval"></b></div>
+        <div><small>Signers that must collude</small><b id="vsig"></b></div>
+        <div><small>Value per corruptible signer</small><b id="vper"></b></div>
+        <div><small>Bond at risk per signer</small><b id="vbond" style="font-size:17px"></b></div>
+      </div>
+      <p style="margin:14px 0 0" id="vsent"></p>
+      <p class="hint" id="vsrc" style="margin-top:8px"></p></div>
+    <div class="card c-12"><div class="ct"><div><h3>Upgrade governance record</h3><p class="hint" id="grule"></p></div></div>
+      <div class="tw"><table id="gtable"></table></div><p class="hint" id="gtx" style="margin-top:10px"></p></div>
   </div>
 
   <h2 id="charts">Trends</h2>
@@ -443,8 +461,29 @@ $("ch3").innerHTML = chart([{name: "$ kept per $10,000 swapped", color: acc, are
 $("ch4").innerHTML = chart([
   {name: "Operators", color: acc, step: true, pts: D.mpc_history.map(r => [mdate(r.date), r.participants])},
   {name: "Must agree", color: cost, step: true, pts: D.mpc_history.map(r => [mdate(r.date), r.threshold])}], {yFmt: v => v.toFixed(0)});
+  const LV = D.security.liveness.points;
+  $("sec1").innerHTML = chart([
+    {name: "Margin (spare signers)", color: acc, step: true, dots: true, pts: LV.map(p => [mdate(p.date), p.margin])},
+    {name: "Threshold (must sign)", color: cost, step: true, pts: LV.map(p => [mdate(p.date), p.threshold])}], {yFmt: v => v.toFixed(0)});
 }
 drawCharts();
+{
+  const S = D.security, VC = S.value_vs_corruption, G = S.governance, B = S.participant_bond;
+  $("sectext").textContent = S.liveness.text;
+  $("vlabel").textContent = "Value: " + VC.value_label;
+  $("vval").textContent = VC.value_in_intents_usd == null ? "null" : usd(VC.value_in_intents_usd);
+  $("vsig").textContent = `${VC.signers_to_corrupt} of ${LV_last().participants_n}`;
+  $("vper").textContent = VC.value_per_corruptible_signer_usd == null ? "null" : usd(VC.value_per_corruptible_signer_usd);
+  $("vbond").textContent = B.finding;
+  $("vsent").textContent = VC.sentence;
+  $("vsrc").innerHTML = `Bond finding: ${esc(B.checked)}. Source: ${esc(B.contract)}. ${esc(B.scope)} ` +
+    B.detail.map(d => `<a href="${esc(d.where)}">${esc(d.where.split("/").pop())}</a>`).join(" · ");
+  $("grule").textContent = G.rule;
+  $("gtable").innerHTML = "<tr><th>Version</th><th>First seen</th><th>Point</th><th>Block</th><th>Changed after</th></tr>" +
+    G.version_changes.map(c => `<tr><td>${esc(c.version)}</td><td>${c.first_seen}</td><td>${c.point}</td><td>${n0(c.first_seen_block)}</td><td>${c.changed_after || "–"}</td></tr>`).join("");
+  $("gtx").textContent = "Upgrade transactions: " + G.upgrade_txs_reason;
+}
+function LV_last() { const p = D.security.liveness.points; return p[p.length - 1]; }
 
 // data tables
 const tbl = (id, head, rows) => $(id).innerHTML = `<tr>${head.map(h => `<th>${esc(h)}</th>`).join("")}</tr>` + rows.map(r => `<tr>${r.map(c => `<td>${c}</td>`).join("")}</tr>`).join("");
@@ -458,7 +497,7 @@ tbl("trip", ["ID", "Watch", "Now", "Bear trigger", "Bull trigger", "State", "Det
 $("foot").innerHTML = `Built at NEAR HACKATHON · block ${n0(D.block)} · DefiLlama through ${D.defillama_through} · alarms pre-registered in commit <code>${esc(D.preregistration.commit.slice(0, 7))}</code> (${esc(D.preregistration.status)} registration) · not investment advice.`;
 
 // nav highlight
-const secs = ["overview", "alarms", "charts", "words", "data"].map(id => $(id));
+const secs = ["overview", "alarms", "guards", "charts", "words", "data"].map(id => $(id));
 addEventListener("scroll", () => { const y = scrollY + 120; let cur = secs[0];
   secs.forEach(s => { if (s.getBoundingClientRect().top + scrollY <= y) cur = s; });
   document.querySelectorAll("nav a").forEach(a => a.classList.toggle("on", a.getAttribute("href") === "#" + cur.id)); }, {passive: true});

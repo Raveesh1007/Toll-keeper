@@ -1,8 +1,8 @@
 {
  "buyback": {
   "amount": "2280159800684037824523676459534",
-  "block_hash": "GqgZNvNLbHTACfksdJQ1CG5fJxQu25N7G5ymyUm75tdH",
-  "block_height": 224469685,
+  "block_hash": "G8sDCopcVpqUYJ59ErfGjB8fs8R4ZL1zaoQBNJ613Po7",
+  "block_height": 224470596,
   "code_hash": "2v9kZJHN4sogHuKtKHaqYAqQBazkqH2cjY1rrjQYvNQa",
   "locked": "0",
   "storage_paid_at": 0,
@@ -28,7 +28,7 @@
    "total_supply": "1311625130467358084293961472458244"
   }
  },
- "height": 224469621,
+ "height": 224470533,
  "mpc_state": {
   "Running": {
    "domains": {
@@ -237,9 +237,9 @@
  },
  "signer_access_keys": [],
  "signer_account": {
-  "amount": "3185771477183571192106475352",
-  "block_hash": "9BLYnrJV6om8DMitx6SiHxNna2WimTeuhPwdWdWUMxNp",
-  "block_height": 224469651,
+  "amount": "3185771477183571192106475437",
+  "block_hash": "FrZ2RpwBNgp14Xz9h96kkSqLKKBmzWKq7PpqEpy3FJkT",
+  "block_height": 224470562,
   "code_hash": "CpGX8ywXJwvWPgZFDDCTCuPJBHF7BATT51gSfc3APERJ",
   "locked": "0",
   "storage_paid_at": 0,
@@ -332,8 +332,8 @@
    "tls_public_key": "ed25519:3R2RE7XSQepvkbbvkvpJ3iWGXgY6Ztpj1T3eguovMXZT"
   }
  ],
- "timestamp_ns": 1794633849339385367,
- "total_supply": "1311650650453195662259307593001137",
+ "timestamp_ns": 1794634367302909529,
+ "total_supply": "1311650646893093677547012093001137",
  "validators": {
   "current": [
    {

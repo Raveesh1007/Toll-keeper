@@ -1,7 +1,7 @@
 <!-- THESIS.md is generated from THESIS.template.md by `python build.py`. Edit the template, not THESIS.md. -->
 # NEAR: a toll on cross-chain settlement, if the toll can pay for the road
 
-**Draft 3 · data as of 2026-11-14 (block 224,469,621; DefiLlama through 2026-11-13) · NEAR $3.35**
+**Draft 3 · data as of 2026-11-14 (block 224,470,533; DefiLlama through 2026-11-13) · NEAR $3.35**
 
 Every number tagged M or D below is computed by `python build.py` from the raw files in `data/raw/`, which `python collect.py` fetches. Nothing is typed in by hand. Tripwires and the verdict rule were pre-registered in commit `d5491d7e3e585dade85c7a6d914587c8ed10d8f3` (`config/tripwires.json`, unchanged since registration).
 
@@ -90,13 +90,13 @@ Net issuance and its dollar cost, month by month, from `total_supply` at archiva
 | 2026-08 | 1,302,386,311 | 2,732,657 | 2.48% | $1.73 | $4.74M | $723k | 15% |
 | 2026-09 | 1,305,118,968 | 2,623,096 | 2.46% | $3.19 | $8.38M | $1.84M | 22% |
 | 2026-10 | 1,307,742,064 | 2,730,912 | 2.46% | $4.90 | $13.4M | $2.19M | 16% |
-| 2026-11 (partial) | 1,310,472,976 | 1,177,674 | 2.48% | $3.79 | $4.47M | $688k | 15% |
+| 2026-11 (partial) | 1,310,472,976 | 1,177,671 | 2.48% | $3.79 | $4.47M | $688k | 15% |
 
 | # | Claim | Status | Value | Reproduce |
 |---|---|---|---|---|
 | P3.1 | Max issuance today | M | 1/40 = 2.5%/yr; treasury share 0/1 (all to stakers; some docs say 90/10, the chain says otherwise) | `EXPERIMENTAL_protocol_config` |
-| P3.2 | Realized net supply growth | M | 2.46%/yr (31 d), 2.43%/yr (384 d) | `total_supply` at blocks 219921398, 170067068, 224469621 |
-| P3.3 | Security budget | M+arith | 32,304,267 NEAR/yr x $3.35 = **$108M/yr** | P3.2 x price |
+| P3.2 | Realized net supply growth | M | 2.46%/yr (31 d), 2.43%/yr (384 d) | `total_supply` at blocks 219922229, 170067913, 224470533 |
+| P3.3 | Security budget | M+arith | 32,306,334 NEAR/yr x $3.35 = **$108M/yr** | P3.2 x price |
 | P3.4 | Issuance path | S | 5% to 2.5% (Oct 2025) to **1.6%** passed Nov 2 2026, phased over 24 months after a 90-day grace period | [The Block](https://www.theblock.co/news/defi/2026-11-03-near-governance-approves-token-issuance-432378) |
 | P3.5 | Effect on the gap | arith | break-even revenue falls from **$108M to $70.3M/yr** with no growth at all | P3.3 vs P1.3 |
 
@@ -122,7 +122,7 @@ Intents moves real assets across 35+ chains through the Chain Signatures MPC net
 | 2026-09-01 | 213,788,089 | 9 | 15 | 6 | 15 | 3.14.0 | 941,372 |
 | 2026-10-01 | 217,994,519 | 11 | 17 | 6 | 18 | 3.16.0 | 1,847,957 |
 | 2026-11-01 | 222,491,355 | 11 | 16 | 5 | 17 | 3.17.0 | 2,144,977 |
-| 2026-11-14 | 224,469,621 | 11 | 16 | 5 | 17 | 3.18.0 | 2,280,160 |
+| 2026-11-14 | 224,470,533 | 11 | 16 | 5 | 17 | 3.18.0 | 2,280,160 |
 
 | # | Claim | Status | Value | Reproduce |
 |---|---|---|---|---|
