@@ -38,7 +38,10 @@ About 5 minutes. You need Python 3.11+, git and internet access. Nothing to inst
 **Known limits, so you don't mistake them for bugs**
 - T6 and T7 (losses) read `data/incidents.json`, which is entered by hand with sources, because they can't be measured on chain.
 - Stake history (T4) starts at this repo's first snapshot; archival nodes don't serve past stake.
-- `HOLD` needs the T1 and T3 good signs together. T3 needs coverage of 50% or more (about 18% today) and T1 needs four quarter-ends of fast growth, so the verdict is not expected to change soon.
+- **T1 (revenue growth):** a comparison only counts if its earlier window starts on or after 2026-03-01 (validity rule added 2026-11-14, after pre-registration; reason: "comparison window predates fee switch (Mar 2026)"). Valid quarter-ends so far: 0, qualifying: 0; the next one evaluated is 2026-12-31. Current values: `metrics.json` → `t1_validity`.
+- **T2 (volume) base effect:** 90-day year-on-year volume (+207.2%) compares against Intents' 2025 ramp-up; month-to-date year on year is +5.9%. The threshold and state logic are unchanged.
+- **T3 (coverage) has two labelled measures:** run-rate (trailing 90-day average × 365): 20%, and month-end series (trigger input): 12% for 2026-10. The bear trigger reads the month-end series.
+- How coverage and break-even are computed, and how break-even moves under other inputs: [METHODS.md](METHODS.md).
 - Live numbers change daily, so values in the README tables are a snapshot, not a test target.
 
 ## The thesis in 30 seconds

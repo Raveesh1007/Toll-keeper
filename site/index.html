@@ -303,8 +303,9 @@ $("steps").innerHTML = [
 const full = D.monthly.filter(r => r.revenue != null && !r.note.startsWith("partial") && r.month >= "2026-03");
 const goalMonth = M.security_budget_target_usd / 12;
 $("rr").textContent = usd(full[full.length - 1].revenue);
-$("rrd").textContent = "×" + M.growth_6m.toFixed(1) + " in 6 months";
-$("rrv").textContent = "in " + new Date(mdate(full[full.length - 1].month)).toLocaleDateString("en-GB", {month: "long", timeZone: "UTC"}) + " · growth uses 90-day averages";
+const HGd = D.headline_growth, monName = s => new Date(mdate(s)).toLocaleDateString("en-GB", {month: "short", year: "numeric", timeZone: "UTC"});
+$("rrd").textContent = "×" + M.headline_growth_ratio.toFixed(1) + " " + monName(HGd.from_month) + " → " + monName(HGd.to_month);
+$("rrv").textContent = "in " + monName(full[full.length - 1].month) + " · about " + pct(M.headline_growth_capture_share) + " of the growth is a higher cut per swap";
 const ymax = goalMonth * 1.12, last = full.length - 1;
 $("bars").innerHTML = full.map((r, i) => {
   const ch = i ? r.revenue / full[i - 1].revenue - 1 : null;
@@ -347,9 +348,17 @@ const plain = {
   T7: ["Unpaid user losses", "Warning if users lose money and aren't repaid"],
 };
 const chip = {neither: ["Quiet", "acc"], BULL: ["Good sign", "up"], BEAR: ["Warning", "down"], VOID: ["Void", "down"]};
+const TV = D.t1_validity;
+const extra = {
+  T1: `${TV.rule}. Validity rule added ${TV.added}. Valid quarter-ends so far: ${TV.valid_quarter_ends} (qualifying: ${TV.qualifying_quarter_ends}); next evaluated ${TV.next_quarter_end_evaluated}.`,
+  T2: "The 90-day figure compares against Intents' 2025 ramp-up (base effect); month-to-date is the like-for-like figure.",
+  T3: "The bear trigger reads the month-end series; the bull trigger reads the run-rate.",
+};
+const nowCell = t => (t.id === "T1" && t.now.startsWith("n/a") ? `n/a until ${esc(TV.first_valid_comparison)}` : t.now.split(" · ").map(esc).join("<br>"))
+  + (extra[t.id] ? `<small>${esc(extra[t.id])}</small>` : "");
 function drawAlarms(f) {
   $("atable").innerHTML = "<tr><th>Alarm</th><th>Now</th><th>Status</th></tr>" + D.tripwires.filter(t => f === "all" || t.state === f)
-    .map(t => `<tr><td>${plain[t.id][0]}<small>${plain[t.id][1]}</small></td><td>${esc(t.now.replace(/ \(.*\)$/, ""))}</td><td><span class="d ${chip[t.state][1]}">${chip[t.state][0]}</span></td></tr>`).join("")
+    .map(t => `<tr><td>${plain[t.id][0]}<small>${plain[t.id][1]}</small></td><td>${nowCell(t)}</td><td><span class="d ${chip[t.state][1]}">${chip[t.state][0]}</span></td></tr>`).join("")
     || "<tr><td colspan=3 class='hint'>None right now.</td></tr>";
 }
 drawAlarms("all");

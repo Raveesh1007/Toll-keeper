@@ -136,7 +136,9 @@ def main():
     vol365 = total(vol, E, 365)
 
     def growth_at(end):
-        # full 90-day windows, no March cutoff (author's choice, 2026-11-13; same method as draft 3)
+        # trailing 90 d vs the 90 d ending 180 d earlier. Validity rule (added 2026-11-14, after pre-registration):
+        # the comparison is only valid if that earlier window starts on/after clean_data_start (2026-03-01, a
+        # pre-registered constant), because revenue before the fee switch was near zero.
         cur, _ = window(rev, end, 90)
         pri, n = window(rev, end - 180 * DAY, 90)
         if end - 269 * DAY < min(rev) or not pri:
@@ -146,7 +148,11 @@ def main():
         g = cur / pri
         return {"end": end, "rev": cur, "rev_prior": pri, "prior_days": n, "vol": vc, "vol_prior": vp,
                 "ratio": g, "annualized": g ** (365 / 180) - 1, "vol_ratio": vc / vp,
-                "cap": cur / vc, "cap_prior": pri / vp, "cap_ratio": (cur / vc) / (pri / vp)}
+                "cap": cur / vc, "cap_prior": pri / vp, "cap_ratio": (cur / vc) / (pri / vp),
+                "prior_start": end - 269 * DAY, "valid": end - 269 * DAY >= clean}
+
+    T1_RULE = "comparison window predates fee switch (Mar 2026)"
+    t1_valid_from = clean + 269 * DAY  # first data day whose comparison window starts on clean_data_start
 
     def vol_yoy_90(end):
         prev = [end - DAY * (365 + i) for i in range(90)]
@@ -210,6 +216,21 @@ def main():
                         "capture_bps": rv / v * 1e4 if rv is not None and v else None,
                         "share_of_fees": rv / f if rv is not None and f else None, "note": "; ".join(note)})
 
+    # headline growth: first full month after the fee switch vs the latest full month (no pre-switch data)
+    fsd = dt.date.fromisoformat(C["fee_switch_date"])
+    complete = [x for x in monthly if x["revenue"] and not x["note"].startswith("partial")]
+    g_from = next(x for x in complete if dt.date.fromisoformat(x["month"] + "-01") > fsd)
+    g_to = complete[-1]
+    HG = {"from": g_from["month"], "to": g_to["month"], "rev_from": g_from["revenue"], "rev_to": g_to["revenue"],
+          "ratio": g_to["revenue"] / g_from["revenue"], "vol_ratio": g_to["volume"] / g_from["volume"],
+          "capture_from_bps": g_from["capture_bps"], "capture_to_bps": g_to["capture_bps"]}
+    HG["capture_ratio"] = HG["capture_to_bps"] / HG["capture_from_bps"]
+    HG["capture_share"] = math.log(HG["capture_ratio"]) / math.log(HG["ratio"]) if HG["ratio"] > 1 else None
+    mname = lambda s: dt.date.fromisoformat(s + "-01").strftime("%b %Y")
+    HG["text"] = (f"x{HG['ratio']:.1f} from {mname(HG['from'])} to {mname(HG['to'])} (monthly revenue), of which about "
+                  f"{pct(HG['capture_share'], 0)} is capture-rate expansion" if HG["capture_share"] is not None else
+                  f"x{HG['ratio']:.2f} from {mname(HG['from'])} to {mname(HG['to'])} (monthly revenue)")
+
     mpts = sorted((p for p in hist if p["label"][0] != "-"), key=lambda p: p["label"])
     budget_rows = []
     for a, b in zip(mpts, mpts[1:] + [head]):
@@ -268,26 +289,35 @@ def main():
         tail = values[-n:]
         return len(tail) == n and all(hit(cond, v) for v in tail)
 
-    g_q = [(q, (growth_at(q) or {}).get("annualized")) for q in qends]
+    g_q = [(q, g["annualized"] if g and g["valid"] else None) for q, g in ((q, growth_at(q)) for q in qends)]
+    t1_valid_q = [(q, v) for q, v in g_q if v is not None]
+    t1_qualifying = sum(1 for _, v in t1_valid_q if v >= T["T1"]["bull"]["value"])
+    t1_next_q = next(q for y in range(E.year, E.year + 3) for q in (dt.date(y, 3, 31), dt.date(y, 6, 30), dt.date(y, 9, 30), dt.date(y, 12, 31))
+                     if q > E and q - 269 * DAY >= clean)
     y_q = [(q, vol_yoy_90(q)) for q in qends]
     cov_me = [(row["month"], row["coverage_t90_month_end"]) for row in budget_rows if "coverage_t90_month_end" in row]
     margin = M["participants"] - M["threshold"]
     mpc_losses = sum(1 for i in incidents if i["layer"] == "mpc_signing" and i["loss_usd"] > 0)
-    unremedied = sum(1 for i in incidents if dt.date.fromisoformat(i["date"]) > E - 90 * DAY and i["loss_usd"] > 0 and not i["made_whole"])
+    unremedied = sum(1 for i in incidents if dt.date.fromisoformat(i["date"]) > E - 90 * DAY and i["loss_usd"] > 0 and i["made_whole"] is not True)
     snaps_ramp = [x["staked_pct"] for x in hist_rows if ramp_start <= dt.date.fromisoformat(x["date"]) <= full_cut]
     t1b, t1u = T["T1"]["bear"], T["T1"]["bull"]
     t2b, t2u = T["T2"]["bear"], T["T2"]["bull"]
     t5b = T["T5"]["bear"]
     qfmt = lambda vals: ", ".join(f"{q:%Y-%m-%d} " + ("n/a" if v is None else "> +10000%" if v > 100 else pct(v, 0, True)) for q, v in vals[-4:])
     trip = [
-        ("T1", pct(G["annualized"], 0, True) + f"/yr (x{mult(G['ratio'])} in 6 mo)",
+        ("T1", (f"x{mult(G['ratio'])} in 6 months (annualised {pct(G['annualized'], 0, True)}, not a forecast)" if G["valid"]
+                else f"n/a: {T1_RULE}; first valid comparison {t1_valid_from}"),
          last_n([v for _, v in g_q], t1b["quarters"], t1b), last_n([v for _, v in g_q], t1u["quarters"], t1u),
-         f"quarter-ends: {qfmt(g_q)} (n/a = no revenue data that far back)"),
-        ("T2", pct(yoy90, 1, True) + f" (month to date {pct(vol_yoy_mtd, 1, True)})",
-         last_n([v for _, v in y_q], t2b["quarters"], t2b), hit(t2u, yoy90), f"quarter-ends: {qfmt(y_q)}; year-earlier windows fall in Intents' 2025 ramp-up, which inflates this"),
-        ("T3", pct(coverage, 0),
+         f"quarter-ends: {qfmt(g_q)}. n/a = {T1_RULE} (validity rule added 2026-11-14, after pre-registration) or no revenue data. "
+         f"Valid quarter-ends so far: {len(t1_valid_q)}, of which qualifying (>= {pct(t1u['value'], 0)}/yr): {t1_qualifying}; next evaluated {t1_next_q}"),
+        ("T2", f"90-day YoY {pct(yoy90, 1, True)} · month-to-date YoY {pct(vol_yoy_mtd, 1, True)}",
+         last_n([v for _, v in y_q], t2b["quarters"], t2b), hit(t2u, yoy90),
+         f"quarter-ends: {qfmt(y_q)}. Base effect: the 90-day comparison window falls in Intents' 2025 ramp-up, which inflates it; "
+         f"month-to-date YoY ({pct(vol_yoy_mtd, 1, True)}) is the like-for-like figure. Threshold and state logic unchanged"),
+        ("T3", f"run-rate (trailing 90-day average × 365): {pct(coverage, 0)} · month-end series (trigger input): {pct(cov_me[-1][1], 0)} for {mname(cov_me[-1][0])}",
          len(cov_me) >= T["T3"]["bear"]["falls_month_ends"] + 1 and all(a[1] > b[1] for a, b in zip(cov_me[-4:], cov_me[-3:])),
-         hit(T["T3"]["bull"], coverage), "month-end coverage: " + ", ".join(f"{mo} {pct(c, 0)}" for mo, c in cov_me)),
+         hit(T["T3"]["bull"], coverage), "bear trigger reads the month-end series, bull trigger reads the run-rate. Month-end series: "
+         + ", ".join(f"{mo} {pct(c, 0)}" for mo, c in cov_me)),
         ("T4", pct(staked / S, 2), hit(T["T4"]["bear"], staked / S),
          E >= full_cut and bool(snaps_ramp) and all(x >= T["T4"]["bull"]["value"] for x in snaps_ramp),
          f"ramp {ramp_start} to {full_cut}; {len(snaps_ramp)} snapshots in ramp so far"),
@@ -343,6 +373,28 @@ def main():
     actual = [{"month": row["month"], "annualized": r(row["revenue"] * 365 / row["days"], 0)}
               for row in monthly if row["revenue"]]
 
+    # ---------- methods: gross vs net issuance, break-even variants ----------
+    ep = head.get("epoch_probe") or {"error": "not collected in this snapshot"}
+    if "error" not in ep:
+        a_, b_, c_ = ep["prev_epoch_first"], ep["prev_epoch_last"], ep["next_epoch_first"]
+        dur = (int(c_["timestamp_ns"]) - int(a_["timestamp_ns"])) / 1e9
+        mint, burn = supply(c_) - supply(b_), supply(a_) - supply(b_)
+        ISS = {"epoch_blocks": [a_["height"], b_["height"], c_["height"]], "epoch_hours": dur / 3600, "mint_near": mint, "burn_near": burn,
+               "burn_share_of_mint": burn / mint, "gross_rate": mint * YEAR_S / dur / supply(c_), "net_rate": (mint - burn) * YEAR_S / dur / supply(c_), "reason": None}
+    else:
+        ISS = {"gross_rate": None, "net_rate": None, "burn_share_of_mint": None, "reason": ep["error"]}
+    capture30 = rev30 / vol30
+    be = lambda cost, cap: cost / 365 / cap
+    gross_cost = ISS["gross_rate"] * S * price if ISS["gross_rate"] else None
+    BE = [("ours: 1.6% target issuance, trailing 90-day capture", budget_target, capture),
+          ("30-day revenue window (capture = 30-day revenue / 30-day volume)", budget_target, capture30),
+          ("today's net issuance (31 d) instead of the 1.6% target", budget, capture),
+          ("today's net issuance + 30-day revenue window", budget, capture30)]
+    if gross_cost:
+        BE += [("today's gross issuance (epoch mint, before burn)", gross_cost, capture),
+               ("today's gross issuance + 30-day revenue window", gross_cost, capture30)]
+    BE = [{"variant": n, "cost_usd": c_, "capture_bps": k * 1e4, "breakeven_vol_per_day": be(c_, k), "vs_ours": be(c_, k) / be_vol} for n, c_, k in BE]
+
     # ---------- formatted values for THESIS.md ----------
     V = {
         "vol_start": min(vol).isoformat(), "fees_start": min(fees).isoformat(), "fee_switch": C["fee_switch_date"],
@@ -352,13 +404,16 @@ def main():
         "fees_annual": usd(fees30 * 365 / 30), "fees_vs_target": pct(fees30 * 365 / 30 / budget_target, 0),
         "required_cagr": pct(required_cagr, 0), "hurdle": pct(hurdle, 0), "full_cut": full_cut.strftime("%Y-%m-%d"),
         "growth": mult(G["ratio"]), "growth_ann": pct(G["annualized"], 0, True),
-        "growth_vs_hurdle": "far faster than that" if G["annualized"] >= hurdle else "slower than that",
-        "cap_share": pct(math.log(G["cap_ratio"]) / math.log(G["ratio"]), 0),
+        "headline_growth": HG["text"], "hg_from": mname(HG["from"]), "hg_to": mname(HG["to"]), "hg_ratio": f"{HG['ratio']:.1f}",
+        "cap_share": pct(HG["capture_share"], 0), "t1_valid_from": t1_valid_from.isoformat(), "t1_next_q": t1_next_q.isoformat(),
+        "t1_rule": T1_RULE, "t1_valid_from_rule": C["clean_data_start"], "t1_valid_n": len(t1_valid_q), "t1_qualifying": t1_qualifying,
+        "cov_me_last": pct(cov_me[-1][1], 0), "cov_me_month": mname(cov_me[-1][0]),
         "vol_yoy_mtd": pct(vol_yoy_mtd, 1, True), "vol_yoy_90": pct(yoy90, 1, True),
         "coverage": pct(coverage, 0), "run_rate": usd(run_rate), "budget": usd(budget), "budget_target": usd(budget_target),
         "gap_target": f"{budget_target / run_rate:.1f}",
         "m180_mpc": f"{m180['threshold']}-of-{m180['participants']}", "mpc_now": f"{M['threshold']}-of-{M['participants']}",
-        "t1_pass": "**Yes**, but see the decomposition below" if G["annualized"] >= hurdle else "**No**",
+        "t1_pass": (f"Not yet testable: under the validity rule the first valid comparison is {t1_valid_from}, the first valid quarter-end {t1_next_q}"
+                    if not G["valid"] else "**Yes**" if G["annualized"] >= hurdle else "**No**"),
         "t3_pass": "Yes" if coverage >= 1 else f"No, {budget_target / run_rate:.1f}x gap at {pct(C['target_issuance'])} issuance",
         "trust_pass": "**Yes**" if not mpc_losses and margin >= t5b["value"] else "**No**",
         "mpc_losses": "no signing-layer loss" if not mpc_losses else f"{mpc_losses} signing-layer loss(es)",
@@ -381,11 +436,13 @@ def main():
         ("P1.2", "Gross fees users paid, last 30 d", "D", f"**{usd(fees30)}** = {V['fee_bps']} bps of volume = **{V['fees_annual']}/yr**", "`summary/fees/near-intents?dataType=dailyFees`"),
         ("P1.3", f"Gross fees vs security budget at {pct(C['target_issuance'])} issuance ({usd(budget_target)}/yr)", "arith", f"**{V['fees_vs_target']}**", "P1.2 / (1.6% x supply x price)"),
         ("P1.4", "NEAR's captured share of fees, last 30 d", "D", f"**{V['share30']}** ({usd(rev30)} of {usd(fees30)})", "`dataType=dailyRevenue`"),
-        ("P2.1", f"Revenue per day, trailing 90 d vs the 90 d ending 180 d earlier ({V['prior_start']} to {V['prior_end']}" + ("; includes days before the 2026-02-23 fee switch" if V["prior_start"] < C["fee_switch_date"] else "") + ")", "D+arith",
-         f"{usd(G['rev'])} vs {usd(G['rev_prior'])} = **x{V['growth']}** ({V['growth_ann']}/yr annualized)", "`build.py` `growth_at()`"),
-        ("P2.2", "Of which: volume", "D+arith", f"x{mult(G['vol_ratio'])} ({usd(G['vol'])} vs {usd(G['vol_prior'])} a day)", "same windows"),
-        ("P2.3", "Of which: capture rate", "D+arith", f"x{mult(G['cap_ratio'])} ({bps(G['cap'])} vs {bps(G['cap_prior'])} bps); {V['cap_share']} of the growth in log terms", "revenue / volume"),
-        ("P2.4", "Fee switch to buybacks live since 2026-02-23", "D", "DefiLlama methodology; [revenue.near.org](https://revenue.near.org/)", "`methodology` field"),
+        ("P2.1", f"Monthly revenue, first full month after the fee switch ({V['hg_from']}) vs the latest full month ({V['hg_to']})", "D+arith",
+         f"{usd(HG['rev_from'])} vs {usd(HG['rev_to'])} = **x{V['hg_ratio']}**", "`build.py` headline growth"),
+        ("P2.2", "Of which: volume", "D+arith", f"x{mult(HG['vol_ratio'])}", "same months"),
+        ("P2.3", "Of which: capture rate", "D+arith", f"x{mult(HG['capture_ratio'])} ({HG['capture_from_bps']:.2f} vs {HG['capture_to_bps']:.2f} bps); {V['cap_share']} of the growth in log terms", "revenue / volume"),
+        ("P2.4", f"Details only: trailing 90 d vs the 90 d ending 180 d earlier ({V['prior_start']} to {V['prior_end']}). Includes pre-fee-switch base, see WEAKNESSES #1", "D+arith",
+         f"{usd(G['rev'])} vs {usd(G['rev_prior'])} = x{V['growth']}; annualised {V['growth_ann']}/yr (not a forecast)", "`build.py` `growth_at()`"),
+        ("P2.4b", "Fee switch to buybacks live since 2026-02-23", "D", "DefiLlama methodology; [revenue.near.org](https://revenue.near.org/)", "`methodology` field"),
         ("P2.5", "Capture rate trend confirmed independently", "S", "[Nansen Q2 2026](https://nansen.ai/post/nansen-near-quarterly-report-q2-2026): 11.5% lifetime to 30.5% trailing 30 d", "-"),
         ("P2.6", "Buyback wallet balance (lower bound on purchases)", "M", f"{num(bb(head))} NEAR now, {num(bb(P['-30d']))} at -30 d; +{num(d_bb31)} over 31 d = {pct(d_bb31 / d_supply31, 0)} of net issuance in the same period", "`view_account buybacks.multisignature.near`"),
         ("P3.1", "Max issuance today", "M", f"{mi[0]}/{mi[1]} = {pct(mi[0] / mi[1])}/yr; treasury share {tr[0]}/{tr[1]} (all to stakers; some docs say 90/10, the chain says otherwise)", "`EXPERIMENTAL_protocol_config`"),
@@ -419,6 +476,24 @@ def main():
 
     with open("THESIS.template.md", encoding="utf-8") as f:
         write("THESIS.md", f.read().format_map(V))
+    lo, hi = 755e6, 804e6  # break-even range reported by other entries (not verified here)
+    in_range = [x["variant"] for x in BE if lo <= x["breakeven_vol_per_day"] <= hi]
+    biggest = max(BE[1:3], key=lambda x: abs(math.log(x["vs_ours"])))  # single-input changes only: revenue window, issuance basis
+    gross_extra = (BE[4]["breakeven_vol_per_day"] / BE[2]["breakeven_vol_per_day"]) if len(BE) > 4 else None
+    MV = dict(V, be_table=table(["Variant", "Annual cost (USD)", "Capture (bps)", "Break-even volume/day", "vs ours"],
+                                [[x["variant"], usd(x["cost_usd"]), f"{x['capture_bps']:.2f}", usd(x["breakeven_vol_per_day"]), f"x{x['vs_ours']:.2f}"] for x in BE]),
+              capture30=f"{capture30 * 1e4:.2f}", rev30=usd(rev30), vol30=usd(vol30), t90_rev=usd(t90_rev),
+              gross_rate=pct(ISS["gross_rate"], 3) if ISS["gross_rate"] else f"null ({ISS['reason']})",
+              net_rate_epoch=pct(ISS["net_rate"], 3) if ISS["net_rate"] else "null", iss31_rate=pct(iss31 / S, 3),
+              burn_share=pct(ISS["burn_share_of_mint"], 2) if ISS["burn_share_of_mint"] is not None else f"null ({ISS['reason']})",
+              epoch_blocks=", ".join(map(str, ISS.get("epoch_blocks", []))) or "n/a",
+              range_verdict=(f"Variants inside that range: {'; '.join(in_range)}." if in_range else
+                             f"No variant here lands inside that range. Of the single-input changes, the one that moves break-even most is {biggest['variant']} "
+                             f"(x{biggest['vs_ours']:.2f}, {usd(biggest['breakeven_vol_per_day'])}/day); the 30-day revenue window moves it x{BE[1]['vs_ours']:.2f}"
+                             + (f", and gross instead of net issuance adds only x{gross_extra:.3f}" if gross_extra else "") + ". The remaining gap is not explained by these inputs; "
+                             "it would need the other entries' own price, window or cost definition, which this repo does not have."))
+    with open("METHODS.template.md", encoding="utf-8") as f:
+        write("METHODS.md", f.read().format_map(MV))
 
     # ---------- machine outputs ----------
     out = {
@@ -438,7 +513,18 @@ def main():
             "growth_6m": G["ratio"], "rev_growth_annualized": G["annualized"], "growth_vol_ratio": G["vol_ratio"], "growth_capture_ratio": G["cap_ratio"],
             "revenue_run_rate": run_rate, "coverage_usd": coverage, "breakeven_vol_per_day": be_vol,
             "vol_yoy_mtd": vol_yoy_mtd, "vol_yoy_90d": yoy90, "required_cagr": required_cagr, "months_to_full_cut": months_left,
-            "intents_tvl_usd": llama["tvl_usd"]}.items()},
+            "intents_tvl_usd": llama["tvl_usd"], "capture_bps_30d": capture30 * 1e4,
+            "headline_growth_ratio": HG["ratio"], "headline_growth_volume_ratio": HG["vol_ratio"],
+            "headline_growth_capture_ratio": HG["capture_ratio"], "headline_growth_capture_share": HG["capture_share"],
+            "coverage_month_end_latest": cov_me[-1][1]}.items()},
+        "headline_growth": {"from_month": HG["from"], "to_month": HG["to"], "text": HG["text"]},
+        "t1_validity": {"rule": T1_RULE, "added": "2026-11-14, after pre-registration", "uses_constant": f"clean_data_start = {C['clean_data_start']}",
+                        "first_valid_comparison": t1_valid_from.isoformat(), "valid_quarter_ends": len(t1_valid_q),
+                        "qualifying_quarter_ends": t1_qualifying, "next_quarter_end_evaluated": t1_next_q.isoformat()},
+        "t3_labels": {"run_rate": "run-rate (trailing 90-day average × 365)", "month_end": "month-end series (trigger input)",
+                      "month_end_latest_month": cov_me[-1][0]},
+        "issuance_gross_vs_net": {k: (r(v, 8) if isinstance(v, float) else v) for k, v in ISS.items()},
+        "breakeven_variants": [{k: (r(v) if isinstance(v, float) else v) for k, v in x.items()} for x in BE],
         "tripwires": tripwires, "predictions": predictions,
         "claims": [dict(zip(("id", "claim", "status", "value", "source"), c)) for c in claims],
         "daily_91d": [{"date": (E - DAY * i).isoformat(), "volume": r(vol.get(E - DAY * i), 0), "fees": r(fees.get(E - DAY * i), 0),
@@ -467,7 +553,7 @@ def main():
     m = out["metrics"]
     print(f"  supply {num(S)} NEAR | staked {pct(m['staked_pct'], 2)} | nakamoto {nakamoto} | MPC {V['mpc_now']}, TEE {len(tee)}, {head['mpc_version']}")
     print(f"  issuance {num(iss31)} NEAR/yr ({V['iss31_pct']}) -> budget {usd(budget)} | run-rate {usd(run_rate)} | coverage {V['coverage']}")
-    print(f"  growth x{V['growth']} ({V['growth_ann']}/yr) | capture {bps(capture)} bps | vol YoY 90d {V['vol_yoy_90']}, MTD {V['vol_yoy_mtd']}")
+    print(f"  headline: {HG['text']} | capture {bps(capture)} bps | vol YoY 90d {V['vol_yoy_90']}, MTD {V['vol_yoy_mtd']}")
     print(f"  break-even {V['be_vol']}/day ({V['be_mult']}x) | required {V['required_cagr']}/yr to {full_cut}")
     print("wrote THESIS.md, data/metrics.json, data/history.csv, site/metrics.json, site/metrics.js")
 

@@ -105,6 +105,22 @@ def block_for_time(target_s, head):
     return b
 
 
+def epoch_probe(start, length):
+    """Headers around the last completed epoch: supply drops inside an epoch (burn) and jumps at its end (mint)."""
+    def back(h):
+        for x in range(h, h - 9, -1):
+            b = rpc("block", {"block_id": x}, ARCHIVAL)
+            if b:
+                return header(b) | {"epoch_id": b["header"]["epoch_id"]}
+        raise RuntimeError(f"no block in {h - 8}..{h}")
+    try:
+        first = archival_block(start - length)
+        return {"prev_epoch_first": first, "prev_epoch_last": back(start - 1), "next_epoch_first": archival_block(start),
+                "epoch_length": length}
+    except RuntimeError as e:
+        return {"error": str(e)}
+
+
 def point(label, b):
     h = b["height"]
     print(f"  {label}: block {h}", file=sys.stderr)
@@ -135,6 +151,7 @@ def main():
         "tee_accounts": view("get_tee_accounts"),
         "contract_update_votes": view("contract_update_votes"),
         "buyback": account(BUYBACK),
+        "epoch_probe": epoch_probe(vals["epoch_start_height"], rpc("EXPERIMENTAL_protocol_config", {"finality": "final"})["epoch_length"]),
     }
 
     print("history (archival nodes)", file=sys.stderr)
