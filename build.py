@@ -342,6 +342,11 @@ def main():
                           "bull_trigger": trip_text[tid][1], "bear": bool(bear), "bull": bool(bull), "void": void,
                           "state": "VOID" if void else "BEAR" if bear else "BULL" if bull else "neither", "note": note})
     TW = {t["id"]: t for t in tripwires}
+    # scoreboard: pre-registered tripwires only, by state; "n/a" = current value not computable (state logic unchanged)
+    for t in tripwires:
+        t["scoreboard_state"] = "n/a" if t["state"] == "neither" and t["now"].startswith("n/a") else t["state"]
+    SB = {k: sum(t["scoreboard_state"] == k for t in tripwires) for k in ("BULL", "BEAR", "VOID", "neither", "n/a")}
+    SB_TEXT = " · ".join(f"{k} {v}" for k, v in SB.items() if v or k in ("BULL", "BEAR", "neither", "n/a")) + f" (of {len(tripwires)} pre-registered tripwires)"
     n_bear = sum(t["bear"] for t in tripwires)
     verdict = ("VOID" if TW["T6"]["void"] else "DON'T HOLD" if n_bear >= 2
                else "HOLD" if TW["T1"]["bull"] and TW["T3"]["bull"] and n_bear == 0 else "ON TRACK, UNPROVEN")
@@ -506,6 +511,7 @@ def main():
     out = {
         "asof": V["asof"], "defillama_through": E.isoformat(), "block": head["height"], "raw_dir": raw.replace("\\", "/"),
         "verdict": verdict,
+        "scoreboard": dict(SB, text=SB_TEXT, label="Descriptive. Added 2026-11-14, after pre-registration. Not a tripwire."),
         "preregistration": {"commit": reg_commit, "status": reg_note},
         "metrics": {k: r(v) for k, v in {
             "total_supply": S, "price_usd": price, "validators": len(stakes), "staked_pct": staked / S, "nakamoto_33": nakamoto,
@@ -557,7 +563,12 @@ def main():
         w.writeheader()
         w.writerows(hist_rows)
 
+    readme = open("README.md", encoding="utf-8").read()
+    a, b = readme.find("<!-- scoreboard:start -->"), readme.find("<!-- scoreboard:end -->")
+    if a != -1 and b != -1:  # README scoreboard line is generated, never typed
+        write("README.md", readme[:a] + f"<!-- scoreboard:start -->Scoreboard: {SB_TEXT}, data as of {V['asof']}" + readme[b:])
     print(f"VERDICT: {verdict}   (data as of {V['asof']}, block {V['height']}, DefiLlama through {E})")
+    print(f"  scoreboard: {SB_TEXT}")
     for t in tripwires:
         print(f"  {t['id']} {t['state']:8} now {t['now']}")
     m = out["metrics"]

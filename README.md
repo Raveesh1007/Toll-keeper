@@ -13,6 +13,17 @@ A NEAR investment thesis where every number is computed from public data, re-che
 
 ---
 
+Verdict: **ON TRACK, UNPROVEN** · Tripwires pre-registered in `d5491d7` · <!-- scoreboard:start -->Scoreboard: BULL 1 · BEAR 0 · neither 5 · n/a 1 (of 7 pre-registered tripwires), data as of 2026-11-14<!-- scoreboard:end -->
+
+## Check it in 5 minutes
+
+| Do this | You should see |
+|---|---|
+| Open the [live dashboard](https://raveesh1007.github.io/Toll-keeper/) | Verdict "ON TRACK, UNPROVEN", the scoreboard, and the "What guards the toll" signing-layer panel. |
+| `git log --reverse --format='%h %ad %s' -- config/tripwires.json` | `d5491d7` first, and no later commits. |
+| `python test_build.py` | `ok` (all checks pass). |
+| `python build.py` (offline, from committed raw data), then `git diff --exit-code data/` | Exit code 0: `metrics.json` is byte-identical to the committed file. |
+
 ## For judges and AI reviewers: start here
 
 About 5 minutes. You need Python 3.11+, git and internet access. Nothing to install, no keys.

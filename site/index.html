@@ -42,6 +42,8 @@ a{color:var(--acc)}
 .live:hover::before,.live:hover::after{opacity:1}
 .tbtn{border:0;cursor:pointer;font:inherit;font-size:13px;color:var(--ink);transition:background-color .2s}
 .tbtn:hover{background:var(--acc-soft)}.tbtn svg{width:16px;height:16px}
+.score{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:-4px 2px 16px}
+.score .d{font-size:12.5px;padding:6px 11px}.score b{font-weight:500;margin-right:4px}
 /* top bar */
 .top{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
 .brand{display:flex;align-items:center;gap:9px;background:var(--card);border-radius:999px;padding:9px 16px 9px 10px;font-weight:600;font-size:15px}
@@ -177,6 +179,7 @@ code{font-size:12px}
     <div class="verdict">Verdict <b id="verdict"></b></div>
   </div>
 
+  <div class="score rise" id="score"></div>
   <div class="steps" id="steps"></div>
 
   <div class="grid">
@@ -217,7 +220,7 @@ code{font-size:12px}
     <!-- alarms -->
     <div class="card c-7 rise" id="alarms" style="animation-delay:.2s">
       <div class="ct" style="flex-wrap:wrap"><div><h3>Alarms</h3><p class="hint">Written down before any data was collected, so they can't be moved later.</p></div>
-        <div class="filters" id="filters"><button class="on" data-f="all">All</button><button data-f="BULL">Good signs</button><button data-f="BEAR">Warnings</button><button data-f="neither">Quiet</button></div></div>
+        <div class="filters" id="filters"><button class="on" data-f="all">All</button><button data-f="BULL">Good signs</button><button data-f="BEAR">Warnings</button><button data-f="neither">Quiet</button><button data-f="n/a">Not computable</button></div></div>
       <div class="tw"><table id="atable"></table></div>
     </div>
 
@@ -289,6 +292,9 @@ const verdictPlain = {"ON TRACK, UNPROVEN": "On track, not proven", "HOLD": "Hol
 
 $("asof").textContent = "📅 " + fmtDay(D.asof);
 $("verdict").textContent = verdictPlain;
+const SBd = D.scoreboard;
+$("score").innerHTML = "<b>Scoreboard</b>" + [["BULL", "up", "Good sign"], ["BEAR", "down", "Warning"], ["neither", "acc", "Quiet"], ["n/a", "mid", "Not computable yet"]]
+  .map(([k, c, l]) => `<span class="d ${c}">${l}: ${SBd[k]}</span>`).join("") + `<span class="hint">Counts the 7 pre-registered tripwires only. ${esc(SBd.label)}</span>`;
 
 // four steps
 const feesYear = M.fees_30d * 365 / 30;
@@ -347,7 +353,7 @@ const plain = {
   T6: ["Signing network losses", "Any loss here voids the whole thesis"],
   T7: ["Unpaid user losses", "Warning if users lose money and aren't repaid"],
 };
-const chip = {neither: ["Quiet", "acc"], BULL: ["Good sign", "up"], BEAR: ["Warning", "down"], VOID: ["Void", "down"]};
+const chip = {neither: ["Quiet", "acc"], BULL: ["Good sign", "up"], BEAR: ["Warning", "down"], VOID: ["Void", "down"], "n/a": ["Not computable yet", "mid"]};
 const TV = D.t1_validity;
 const extra = {
   T1: `${TV.rule}. Validity rule added ${TV.added}. Valid quarter-ends so far: ${TV.valid_quarter_ends} (qualifying: ${TV.qualifying_quarter_ends}); next evaluated ${TV.next_quarter_end_evaluated}.`,
@@ -357,8 +363,8 @@ const extra = {
 const nowCell = t => (t.id === "T1" && t.now.startsWith("n/a") ? `n/a until ${esc(TV.first_valid_comparison)}` : t.now.split(" · ").map(esc).join("<br>"))
   + (extra[t.id] ? `<small>${esc(extra[t.id])}</small>` : "");
 function drawAlarms(f) {
-  $("atable").innerHTML = "<tr><th>Alarm</th><th>Now</th><th>Status</th></tr>" + D.tripwires.filter(t => f === "all" || t.state === f)
-    .map(t => `<tr><td>${plain[t.id][0]}<small>${plain[t.id][1]}</small></td><td>${nowCell(t)}</td><td><span class="d ${chip[t.state][1]}">${chip[t.state][0]}</span></td></tr>`).join("")
+  $("atable").innerHTML = "<tr><th>Alarm</th><th>Now</th><th>Status</th></tr>" + D.tripwires.filter(t => f === "all" || t.scoreboard_state === f)
+    .map(t => `<tr><td>${plain[t.id][0]}<small>${plain[t.id][1]}</small></td><td>${nowCell(t)}</td><td><span class="d ${chip[t.scoreboard_state][1]}">${chip[t.scoreboard_state][0]}</span></td></tr>`).join("")
     || "<tr><td colspan=3 class='hint'>None right now.</td></tr>";
 }
 drawAlarms("all");

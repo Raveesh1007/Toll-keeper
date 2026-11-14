@@ -1646,6 +1646,15 @@ window.METRICS = {
   "status": "unchanged since"
  },
  "raw_dir": "data/raw/2026-11-14/",
+ "scoreboard": {
+  "BEAR": 0,
+  "BULL": 1,
+  "VOID": 0,
+  "label": "Descriptive. Added 2026-11-14, after pre-registration. Not a tripwire.",
+  "n/a": 1,
+  "neither": 5,
+  "text": "BULL 1 · BEAR 0 · neither 5 · n/a 1 (of 7 pre-registered tripwires)"
+ },
  "t1_validity": {
   "added": "2026-11-14, after pre-registration",
   "first_valid_comparison": "2026-11-25",
@@ -1713,6 +1722,7 @@ window.METRICS = {
    "id": "T1",
    "note": "quarter-ends: 2025-12-31 n/a, 2026-03-31 n/a, 2026-06-30 n/a, 2026-09-30 n/a. n/a = comparison window predates fee switch (Mar 2026) (validity rule added 2026-11-14, after pre-registration) or no revenue data. Valid quarter-ends so far: 0, of which qualifying (>= 75%/yr): 0; next evaluated 2026-12-31",
    "now": "n/a: comparison window predates fee switch (Mar 2026); first valid comparison 2026-11-25",
+   "scoreboard_state": "n/a",
    "state": "neither",
    "void": false,
    "watch": "Captured revenue, trailing 90 d vs the 90 d ending 180 d earlier, annualized"
@@ -1725,6 +1735,7 @@ window.METRICS = {
    "id": "T2",
    "note": "quarter-ends: 2025-12-31 n/a, 2026-03-31 > +10000%, 2026-06-30 +1816%, 2026-09-30 +825%. Base effect: the 90-day comparison window falls in Intents' 2025 ramp-up, which inflates it; month-to-date YoY (+5.9%) is the like-for-like figure. Threshold and state logic unchanged",
    "now": "90-day YoY +207.2% · month-to-date YoY +5.9%",
+   "scoreboard_state": "BULL",
    "state": "BULL",
    "void": false,
    "watch": "Intents volume, 90 d, year on year"
@@ -1737,6 +1748,7 @@ window.METRICS = {
    "id": "T3",
    "note": "bear trigger reads the month-end series, bull trigger reads the run-rate. Month-end series: 2025-10 0%, 2025-11 5%, 2025-12 8%, 2026-01 11%, 2026-02 14%, 2026-03 16%, 2026-04 14%, 2026-05 10%, 2026-06 9%, 2026-07 12%, 2026-08 13%, 2026-09 12%, 2026-10 12%",
    "now": "run-rate (trailing 90-day average × 365): 20% · month-end series (trigger input): 12% for Oct 2026",
+   "scoreboard_state": "neither",
    "state": "neither",
    "void": false,
    "watch": "Revenue coverage of issuance (run-rate / security budget)"
@@ -1749,6 +1761,7 @@ window.METRICS = {
    "id": "T4",
    "note": "ramp 2027-01-31 to 2029-01-31; 0 snapshots in ramp so far",
    "now": "44.89%",
+   "scoreboard_state": "neither",
    "state": "neither",
    "void": false,
    "watch": "Staked share of supply during the HSP-029 ramp"
@@ -1761,6 +1774,7 @@ window.METRICS = {
    "id": "T5",
    "note": "",
    "now": "5 (11-of-16)",
+   "scoreboard_state": "neither",
    "state": "neither",
    "void": false,
    "watch": "MPC liveness margin (participants - threshold)"
@@ -1773,6 +1787,7 @@ window.METRICS = {
    "id": "T6",
    "note": "from data/incidents.json (layer = mpc_signing)",
    "now": "0",
+   "scoreboard_state": "neither",
    "state": "neither",
    "void": false,
    "watch": "Loss traced to the MPC signing layer"
@@ -1785,6 +1800,7 @@ window.METRICS = {
    "id": "T7",
    "note": "from data/incidents.json",
    "now": "0",
+   "scoreboard_state": "neither",
    "state": "neither",
    "void": false,
    "watch": "User loss not made whole in NEAR-run products, last 90 d"
