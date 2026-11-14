@@ -5,7 +5,7 @@
 **Can NEAR's tolls pay for its road?**
 A NEAR investment thesis where every number is computed from public data, re-checked daily, and judged by alarms written down in advance.
 
-[**Live dashboard**](https://raveesh1007.github.io/Toll-keeper/) · [Thesis](THESIS.md) · [Live numbers (JSON)](data/metrics.json) · [Pre-registered alarms](config/tripwires.json) · [Weaknesses](WEAKNESSES.md) · [Methods](METHODS.md)
+[**Live dashboard**](https://raveesh1007.github.io/Toll-keeper/) · [Thesis](THESIS.md) · [Weaknesses](WEAKNESSES.md) · [Methods](METHODS.md) · [Provenance](PROVENANCE.md) · [Live numbers (JSON)](data/metrics.json) · [Pre-registered alarms](config/tripwires.json)
 
 `Python 3.11+` · `standard library only` · `no API keys` · `MIT`
 
@@ -13,51 +13,28 @@ A NEAR investment thesis where every number is computed from public data, re-che
 
 ---
 
-Verdict: **ON TRACK, UNPROVEN** · Tripwires pre-registered in `d5491d7` · <!-- scoreboard:start -->Scoreboard: BULL 1 · BEAR 0 · neither 5 · n/a 1 (of 7 pre-registered tripwires), data as of 2026-11-14<!-- scoreboard:end -->
-
-Independent timestamp: GitHub Actions [run 43451573954](https://github.com/Raveesh1007/Toll-keeper/actions/runs/43451573954) (2026-11-13 15:20:11 UTC) ran on `9bfaa67`; `d5491d7` precedes it. Details and scope: [PROVENANCE.md](PROVENANCE.md).
+<!-- top:start -->
+> Five other entries measure NEAR's toll. Toll-keeper also measures what guards it: the 11-of-16 signing layer, the value behind it, and how it has failed so far.
+>
+> Verdict: **ON TRACK, UNPROVEN** · Tripwires pre-registered in `d5491d7` · Scoreboard: BULL 1 · BEAR 0 · neither 5 · n/a 1 (of 7 pre-registered tripwires), data as of 2026-11-14
+<!-- top:end -->
 
 ## Check it in 5 minutes
+
+You need Python 3.11+, git and internet access. Nothing to install, no keys. Clone first: `git clone https://github.com/Raveesh1007/Toll-keeper.git && cd Toll-keeper`.
 
 | Do this | You should see |
 |---|---|
 | Open the [live dashboard](https://raveesh1007.github.io/Toll-keeper/) | Verdict "ON TRACK, UNPROVEN", the scoreboard, and the "What guards the toll" signing-layer panel. |
 | `git log --reverse --format='%h %ad %s' -- config/tripwires.json` | `d5491d7` first, and no later commits. |
 | `python test_build.py` | `ok` (all checks pass). |
-| `python build.py` (offline, from committed raw data), then `git diff --exit-code data/` | Exit code 0: `metrics.json` is byte-identical to the committed file. |
+| `python build.py` (offline, from committed raw data), then `git diff --exit-code data/` | `build.py` prints `VERDICT: ...`, T1 to T7, the scoreboard and key metrics. Then exit code 0: `metrics.json` is byte-identical to the committed file. |
 | `python build.py --verify` | `verify: all raw files match their manifests` (every raw file re-hashed against `data/raw/<date>/manifest.json`). |
-| `python drift.py`, then `python collect.py && python build.py` | A drift report (DefiLlama days revised by more than 0.5% since the committed snapshot, and whether the verdict or any tripwire would change), then fresh numbers. |
+| `python drift.py`, then `python collect.py && python build.py` | A drift report (DefiLlama days revised by more than 0.5% since the committed snapshot, and whether the verdict or any tripwire would change), then fresh numbers from live data (about 2 minutes). |
 
-## For judges and AI reviewers: start here
+## Provenance
 
-About 5 minutes. You need Python 3.11+, git and internet access. Nothing to install, no keys.
-
-| Step | Run | Expected result |
-|---|---|---|
-| 1 | `git clone https://github.com/Raveesh1007/Toll-keeper.git && cd Toll-keeper` | Repo cloned. |
-| 2 | `python test_build.py` | Prints `ok`. |
-| 3 | `python build.py` | Works offline from the committed raw data. The first line starts with `VERDICT:` (today `ON TRACK, UNPROVEN`), then one line each for T1 to T7, then key metrics. Exit code 0. |
-| 4 | `git status --short` | Empty. The build is deterministic, so re-running it changes no files. |
-| 5 | `python collect.py` | About 2 minutes. Ends with `wrote data/raw/<YYYY-MM-DD>/ (block N)`. Fetches live data; no errors. |
-| 6 | `python build.py` | Same format as step 3. Numbers move slightly because the chain has moved. `THESIS.md` and `site/metrics.json` are rewritten. |
-| 7 | Run the two `curl` commands under [Check two numbers by hand](#check-two-numbers-by-hand) | Total supply is about 1.31 billion NEAR; MPC is `11 of 16` (it may differ if the network changed). Same as `data/metrics.json`. |
-| 8 | `git log --reverse --oneline -- config/tripwires.json` | One commit (`d5491d7`), and `git log --reverse --oneline \| head -1` is the same commit: the alarms were committed before any data run. |
-| 9 | Open the [live dashboard](https://raveesh1007.github.io/Toll-keeper/) | Verdict, block height and numbers match `data/metrics.json` (for the same data date). |
-| 10 | Open the repo's Actions tab | Workflow `refresh` runs daily at 01:17 UTC; its commits are named `data refresh YYYY-MM-DD`. |
-
-**What to judge**
-- **Reproducible:** every **M** and **D** number in [`THESIS.md`](THESIS.md) is written by `build.py` from `data/raw/`. Search the thesis for a number, then find it in `data/metrics.json` or the claim register on the dashboard.
-- **Falsifiable:** seven alarms and a verdict rule are fixed in [`config/tripwires.json`](config/tripwires.json). `build.py` flags any edit made after the first commit.
-- **Honest limits:** the thesis lists what it cannot prove, and keeps the bear case in full.
-
-**Known limits, so you don't mistake them for bugs**
-- T6 and T7 (losses) read `data/incidents.json`, which is entered by hand with sources, because they can't be measured on chain.
-- Stake history (T4) starts at this repo's first snapshot; archival nodes don't serve past stake.
-- **T1 (revenue growth):** a comparison only counts if its earlier window starts on or after 2026-03-01 (validity rule added 2026-11-14, after pre-registration; reason: "comparison window predates fee switch (Mar 2026)"). Valid quarter-ends so far: 0, qualifying: 0; the next one evaluated is 2026-12-31. Current values: `metrics.json` → `t1_validity`.
-- **T2 (volume) base effect:** 90-day year-on-year volume (+207.2%) compares against Intents' 2025 ramp-up; month-to-date year on year is +5.9%. The threshold and state logic are unchanged.
-- **T3 (coverage) has two labelled measures:** run-rate (trailing 90-day average × 365): 20%, and month-end series (trigger input): 12% for 2026-10. The bear trigger reads the month-end series.
-- How coverage and break-even are computed, and how break-even moves under other inputs: [METHODS.md](METHODS.md).
-- Live numbers change daily, so values in the README tables are a snapshot, not a test target.
+Independent timestamp: GitHub Actions [run 43451573954](https://github.com/Raveesh1007/Toll-keeper/actions/runs/43451573954) (2026-11-13 15:20:11 UTC) ran on `9bfaa67`; `d5491d7` precedes it. Details, checks and scope: [PROVENANCE.md](PROVENANCE.md).
 
 ## The thesis in 30 seconds
 
@@ -65,38 +42,62 @@ NEAR runs a service that swaps coins between blockchains, and it keeps a small f
 
 **The bet:** if the money NEAR earns from swaps grows big enough to buy back as many coins as NEAR creates, owners stop losing value to the new coins, and holding NEAR for years makes sense. This repo checks every day whether that is happening.
 
-| | Today | Needed by early 2029 |
+<!-- snapshot:start -->
+|  | Today | Needed by 2029-01-31 |
 |---|---|---|
-| Revenue NEAR keeps (yearly pace) | ~$21M | ~$75M |
-| Cost of new tokens printed | ~$115M | ~$75M (after the Nov 2026 issuance cut) |
-| Coverage | **18%** | 100% |
-| Daily swap volume | ~$136M | ~$485M |
+| Revenue NEAR keeps (run-rate: trailing 90-day average × 365) | $21.2M/yr | $70.1M/yr |
+| Cost of new tokens (net issuance × price) | $108M/yr | $70.1M/yr after the 1.6% issuance cut |
+| Coverage (run-rate ÷ cost) | **20%** | 100% |
+| Daily swap volume (90-day average) | $138M | $454M at today's capture rate (4.23 bps) |
+| Revenue growth | x3.9 from Mar 2026 to Oct 2026 (monthly revenue), of which about 52% is capture-rate expansion | about 71%/yr from here |
 | Signing network (MPC) | 11-of-16 | no loss in the signing layer |
 
-Verdict today: **ON TRACK, UNPROVEN.** Figures above are a snapshot; `THESIS.md` and `data/metrics.json` always hold the current ones.
+Generated by `build.py` from data as of 2026-11-14; `THESIS.md` and `data/metrics.json` always hold the current values.
+<!-- snapshot:end -->
 
-## How it works
+## What guards the toll
+
+> **Descriptive. Added 2026-11-14, after pre-registration. Not a tripwire.**
+
+Intents moves real assets across chains through the Chain Signatures MPC network (`v1.signer`). If that layer fails, the toll road closes, so the thesis treats it as the precondition, not a side topic.
+
+<!-- guards:start -->
+≈$169M held in Intents; 11 of 16 signers must collude; bond at risk per signer: none found in contract. Security beyond that rests on TEE attestation (17 current entries) and operator identity.
+
+Liveness margin (participants minus threshold, first-of-month points): 3 from Oct 2025 to Jul 2026, then 4 (Aug 2026), then 6 (Sep 2026 to Oct 2026), then 5 (Nov 2026). Latest: 11-of-16, margin 5.
+
+Participant bond: **none found in contract source** (near/mpc@3.18.0 (e691bdb98d68dcf74653da58d043453a6318765f)). Contract source at tag 3.18.0 only; the deployed code hash is not matched to a build of this tag. Upgrades: Contract upgrades are approved once 11 participants (the threshold) vote for the same update; update_config is private; the account has 0 access keys (re-read at block 224471150).
+
+Value figure: value held in NEAR Intents. Part of it depends on MPC-controlled addresses; that share is not measured here. Context, not a precise exposure.
+<!-- guards:end -->
+
+Full data: [`data/derived/security.json`](data/derived/security.json) and the "What guards the toll" section of the dashboard.
+
+## Weaknesses
+
+Every known weak point is listed, with its numbers and the file or field it refers to, in [WEAKNESSES.md](WEAKNESSES.md). The ones most likely to be mistaken for bugs:
+- **T1 shows `n/a`.** A revenue-growth comparison only counts if its earlier window starts on or after 2026-03-01, after the fee switch. This validity rule was added on 2026-11-14, after pre-registration, and is disclosed as such.
+- **T2's good sign is mostly a base effect.** Its 90-day year-on-year comparison falls in Intents' 2025 ramp-up; the month-to-date figure is shown next to it.
+- **T3 has two labelled measures.** The run-rate (trailing 90-day average × 365) and the month-end series that the bear trigger reads.
+- **Incident fields are often `null`.** Values come only from the cited sources; anything they don't state is `null`, with the reason.
+
+## Methods
+
+How coverage and break-even are computed (security budget = annual issuance × price; revenue = DefiLlama `dailyRevenue`, trailing 90 days), gross versus net issuance measured on a real epoch, and how break-even moves under other inputs: [METHODS.md](METHODS.md).
+
+## Reference
+
+### How it works
 
 ```
- NEAR RPC ─┐
- FastNEAR  ├─► collect.py ─► data/raw/<date>/ ─► build.py ─┬─► THESIS.md   (numbers + verdict)
- DefiLlama │                                               ├─► data/metrics.json, history.csv
- CoinGecko ┘                                               └─► site/  (dashboard, GitHub Pages)
+ NEAR RPC ─┐                                                   ┌─► THESIS.md, METHODS.md, WEAKNESSES.md
+ FastNEAR  ├─► collect.py ─► data/raw/<date>/ ─► build.py ─────┼─► data/metrics.json, history.csv, derived/security.json
+ DefiLlama │   (+ manifest.json)                (--verify)     └─► site/  (dashboard, GitHub Pages)
+ CoinGecko ┘                       drift.py ─► data/derived/drift.json
                                   config/tripwires.json ──► (frozen before the first data run)
 ```
 
 Every figure tagged **M** (measured on NEAR mainnet) or **D** (DefiLlama) in the thesis comes out of `build.py`. Nothing is typed in by hand.
-
-## Quick start: do X → see Y
-
-| # | Do | See |
-|---|---|---|
-| 1 | `python collect.py` | About 2 minutes. Ends with `wrote data/raw/<YYYY-MM-DD>/ (block N)`; that folder holds `head.json`, `history.json`, `defillama.json`, `price.json`. |
-| 2 | `python build.py` | Prints `VERDICT: ...`, one line per tripwire T1-T7, and the key metrics. Rewrites `THESIS.md`, `data/metrics.json`, `data/history.csv`, `site/metrics.js`, `site/metrics.json`. Uses the newest `data/raw/<date>/`, so you can skip step 1 to rebuild from committed data. |
-| 3 | Open the [live dashboard](https://raveesh1007.github.io/Toll-keeper/), or `site/index.html` locally | The dashboard shows the same verdict, block height and numbers as step 2. No server needed. |
-| 4 | `python build.py` again, then `git status --short` | No changes: the build is deterministic for the same raw files. |
-| 5 | `python test_build.py` | `ok` |
-| 6 | Hand-check two numbers (below) | They match a fresh `collect.py` run. |
 
 ### Check two numbers by hand
 
@@ -124,24 +125,27 @@ curl -s https://rpc.mainnet.near.org -H 'Content-Type: application/json' \
 
 For a past block use `https://archival-rpc.mainnet.fastnear.com` and replace `"finality":"final"` with `"block_id":<height>` (heights are in `data/raw/<date>/history.json`).
 
-## What's in the repo
+### What's in the repo
 
 | Path | Purpose |
 |---|---|
-| [`THESIS.md`](THESIS.md) | The thesis. Generated from `THESIS.template.md`; edit the template, not this file. |
-| `collect.py` | Fetches chain state now and at past blocks (30/31/90/180/365/384 days back and the 1st of each month since 2025-10), DefiLlama daily volume/fees/revenue/TVL, and NEAR price. Calls are paced (0.25 s apart) and retried up to 6 times, backing off on HTTP 429 rate limits. |
-| `build.py` | Computes every metric, monthly table, tripwire state, verdict and dated prediction, then writes the outputs above. |
-| [`config/tripwires.json`](config/tripwires.json) | Seven alarms, the verdict rule and the dated predictions. Frozen in commit `d5491d7` before any data was collected; `build.py` flags any later edit in `THESIS.md`. |
-| `data/incidents.json` | Hand-entered, sourced incidents. The only input for T6 and T7, which can't be measured on chain. |
+| [`THESIS.md`](THESIS.md), [`METHODS.md`](METHODS.md), [`WEAKNESSES.md`](WEAKNESSES.md) | Generated by `build.py` from their `*.template.md`; edit the templates. |
+| [`PROVENANCE.md`](PROVENANCE.md) | Order and timestamp checks for the pre-registration. |
+| `collect.py` | Fetches chain state now and at past blocks (30/31/90/180/365/384 days back and the 1st of each month since 2025-10), one epoch's mint and burn, DefiLlama daily volume/fees/revenue/TVL, and NEAR price. Writes `manifest.json` (every request, plus each file's sha256). Calls are paced and retried, backing off on HTTP 429. |
+| `build.py` | Computes every metric, tripwire state, verdict and dated prediction; writes the outputs above. `--verify` re-hashes raw files against their manifests. |
+| `security.py` | Signing-layer panel: liveness margin, upgrade record, value vs cost to corrupt, participant-bond finding. |
+| `drift.py` | Re-fetches DefiLlama and reports revised days and any verdict or tripwire change. |
+| [`config/tripwires.json`](config/tripwires.json) | Seven alarms, the verdict rule and the dated predictions. Frozen in commit `d5491d7`; `build.py` flags any later edit in `THESIS.md`. |
+| `data/incidents.json` | Incident ledger from cited sources only. The input for T6 and T7, which can't be measured on chain. |
 | `data/defillama/` | Seed copies of the daily volume and revenue series; `build.py` asserts they match the live data for every day except the latest 7 (DefiLlama revises recent days). |
 | `site/index.html` | Static dashboard, vanilla JS, light and dark mode. Reads `site/metrics.js`. |
-| `.github/workflows/refresh.yml` | Daily 01:17 UTC: collect, test, build, commit, deploy `site/` to GitHub Pages. |
+| `.github/workflows/refresh.yml` | Daily 01:17 UTC: drift report, collect, test, build, verify, commit, deploy `site/` to GitHub Pages. |
 
-## The alarms and the verdict
+### The alarms and the verdict
 
 | ID | Watches | Warning fires when |
 |---|---|---|
-| T1 | Revenue growth (90 days vs 90 days ending 180 days earlier, annualized) | under 75%/yr at two quarter-ends in a row |
+| T1 | Revenue growth (90 days vs 90 days ending 180 days earlier, annualised) | under 75%/yr at two quarter-ends in a row |
 | T2 | Swap volume, 90 days year on year | below 0% for two quarters |
 | T3 | Revenue ÷ cost of new tokens | falls three month-ends in a row |
 | T4 | Staked share of supply | under 40% |
@@ -151,22 +155,21 @@ For a past block use `https://archival-rpc.mainnet.fastnear.com` and replace `"f
 
 **Verdict rule:** `VOID` if T6 fires; `DON'T HOLD` if two warnings fire; `HOLD` if the T1 and T3 good-sign triggers both fire with no warning; otherwise `ON TRACK, UNPROVEN`.
 
-## Setup on GitHub
+### Setup on GitHub
 
 1. Settings → Actions → General → Workflow permissions: **Read and write**.
 2. Settings → Pages → Source: **GitHub Actions**.
 3. Actions tab → `refresh` → Run workflow once to confirm.
 
-## Method notes
+### Method notes
 
 - Archival data comes from FastNEAR, falling back to NEAR's own archival node if FastNEAR refuses (it rate-limits GitHub's shared runners). First-of-month points never change, so they are reused from the previous snapshot instead of re-fetched; if both archives refuse, the moving points (-30 d etc.) reuse the previous snapshot's blocks and are marked `"stale": true` in `history.json`.
-- History blocks are chosen by timestamp, so "31 days" is 31 days of wall time, and issuance is annualized by the real seconds between blocks.
-- Revenue growth compares the trailing 90 days with the full 90 days ending 180 days earlier. That earlier window starts 2026-02-16, so it includes a few days before the 2026-02-23 fee switch, when DefiLlama revenue was lumpy treasury sweeps. Claim P2.1 prints the exact window.
-- Year-on-year volume is reported two ways, month-to-date and 90 days. They differ a lot because Intents was still ramping up in 2025; both are shown.
+- History blocks are chosen by timestamp, so "31 days" is 31 days of wall time, and issuance is annualised by the real seconds between blocks.
+- The headline revenue growth compares the first full month after the 2026-02-23 fee switch with the latest full month, so no pre-switch revenue is used. The 6-month comparison is kept only as a detail (THESIS claim P2.4) because its earlier window includes pre-switch days.
 - Validator stake at past blocks isn't served by archival nodes, so stake history (T4) starts at this repo's first snapshot (`data/history.csv`).
 - On Windows, `collect.py` builds its TLS context from the Windows ROOT store only, because the intermediate store can hold an expired ISRG cross-signature that makes Python reject FastNEAR's valid certificate. Verification stays on.
 - The dashboard loads the Onest font from a public CDN; without network it renders with a fallback font.
-- Network access needed: `rpc.mainnet.near.org`, `archival-rpc.mainnet.fastnear.com`, `api.llama.fi`, `coins.llama.fi`, `api.coingecko.com`.
+- Network access needed: `rpc.mainnet.near.org`, `archival-rpc.mainnet.fastnear.com`, `archival-rpc.mainnet.near.org`, `api.llama.fi`, `coins.llama.fi`, `api.coingecko.com`.
 
 ## Hackathon
 
@@ -176,4 +179,3 @@ Built at NEAR HACKATHON, Investment Thesis track.
 - **AI disclosure (Q-005):** `collect.py`, `build.py`, `test_build.py`, `site/index.html`, `.github/workflows/refresh.yml`, `THESIS.template.md` (adapted from the author's draft) and this README were written with an AI coding assistant. The thesis argument, the tripwire design and the data-source choices are the author's.
 
 Not investment advice.
-
