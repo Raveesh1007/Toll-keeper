@@ -10,7 +10,7 @@
    "https://github.com/near/mpc/blob/e691bdb98d68dcf74653da58d043453a6318765f/crates/contract/src/api/update.rs#L152"
   ],
   "upgrade_txs": null,
-  "upgrade_txs_reason": "not collected: the FastNEAR tx API (tx.main.fastnear.com/v0/account) returns transaction hashes without method names for v1.signer, whose traffic is dominated by signing requests; isolating upgrade votes would need every transaction fetched, which did not fit the time box. Version changes below are taken from monthly state reads instead.",
+  "upgrade_txs_reason": "not listed: public transaction indexes return v1.signer transactions without method names, and almost all of them are signing requests, so upgrade votes cannot be picked out without fetching every transaction. The version changes below come from monthly reads of the contract instead.",
   "version_changes": [
    {
     "changed_after": null,

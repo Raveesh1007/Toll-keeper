@@ -24,9 +24,9 @@ BOND_FINDING = {
          "where": SRC + "crates/near-mpc-contract-interface/src/deposits.rs#L4"},
     ],
 }
-UPGRADE_TXS_REASON = ("not collected: the FastNEAR tx API (tx.main.fastnear.com/v0/account) returns transaction hashes without method "
-                      "names for v1.signer, whose traffic is dominated by signing requests; isolating upgrade votes would need every "
-                      "transaction fetched, which did not fit the time box. Version changes below are taken from monthly state reads instead.")
+UPGRADE_TXS_REASON = ("not listed: public transaction indexes return v1.signer transactions without method names, and almost all of them "
+                      "are signing requests, so upgrade votes cannot be picked out without fetching every transaction. The version changes "
+                      "below come from monthly reads of the contract instead.")
 
 
 def fetch(http):

@@ -1,25 +1,24 @@
-# Provenance of the pre-registration
+# Provenance: were the alarms written before the data?
 
 > **Descriptive. Added 2026-11-14, after pre-registration. Not a tripwire.**
 
-**Claim:** the tripwires and verdict rule in `config/tripwires.json` were committed before any data was collected, and they have not changed since.
+**Yes.** The tripwires and verdict rule (`config/tripwires.json`) were committed before any data was collected, and they have not been edited since.
 
-| Item | Value |
+| Evidence | Value |
 |---|---|
-| Pre-registration commit | `d5491d7e3e585dade85c7a6d914587c8ed10d8f3` (author date 2026-11-13T19:17:51+05:30) |
-| Files in that commit | `LICENSE`, `config/tripwires.json` only |
-| `config/tripwires.json` sha256 at that commit | `524e5402b8aee0bdd4ef19b020dcbd125b80969650d7c54ee6def23fa61cf589` (identical at `HEAD`) |
-| First commit adding anything under `data/raw/` | `e0d6912` ("first data run 2026-11-13"), a descendant of `d5491d7` |
-| Earliest successful GitHub Actions run | [run 43451573954](https://github.com/Raveesh1007/Toll-keeper/actions/runs/43451573954), created **2026-11-13T15:20:11Z**, event `push`, `headSha` `9bfaa674cf622c44a53195985bf85da3ee6606b7` |
-| Order check | `git merge-base --is-ancestor d5491d7 9bfaa67` succeeds; `git log d5491d7..9bfaa67` lists `e0d6912`, `b11acea`, `68b10d6`, `9bfaa67` |
+| Pre-registration commit | `d5491d7` (`d5491d7e3e585dade85c7a6d914587c8ed10d8f3`), the first commit in the repo. It contains only `LICENSE` and `config/tripwires.json`. |
+| Alarm file fingerprint | sha256 `524e5402b8aee0bdd4ef19b020dcbd125b80969650d7c54ee6def23fa61cf589`, identical today |
+| First data | Added in a later commit, `e0d6912` |
+| Independent timestamp | [GitHub Actions run 43451573954](https://github.com/Raveesh1007/Toll-keeper/actions/runs/43451573954), timestamped by GitHub at **2026-11-13 15:20:11 UTC**, ran on commit `9bfaa67`, which descends from `d5491d7` |
 
-**Re-check:**
+**Check it yourself**
 
 ```
-gh run view 43451573954 --repo Raveesh1007/Toll-keeper --json createdAt,headSha,conclusion,event,url
-git merge-base --is-ancestor d5491d7 9bfaa674cf622c44a53195985bf85da3ee6606b7 && echo ok
-git log --reverse --format='%h %ad %s' -- config/tripwires.json
-git show d5491d7:config/tripwires.json | sha256sum
+git log --reverse --format='%h %ad %s' -- config/tripwires.json    # only d5491d7
+git show d5491d7:config/tripwires.json | sha256sum                  # 524e5402...
+git merge-base --is-ancestor d5491d7 9bfaa67 && echo ok              # d5491d7 came first
 ```
 
-**Scope (WEAKNESSES #6).** Git commit dates are set by the author. A GitHub Actions run is timestamped by GitHub's servers and shows that a commit existed by that time, not when it was written. So this proves `d5491d7` existed by 2026-11-13T15:20:11Z and that every data file was added in a later commit; it does not independently prove the hour `d5491d7` was written. No mainnet transaction was used.
+Then open the run link above and confirm its time and commit.
+
+**What this does not prove.** Git commit dates are set by the author. The GitHub run proves `d5491d7` existed by 2026-11-13 15:20:11 UTC and that all data was added after it; it does not prove the exact hour `d5491d7` was written.
