@@ -13,7 +13,7 @@
 | Earliest successful GitHub Actions run | [run 43451573954](https://github.com/Raveesh1007/Toll-keeper/actions/runs/43451573954), created **2026-11-13T15:20:11Z**, event `push`, `headSha` `9bfaa674cf622c44a53195985bf85da3ee6606b7` |
 | Order check | `git merge-base --is-ancestor d5491d7 9bfaa67` succeeds; `git log d5491d7..9bfaa67` lists `e0d6912`, `b11acea`, `68b10d6`, `9bfaa67` |
 
-**How the run data was obtained.** The run ID, `createdAt`, event, conclusion and `headSha` were read from the public GitHub REST API (`/repos/Raveesh1007/Toll-keeper/actions/runs`) on 2026-11-13 while the repository was public; `gh` was not available on the build machine. Two earlier runs exist (15:12:29Z on `b11acea`, 15:14:18Z on `68b10d6`); both concluded `failure` (for the 15:14:18Z run the failing step was `actions/configure-pages`, before Pages was enabled; the 15:12:29Z run's steps were not inspected). Re-check with:
+**Re-check:**
 
 ```
 gh run view 43451573954 --repo Raveesh1007/Toll-keeper --json createdAt,headSha,conclusion,event,url
