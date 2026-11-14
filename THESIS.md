@@ -1,7 +1,7 @@
 <!-- THESIS.md is generated from THESIS.template.md by `python build.py`. Edit the template, not THESIS.md. -->
 # NEAR: a toll on cross-chain settlement, if the toll can pay for the road
 
-**Draft 3 · data as of 2026-11-14 (block 224,478,886; DefiLlama through 2026-11-13) · NEAR $3.36**
+**Draft 3 · data as of 2026-11-14 (block 224,483,336; DefiLlama through 2026-11-13) · NEAR $3.36**
 
 Every number tagged M or D below is computed by `python build.py` from the raw files in `data/raw/`, which `python collect.py` fetches. Nothing is typed in by hand. Tripwires and the verdict rule were pre-registered in commit `d5491d7e3e585dade85c7a6d914587c8ed10d8f3` (`config/tripwires.json`, unchanged since registration).
 
@@ -14,7 +14,7 @@ NEAR is turning into a paid settlement layer for value that moves between chains
 | Test | Hurdle | Observed | Pass? |
 |---|---|---|---|
 | Revenue growth | >= 75%/yr (pre-registered; 72%/yr is what today's numbers need) | x3.9 from Mar 2026 to Oct 2026 (monthly revenue), of which about 52% is capture-rate expansion | Not yet testable: under the validity rule the first valid comparison is 2026-11-25, the first valid quarter-end 2026-12-31 |
-| Coverage of security cost | 100% | run-rate (trailing 90-day average × 365): 20% ($21.2M vs $109M issuance); month-end series (trigger input): 12% for Oct 2026 | No, 3.3x gap at 1.6% issuance |
+| Coverage of security cost | 100% | run-rate (trailing 90-day average × 365): 19% ($21.2M vs $110M issuance); month-end series (trigger input): 12% for Oct 2026 | No, 3.3x gap at 1.6% issuance |
 | Trust layer | No loss in the signing core; decentralizing | 5-of-8 180 days ago, 11-of-16 now; no signing-layer loss | **Yes** |
 
 ## Pillar 1: The fee pool already exists
@@ -69,7 +69,7 @@ Every month DefiLlama has, from its daily series (`data/raw/<date>/defillama.jso
 | P2.4 | Details only: trailing 90 d vs the 90 d ending 180 d earlier (2026-02-17 to 2026-05-17). Includes pre-fee-switch base, see WEAKNESSES #1 | D+arith | $58.2k vs $13.8k = x4.23; annualised +1758%/yr (not a forecast) | `build.py` `growth_at()` |
 | P2.4b | Fee switch to buybacks live since 2026-02-23 | D | DefiLlama methodology; [revenue.near.org](https://revenue.near.org/) | `methodology` field |
 | P2.5 | Capture rate trend confirmed independently | S | [Nansen Q2 2026](https://nansen.ai/post/nansen-near-quarterly-report-q2-2026): 11.5% lifetime to 30.5% trailing 30 d | - |
-| P2.6 | Buyback wallet balance (lower bound on purchases) | M | 2,280,160 NEAR now, 1,992,851 at -30 d; +309,564 over 31 d = 11% of net issuance in the same period | `view_account buybacks.multisignature.near` |
+| P2.6 | Buyback wallet balance (lower bound on purchases) | M | 2,280,770 NEAR now, 1,992,851 at -30 d; +309,846 over 31 d = 11% of net issuance in the same period | `view_account buybacks.multisignature.near` |
 
 ## Pillar 3: The cost of security is falling by design
 
@@ -90,15 +90,15 @@ Net issuance and its dollar cost, month by month, from `total_supply` at archiva
 | 2026-08 | 1,302,386,311 | 2,732,657 | 2.48% | $1.73 | $4.74M | $723k | 15% |
 | 2026-09 | 1,305,118,968 | 2,623,096 | 2.46% | $3.19 | $8.38M | $1.84M | 22% |
 | 2026-10 | 1,307,742,064 | 2,730,912 | 2.46% | $4.90 | $13.4M | $2.19M | 16% |
-| 2026-11 (partial) | 1,310,472,976 | 1,177,631 | 2.47% | $3.79 | $4.47M | $688k | 15% |
+| 2026-11 (partial) | 1,310,472,976 | 1,203,571 | 2.52% | $3.79 | $4.57M | $688k | 15% |
 
 | # | Claim | Status | Value | Reproduce |
 |---|---|---|---|---|
 | P3.1 | Max issuance today | M | 1/40 = 2.5%/yr; treasury share 0/1 (all to stakers; some docs say 90/10, the chain says otherwise) | `EXPERIMENTAL_protocol_config` |
-| P3.2 | Realized net supply growth | M | 2.46%/yr (31 d), 2.43%/yr (384 d) | `total_supply` at blocks 219930425, 170076062, 224478886 |
-| P3.3 | Security budget | M+arith | 32,326,843 NEAR/yr x $3.36 = **$109M/yr** | P3.2 x price |
+| P3.2 | Realized net supply growth | M | 2.49%/yr (31 d), 2.43%/yr (384 d) | `total_supply` at blocks 219934753, 170080152, 224483336 |
+| P3.3 | Security budget | M+arith | 32,646,214 NEAR/yr x $3.36 = **$110M/yr** | P3.2 x price |
 | P3.4 | Issuance path | S | 5% to 2.5% (Oct 2025) to **1.6%** passed Nov 2 2026, phased over 24 months after a 90-day grace period | [The Block](https://www.theblock.co/news/defi/2026-11-03-near-governance-approves-token-issuance-432378) |
-| P3.5 | Effect on the gap | arith | break-even revenue falls from **$109M to $70.5M/yr** with no growth at all | P3.3 vs P1.3 |
+| P3.5 | Effect on the gap | arith | break-even revenue falls from **$110M to $70.5M/yr** with no growth at all | P3.3 vs P1.3 |
 
 ## Pillar 4: The trust layer is hardening (the precondition)
 
@@ -122,7 +122,7 @@ Intents moves real assets across 35+ chains through the Chain Signatures MPC net
 | 2026-09-01 | 213,788,089 | 9 | 15 | 6 | 15 | 3.14.0 | 941,372 |
 | 2026-10-01 | 217,994,519 | 11 | 17 | 6 | 18 | 3.16.0 | 1,847,957 |
 | 2026-11-01 | 222,491,355 | 11 | 16 | 5 | 17 | 3.17.0 | 2,144,977 |
-| 2026-11-14 | 224,478,886 | 11 | 16 | 5 | 17 | 3.18.0 | 2,280,160 |
+| 2026-11-14 | 224,483,336 | 11 | 16 | 5 | 17 | 3.18.0 | 2,280,770 |
 
 | # | Claim | Status | Value | Reproduce |
 |---|---|---|---|---|
@@ -130,7 +130,7 @@ Intents moves real assets across 35+ chains through the Chain Signatures MPC net
 | P4.2 | No admin key on the signing contract | M | 0 access keys; pending code-update votes `{}`; code hash `CpGX8ywXJwvWPgZFDDCTCuPJBHF7BATT51gSfc3APERJ` (not matched to a release build); code changes need threshold votes per `near/mpc` source | `view_access_key_list`; `contract_update_votes` |
 | P4.3 | TEE attestation entries | M | 17 entries / 16 accounts for 16 participants (quotes not verified) | `get_tee_accounts` |
 | P4.4 | External review | S | Five Trail of Bits audits since Mar 2025, two with high-severity findings (CKD, Robust ECDSA) | [Trail of Bits library](https://trailofbits.com/library/near-one-mpc-chain-signatures/) |
-| P4.5 | Base chain | M | 343 validators; 44.89% of supply staked; 10 pools hold > 1/3 of stake | RPC `validators` |
+| P4.5 | Base chain | M | 345 validators; 44.91% of supply staked; 10 pools hold > 1/3 of stake | RPC `validators` |
 | P4.6 | Incidents in 2026, both outside the signing layer | S | date not stated in source NEAR Intents contract (deposit handling): Deposit bug in the Intents contract; $3.8M taken; all affected users made whole ([source](https://thedefiant.io/news/security/near-intents-postmortem-links-3-8-million-exploit-to-deposit-bug)); 2026-11-08 NEAR AI inference server (SGLang) and an older NEAR AI Agents deployment: SGLang RCE on a NEAR AI inference server; account details for about 100 users downloaded; 18 agents on an older deployment reached; 2 customers' API keys exposed in logs ([source](https://thehackernews.com/2026/11/sglang-rce-exploit-breaches-near-ai.html)) | `data/incidents.json` |
 
 ## The bear case (kept in full)
@@ -138,7 +138,7 @@ Intents moves real assets across 35+ chains through the Chain Signatures MPC net
 - **Volume is cyclical, not compounding yet.** Nov 1-13 volume averaged $136M a day, against $129M a day in the same days a year earlier: **+5.9% year on year**. The 90-day year-on-year figure (+207.2%) compares against Intents' 2025 ramp-up (see the monthly table). The six-month surge partly recovers a dip, not a new trend. Last 30 days vs the 30 before: volume -21.5%, fees -29.2%, revenue -22.5%.
 - **Capture rate has a ceiling.** About 52% of the x3.9 rise from Mar 2026 to Oct 2026 came from NEAR taking more per swap. Gross fees are 15.4 bps; NEAR already keeps 31.0%. Squeezing distribution partners harder risks losing volume to them. From here growth must mostly come from volume.
 - **Price works against holders.** Buybacks are paid in dollars, so a higher NEAR price buys fewer NEAR, and the issuance bill in dollars rises. A rally widens the gap unless revenue outruns it.
-- **Bought-back NEAR is held, not burned.** The buyback wallet went from 151,220 NEAR 180 days ago to 2,280,160 now, while supply kept growing 2.46% a year. Holders are still diluted today.
+- **Bought-back NEAR is held, not burned.** The buyback wallet went from 152,041 NEAR 180 days ago to 2,280,770 now, while supply kept growing 2.49% a year. Holders are still diluted today.
 - **Lower issuance thins the security budget.** Gross staking yield falls from ~5.5% to ~3.6% at 1.6%. If stakers leave, the base chain weakens exactly when the toll road needs it.
 - **Concentrated trust.** 11 of 16 operators can sign on all 8 key domains and redeploy the signing contract with no delay window. Participants went from 17 to 16 in the last 30 days.
 - **Two incidents in NEAR-run products in 2026**, neither in the signing layer (incident ledger: `data/incidents.json`). In the second, the agents reached ran on an older deployment that, per the cited article, "did not run inside the company's TEE".
@@ -153,8 +153,8 @@ At today's capture rate of 4.23 bps, revenue of $70.5M/yr needs about **$457M of
 |---|---|---|---|---|---|---|
 | T1 | Captured revenue, trailing 90 d vs the 90 d ending 180 d earlier, annualized | n/a: comparison window predates fee switch (Mar 2026); first valid comparison 2026-11-25 | < 75%/yr at 2 quarter-ends running | >= 75%/yr at 4 quarter-ends running | **neither** | quarter-ends: 2025-12-31 n/a, 2026-03-31 n/a, 2026-06-30 n/a, 2026-09-30 n/a. n/a = comparison window predates fee switch (Mar 2026) (validity rule added 2026-11-14, after pre-registration) or no revenue data. Valid quarter-ends so far: 0, of which qualifying (>= 75%/yr): 0; next evaluated 2026-12-31 |
 | T2 | Intents volume, 90 d, year on year | 90-day YoY +207.2% · month-to-date YoY +5.9% | < 0% at 2 quarter-ends running | > 50% | **BULL** | quarter-ends: 2025-12-31 n/a, 2026-03-31 > +10000%, 2026-06-30 +1816%, 2026-09-30 +825%. Base effect: the 90-day comparison window falls in Intents' 2025 ramp-up, which inflates it; month-to-date YoY (+5.9%) is the like-for-like figure. Threshold and state logic unchanged |
-| T3 | Revenue coverage of issuance (run-rate / security budget) | run-rate (trailing 90-day average × 365): 20% · month-end series (trigger input): 12% for Oct 2026 | falls 3 month-ends running | >= 50% | **neither** | bear trigger reads the month-end series, bull trigger reads the run-rate. Month-end series: 2025-10 0%, 2025-11 5%, 2025-12 8%, 2026-01 11%, 2026-02 14%, 2026-03 16%, 2026-04 14%, 2026-05 10%, 2026-06 9%, 2026-07 12%, 2026-08 13%, 2026-09 12%, 2026-10 12% |
-| T4 | Staked share of supply during the HSP-029 ramp | 44.89% | < 40% | >= 45% held through ramp | **neither** | ramp 2027-01-31 to 2029-01-31; 0 snapshots in ramp so far |
+| T3 | Revenue coverage of issuance (run-rate / security budget) | run-rate (trailing 90-day average × 365): 19% · month-end series (trigger input): 12% for Oct 2026 | falls 3 month-ends running | >= 50% | **neither** | bear trigger reads the month-end series, bull trigger reads the run-rate. Month-end series: 2025-10 0%, 2025-11 5%, 2025-12 8%, 2026-01 11%, 2026-02 14%, 2026-03 16%, 2026-04 14%, 2026-05 10%, 2026-06 9%, 2026-07 12%, 2026-08 13%, 2026-09 12%, 2026-10 12% |
+| T4 | Staked share of supply during the HSP-029 ramp | 44.91% | < 40% | >= 45% held through ramp | **neither** | ramp 2027-01-31 to 2029-01-31; 0 snapshots in ramp so far |
 | T5 | MPC liveness margin (participants - threshold) | 5 (11-of-16) | < 4, or threshold < 9 | >= 7 | **neither** |  |
 | T6 | Loss traced to the MPC signing layer | 0 | any -> thesis VOID | - | **neither** | from data/incidents.json (signing_layer_involved = true, funds at risk > 0) |
 | T7 | User loss not made whole in NEAR-run products, last 90 d | 0 | >= 1 | - | **neither** | from data/incidents.json (net_user_loss_usd > 0; undated incidents count as inside the window) |
@@ -169,7 +169,7 @@ At today's capture rate of 4.23 bps, revenue of $70.5M/yr needs about **$457M of
 | 2027-03-31 | volume YoY > 0% | +207.2% | pending, on course |
 | 2027-03-31 | MPC threshold >= 11 | 11 | pending, on course |
 | 2027-03-31 | MPC participants >= 16 | 16 | pending, on course |
-| 2027-03-31 | staked share >= 42% | 44.89% | pending, on course |
+| 2027-03-31 | staked share >= 42% | 44.91% | pending, on course |
 
 ## Optional upside, not counted
 
@@ -177,7 +177,7 @@ NEAR AI (confidential inference used by Brave Leo, 1M+ NEAR staked to pay for in
 
 ## What this thesis cannot prove
 
-Price targets; total value secured by MPC keys (DefiLlama's $169M Intents TVL is only a floor); whether high audit findings are fixed in deployed 3.18.0; whether the deployed code hash matches a tagged `near/mpc` release; validity of TEE quotes; whether solvers would accept a higher NEAR take rate. The buyback wallet balance is a lower bound on purchases (transfers out are not traced). Stake history starts at this repo's first snapshot, because `validators` at past blocks is not served by archival nodes. Incidents (T6, T7) are entered by hand in `data/incidents.json` with sources.
+Price targets; total value secured by MPC keys (DefiLlama's $170M Intents TVL is only a floor); whether high audit findings are fixed in deployed 3.18.0; whether the deployed code hash matches a tagged `near/mpc` release; validity of TEE quotes; whether solvers would accept a higher NEAR take rate. The buyback wallet balance is a lower bound on purchases (transfers out are not traced). Stake history starts at this repo's first snapshot, because `validators` at past blocks is not served by archival nodes. Incidents (T6, T7) are entered by hand in `data/incidents.json` with sources.
 
 **T1 validity rule. Added 2026-11-14, after pre-registration.** A T1 comparison (trailing 90 days vs the 90 days ending 180 days earlier) counts only if that earlier window starts on or after 2026-03-01 (the pre-registered `clean_data_start`); otherwise it is `n/a` with the reason "comparison window predates fee switch (Mar 2026)", because NEAR's revenue before the fee switch was near zero and inflates any ratio built on it. The threshold and state logic are unchanged. Under this rule the first valid comparison is 2026-11-25, valid quarter-ends so far: 0, qualifying: 0; the next quarter-end evaluated is 2026-12-31. The same reasoning moved the headline growth figure to post-switch months (claim P2.1).
 

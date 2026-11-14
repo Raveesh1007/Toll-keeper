@@ -1,48 +1,48 @@
 window.METRICS = {
  "asof": "2026-11-14",
- "block": 224478886,
+ "block": 224483336,
  "breakeven_variants": [
   {
-   "breakeven_vol_per_day": 456652976.347531,
+   "breakeven_vol_per_day": 456662007.169569,
    "capture_bps": 4.230564,
-   "cost_usd": 70514336.667262,
+   "cost_usd": 70515731.166933,
    "variant": "ours: 1.6% target issuance, trailing 90-day capture",
    "vs_ours": 1.0
   },
   {
-   "breakeven_vol_per_day": 405895160.144119,
+   "breakeven_vol_per_day": 405903187.173718,
    "capture_bps": 4.759603,
-   "cost_usd": 70514336.667262,
+   "cost_usd": 70515731.166933,
    "variant": "30-day revenue window (capture = 30-day revenue / 30-day volume)",
    "vs_ours": 0.888848
   },
   {
-   "breakeven_vol_per_day": 703414705.670284,
+   "breakeven_vol_per_day": 710364042.807025,
    "capture_bps": 4.230564,
-   "cost_usd": 108618193.5549,
+   "cost_usd": 109691279.51701,
    "variant": "today's net issuance (31 d) instead of the 1.6% target",
-   "vs_ours": 1.54037
+   "vs_ours": 1.555558
   },
   {
-   "breakeven_vol_per_day": 625228870.48585,
+   "breakeven_vol_per_day": 631405776.048962,
    "capture_bps": 4.759603,
-   "cost_usd": 108618193.5549,
+   "cost_usd": 109691279.51701,
    "variant": "today's net issuance + 30-day revenue window",
-   "vs_ours": 1.369155
+   "vs_ours": 1.382654
   },
   {
-   "breakeven_vol_per_day": 712347758.954902,
+   "breakeven_vol_per_day": 712912245.512312,
    "capture_bps": 4.230564,
-   "cost_usd": 109997596.207252,
+   "cost_usd": 110084761.729465,
    "variant": "today's gross issuance (epoch mint, before burn)",
-   "vs_ours": 1.559932
+   "vs_ours": 1.561138
   },
   {
-   "breakeven_vol_per_day": 633168998.507213,
+   "breakeven_vol_per_day": 633670741.348028,
    "capture_bps": 4.759603,
-   "cost_usd": 109997596.207252,
+   "cost_usd": 110084761.729465,
    "variant": "today's gross issuance + 30-day revenue window",
-   "vs_ours": 1.386543
+   "vs_ours": 1.387614
   }
  ],
  "budget_monthly": [
@@ -204,10 +204,10 @@ window.METRICS = {
   },
   {
    "avg_price": 3.793244,
-   "coverage": 0.153989,
-   "issuance_cost_usd": 4467043.760505,
-   "issuance_rate": 0.024684,
-   "issued_near": 1177631.447804,
+   "coverage": 0.15067,
+   "issuance_cost_usd": 4565438.066894,
+   "issuance_rate": 0.025171,
+   "issued_near": 1203570.801815,
    "month": "2026-11",
    "partial": true,
    "revenue_usd": 687875,
@@ -290,7 +290,7 @@ window.METRICS = {
    "id": "P2.6",
    "source": "`view_account buybacks.multisignature.near`",
    "status": "M",
-   "value": "2,280,160 NEAR now, 1,992,851 at -30 d; +309,564 over 31 d = 11% of net issuance in the same period"
+   "value": "2,280,770 NEAR now, 1,992,851 at -30 d; +309,846 over 31 d = 11% of net issuance in the same period"
   },
   {
    "claim": "Max issuance today",
@@ -302,16 +302,16 @@ window.METRICS = {
   {
    "claim": "Realized net supply growth",
    "id": "P3.2",
-   "source": "`total_supply` at blocks 219930425, 170076062, 224478886",
+   "source": "`total_supply` at blocks 219934753, 170080152, 224483336",
    "status": "M",
-   "value": "2.46%/yr (31 d), 2.43%/yr (384 d)"
+   "value": "2.49%/yr (31 d), 2.43%/yr (384 d)"
   },
   {
    "claim": "Security budget",
    "id": "P3.3",
    "source": "P3.2 x price",
    "status": "M+arith",
-   "value": "32,326,843 NEAR/yr x $3.36 = **$109M/yr**"
+   "value": "32,646,214 NEAR/yr x $3.36 = **$110M/yr**"
   },
   {
    "claim": "Issuance path",
@@ -325,7 +325,7 @@ window.METRICS = {
    "id": "P3.5",
    "source": "P3.3 vs P1.3",
    "status": "arith",
-   "value": "break-even revenue falls from **$109M to $70.5M/yr** with no growth at all"
+   "value": "break-even revenue falls from **$110M to $70.5M/yr** with no growth at all"
   },
   {
    "claim": "MPC threshold history (month starts)",
@@ -360,7 +360,7 @@ window.METRICS = {
    "id": "P4.5",
    "source": "RPC `validators`",
    "status": "M",
-   "value": "343 validators; 44.89% of supply staked; 10 pools hold > 1/3 of stake"
+   "value": "345 validators; 44.91% of supply staked; 10 pools hold > 1/3 of stake"
   },
   {
    "claim": "Incidents in 2026, both outside the signing layer",
@@ -927,7 +927,7 @@ window.METRICS = {
  },
  "defillama_through": "2026-11-13",
  "drift": {
-  "fetched_at_utc": "2026-11-14T06:54:42Z",
+  "fetched_at_utc": "2026-11-14T07:37:24Z",
   "label": "Descriptive. Added 2026-11-14, after pre-registration. Not a tripwire.",
   "new_days_since_snapshot": {
    "fees": [],
@@ -1023,136 +1023,136 @@ window.METRICS = {
    {
     "month": "2026-12",
     "required_at_hurdle": 21700362.0,
-    "required_live": 21815185.0
+    "required_live": 21815195.0
    },
    {
     "month": "2027-01",
     "required_at_hurdle": 22756663.0,
-    "required_live": 22841054.0
+    "required_live": 22841082.0
    },
    {
     "month": "2027-02",
     "required_at_hurdle": 23864380.0,
-    "required_live": 23915166.0
+    "required_live": 23915213.0
    },
    {
     "month": "2027-03",
     "required_at_hurdle": 24911173.0,
-    "required_live": 24928681.0
+    "required_live": 24928746.0
    },
    {
     "month": "2027-04",
     "required_at_hurdle": 26123765.0,
-    "required_live": 26100964.0
+    "required_live": 26101052.0
    },
    {
     "month": "2027-05",
     "required_at_hurdle": 27353411.0,
-    "required_live": 27287893.0
+    "required_live": 27288006.0
    },
    {
     "month": "2027-06",
     "required_at_hurdle": 28684883.0,
-    "required_live": 28571119.0
+    "required_live": 28571259.0
    },
    {
     "month": "2027-07",
     "required_at_hurdle": 30035081.0,
-    "required_live": 29870378.0
+    "required_live": 29870546.0
    },
    {
     "month": "2027-08",
     "required_at_hurdle": 31497088.0,
-    "required_live": 31275046.0
+    "required_live": 31275246.0
    },
    {
     "month": "2027-09",
     "required_at_hurdle": 33030260.0,
-    "required_live": 32745770.0
+    "required_live": 32746004.0
    },
    {
     "month": "2027-10",
     "required_at_hurdle": 34584995.0,
-    "required_live": 34234869.0
+    "required_live": 34235138.0
    },
    {
     "month": "2027-11",
     "required_at_hurdle": 36268476.0,
-    "required_live": 35844780.0
+    "required_live": 35845089.0
    },
    {
     "month": "2027-12",
     "required_at_hurdle": 37975634.0,
-    "required_live": 37474805.0
+    "required_live": 37475155.0
    },
    {
     "month": "2028-01",
     "required_at_hurdle": 39824160.0,
-    "required_live": 39237075.0
+    "required_live": 39237472.0
    },
    {
     "month": "2028-02",
     "required_at_hurdle": 41762666.0,
-    "required_live": 41082217.0
+    "required_live": 41082664.0
    },
    {
     "month": "2028-03",
     "required_at_hurdle": 43661443.0,
-    "required_live": 42886791.0
+    "required_live": 42887288.0
    },
    {
     "month": "2028-04",
     "required_at_hurdle": 45786734.0,
-    "required_live": 44903563.0
+    "required_live": 44904117.0
    },
    {
     "month": "2028-05",
     "required_at_hurdle": 47941917.0,
-    "required_live": 46945532.0
+    "required_live": 46946145.0
    },
    {
     "month": "2028-06",
     "required_at_hurdle": 50275568.0,
-    "required_live": 49153167.0
+    "required_live": 49153847.0
    },
    {
     "month": "2028-07",
     "required_at_hurdle": 52642041.0,
-    "required_live": 51388385.0
+    "required_live": 51389134.0
    },
    {
     "month": "2028-08",
     "required_at_hurdle": 55204478.0,
-    "required_live": 53804948.0
+    "required_live": 53805772.0
    },
    {
     "month": "2028-09",
     "required_at_hurdle": 57891645.0,
-    "required_live": 56335151.0
+    "required_live": 56336057.0
    },
    {
     "month": "2028-10",
     "required_at_hurdle": 60616607.0,
-    "required_live": 58896967.0
+    "required_live": 58897957.0
    },
    {
     "month": "2028-11",
     "required_at_hurdle": 63567219.0,
-    "required_live": 61666624.0
+    "required_live": 61667707.0
    },
    {
     "month": "2028-12",
     "required_at_hurdle": 66559330.0,
-    "required_live": 64470886.0
+    "required_live": 64472066.0
    },
    {
     "month": "2029-01",
     "required_at_hurdle": 69799213.0,
-    "required_live": 67502659.0
+    "required_live": 67503946.0
    }
   ],
   "run_rate_now": 21240798.0,
-  "target": 70514337.0
+  "target": 70515731.0
  },
  "incidents": {
   "label": "Descriptive. Added 2026-11-14, after pre-registration. Not a tripwire.",
@@ -1214,28 +1214,28 @@ window.METRICS = {
   "summary": "2 incidents in the window; net holder/user loss: $0 (as recorded); n=2, no rate inferred."
  },
  "issuance_gross_vs_net": {
-  "burn_near": 273.00563049,
-  "burn_share_of_mint": 0.01062966,
+  "burn_near": 220.44530129,
+  "burn_share_of_mint": 0.00848968,
   "epoch_blocks": [
-   224394737,
-   224437936,
-   224437937
+   224437937,
+   224481136,
+   224481137
   ],
-  "epoch_hours": 6.87245988,
-  "gross_rate": 0.02495892,
-  "mint_near": 25683.37497377,
-  "net_rate": 0.02469361,
+  "epoch_hours": 6.94265544,
+  "gross_rate": 0.0249782,
+  "mint_near": 25966.26228547,
+  "net_rate": 0.02476615,
   "reason": null
  },
  "metrics": {
-  "breakeven_vol_per_day": 456652976.347531,
-  "buyback_delta_31d": 309564.117188,
-  "buyback_near": 2280159.800684,
+  "breakeven_vol_per_day": 456662007.169569,
+  "buyback_delta_31d": 309845.645052,
+  "buyback_near": 2280770.0765,
   "capture_bps_30d": 4.759603,
   "capture_bps_t90": 4.230564,
-  "coverage_buyback": 0.113444,
+  "coverage_buyback": 0.112477,
   "coverage_month_end_latest": 0.121543,
-  "coverage_usd": 0.195555,
+  "coverage_usd": 0.193642,
   "fees_30d": 5831933,
   "growth_6m": 4.225255,
   "growth_capture_ratio": 1.923069,
@@ -1244,10 +1244,10 @@ window.METRICS = {
   "headline_growth_capture_share": 0.520771,
   "headline_growth_ratio": 3.88585,
   "headline_growth_volume_ratio": 1.916455,
-  "intents_tvl_usd": 169026531.006802,
-  "issuance_net_per_year_31d": 32326843.319911,
-  "issuance_net_per_year_384d": 31880793.371679,
-  "issuance_rate_31d": 0.024646,
+  "intents_tvl_usd": 169911455.850015,
+  "issuance_net_per_year_31d": 32646214.141967,
+  "issuance_net_per_year_384d": 31905544.414473,
+  "issuance_rate_31d": 0.024889,
   "max_inflation_rate": 0.025,
   "months_to_full_cut": 26.61191,
   "mpc_domains": 8,
@@ -1256,21 +1256,21 @@ window.METRICS = {
   "mpc_threshold": 11,
   "nakamoto_33": 10,
   "price_usd": 3.36,
-  "required_cagr": 0.717831,
+  "required_cagr": 0.717846,
   "rev_growth_annualized": 17.581921,
   "revenue_30d": 1807441,
   "revenue_per_day_t90": 58193.966667,
   "revenue_run_rate": 21240797.833333,
-  "security_budget_target_usd": 70514336.667262,
-  "security_budget_usd": 108618193.5549,
+  "security_budget_target_usd": 70515731.166933,
+  "security_budget_usd": 109691279.51701,
   "signer_access_keys": 0,
-  "staked_pct": 0.448902,
+  "staked_pct": 0.449101,
   "target_issuance": 0.016,
   "tee_accounts_unique": 16,
   "tee_entries": 17,
-  "total_supply": 1311650607.649959,
+  "total_supply": 1311676547.00397,
   "treasury_share": 0.0,
-  "validators": 343,
+  "validators": 345,
   "vol_yoy_90d": 2.072346,
   "vol_yoy_mtd": 0.05885,
   "volume_30d": 3797462047,
@@ -1661,8 +1661,8 @@ window.METRICS = {
    "version": "3.17.0"
   },
   {
-   "block": 224478886,
-   "buyback_near": 2280159.800684,
+   "block": 224483336,
+   "buyback_near": 2280770.0765,
    "date": "2026-11-14",
    "margin": 5,
    "participants": 16,
@@ -1711,7 +1711,7 @@ window.METRICS = {
   {
    "by": "2027-03-31",
    "metric": "staked_pct",
-   "now": 0.448902,
+   "now": 0.449101,
    "op": ">=",
    "state": "pending, on course",
    "text": "staked share >= 42%",
@@ -1734,11 +1734,11 @@ window.METRICS = {
  },
  "security": {
   "governance": {
-   "access_keys_block": 224478886,
+   "access_keys_block": 224483336,
    "access_keys_now": 0,
    "current_version": "3.18.0",
    "pending_update_votes": {},
-   "rule": "Contract upgrades are approved once 11 participants (the threshold) vote for the same update; update_config is private; the account has 0 access keys (re-read at block 224478886).",
+   "rule": "Contract upgrades are approved once 11 participants (the threshold) vote for the same update; update_config is private; the account has 0 access keys (re-read at block 224483336).",
    "rule_sources": [
     "https://github.com/near/mpc/blob/e691bdb98d68dcf74653da58d043453a6318765f/crates/contract/src/api/update.rs#L82",
     "https://github.com/near/mpc/blob/e691bdb98d68dcf74653da58d043453a6318765f/crates/contract/src/api/update.rs#L152"
@@ -1833,7 +1833,7 @@ window.METRICS = {
     {
      "changed_after": "2026-11-01",
      "first_seen": "2026-11-14",
-     "first_seen_block": 224478886,
+     "first_seen_block": 224483336,
      "point": "head",
      "version": "3.18.0"
     }
@@ -1997,7 +1997,7 @@ window.METRICS = {
      "version": "3.17.0"
     },
     {
-     "block": 224478886,
+     "block": 224483336,
      "date": "2026-11-14",
      "margin": 5,
      "participants_n": 16,
@@ -2044,37 +2044,37 @@ window.METRICS = {
    "chain_breakdown_usd": {
     "ADI": 395,
     "Aptos": 42,
-    "Arbitrum": 4056951,
+    "Arbitrum": 4106166,
     "Aurora": 97,
-    "Avalanche": 122985,
-    "Base": 2245716,
+    "Avalanche": 123398,
+    "Base": 2254610,
     "Berachain": 47275,
-    "Binance": 3611939,
-    "Bitcoin": 5689346,
-    "Cardano": 99273,
-    "Dash": 294079,
-    "Doge": 377181,
-    "Ethereum": 56098509,
-    "Litecoin": 872955,
-    "Monad": 137325,
-    "Near": 80439465,
-    "Optimism": 233286,
-    "Polygon": 1511378,
-    "Ripple": 1107986,
-    "Solana": 83667,
-    "Stellar": 68499,
-    "Sui": 256485,
-    "TON": 812557,
-    "Tron": 9607490,
-    "X Layer": 23273,
-    "xDai": 1228375
+    "Binance": 3612188,
+    "Bitcoin": 5728609,
+    "Cardano": 99532,
+    "Dash": 293909,
+    "Doge": 378901,
+    "Ethereum": 56266326,
+    "Litecoin": 878425,
+    "Monad": 137635,
+    "Near": 81125496,
+    "Optimism": 232746,
+    "Polygon": 1511471,
+    "Ripple": 1095007,
+    "Solana": 83668,
+    "Stellar": 68624,
+    "Sui": 256835,
+    "TON": 816189,
+    "Tron": 9541862,
+    "X Layer": 23111,
+    "xDai": 1228940
    },
-   "sentence": "≈$169M held in Intents; 11 of 16 signers must collude; bond at risk per signer: none found in contract. Security beyond that rests on TEE attestation (17 current entries) and operator identity.",
+   "sentence": "≈$170M held in Intents; 11 of 16 signers must collude; bond at risk per signer: none found in contract. Security beyond that rests on TEE attestation (17 current entries) and operator identity.",
    "signers_to_corrupt": 11,
    "tee_entries_now": 17,
-   "value_in_intents_usd": 169026531,
+   "value_in_intents_usd": 169911455,
    "value_label": "value held in NEAR Intents. Part of it depends on MPC-controlled addresses; that share is not measured here. Context, not a precise exposure.",
-   "value_per_corruptible_signer_usd": 15366048.272727273,
+   "value_per_corruptible_signer_usd": 15446495.909090908,
    "value_source": "https://api.llama.fi/protocol/near-intents"
   }
  },
@@ -2170,7 +2170,7 @@ window.METRICS = {
    "bull_trigger": ">= 50%",
    "id": "T3",
    "note": "bear trigger reads the month-end series, bull trigger reads the run-rate. Month-end series: 2025-10 0%, 2025-11 5%, 2025-12 8%, 2026-01 11%, 2026-02 14%, 2026-03 16%, 2026-04 14%, 2026-05 10%, 2026-06 9%, 2026-07 12%, 2026-08 13%, 2026-09 12%, 2026-10 12%",
-   "now": "run-rate (trailing 90-day average × 365): 20% · month-end series (trigger input): 12% for Oct 2026",
+   "now": "run-rate (trailing 90-day average × 365): 19% · month-end series (trigger input): 12% for Oct 2026",
    "scoreboard_state": "neither",
    "state": "neither",
    "void": false,
@@ -2183,7 +2183,7 @@ window.METRICS = {
    "bull_trigger": ">= 45% held through ramp",
    "id": "T4",
    "note": "ramp 2027-01-31 to 2029-01-31; 0 snapshots in ramp so far",
-   "now": "44.89%",
+   "now": "44.91%",
    "scoreboard_state": "neither",
    "state": "neither",
    "void": false,
