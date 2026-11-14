@@ -117,6 +117,17 @@ def main():
     head, hist = load(raw + "head.json"), load(raw + "history.json")
     llama, price_raw = load(raw + "defillama.json"), load(raw + "price.json")
     incidents = load("data/incidents.json")
+
+    def ts(v):  # full ISO timestamp -> datetime; a bare date has no time, so hours cannot be computed from it
+        return dt.datetime.fromisoformat(v.replace("Z", "+00:00")) if v and "T" in v else None
+    for i in incidents:  # hours are computed, never typed: the input must hold null or the computed value
+        t0, td, tr_ = ts(i["date_utc"]), ts(i["disclosed_at_utc"]), ts(i["resolved_at_utc"])
+        calc = {"hours_to_disclose": (td - t0).total_seconds() / 3600 if t0 and td else None,
+                "hours_to_resolve": (tr_ - t0).total_seconds() / 3600 if t0 and tr_ else None}
+        for k, v in calc.items():
+            assert i[k] in (None, v), f"{i['id']}: {k} is typed ({i[k]}) but computes to {v}"
+            i[k] = v
+    net_loss_total = sum(i["net_user_loss_usd"] or 0 for i in incidents)
     P = {p["label"]: p for p in hist}
 
     # ---------- DefiLlama ----------
@@ -300,8 +311,10 @@ def main():
     y_q = [(q, vol_yoy_90(q)) for q in qends]
     cov_me = [(row["month"], row["coverage_t90_month_end"]) for row in budget_rows if "coverage_t90_month_end" in row]
     margin = M["participants"] - M["threshold"]
-    mpc_losses = sum(1 for i in incidents if i["layer"] == "mpc_signing" and i["loss_usd"] > 0)
-    unremedied = sum(1 for i in incidents if dt.date.fromisoformat(i["date"]) > E - 90 * DAY and i["loss_usd"] > 0 and i["made_whole"] is not True)
+    mpc_losses = sum(1 for i in incidents if i["signing_layer_involved"] is True and (i["funds_at_risk_usd"] or 0) > 0)
+    # an incident with no confirmed date is treated as inside the 90-day window (conservative)
+    unremedied = sum(1 for i in incidents if (i["date_utc"] is None or dt.date.fromisoformat(i["date_utc"][:10]) > E - 90 * DAY)
+                     and (i["net_user_loss_usd"] or 0) > 0)
     snaps_ramp = [x["staked_pct"] for x in hist_rows if ramp_start <= dt.date.fromisoformat(x["date"]) <= full_cut]
     t1b, t1u = T["T1"]["bear"], T["T1"]["bull"]
     t2b, t2u = T["T2"]["bear"], T["T2"]["bull"]
@@ -326,8 +339,8 @@ def main():
          f"ramp {ramp_start} to {full_cut}; {len(snaps_ramp)} snapshots in ramp so far"),
         ("T5", f"{margin} ({M['threshold']}-of-{M['participants']})",
          hit(t5b, margin) or M["threshold"] < t5b["or_threshold_below"], hit(T["T5"]["bull"], margin), ""),
-        ("T6", str(mpc_losses), False, False, "from data/incidents.json (layer = mpc_signing)"),
-        ("T7", str(unremedied), hit(T["T7"]["bear"], unremedied), False, "from data/incidents.json"),
+        ("T6", str(mpc_losses), False, False, "from data/incidents.json (signing_layer_involved = true, funds at risk > 0)"),
+        ("T7", str(unremedied), hit(T["T7"]["bear"], unremedied), False, "from data/incidents.json (net_user_loss_usd > 0; undated incidents count as inside the window)"),
     ]
     trip_text = {
         "T1": (f"< {pct(t1b['value'], 0)}/yr at {t1b['quarters']} quarter-ends running", f">= {pct(t1u['value'], 0)}/yr at {t1u['quarters']} quarter-ends running"),
@@ -463,7 +476,7 @@ def main():
         ("P4.3", "TEE attestation entries", "M", f"{len(tee)} entries / {tee_unique} accounts for {M['participants']} participants (quotes not verified)", "`get_tee_accounts`"),
         ("P4.4", "External review", "S", "Five Trail of Bits audits since Mar 2025, two with high-severity findings (CKD, Robust ECDSA)", "[Trail of Bits library](https://trailofbits.com/library/near-one-mpc-chain-signatures/)"),
         ("P4.5", "Base chain", "M", f"{len(stakes)} validators; {pct(staked / S, 2)} of supply staked; {nakamoto} pools hold > 1/3 of stake", "RPC `validators`"),
-        ("P4.6", "Incidents in 2026, both outside the signing layer", "S", "; ".join(f"{i['date']} {i['product']}: {i['summary']} ([source]({i['source']}))" for i in incidents), "`data/incidents.json`"),
+        ("P4.6", "Incidents in 2026, both outside the signing layer", "S", "; ".join(f"{i['date_utc'] or 'date not stated in source'} {i['component']}: {i['summary']} ([source]({i['sources'][0]}))" for i in incidents), "`data/incidents.json`"),
     ]
     claim_rows = lambda pre: table(["#", "Claim", "Status", "Value", "Reproduce"], [c for c in claims if c[0].startswith(pre)])
     for p in ("P1", "P2", "P3", "P4"):
@@ -506,7 +519,7 @@ def main():
     WV = dict(V, voided_q=", ".join(f"{q} ({'> +10000%' if g['annualized'] > 100 else pct(g['annualized'], 0, True)}/yr, window from {g['prior_start']})" for q, g in voided) or "none",
               voided_n=len(voided), g6=mult(G["ratio"]), g6_start=G["prior_start"].isoformat(),
               hg_vol=mult(HG["vol_ratio"]), hg_cap=mult(HG["capture_ratio"]), n_incidents=len(incidents),
-              net_loss=usd(sum(i["loss_usd"] for i in incidents if i["made_whole"] is not True)))
+              net_loss=usd(net_loss_total))
     with open("WEAKNESSES.template.md", encoding="utf-8") as f:
         write("WEAKNESSES.md", f.read().format_map(WV))
 
@@ -545,6 +558,8 @@ def main():
         "issuance_gross_vs_net": {k: (r(v, 8) if isinstance(v, float) else v) for k, v in ISS.items()},
         "breakeven_variants": [{k: (r(v) if isinstance(v, float) else v) for k, v in x.items()} for x in BE],
         "tripwires": tripwires, "predictions": predictions, "security": SEC,
+        "incidents": {"label": "Descriptive. Added 2026-11-14, after pre-registration. Not a tripwire.", "ledger": incidents,
+                      "summary": f"{len(incidents)} incidents in the window; net holder/user loss: {usd(net_loss_total)} (as recorded); n={len(incidents)}, no rate inferred."},
         "claims": [dict(zip(("id", "claim", "status", "value", "source"), c)) for c in claims],
         "daily_91d": [{"date": (E - DAY * i).isoformat(), "volume": r(vol.get(E - DAY * i), 0), "fees": r(fees.get(E - DAY * i), 0),
                        "revenue": r(rev.get(E - DAY * i), 0)} for i in range(90, -1, -1)],

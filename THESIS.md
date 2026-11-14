@@ -131,7 +131,7 @@ Intents moves real assets across 35+ chains through the Chain Signatures MPC net
 | P4.3 | TEE attestation entries | M | 17 entries / 16 accounts for 16 participants (quotes not verified) | `get_tee_accounts` |
 | P4.4 | External review | S | Five Trail of Bits audits since Mar 2025, two with high-severity findings (CKD, Robust ECDSA) | [Trail of Bits library](https://trailofbits.com/library/near-one-mpc-chain-signatures/) |
 | P4.5 | Base chain | M | 343 validators; 44.89% of supply staked; 10 pools hold > 1/3 of stake | RPC `validators` |
-| P4.6 | Incidents in 2026, both outside the signing layer | S | 2026-10-01 NEAR Intents contract: Deposit bug; $3.8M taken, all returned, users made whole ([source](https://thedefiant.io/news/security/near-intents-postmortem-links-3-8-million-exploit-to-deposit-bug)); 2026-11-08 NEAR AI (SGLang): SGLang RCE breach; data only, no funds ([source](https://thehackernews.com/2026/11/sglang-rce-exploit-breaches-near-ai.html)) | `data/incidents.json` |
+| P4.6 | Incidents in 2026, both outside the signing layer | S | date not stated in source NEAR Intents contract (deposit handling): Deposit bug in the Intents contract; $3.8M taken; all affected users made whole ([source](https://thedefiant.io/news/security/near-intents-postmortem-links-3-8-million-exploit-to-deposit-bug)); 2026-11-08 NEAR AI inference server (SGLang) and an older NEAR AI Agents deployment: SGLang RCE on a NEAR AI inference server; account details for about 100 users downloaded; 18 agents on an older deployment reached; 2 customers' API keys exposed in logs ([source](https://thehackernews.com/2026/11/sglang-rce-exploit-breaches-near-ai.html)) | `data/incidents.json` |
 
 ## The bear case (kept in full)
 
@@ -141,7 +141,7 @@ Intents moves real assets across 35+ chains through the Chain Signatures MPC net
 - **Bought-back NEAR is held, not burned.** The buyback wallet went from 150,008 NEAR 180 days ago to 2,280,160 now, while supply kept growing 2.46% a year. Holders are still diluted today.
 - **Lower issuance thins the security budget.** Gross staking yield falls from ~5.5% to ~3.6% at 1.6%. If stakers leave, the base chain weakens exactly when the toll road needs it.
 - **Concentrated trust.** 11 of 16 operators can sign on all 8 key domains and redeploy the signing contract with no delay window. Participants went from 17 to 16 in the last 30 days.
-- **Two incidents in NEAR-run products in six weeks**, and a TEE did not stop the second.
+- **Two incidents in NEAR-run products in 2026**, neither in the signing layer (incident ledger: `data/incidents.json`). In the second, the agents reached ran on an older deployment that, per the cited article, "did not run inside the company's TEE".
 
 ## What has to be true by 2029-01-31
 
@@ -156,8 +156,8 @@ At today's capture rate of 4.23 bps, revenue of $70.3M/yr needs about **$455M of
 | T3 | Revenue coverage of issuance (run-rate / security budget) | run-rate (trailing 90-day average × 365): 20% · month-end series (trigger input): 12% for Oct 2026 | falls 3 month-ends running | >= 50% | **neither** | bear trigger reads the month-end series, bull trigger reads the run-rate. Month-end series: 2025-10 0%, 2025-11 5%, 2025-12 8%, 2026-01 11%, 2026-02 14%, 2026-03 16%, 2026-04 14%, 2026-05 10%, 2026-06 9%, 2026-07 12%, 2026-08 13%, 2026-09 12%, 2026-10 12% |
 | T4 | Staked share of supply during the HSP-029 ramp | 44.89% | < 40% | >= 45% held through ramp | **neither** | ramp 2027-01-31 to 2029-01-31; 0 snapshots in ramp so far |
 | T5 | MPC liveness margin (participants - threshold) | 5 (11-of-16) | < 4, or threshold < 9 | >= 7 | **neither** |  |
-| T6 | Loss traced to the MPC signing layer | 0 | any -> thesis VOID | - | **neither** | from data/incidents.json (layer = mpc_signing) |
-| T7 | User loss not made whole in NEAR-run products, last 90 d | 0 | >= 1 | - | **neither** | from data/incidents.json |
+| T6 | Loss traced to the MPC signing layer | 0 | any -> thesis VOID | - | **neither** | from data/incidents.json (signing_layer_involved = true, funds at risk > 0) |
+| T7 | User loss not made whole in NEAR-run products, last 90 d | 0 | >= 1 | - | **neither** | from data/incidents.json (net_user_loss_usd > 0; undated incidents count as inside the window) |
 
 **Verdict rule.** HOLD when T1 and T3 bull triggers both fire with no bear trigger. VOID if T6 fires. DON'T HOLD if two bear triggers fire. Otherwise ON TRACK, UNPROVEN.
 

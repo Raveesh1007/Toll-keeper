@@ -59,7 +59,7 @@ Intents moves real assets across 35+ chains through the Chain Signatures MPC net
 - **Bought-back NEAR is held, not burned.** The buyback wallet went from {bb_180} NEAR 180 days ago to {bb_now} now, while supply kept growing {iss31_pct} a year. Holders are still diluted today.
 - **Lower issuance thins the security budget.** Gross staking yield falls from ~{yield_now} to ~{yield_target} at 1.6%. If stakers leave, the base chain weakens exactly when the toll road needs it.
 - **Concentrated trust.** {threshold} of {participants} operators can sign on all {domains} key domains and redeploy the signing contract with no delay window. Participants went from {p30} to {participants} in the last 30 days.
-- **Two incidents in NEAR-run products in six weeks**, and a TEE did not stop the second.
+- **Two incidents in NEAR-run products in 2026**, neither in the signing layer (incident ledger: `data/incidents.json`). In the second, the agents reached ran on an older deployment that, per the cited article, "did not run inside the company's TEE".
 
 ## What has to be true by {full_cut}
 

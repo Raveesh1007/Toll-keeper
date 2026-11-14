@@ -262,6 +262,8 @@ code{font-size:12px}
       <p class="hint" id="vsrc" style="margin-top:8px"></p></div>
     <div class="card c-12"><div class="ct"><div><h3>Upgrade governance record</h3><p class="hint" id="grule"></p></div></div>
       <div class="tw"><table id="gtable"></table></div><p class="hint" id="gtx" style="margin-top:10px"></p></div>
+    <div class="card c-12"><div class="ct"><div><h3>Incident ledger</h3><p class="hint">Descriptive. Added 2026-11-14, after pre-registration. Not a tripwire. Values come only from the cited sources; anything a source does not state is null, with the reason.</p></div></div>
+      <p style="margin:10px 0 0" id="isum"></p><div class="tw"><table id="itable"></table></div></div>
   </div>
 
   <h2 id="charts">Trends</h2>
@@ -482,6 +484,14 @@ drawCharts();
   $("gtable").innerHTML = "<tr><th>Version</th><th>First seen</th><th>Point</th><th>Block</th><th>Changed after</th></tr>" +
     G.version_changes.map(c => `<tr><td>${esc(c.version)}</td><td>${c.first_seen}</td><td>${c.point}</td><td>${n0(c.first_seen_block)}</td><td>${c.changed_after || "–"}</td></tr>`).join("");
   $("gtx").textContent = "Upgrade transactions: " + G.upgrade_txs_reason;
+  const I = D.incidents, nul = (v, why) => v == null ? `null<small>${esc(why || "")}</small>` : esc(v);
+  $("isum").textContent = I.summary;
+  $("itable").innerHTML = "<tr><th>Incident</th><th>Date (UTC)</th><th>Signing layer</th><th>Funds at risk</th><th>Net user loss</th><th>Disclosed</th><th>Resolved</th><th>Hours to resolve</th><th>Source</th></tr>" +
+    I.ledger.map(i => `<tr><td>${esc(i.component)}<small>${esc(i.summary)}</small></td><td>${nul(i.date_utc, i.date_reason)}</td>` +
+      `<td>${i.signing_layer_involved ? "yes" : "no"}<small>${esc(i.signing_layer_basis)}</small></td>` +
+      `<td>${i.funds_at_risk_usd == null ? nul(null, i.funds_at_risk_reason) : usd(i.funds_at_risk_usd)}</td><td>${usd(i.net_user_loss_usd)}<small>${esc(i.net_user_loss_basis)}</small></td>` +
+      `<td>${nul(i.disclosed_at_utc, i.disclosed_at_reason)}</td><td>${nul(i.resolved_at_utc, i.resolved_at_reason)}</td><td>${nul(i.hours_to_resolve, "computed from timestamps; none stated")}</td>` +
+      `<td>${i.sources.map(u => `<a href="${esc(u)}">${esc(new URL(u).hostname)}</a>`).join(" ")}</td></tr>`).join("");
 }
 function LV_last() { const p = D.security.liveness.points; return p[p.length - 1]; }
 
