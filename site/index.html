@@ -286,6 +286,7 @@ code{font-size:12px}
 
   <h2 id="data">Every number, for checking</h2>
   <p class="hint" style="margin:0 2px 6px">From the NEAR blockchain (M), DefiLlama (D) or named sources (S). Rebuild with <code>python collect.py</code> then <code>python build.py</code>.</p>
+  <div class="card" id="driftbox" style="margin:10px 0"></div>
   <details><summary>Claim register, with sources</summary><div class="tw"><table id="claims"></table></div></details>
   <details><summary>Swaps, fees and revenue by month</summary><p class="hint" id="mnote" style="margin:10px 2px 0"></p><div class="tw"><table id="monthly"></table></div></details>
   <details><summary>Security cost by month</summary><div class="tw"><table id="budget"></table></div></details>
@@ -494,6 +495,16 @@ drawCharts();
       `<td>${i.sources.map(u => `<a href="${esc(u)}">${esc(new URL(u).hostname)}</a>`).join(" ")}</td></tr>`).join("");
 }
 function LV_last() { const p = D.security.liveness.points; return p[p.length - 1]; }
+
+// source revisions since snapshot (drift.py)
+{
+  const R = D.drift, box = $("driftbox");
+  box.innerHTML = !R ? "<h3 style='margin:0;font-weight:500'>Source revisions since snapshot</h3><p class='hint'>No drift report yet: run <code>python drift.py</code>.</p>" :
+    `<div class="ct"><div><h3 style="margin:0;font-weight:500">Source revisions since snapshot</h3><p class="hint">${esc(R.label)} DefiLlama re-fetched at ${esc(R.fetched_at_utc)} and compared with <code>${esc(R.snapshot)}defillama.json</code> (sha256 ${esc(R.snapshot_defillama_sha256.slice(0, 12))}…). Days changed by more than ${R.threshold_pct}%:</p></div>` +
+    `<span class="d ${R.revised_days.length ? "mid" : "up"}">${R.revised_days.length} revised</span></div>` +
+    `<p style="margin:8px 0 0">Verdict with committed data: <b>${esc(R.verdict_committed)}</b> · with fresh data: <b>${esc(R.verdict_with_fresh_data ?? "rebuild failed")}</b> · tripwire state changes: ${R.tripwire_state_changes.length ? R.tripwire_state_changes.map(c => esc(`${c.id} ${c.committed} → ${c.with_fresh_data}`)).join(", ") : "none"}</p>` +
+    (R.revised_days.length ? `<div class="tw"><table><tr><th>Series</th><th>Date</th><th>Old</th><th>New</th><th>Change</th></tr>${R.revised_days.slice(0, 20).map(c => `<tr><td>${c.series}</td><td>${c.date}</td><td>${usd(c.old)}</td><td>${usd(c.new)}</td><td>${c.change_pct == null ? "from 0" : c.change_pct + "%"}</td></tr>`).join("")}</table></div>` : "");
+}
 
 // data tables
 const tbl = (id, head, rows) => $(id).innerHTML = `<tr>${head.map(h => `<th>${esc(h)}</th>`).join("")}</tr>` + rows.map(r => `<tr>${r.map(c => `<td>${c}</td>`).join("")}</tr>`).join("");

@@ -23,6 +23,8 @@ Verdict: **ON TRACK, UNPROVEN** · Tripwires pre-registered in `d5491d7` · <!--
 | `git log --reverse --format='%h %ad %s' -- config/tripwires.json` | `d5491d7` first, and no later commits. |
 | `python test_build.py` | `ok` (all checks pass). |
 | `python build.py` (offline, from committed raw data), then `git diff --exit-code data/` | Exit code 0: `metrics.json` is byte-identical to the committed file. |
+| `python build.py --verify` | `verify: all raw files match their manifests` (every raw file re-hashed against `data/raw/<date>/manifest.json`). |
+| `python drift.py`, then `python collect.py && python build.py` | A drift report (DefiLlama days revised by more than 0.5% since the committed snapshot, and whether the verdict or any tripwire would change), then fresh numbers. |
 
 ## For judges and AI reviewers: start here
 

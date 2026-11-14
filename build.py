@@ -1,6 +1,6 @@
 """data/raw/<latest>/ -> data/metrics.json, data/history.csv, site/metrics.json, site/metrics.js, THESIS.md.
 Standard library only. Deterministic: same raw files + config + git history -> same outputs."""
-import csv, datetime as dt, glob, json, math, os, subprocess, sys
+import csv, datetime as dt, glob, hashlib, json, math, os, subprocess, sys
 import security
 
 DAY = dt.timedelta(1)
@@ -103,8 +103,28 @@ def table(header, rows):
                      ["| " + " | ".join(str(c) for c in row) + " |" for row in rows])
 
 
+def verify():
+    """--verify: re-hash every raw file against its directory's manifest.json; exit 1 on any mismatch or missing manifest."""
+    bad = 0
+    for d in sorted(glob.glob("data/raw/*/")):
+        mf = os.path.join(d, "manifest.json")
+        if not os.path.exists(mf):
+            print(f"MISSING  {mf}")
+            bad += 1
+            continue
+        for f in load(mf)["files"]:
+            p = os.path.join(d, os.path.basename(f["path"]))
+            ok = os.path.exists(p) and hashlib.sha256(open(p, "rb").read()).hexdigest() == f["sha256"]
+            bad += not ok
+            print(f"{'ok' if ok else 'MISMATCH':8} {p}")
+    print("verify: all raw files match their manifests" if not bad else f"verify: {bad} problem(s)")
+    sys.exit(1 if bad else 0)
+
+
 def main():
     sys.stdout.reconfigure(encoding="utf-8")
+    if "--verify" in sys.argv:
+        verify()
     cfg = load("config/tripwires.json")
     C = cfg["constants"]
     clean = dt.date.fromisoformat(C["clean_data_start"])
@@ -558,6 +578,7 @@ def main():
         "issuance_gross_vs_net": {k: (r(v, 8) if isinstance(v, float) else v) for k, v in ISS.items()},
         "breakeven_variants": [{k: (r(v) if isinstance(v, float) else v) for k, v in x.items()} for x in BE],
         "tripwires": tripwires, "predictions": predictions, "security": SEC,
+        "drift": load("data/derived/drift.json") if os.path.exists("data/derived/drift.json") else None,
         "incidents": {"label": "Descriptive. Added 2026-11-14, after pre-registration. Not a tripwire.", "ledger": incidents,
                       "summary": f"{len(incidents)} incidents in the window; net holder/user loss: {usd(net_loss_total)} (as recorded); n={len(incidents)}, no rate inferred."},
         "claims": [dict(zip(("id", "claim", "status", "value", "source"), c)) for c in claims],

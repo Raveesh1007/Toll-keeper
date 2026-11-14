@@ -1,0 +1,45 @@
+{
+ "format": "one entry per raw file; backfilled 2026-11-14 by hashing the committed files. fetched_at_utc is unknown; the fetch happened at or before written_by_commit_time (a git commit time).",
+ "files": [
+  {
+   "path": "data/raw/2026-11-13/head.json",
+   "sha256": "21d1062eaf50d94fe1879fc899be7c22c33a8e671ece689139ab8dd8c9cf2e11",
+   "fetched_at_utc": null,
+   "backfilled": true,
+   "written_by_commit": "9f79f08e87516f908f4694c5bedf69d5ef57d740",
+   "written_by_commit_time": "2026-11-13T16:13:11+00:00",
+   "requests": null,
+   "requests_reason": "snapshot collected before request logging existed (added 2026-11-14)"
+  },
+  {
+   "path": "data/raw/2026-11-13/history.json",
+   "sha256": "514d5ee95604843c7a286848c506fab7007377e820e6c7377bd4369de08bb539",
+   "fetched_at_utc": null,
+   "backfilled": true,
+   "written_by_commit": "9f79f08e87516f908f4694c5bedf69d5ef57d740",
+   "written_by_commit_time": "2026-11-13T16:13:11+00:00",
+   "requests": null,
+   "requests_reason": "snapshot collected before request logging existed (added 2026-11-14)"
+  },
+  {
+   "path": "data/raw/2026-11-13/defillama.json",
+   "sha256": "9c0085c0d476533e58b42da2fbe2e5e894f132cdb0dd7bccc517b58427503bce",
+   "fetched_at_utc": null,
+   "backfilled": true,
+   "written_by_commit": "4aa48322153a88f83c2ba1c6159ec4786330b1d1",
+   "written_by_commit_time": "2026-11-13T21:10:35+05:30",
+   "requests": null,
+   "requests_reason": "snapshot collected before request logging existed (added 2026-11-14)"
+  },
+  {
+   "path": "data/raw/2026-11-13/price.json",
+   "sha256": "3fcbd8be145da667455059bd63a98389551c380fda25aaa8e6513a9605cbcb73",
+   "fetched_at_utc": null,
+   "backfilled": true,
+   "written_by_commit": "9f79f08e87516f908f4694c5bedf69d5ef57d740",
+   "written_by_commit_time": "2026-11-13T16:13:11+00:00",
+   "requests": null,
+   "requests_reason": "snapshot collected before request logging existed (added 2026-11-14)"
+  }
+ ]
+}

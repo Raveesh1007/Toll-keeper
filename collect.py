@@ -1,5 +1,5 @@
 """Fetch raw data into data/raw/<UTC date of head block>/. Standard library only, no keys."""
-import base64, datetime as dt, glob, json, os, ssl, sys, time, urllib.request
+import base64, datetime as dt, glob, hashlib, json, os, ssl, sys, time, urllib.request
 import security
 
 RPC = "https://rpc.mainnet.near.org"
@@ -28,6 +28,7 @@ def tls_context():
 
 
 TLS = tls_context()
+LOG, PHASE = [], ["head"]  # every successful request, tagged with the raw file it feeds (for manifest.json)
 
 
 def http(url, body=None):
@@ -37,7 +38,10 @@ def http(url, body=None):
     for attempt in range(6):
         try:
             with urllib.request.urlopen(req, timeout=60, context=TLS) as r:
-                return json.load(r)
+                out = json.load(r)
+            LOG.append({"file": PHASE[0] + ".json", "url": url, "method": "POST" if body is not None else "GET", "request_body": body,
+                        "fetched_at_utc": dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")})
+            return out
         except Exception as e:
             if attempt == 5:
                 raise RuntimeError(f"{url}: {e}") from e
@@ -156,11 +160,12 @@ def main():
     }
 
     print("history (archival nodes)", file=sys.stderr)
+    PHASE[0] = "history"
     head_s = int(head["timestamp_ns"]) / 1e9
     head_date = dt.datetime.fromtimestamp(head_s, dt.timezone.utc).date()
     prev_files = sorted(glob.glob(os.path.join("data", "raw", "*", "history.json")))
     prev = {p["label"]: p for p in json.load(open(prev_files[-1], encoding="utf-8"))} if prev_files else {}
-    history = []
+    history, reused = [], []
     for d in OFFSETS_DAYS:  # these move with the head, so fetch them each run
         label = f"-{d}d"
         try:
@@ -176,12 +181,14 @@ def main():
         label = m.isoformat()
         if label in prev:
             history.append(prev[label])
+            reused.append(label)
         else:
             t = dt.datetime(m.year, m.month, 1, tzinfo=dt.timezone.utc).timestamp()
             history.append(point(label, block_for_time(t, head)))
         m = dt.date(m.year + m.month // 12, m.month % 12 + 1, 1)
 
     print("defillama + price", file=sys.stderr)
+    PHASE[0] = "defillama"
     def chart(path):
         r = http(LLAMA + path)
         return {k: r.get(k) for k in ("totalDataChart", "total24h", "total30d", "total60dto30d", "methodology")}
@@ -193,6 +200,7 @@ def main():
     }
     start = int(dt.datetime(2025, 9, 1, tzinfo=dt.timezone.utc).timestamp())
     days = (int(head_s) - start) // 86400 + 1
+    PHASE[0] = "price"
     daily = http(f"https://coins.llama.fi/chart/coingecko:near?start={start}&span={days}&period=1d")["coins"]["coingecko:near"]["prices"]
     try:
         spot, spot_source = http("https://api.coingecko.com/api/v3/simple/price?ids=near&vs_currencies=usd")["near"]["usd"], "coingecko"
@@ -201,6 +209,7 @@ def main():
         spot, spot_source = daily[-1]["price"], "coins.llama.fi (latest daily)"
     price = {"spot_usd": spot, "spot_source": spot_source, "daily": daily}
 
+    PHASE[0] = "security"
     sec = security.fetch(http)
 
     out = os.path.join("data", "raw", head_date.isoformat())
@@ -208,6 +217,17 @@ def main():
     for name, obj in (("head", head_raw), ("history", history), ("defillama", llama), ("price", price), ("security", sec)):
         with open(os.path.join(out, name + ".json"), "w", encoding="utf-8", newline="\n") as f:
             json.dump(obj, f, indent=1, sort_keys=True)
+    files = []
+    for name in ("head", "history", "defillama", "price", "security"):
+        path = os.path.join(out, name + ".json")
+        reqs = [{k: v for k, v in q.items() if k != "file"} for q in LOG if q["file"] == name + ".json"]
+        entry = {"path": path.replace(os.sep, "/"), "sha256": hashlib.sha256(open(path, "rb").read()).hexdigest(),
+                 "fetched_at_utc": reqs[-1]["fetched_at_utc"] if reqs else None, "requests": reqs}
+        if name == "history":
+            entry["reused_from_previous_snapshot"] = reused
+        files.append(entry)
+    with open(os.path.join(out, "manifest.json"), "w", encoding="utf-8", newline="\n") as f:
+        json.dump({"format": "one entry per raw file; a file can combine several requests, listed in order", "files": files}, f, indent=1)
     print(f"wrote {out}/ (block {head['height']})")
 
 

@@ -15,10 +15,13 @@ jobs:
       - uses: actions/setup-python@v5
         with: {python-version: "3.12"}
       - if: github.event_name != 'push'
+        continue-on-error: true   # revisions report; never blocks the refresh
+        run: python drift.py
+      - if: github.event_name != 'push'
         run: |
           set -o pipefail
           python collect.py 2>&1 | tee collect.log || { echo "::error title=collect.py failed::$(tail -n 4 collect.log | paste -sd' ' - | cut -c1-900)"; exit 1; }
-      - run: python test_build.py && python build.py
+      - run: python test_build.py && python build.py && python build.py --verify
       - name: commit refreshed data
         run: |
           git config user.name "github-actions[bot]"

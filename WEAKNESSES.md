@@ -3,7 +3,7 @@
 
 > **Descriptive. Added 2026-11-14, after pre-registration. Not a tripwire.**
 
-Limits only. Numbers are filled in by `build.py` from the same data as `data/metrics.json` (data as of 2026-11-14, block 224,470,533).
+Limits only. Numbers are filled in by `build.py` from the same data as `data/metrics.json` (data as of 2026-11-14, block 224,471,150).
 
 1. **T1 artifact quarters.** Before the validity rule, 3 T1 quarter-ends compared against windows that start before the fee switch: 2026-03-31 (> +10000%/yr, window from 2025-07-05), 2026-06-30 (+151%/yr, window from 2025-10-04), 2026-09-30 (+260%/yr, window from 2026-01-04). Revenue before the switch was near zero, so these ratios are inflated by construction. `build.py` now marks them `n/a` ("comparison window predates fee switch (Mar 2026)"); valid quarter-ends so far: 0; next evaluated 2026-12-31. The same problem affects the 6-month ×4.23 figure (earlier window from 2026-02-17), which is kept only as a detail (THESIS claim P2.4). → `data/metrics.json` → `t1_validity`, `tripwires[T1]`.
 2. **T2 base effect.** 90-day year-on-year volume is +207.2%, because its comparison window falls in Intents' 2025 ramp-up. Month-to-date year on year is +5.9%, which matches the "volume flat" bear case. T2 still fires its bull trigger on the 90-day figure, as pre-registered. → `metrics.vol_yoy_90d`, `metrics.vol_yoy_mtd`.

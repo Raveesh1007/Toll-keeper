@@ -1,0 +1,17 @@
+{
+ "fetched_at_utc": "2026-11-14T05:39:44Z",
+ "label": "Descriptive. Added 2026-11-14, after pre-registration. Not a tripwire.",
+ "new_days_since_snapshot": {
+  "fees": [],
+  "revenue": [],
+  "volume": []
+ },
+ "rebuild_error": null,
+ "revised_days": [],
+ "snapshot": "data/raw/2026-11-14/",
+ "snapshot_defillama_sha256": "0eb2f1f7baf92003c61bd69d1b32cd37389c7380aceb75378529378d8598b035",
+ "threshold_pct": 0.5,
+ "tripwire_state_changes": [],
+ "verdict_committed": "ON TRACK, UNPROVEN",
+ "verdict_with_fresh_data": "ON TRACK, UNPROVEN"
+}

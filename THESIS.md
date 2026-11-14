@@ -1,19 +1,19 @@
 <!-- THESIS.md is generated from THESIS.template.md by `python build.py`. Edit the template, not THESIS.md. -->
 # NEAR: a toll on cross-chain settlement, if the toll can pay for the road
 
-**Draft 3 · data as of 2026-11-14 (block 224,470,533; DefiLlama through 2026-11-13) · NEAR $3.35**
+**Draft 3 · data as of 2026-11-14 (block 224,471,150; DefiLlama through 2026-11-13) · NEAR $3.34**
 
 Every number tagged M or D below is computed by `python build.py` from the raw files in `data/raw/`, which `python collect.py` fetches. Nothing is typed in by hand. Tripwires and the verdict rule were pre-registered in commit `d5491d7e3e585dade85c7a6d914587c8ed10d8f3` (`config/tripwires.json`, unchanged since registration).
 
 ## The long-term case in one paragraph
 
-NEAR is turning into a paid settlement layer for value that moves between chains. Users already pay about **$71M a year** in fees to move value through NEAR Intents. That is 101% of what it would cost to secure NEAR once issuance falls to 1.6%. Three things are moving in the holder's favour at once: the **cost of security is falling by design**, NEAR is **keeping a growing share of each swap**, and the **trust layer those swaps depend on is hardening**. NEAR is a long-term hold if its captured revenue compounds at **about 72% a year** until the issuance cut is fully in place (2029-01-31) without a failure in the signing layer. From Mar 2026 (the first full month after the fee switch) to Oct 2026, monthly revenue grew x3.9, but about 52% of that came from a higher capture rate, and volume is not compounding yet: Nov 1-13 averaged $136M a day, +5.9% on the same days of 2025. (The 90-day year-on-year figure, +207.2%, compares against Intents' 2025 ramp-up, so it overstates the trend.) So the case is **on track, unproven**.
+NEAR is turning into a paid settlement layer for value that moves between chains. Users already pay about **$71M a year** in fees to move value through NEAR Intents. That is 101% of what it would cost to secure NEAR once issuance falls to 1.6%. Three things are moving in the holder's favour at once: the **cost of security is falling by design**, NEAR is **keeping a growing share of each swap**, and the **trust layer those swaps depend on is hardening**. NEAR is a long-term hold if its captured revenue compounds at **about 71% a year** until the issuance cut is fully in place (2029-01-31) without a failure in the signing layer. From Mar 2026 (the first full month after the fee switch) to Oct 2026, monthly revenue grew x3.9, but about 52% of that came from a higher capture rate, and volume is not compounding yet: Nov 1-13 averaged $136M a day, +5.9% on the same days of 2025. (The 90-day year-on-year figure, +207.2%, compares against Intents' 2025 ramp-up, so it overstates the trend.) So the case is **on track, unproven**.
 
 ## Verdict: ON TRACK, UNPROVEN
 
 | Test | Hurdle | Observed | Pass? |
 |---|---|---|---|
-| Revenue growth | >= 75%/yr (pre-registered; 72%/yr is what today's numbers need) | x3.9 from Mar 2026 to Oct 2026 (monthly revenue), of which about 52% is capture-rate expansion | Not yet testable: under the validity rule the first valid comparison is 2026-11-25, the first valid quarter-end 2026-12-31 |
+| Revenue growth | >= 75%/yr (pre-registered; 71%/yr is what today's numbers need) | x3.9 from Mar 2026 to Oct 2026 (monthly revenue), of which about 52% is capture-rate expansion | Not yet testable: under the validity rule the first valid comparison is 2026-11-25, the first valid quarter-end 2026-12-31 |
 | Coverage of security cost | 100% | run-rate (trailing 90-day average × 365): 20% ($21.2M vs $108M issuance); month-end series (trigger input): 12% for Oct 2026 | No, 3.3x gap at 1.6% issuance |
 | Trust layer | No loss in the signing core; decentralizing | 5-of-8 180 days ago, 11-of-16 now; no signing-layer loss | **Yes** |
 
@@ -23,7 +23,7 @@ NEAR is turning into a paid settlement layer for value that moves between chains
 |---|---|---|---|---|
 | P1.1 | Intents volume, last 30 d | D | **$3.8B** ($33B over 12 months) | `api.llama.fi/summary/dexs/near-intents` |
 | P1.2 | Gross fees users paid, last 30 d | D | **$5.83M** = 15.4 bps of volume = **$71M/yr** | `summary/fees/near-intents?dataType=dailyFees` |
-| P1.3 | Gross fees vs security budget at 1.6% issuance ($70.3M/yr) | arith | **101%** | P1.2 / (1.6% x supply x price) |
+| P1.3 | Gross fees vs security budget at 1.6% issuance ($70.1M/yr) | arith | **101%** | P1.2 / (1.6% x supply x price) |
 | P1.4 | NEAR's captured share of fees, last 30 d | D | **31.0%** ($1.81M of $5.83M) | `dataType=dailyRevenue` |
 
 Reading: the money to fund NEAR's security is already flowing through NEAR's product. Most of it goes to solvers and distribution partners, who are needed to keep volume, so NEAR cannot take all of it. The question is NEAR's share and the volume growth, not whether demand exists.
@@ -69,7 +69,7 @@ Every month DefiLlama has, from its daily series (`data/raw/<date>/defillama.jso
 | P2.4 | Details only: trailing 90 d vs the 90 d ending 180 d earlier (2026-02-17 to 2026-05-17). Includes pre-fee-switch base, see WEAKNESSES #1 | D+arith | $58.2k vs $13.8k = x4.23; annualised +1758%/yr (not a forecast) | `build.py` `growth_at()` |
 | P2.4b | Fee switch to buybacks live since 2026-02-23 | D | DefiLlama methodology; [revenue.near.org](https://revenue.near.org/) | `methodology` field |
 | P2.5 | Capture rate trend confirmed independently | S | [Nansen Q2 2026](https://nansen.ai/post/nansen-near-quarterly-report-q2-2026): 11.5% lifetime to 30.5% trailing 30 d | - |
-| P2.6 | Buyback wallet balance (lower bound on purchases) | M | 2,280,160 NEAR now, 1,992,169 at -30 d; +310,552 over 31 d = 11% of net issuance in the same period | `view_account buybacks.multisignature.near` |
+| P2.6 | Buyback wallet balance (lower bound on purchases) | M | 2,280,160 NEAR now, 1,992,169 at -30 d; +310,161 over 31 d = 11% of net issuance in the same period | `view_account buybacks.multisignature.near` |
 
 ## Pillar 3: The cost of security is falling by design
 
@@ -90,15 +90,15 @@ Net issuance and its dollar cost, month by month, from `total_supply` at archiva
 | 2026-08 | 1,302,386,311 | 2,732,657 | 2.48% | $1.73 | $4.74M | $723k | 15% |
 | 2026-09 | 1,305,118,968 | 2,623,096 | 2.46% | $3.19 | $8.38M | $1.84M | 22% |
 | 2026-10 | 1,307,742,064 | 2,730,912 | 2.46% | $4.90 | $13.4M | $2.19M | 16% |
-| 2026-11 (partial) | 1,310,472,976 | 1,177,671 | 2.48% | $3.79 | $4.47M | $688k | 15% |
+| 2026-11 (partial) | 1,310,472,976 | 1,177,668 | 2.48% | $3.79 | $4.47M | $688k | 15% |
 
 | # | Claim | Status | Value | Reproduce |
 |---|---|---|---|---|
 | P3.1 | Max issuance today | M | 1/40 = 2.5%/yr; treasury share 0/1 (all to stakers; some docs say 90/10, the chain says otherwise) | `EXPERIMENTAL_protocol_config` |
-| P3.2 | Realized net supply growth | M | 2.46%/yr (31 d), 2.43%/yr (384 d) | `total_supply` at blocks 219922229, 170067913, 224470533 |
-| P3.3 | Security budget | M+arith | 32,306,334 NEAR/yr x $3.35 = **$108M/yr** | P3.2 x price |
+| P3.2 | Realized net supply growth | M | 2.46%/yr (31 d), 2.43%/yr (384 d) | `total_supply` at blocks 219922796, 170068496, 224471150 |
+| P3.3 | Security budget | M+arith | 32,307,708 NEAR/yr x $3.34 = **$108M/yr** | P3.2 x price |
 | P3.4 | Issuance path | S | 5% to 2.5% (Oct 2025) to **1.6%** passed Nov 2 2026, phased over 24 months after a 90-day grace period | [The Block](https://www.theblock.co/news/defi/2026-11-03-near-governance-approves-token-issuance-432378) |
-| P3.5 | Effect on the gap | arith | break-even revenue falls from **$108M to $70.3M/yr** with no growth at all | P3.3 vs P1.3 |
+| P3.5 | Effect on the gap | arith | break-even revenue falls from **$108M to $70.1M/yr** with no growth at all | P3.3 vs P1.3 |
 
 ## Pillar 4: The trust layer is hardening (the precondition)
 
@@ -122,7 +122,7 @@ Intents moves real assets across 35+ chains through the Chain Signatures MPC net
 | 2026-09-01 | 213,788,089 | 9 | 15 | 6 | 15 | 3.14.0 | 941,372 |
 | 2026-10-01 | 217,994,519 | 11 | 17 | 6 | 18 | 3.16.0 | 1,847,957 |
 | 2026-11-01 | 222,491,355 | 11 | 16 | 5 | 17 | 3.17.0 | 2,144,977 |
-| 2026-11-14 | 224,470,533 | 11 | 16 | 5 | 17 | 3.18.0 | 2,280,160 |
+| 2026-11-14 | 224,471,150 | 11 | 16 | 5 | 17 | 3.18.0 | 2,280,160 |
 
 | # | Claim | Status | Value | Reproduce |
 |---|---|---|---|---|
@@ -145,7 +145,7 @@ Intents moves real assets across 35+ chains through the Chain Signatures MPC net
 
 ## What has to be true by 2029-01-31
 
-At today's capture rate of 4.23 bps, revenue of $70.3M/yr needs about **$455M of Intents volume a day, 3.3x today's $138M**. Equivalent paths: volume x2.3 with capture at 6 bps, or volume x3.3 with capture flat. Anything that holds that path for 27 months while the signing layer stays clean makes NEAR a long-term hold on these terms.
+At today's capture rate of 4.23 bps, revenue of $70.1M/yr needs about **$454M of Intents volume a day, 3.3x today's $138M**. Equivalent paths: volume x2.3 with capture at 6 bps, or volume x3.3 with capture flat. Anything that holds that path for 27 months while the signing layer stays clean makes NEAR a long-term hold on these terms.
 
 ## Tripwires (pre-registered in `d5491d7`)
 

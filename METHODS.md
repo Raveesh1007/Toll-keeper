@@ -3,13 +3,13 @@
 
 > **Descriptive. Added 2026-11-14, after pre-registration. Not a tripwire.**
 
-Data as of 2026-11-14 (block 224,470,533; DefiLlama through 2026-11-13); NEAR price $3.35 (spot at collection).
+Data as of 2026-11-14 (block 224,471,150; DefiLlama through 2026-11-13); NEAR price $3.34 (spot at collection).
 
 ## Definitions
 
 **Security budget (cost).** Annual issuance in NEAR × NEAR price.
-- *Today's cost* uses **net** issuance: the change in `total_supply` between the head block and the block 31 days earlier, annualised by the real seconds between them. That is 2.463%/yr, or $108M/yr at $3.35. Because `total_supply` already falls when transaction fees are burned, this number is net of burn.
-- *Target cost* is the 1.6% issuance approved in Nov 2026: 1.6% × total supply × price = $70.3M/yr. Break-even and coverage-after-the-cut use this.
+- *Today's cost* uses **net** issuance: the change in `total_supply` between the head block and the block 31 days earlier, annualised by the real seconds between them. That is 2.463%/yr, or $108M/yr at $3.34. Because `total_supply` already falls when transaction fees are burned, this number is net of burn.
+- *Target cost* is the 1.6% issuance approved in Nov 2026: 1.6% × total supply × price = $70.1M/yr. Break-even and coverage-after-the-cut use this.
 
 **Revenue.** DefiLlama `dailyRevenue` for `near-intents` (NEAR's captured share of Intents fees), summed per day.
 - *Run-rate* = trailing **90-day** average × 365 = $21.2M/yr (90-day average $58.2k/day).
@@ -18,7 +18,7 @@ Data as of 2026-11-14 (block 224,470,533; DefiLlama through 2026-11-13); NEAR pr
 
 **Capture rate** = revenue ÷ volume over the same window: 4.23 bps over 90 days, 4.76 bps over 30 days ($1.81M of revenue on $3.8B of volume).
 
-**Break-even volume/day** = target cost ÷ 365 ÷ capture rate = **$455M/day** (×3.3 today's $138M).
+**Break-even volume/day** = target cost ÷ 365 ÷ capture rate = **$454M/day** (×3.3 today's $138M).
 
 ## Gross vs net issuance
 
@@ -30,14 +30,14 @@ All rows use the snapshot price above. Only the named input changes.
 
 | Variant | Annual cost (USD) | Capture (bps) | Break-even volume/day | vs ours |
 |---|---|---|---|---|
-| ours: 1.6% target issuance, trailing 90-day capture | $70.3M | 4.23 | $455M | x1.00 |
-| 30-day revenue window (capture = 30-day revenue / 30-day volume) | $70.3M | 4.76 | $405M | x0.89 |
-| today's net issuance (31 d) instead of the 1.6% target | $108M | 4.23 | $701M | x1.54 |
-| today's net issuance + 30-day revenue window | $108M | 4.76 | $623M | x1.37 |
-| today's gross issuance (epoch mint, before burn) | $110M | 4.23 | $710M | x1.56 |
-| today's gross issuance + 30-day revenue window | $110M | 4.76 | $631M | x1.39 |
+| ours: 1.6% target issuance, trailing 90-day capture | $70.1M | 4.23 | $454M | x1.00 |
+| 30-day revenue window (capture = 30-day revenue / 30-day volume) | $70.1M | 4.76 | $403M | x0.89 |
+| today's net issuance (31 d) instead of the 1.6% target | $108M | 4.23 | $699M | x1.54 |
+| today's net issuance + 30-day revenue window | $108M | 4.76 | $621M | x1.37 |
+| today's gross issuance (epoch mint, before burn) | $109M | 4.23 | $708M | x1.56 |
+| today's gross issuance + 30-day revenue window | $109M | 4.76 | $629M | x1.39 |
 
-Other entries have reported break-even volumes of about $755M–$804M a day (figures reported by those entries, not verified here). No variant here lands inside that range. Of the single-input changes, the one that moves break-even most is today's net issuance (31 d) instead of the 1.6% target (x1.54, $701M/day); the 30-day revenue window moves it x0.89, and gross instead of net issuance adds only x1.013. The remaining gap is not explained by these inputs; it would need the other entries' own price, window or cost definition, which this repo does not have.
+Other entries have reported break-even volumes of about $755M–$804M a day (figures reported by those entries, not verified here). No variant here lands inside that range. Of the single-input changes, the one that moves break-even most is today's net issuance (31 d) instead of the 1.6% target (x1.54, $699M/day); the 30-day revenue window moves it x0.89, and gross instead of net issuance adds only x1.013. The remaining gap is not explained by these inputs; it would need the other entries' own price, window or cost definition, which this repo does not have.
 
 ## What is not modelled
 
