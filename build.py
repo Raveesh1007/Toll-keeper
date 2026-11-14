@@ -494,6 +494,13 @@ def main():
                              "it would need the other entries' own price, window or cost definition, which this repo does not have."))
     with open("METHODS.template.md", encoding="utf-8") as f:
         write("METHODS.md", f.read().format_map(MV))
+    voided = [(q, g) for q, g in ((q, growth_at(q)) for q in qends) if g and not g["valid"]]
+    WV = dict(V, voided_q=", ".join(f"{q} ({'> +10000%' if g['annualized'] > 100 else pct(g['annualized'], 0, True)}/yr, window from {g['prior_start']})" for q, g in voided) or "none",
+              voided_n=len(voided), g6=mult(G["ratio"]), g6_start=G["prior_start"].isoformat(),
+              hg_vol=mult(HG["vol_ratio"]), hg_cap=mult(HG["capture_ratio"]), n_incidents=len(incidents),
+              net_loss=usd(sum(i["loss_usd"] for i in incidents if i["made_whole"] is not True)))
+    with open("WEAKNESSES.template.md", encoding="utf-8") as f:
+        write("WEAKNESSES.md", f.read().format_map(WV))
 
     # ---------- machine outputs ----------
     out = {
@@ -520,7 +527,10 @@ def main():
         "headline_growth": {"from_month": HG["from"], "to_month": HG["to"], "text": HG["text"]},
         "t1_validity": {"rule": T1_RULE, "added": "2026-11-14, after pre-registration", "uses_constant": f"clean_data_start = {C['clean_data_start']}",
                         "first_valid_comparison": t1_valid_from.isoformat(), "valid_quarter_ends": len(t1_valid_q),
-                        "qualifying_quarter_ends": t1_qualifying, "next_quarter_end_evaluated": t1_next_q.isoformat()},
+                        "qualifying_quarter_ends": t1_qualifying, "next_quarter_end_evaluated": t1_next_q.isoformat(),
+                        "quarter_ends": [{"date": q.isoformat(), "annualised_before_rule": r(g["annualized"]) if g else None,
+                                          "comparison_window_start": g["prior_start"].isoformat() if g else None, "valid": bool(g and g["valid"])}
+                                         for q, g in ((q, growth_at(q)) for q in qends)]},
         "t3_labels": {"run_rate": "run-rate (trailing 90-day average × 365)", "month_end": "month-end series (trigger input)",
                       "month_end_latest_month": cov_me[-1][0]},
         "issuance_gross_vs_net": {k: (r(v, 8) if isinstance(v, float) else v) for k, v in ISS.items()},

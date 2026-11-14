@@ -5,7 +5,7 @@
 **Can NEAR's tolls pay for its road?**
 A NEAR investment thesis where every number is computed from public data, re-checked daily, and judged by alarms written down in advance.
 
-[**Live dashboard**](https://raveesh1007.github.io/Toll-keeper/) · [Thesis](THESIS.md) · [Live numbers (JSON)](data/metrics.json) · [Pre-registered alarms](config/tripwires.json)
+[**Live dashboard**](https://raveesh1007.github.io/Toll-keeper/) · [Thesis](THESIS.md) · [Live numbers (JSON)](data/metrics.json) · [Pre-registered alarms](config/tripwires.json) · [Weaknesses](WEAKNESSES.md) · [Methods](METHODS.md)
 
 `Python 3.11+` · `standard library only` · `no API keys` · `MIT`
 

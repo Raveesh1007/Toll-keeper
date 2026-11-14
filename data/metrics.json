@@ -1651,6 +1651,50 @@
   "first_valid_comparison": "2026-11-25",
   "next_quarter_end_evaluated": "2026-12-31",
   "qualifying_quarter_ends": 0,
+  "quarter_ends": [
+   {
+    "annualised_before_rule": null,
+    "comparison_window_start": null,
+    "date": "2025-03-31",
+    "valid": false
+   },
+   {
+    "annualised_before_rule": null,
+    "comparison_window_start": null,
+    "date": "2025-06-30",
+    "valid": false
+   },
+   {
+    "annualised_before_rule": null,
+    "comparison_window_start": null,
+    "date": "2025-09-30",
+    "valid": false
+   },
+   {
+    "annualised_before_rule": null,
+    "comparison_window_start": null,
+    "date": "2025-12-31",
+    "valid": false
+   },
+   {
+    "annualised_before_rule": 2611591923.571007,
+    "comparison_window_start": "2025-07-05",
+    "date": "2026-03-31",
+    "valid": false
+   },
+   {
+    "annualised_before_rule": 1.511044,
+    "comparison_window_start": "2025-10-04",
+    "date": "2026-06-30",
+    "valid": false
+   },
+   {
+    "annualised_before_rule": 2.599051,
+    "comparison_window_start": "2026-01-04",
+    "date": "2026-09-30",
+    "valid": false
+   }
+  ],
   "rule": "comparison window predates fee switch (Mar 2026)",
   "uses_constant": "clean_data_start = 2026-03-01",
   "valid_quarter_ends": 0
