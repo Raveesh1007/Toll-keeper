@@ -1,10 +1,10 @@
 {
  "governance": {
-  "access_keys_block": 224471150,
+  "access_keys_block": 224478564,
   "access_keys_now": 0,
   "current_version": "3.18.0",
   "pending_update_votes": {},
-  "rule": "Contract upgrades are approved once 11 participants (the threshold) vote for the same update; update_config is private; the account has 0 access keys (re-read at block 224471150).",
+  "rule": "Contract upgrades are approved once 11 participants (the threshold) vote for the same update; update_config is private; the account has 0 access keys (re-read at block 224478564).",
   "rule_sources": [
    "https://github.com/near/mpc/blob/e691bdb98d68dcf74653da58d043453a6318765f/crates/contract/src/api/update.rs#L82",
    "https://github.com/near/mpc/blob/e691bdb98d68dcf74653da58d043453a6318765f/crates/contract/src/api/update.rs#L152"
@@ -99,7 +99,7 @@
    {
     "changed_after": "2026-11-01",
     "first_seen": "2026-11-14",
-    "first_seen_block": 224471150,
+    "first_seen_block": 224478564,
     "point": "head",
     "version": "3.18.0"
    }
@@ -263,7 +263,7 @@
     "version": "3.17.0"
    },
    {
-    "block": 224471150,
+    "block": 224478564,
     "date": "2026-11-14",
     "margin": 5,
     "participants_n": 16,
@@ -310,37 +310,37 @@
   "chain_breakdown_usd": {
    "ADI": 395,
    "Aptos": 42,
-   "Arbitrum": 3988056,
+   "Arbitrum": 4056951,
    "Aurora": 97,
-   "Avalanche": 123047,
-   "Base": 2201715,
-   "Berachain": 46602,
-   "Binance": 3611142,
-   "Bitcoin": 5680421,
-   "Cardano": 99110,
-   "Dash": 293216,
-   "Doge": 375312,
-   "Ethereum": 55646211,
-   "Litecoin": 868313,
-   "Monad": 138296,
-   "Near": 81006732,
-   "Optimism": 232599,
-   "Polygon": 1511396,
-   "Ripple": 1159913,
-   "Solana": 83665,
-   "Stellar": 68379,
-   "Sui": 257582,
-   "TON": 830063,
-   "Tron": 9801103,
-   "X Layer": 23199,
-   "xDai": 1224951
+   "Avalanche": 122985,
+   "Base": 2245716,
+   "Berachain": 47275,
+   "Binance": 3611939,
+   "Bitcoin": 5689346,
+   "Cardano": 99273,
+   "Dash": 294079,
+   "Doge": 377181,
+   "Ethereum": 56098509,
+   "Litecoin": 872955,
+   "Monad": 137325,
+   "Near": 80439465,
+   "Optimism": 233286,
+   "Polygon": 1511378,
+   "Ripple": 1107986,
+   "Solana": 83667,
+   "Stellar": 68499,
+   "Sui": 256485,
+   "TON": 812557,
+   "Tron": 9607490,
+   "X Layer": 23273,
+   "xDai": 1228375
   },
   "sentence": "≈$169M held in Intents; 11 of 16 signers must collude; bond at risk per signer: none found in contract. Security beyond that rests on TEE attestation (17 current entries) and operator identity.",
   "signers_to_corrupt": 11,
   "tee_entries_now": 17,
-  "value_in_intents_usd": 169271559,
+  "value_in_intents_usd": 169026531,
   "value_label": "value held in NEAR Intents. Part of it depends on MPC-controlled addresses; that share is not measured here. Context, not a precise exposure.",
-  "value_per_corruptible_signer_usd": 15388323.545454545,
+  "value_per_corruptible_signer_usd": 15366048.272727273,
   "value_source": "https://api.llama.fi/protocol/near-intents"
  }
 }

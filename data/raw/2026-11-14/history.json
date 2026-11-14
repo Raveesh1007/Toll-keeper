@@ -1,15 +1,15 @@
 [
  {
   "buyback": {
-   "amount": "1992169156937269978694627612992",
-   "block_hash": "8aP7aoJUJ5c3CZ8qLdUrVubzCowLe2S6GU2b7Rt2vkR7",
-   "block_height": 220036672,
+   "amount": "1992851045378835881385806365877",
+   "block_hash": "4z44wUEeaay84KsvG7xbQZvU97ZcaWZZjAg4Bm53bbtj",
+   "block_height": 220044098,
    "code_hash": "2v9kZJHN4sogHuKtKHaqYAqQBazkqH2cjY1rrjQYvNQa",
    "locked": "0",
    "storage_paid_at": 0,
    "storage_usage": 356468
   },
-  "height": 220036672,
+  "height": 220044098,
   "label": "-30d",
   "mpc_state": {
    "Running": {
@@ -306,20 +306,20 @@
     "tls_public_key": "ed25519:6Jo3Q1qyjDy2b7r8eqKasckk5qfsnLfxKUS3FfS9R9MM"
    }
   ],
-  "timestamp_ns": 1792043260904184529,
-  "total_supply": "1309008358220377219579509326050565"
+  "timestamp_ns": 1792047626101719808,
+  "total_supply": "1309007791354993195206156426050565"
  },
  {
   "buyback": {
-   "amount": "1969998372456025499213136074463",
-   "block_hash": "Htunow9kbE8WMxkuBotqg1pU12XAR3JyQzT7ysHn761N",
-   "block_height": 219922796,
+   "amount": "1970595683495787894380112306118",
+   "block_hash": "9ta1q8v2Ur2wxgzHQztP3W1sEVttbbn9VBmvyfNYoULZ",
+   "block_height": 219930101,
    "code_hash": "2v9kZJHN4sogHuKtKHaqYAqQBazkqH2cjY1rrjQYvNQa",
    "locked": "0",
    "storage_paid_at": 0,
    "storage_usage": 356468
   },
-  "height": 219922796,
+  "height": 219930101,
   "label": "-31d",
   "mpc_state": {
    "Running": {
@@ -616,20 +616,20 @@
     "tls_public_key": "ed25519:6Jo3Q1qyjDy2b7r8eqKasckk5qfsnLfxKUS3FfS9R9MM"
    }
   ],
-  "timestamp_ns": 1791971136148145755,
-  "total_supply": "1308921884535917438861522444816080"
+  "timestamp_ns": 1791977012593692033,
+  "total_supply": "1308921835637093645715200444816080"
  },
  {
   "buyback": {
    "amount": "749843037424010512586939682593",
-   "block_hash": "38uenrx3LNB51PyKgwdUJM3BWU1UmRyvN2eNPcGLWDRM",
-   "block_height": 211571139,
+   "block_hash": "6YWRNUAAyViZLUMjQ3AwpDFTkJQbGbJa67EfrmZg2Kvt",
+   "block_height": 211578218,
    "code_hash": "2v9kZJHN4sogHuKtKHaqYAqQBazkqH2cjY1rrjQYvNQa",
    "locked": "0",
    "storage_paid_at": 0,
    "storage_usage": 356468
   },
-  "height": 211571139,
+  "height": 211578218,
   "label": "-90d",
   "mpc_state": {
    "Running": {
@@ -864,20 +864,20 @@
     "tls_public_key": "ed25519:KfQywkbYRBwBR2sypA9uHqFNWqywNZUCNdw1zFmjnMh"
    }
   ],
-  "timestamp_ns": 1786877538611534772,
-  "total_supply": "1303738354281366399877116056720342"
+  "timestamp_ns": 1786881806408172060,
+  "total_supply": "1303738323530731504046754256720342"
  },
  {
   "buyback": {
-   "amount": "150007911666243574627896042949",
-   "block_hash": "H8962J3kdRmfaSHrXJH2oLrHG5RNXutqGNaCcdpq1iyL",
-   "block_height": 198878133,
+   "amount": "151220139866319073371751786429",
+   "block_hash": "4cxxJ9wP1NLqdTGLq4WyjJ1YtUdLbs5ur8UT2xaJ3VkA",
+   "block_height": 198885539,
    "code_hash": "5WFgvKK2DizfgEcey6xBkn4RdTe9cGNWzGK5VJuUtc8d",
    "locked": "0",
    "storage_paid_at": 0,
    "storage_usage": 357967
   },
-  "height": 198878133,
+  "height": 198885539,
   "label": "-180d",
   "mpc_state": {
    "Running": {
@@ -1033,12 +1033,12 @@
     "tls_public_key": "ed25519:9FNunZGVJygvREcWxUzHZABCGi5A3gC43sizeKAcDpE4"
    }
   ],
-  "timestamp_ns": 1779122298671095118,
-  "total_supply": "1295843986736205128305793206102805"
+  "timestamp_ns": 1779126823967259160,
+  "total_supply": "1295843943613303557955469706102805"
  },
  {
   "buyback": null,
-  "height": 172735791,
+  "height": 172743042,
   "label": "-365d",
   "mpc_state": {
    "Running": {
@@ -1147,12 +1147,12 @@
   },
   "mpc_version": "2.2.0-rc.1",
   "tee_accounts": null,
-  "timestamp_ns": 1763207754784547295,
-  "total_supply": "1280018886298918669764520917303707"
+  "timestamp_ns": 1763212441996801885,
+  "total_supply": "1280018743209495401345398717303707"
  },
  {
   "buyback": null,
-  "height": 170068496,
+  "height": 170075750,
   "label": "-384d",
   "mpc_state": {
    "Running": {
@@ -1261,8 +1261,8 @@
   },
   "mpc_version": "2.2.0-rc.1",
   "tee_accounts": null,
-  "timestamp_ns": 1761560507544439428,
-  "total_supply": "1278214962964819696548918355502303"
+  "timestamp_ns": 1761564914820075348,
+  "total_supply": "1278214826490577234773726555502303"
  },
  {
   "buyback": null,
