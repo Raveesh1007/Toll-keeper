@@ -15,6 +15,8 @@ A NEAR investment thesis where every number is computed from public data, re-che
 
 Verdict: **ON TRACK, UNPROVEN** · Tripwires pre-registered in `d5491d7` · <!-- scoreboard:start -->Scoreboard: BULL 1 · BEAR 0 · neither 5 · n/a 1 (of 7 pre-registered tripwires), data as of 2026-11-14<!-- scoreboard:end -->
 
+Independent timestamp: GitHub Actions [run 43451573954](https://github.com/Raveesh1007/Toll-keeper/actions/runs/43451573954) (2026-11-13 15:20:11 UTC) ran on `9bfaa67`; `d5491d7` precedes it. Details and scope: [PROVENANCE.md](PROVENANCE.md).
+
 ## Check it in 5 minutes
 
 | Do this | You should see |
