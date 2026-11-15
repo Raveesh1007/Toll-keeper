@@ -1,0 +1,3860 @@
+[
+ {
+  "buyback": {
+   "amount": "1999520118807020396672803051001",
+   "block_hash": "DJkqmgjPngaroCkD1wEgKWApmNVVZ1D6T5HoUfAGe2Dg",
+   "block_height": 220196739,
+   "code_hash": "2v9kZJHN4sogHuKtKHaqYAqQBazkqH2cjY1rrjQYvNQa",
+   "locked": "0",
+   "storage_paid_at": 0,
+   "storage_usage": 356468
+  },
+  "height": 220196739,
+  "label": "-30d",
+  "mpc_state": {
+   "Running": {
+    "domains": {
+     "domains": [
+      {
+       "id": 0,
+       "protocol": "CaitSith",
+       "purpose": "Sign",
+       "reconstruction_threshold": 11
+      },
+      {
+       "id": 1,
+       "protocol": "Frost",
+       "purpose": "Sign",
+       "reconstruction_threshold": 11
+      },
+      {
+       "id": 2,
+       "protocol": "ConfidentialKeyDerivation",
+       "purpose": "CKD",
+       "reconstruction_threshold": 11
+      },
+      {
+       "id": 3,
+       "protocol": "CaitSith",
+       "purpose": "ForeignTx",
+       "reconstruction_threshold": 11
+      }
+     ],
+     "next_domain_id": 4
+    },
+    "parameters": {
+     "participants": {
+      "next_id": 21,
+      "participants": [
+       [
+        "blacksandtech.near",
+        0,
+        {
+         "tls_public_key": "ed25519:6biR7HfytnWcjyrnE1eVFDKXxo5huz11uwxyMxKWPdvT",
+         "url": "http://near-mpc-mainnet.svc.blacksand.xyz"
+        }
+       ],
+       [
+        "mpc-lgns.near",
+        4,
+        {
+         "tls_public_key": "ed25519:6xY2u5RHiBM5sdNnojwMjqKEBgFLmMesnyPovmSXqFFp",
+         "url": "http://137.74.108.92:80"
+        }
+       ],
+       [
+        "multichain-mainnet-aurora.near",
+        5,
+        {
+         "tls_public_key": "ed25519:8eUhDQoWTTiqLjxAViAHXPK6VnT97YkjgFz7Hf2PQbfz",
+         "url": "http://multichain-mainnet.aurora.dev:80"
+        }
+       ],
+       [
+        "near-mpc-staking4all-01.near",
+        6,
+        {
+         "tls_public_key": "ed25519:6Jo3Q1qyjDy2b7r8eqKasckk5qfsnLfxKUS3FfS9R9MM",
+         "url": "http://multichain-mainnet-01.staking4all.org:80"
+        }
+       ],
+       [
+        "nodemonster.near",
+        7,
+        {
+         "tls_public_key": "ed25519:3nGFcBkefJVEgLqq7ScxRrcdxnVNSMRWqJokkRnb1AzW",
+         "url": "http://near-mpc-main.node.monster:80"
+        }
+       ],
+       [
+        "n1-multichain.near",
+        8,
+        {
+         "tls_public_key": "ed25519:DA6z3Gza1fmo3wTxiV4B1Lnv6nMkS38fJuKPbBvKWSct",
+         "url": "https://57.129.86.53:80"
+        }
+       ],
+       [
+        "everstake-mpc-1.near",
+        10,
+        {
+         "tls_public_key": "ed25519:2DkhuDvZrBWEYKjhKx9nekXNHkyeZxS2S3U5rHtHv2ca",
+         "url": "http://nearmpc-mainnet-tdx.everstake.com:80"
+        }
+       ],
+       [
+        "stakin-mpc.near",
+        11,
+        {
+         "tls_public_key": "ed25519:Fsofv4hmTbbxdBk9eQmM9aSX3xWgbzmKRyZjjxJE5ocF",
+         "url": "http://near-mpc-mainnet-1.stakin-nodes.com:80"
+        }
+       ],
+       [
+        "mpch-01.near",
+        12,
+        {
+         "tls_public_key": "ed25519:nBTkCdyi3GQ9oqM8YsViRiiindkrv6f9yh9TX1HhDN6",
+         "url": "http://mpch-mpc-near-m-01.near.mainnet.mpch.io"
+        }
+       ],
+       [
+        "svrn-01.near",
+        13,
+        {
+         "tls_public_key": "ed25519:FVAvAVSnPYB18TvapgBDbQyAdm5XrTcSjQoohe8pJa7Y",
+         "url": "http://svrn-mpc-near-m-01.near.mainnet.ssgllc.io"
+        }
+       ],
+       [
+        "greenfield-mpc01.near",
+        14,
+        {
+         "tls_public_key": "ed25519:3RWgtpdVjuoRZsf3S73ipwVMRiYML37bLHKbokkWeGPq",
+         "url": "http://near-mpc-mainnet2.greenfield.xyz:80"
+        }
+       ],
+       [
+        "natsai-mpc.near",
+        15,
+        {
+         "tls_public_key": "ed25519:8Kwvcxvx3fjtAizVjMVMLBeQJHWCBJY7a9bjAMb4aiHd",
+         "url": "http://near-mpc-mainnet-1.natsai.xyz:80"
+        }
+       ],
+       [
+        "hashkeympc.near",
+        16,
+        {
+         "tls_public_key": "ed25519:EUB6coGTMVia2rdjDB9Q18yVn4iu38fgVbHberzKC847",
+         "url": "http://near-mpc-mainnet-1.hashkey.cloud"
+        }
+       ],
+       [
+        "astrostakers-mainnet.near",
+        17,
+        {
+         "tls_public_key": "ed25519:Fmv82fr5ALKs597ohcZMi7QXMrfQ3rDELVG231qDF4ME",
+         "url": "http://near-mainnet-mpc.astrostakers.com"
+        }
+       ],
+       [
+        "klever-nearmpc-01.near",
+        18,
+        {
+         "tls_public_key": "ed25519:KfQywkbYRBwBR2sypA9uHqFNWqywNZUCNdw1zFmjnMh",
+         "url": "http://multichain-mainnet-01.klever.io"
+        }
+       ],
+       [
+        "nansen-ai-mpc.near",
+        19,
+        {
+         "tls_public_key": "ed25519:E59NQmrXbWNrKcrg5Fhxwa73FFyjRWquLsNTzakHD5aU",
+         "url": "http://mpc.near.staking.nansen.ai"
+        }
+       ],
+       [
+        "bitwise-mpc01.near",
+        20,
+        {
+         "tls_public_key": "ed25519:3R2RE7XSQepvkbbvkvpJ3iWGXgY6Ztpj1T3eguovMXZT",
+         "url": "http://near-mpc-mainnet01.mainnet.validators.bitwiseinvestments.com"
+        }
+       ]
+      ]
+     },
+     "threshold": 11
+    }
+   }
+  },
+  "mpc_version": "3.16.0",
+  "tee_accounts": [
+   {
+    "account_id": "mpc-lgns.near",
+    "account_public_key": "ed25519:6u7h8yLGDAmiUFNT42oQmJLdKoksRC1eDrc55PUxqiHx",
+    "tls_public_key": "ed25519:6xY2u5RHiBM5sdNnojwMjqKEBgFLmMesnyPovmSXqFFp"
+   },
+   {
+    "account_id": "near-mpc-staking4all-01.near",
+    "account_public_key": "ed25519:Dpc86JjawhRahHt4bfER5BATaVRoZiaTr3NaAWgAjpHR",
+    "tls_public_key": "ed25519:2CbEnbBQ9RA2oocc9a89Eck5d9ighfL7FGiEkMyQ7YB9"
+   },
+   {
+    "account_id": "near-mpc-staking4all-01.near",
+    "account_public_key": "ed25519:5WZpSFVA3rPgqs6F66pzbsGPUuuExBBtaQVKNqduSnnU",
+    "tls_public_key": "ed25519:6Jo3Q1qyjDy2b7r8eqKasckk5qfsnLfxKUS3FfS9R9MM"
+   },
+   {
+    "account_id": "blacksandtech.near",
+    "account_public_key": "ed25519:6fjsasP13zhmwHv7xkB65bHiG4Lvn5TfMbJqCXkWCyNy",
+    "tls_public_key": "ed25519:6biR7HfytnWcjyrnE1eVFDKXxo5huz11uwxyMxKWPdvT"
+   },
+   {
+    "account_id": "astrostakers-mainnet.near",
+    "account_public_key": "ed25519:3WaocV9ryokGemNAdmcQbnu5nmm62sscj13vc4rnnsLu",
+    "tls_public_key": "ed25519:Fmv82fr5ALKs597ohcZMi7QXMrfQ3rDELVG231qDF4ME"
+   },
+   {
+    "account_id": "klever-nearmpc-01.near",
+    "account_public_key": "ed25519:2D5SEEd2TaFBPxwZc6QyJZaxRWN1Yf7uZwgFpPwN8am8",
+    "tls_public_key": "ed25519:KfQywkbYRBwBR2sypA9uHqFNWqywNZUCNdw1zFmjnMh"
+   },
+   {
+    "account_id": "svrn-01.near",
+    "account_public_key": "ed25519:GdrMw9r1TSEQunU3XiCfH8JJ4LWueLWZe8QvtUbPfPnh",
+    "tls_public_key": "ed25519:FVAvAVSnPYB18TvapgBDbQyAdm5XrTcSjQoohe8pJa7Y"
+   },
+   {
+    "account_id": "multichain-mainnet-aurora.near",
+    "account_public_key": "ed25519:BwScwquNZHrh566j4YHUdMRixP4D5CsLTa2RWAUf7JNi",
+    "tls_public_key": "ed25519:8eUhDQoWTTiqLjxAViAHXPK6VnT97YkjgFz7Hf2PQbfz"
+   },
+   {
+    "account_id": "mpc-lgns.near",
+    "account_public_key": "ed25519:69iDnQdYxQnKfQu8XJadNX3ST5acVwe4eYt2688NRq5J",
+    "tls_public_key": "ed25519:EFW6528i4iU1XK3Q53r6kyHEjjA7puJLhHLH3mG1YRZd"
+   },
+   {
+    "account_id": "mpch-01.near",
+    "account_public_key": "ed25519:38EvBLV9uCQJ6RjVEcn2hnAPUbdqAGJyucSXbzmBHFBH",
+    "tls_public_key": "ed25519:nBTkCdyi3GQ9oqM8YsViRiiindkrv6f9yh9TX1HhDN6"
+   },
+   {
+    "account_id": "hashkeympc.near",
+    "account_public_key": "ed25519:CqPdKWDBsYHtVYbqqUpe7sqwADbkxf6dLqBaZjnFu6HP",
+    "tls_public_key": "ed25519:EUB6coGTMVia2rdjDB9Q18yVn4iu38fgVbHberzKC847"
+   },
+   {
+    "account_id": "n1-multichain.near",
+    "account_public_key": "ed25519:6qxdfaxVUhus17PYu6EAC85af5fxaMDnVQAu7RS2Afr8",
+    "tls_public_key": "ed25519:DA6z3Gza1fmo3wTxiV4B1Lnv6nMkS38fJuKPbBvKWSct"
+   },
+   {
+    "account_id": "nodemonster.near",
+    "account_public_key": "ed25519:2zaHA3rth2wRwXTTnrRYooCFMNfR41nKvUvshVoeTZP9",
+    "tls_public_key": "ed25519:3nGFcBkefJVEgLqq7ScxRrcdxnVNSMRWqJokkRnb1AzW"
+   },
+   {
+    "account_id": "greenfield-mpc01.near",
+    "account_public_key": "ed25519:2PdhtMKP7GQzqKX2DXLi53R7nJGsZny6waBcf392rxqK",
+    "tls_public_key": "ed25519:3RWgtpdVjuoRZsf3S73ipwVMRiYML37bLHKbokkWeGPq"
+   },
+   {
+    "account_id": "natsai-mpc.near",
+    "account_public_key": "ed25519:EBVzDPpx1mYG4K7D29erANMiqGRQRgHDgBwxn8syX8yA",
+    "tls_public_key": "ed25519:8Kwvcxvx3fjtAizVjMVMLBeQJHWCBJY7a9bjAMb4aiHd"
+   },
+   {
+    "account_id": "nansen-ai-mpc.near",
+    "account_public_key": "ed25519:954gwT3w4Ba83P4boJy8aCh3AVCapyTLTUXoXBG4SwZg",
+    "tls_public_key": "ed25519:E59NQmrXbWNrKcrg5Fhxwa73FFyjRWquLsNTzakHD5aU"
+   },
+   {
+    "account_id": "bitwise-mpc01.near",
+    "account_public_key": "ed25519:FAJ6YY5gmKG6bC3K8j2CzWiREZZHrWxEodBbtm9bAyPT",
+    "tls_public_key": "ed25519:3R2RE7XSQepvkbbvkvpJ3iWGXgY6Ztpj1T3eguovMXZT"
+   },
+   {
+    "account_id": "everstake-mpc-1.near",
+    "account_public_key": "ed25519:Cs8HhenpAYqH2D3TkiZNgjZHD9Ys3GM87m92W8vQqvQi",
+    "tls_public_key": "ed25519:2DkhuDvZrBWEYKjhKx9nekXNHkyeZxS2S3U5rHtHv2ca"
+   },
+   {
+    "account_id": "stakin-mpc.near",
+    "account_public_key": "ed25519:GJamGnKkYrWCNpHwSYJj6iRcK7HpzH67kqGAswXYatzu",
+    "tls_public_key": "ed25519:Fsofv4hmTbbxdBk9eQmM9aSX3xWgbzmKRyZjjxJE5ocF"
+   }
+  ],
+  "timestamp_ns": 1792138049771303873,
+  "total_supply": "1309083711646562345898970836727307"
+ },
+ {
+  "buyback": {
+   "amount": "1992851045378835881385806365877",
+   "block_hash": "QxwovrZJXwsPfTAi4e7xAX4yFMmJrbMVYjDjNQGPo9v",
+   "block_height": 220050148,
+   "code_hash": "2v9kZJHN4sogHuKtKHaqYAqQBazkqH2cjY1rrjQYvNQa",
+   "locked": "0",
+   "storage_paid_at": 0,
+   "storage_usage": 356468
+  },
+  "height": 220050148,
+  "label": "-31d",
+  "mpc_state": {
+   "Running": {
+    "domains": {
+     "domains": [
+      {
+       "id": 0,
+       "protocol": "CaitSith",
+       "purpose": "Sign",
+       "reconstruction_threshold": 11
+      },
+      {
+       "id": 1,
+       "protocol": "Frost",
+       "purpose": "Sign",
+       "reconstruction_threshold": 11
+      },
+      {
+       "id": 2,
+       "protocol": "ConfidentialKeyDerivation",
+       "purpose": "CKD",
+       "reconstruction_threshold": 11
+      },
+      {
+       "id": 3,
+       "protocol": "CaitSith",
+       "purpose": "ForeignTx",
+       "reconstruction_threshold": 11
+      }
+     ],
+     "next_domain_id": 4
+    },
+    "parameters": {
+     "participants": {
+      "next_id": 21,
+      "participants": [
+       [
+        "blacksandtech.near",
+        0,
+        {
+         "tls_public_key": "ed25519:6biR7HfytnWcjyrnE1eVFDKXxo5huz11uwxyMxKWPdvT",
+         "url": "http://near-mpc-mainnet.svc.blacksand.xyz"
+        }
+       ],
+       [
+        "mpc-lgns.near",
+        4,
+        {
+         "tls_public_key": "ed25519:6xY2u5RHiBM5sdNnojwMjqKEBgFLmMesnyPovmSXqFFp",
+         "url": "http://137.74.108.92:80"
+        }
+       ],
+       [
+        "multichain-mainnet-aurora.near",
+        5,
+        {
+         "tls_public_key": "ed25519:8eUhDQoWTTiqLjxAViAHXPK6VnT97YkjgFz7Hf2PQbfz",
+         "url": "http://multichain-mainnet.aurora.dev:80"
+        }
+       ],
+       [
+        "near-mpc-staking4all-01.near",
+        6,
+        {
+         "tls_public_key": "ed25519:6Jo3Q1qyjDy2b7r8eqKasckk5qfsnLfxKUS3FfS9R9MM",
+         "url": "http://multichain-mainnet-01.staking4all.org:80"
+        }
+       ],
+       [
+        "nodemonster.near",
+        7,
+        {
+         "tls_public_key": "ed25519:3nGFcBkefJVEgLqq7ScxRrcdxnVNSMRWqJokkRnb1AzW",
+         "url": "http://near-mpc-main.node.monster:80"
+        }
+       ],
+       [
+        "n1-multichain.near",
+        8,
+        {
+         "tls_public_key": "ed25519:DA6z3Gza1fmo3wTxiV4B1Lnv6nMkS38fJuKPbBvKWSct",
+         "url": "https://57.129.86.53:80"
+        }
+       ],
+       [
+        "everstake-mpc-1.near",
+        10,
+        {
+         "tls_public_key": "ed25519:2DkhuDvZrBWEYKjhKx9nekXNHkyeZxS2S3U5rHtHv2ca",
+         "url": "http://nearmpc-mainnet-tdx.everstake.com:80"
+        }
+       ],
+       [
+        "stakin-mpc.near",
+        11,
+        {
+         "tls_public_key": "ed25519:Fsofv4hmTbbxdBk9eQmM9aSX3xWgbzmKRyZjjxJE5ocF",
+         "url": "http://near-mpc-mainnet-1.stakin-nodes.com:80"
+        }
+       ],
+       [
+        "mpch-01.near",
+        12,
+        {
+         "tls_public_key": "ed25519:nBTkCdyi3GQ9oqM8YsViRiiindkrv6f9yh9TX1HhDN6",
+         "url": "http://mpch-mpc-near-m-01.near.mainnet.mpch.io"
+        }
+       ],
+       [
+        "svrn-01.near",
+        13,
+        {
+         "tls_public_key": "ed25519:FVAvAVSnPYB18TvapgBDbQyAdm5XrTcSjQoohe8pJa7Y",
+         "url": "http://svrn-mpc-near-m-01.near.mainnet.ssgllc.io"
+        }
+       ],
+       [
+        "greenfield-mpc01.near",
+        14,
+        {
+         "tls_public_key": "ed25519:3RWgtpdVjuoRZsf3S73ipwVMRiYML37bLHKbokkWeGPq",
+         "url": "http://near-mpc-mainnet2.greenfield.xyz:80"
+        }
+       ],
+       [
+        "natsai-mpc.near",
+        15,
+        {
+         "tls_public_key": "ed25519:8Kwvcxvx3fjtAizVjMVMLBeQJHWCBJY7a9bjAMb4aiHd",
+         "url": "http://near-mpc-mainnet-1.natsai.xyz:80"
+        }
+       ],
+       [
+        "hashkeympc.near",
+        16,
+        {
+         "tls_public_key": "ed25519:EUB6coGTMVia2rdjDB9Q18yVn4iu38fgVbHberzKC847",
+         "url": "http://near-mpc-mainnet-1.hashkey.cloud"
+        }
+       ],
+       [
+        "astrostakers-mainnet.near",
+        17,
+        {
+         "tls_public_key": "ed25519:Fmv82fr5ALKs597ohcZMi7QXMrfQ3rDELVG231qDF4ME",
+         "url": "http://near-mainnet-mpc.astrostakers.com"
+        }
+       ],
+       [
+        "klever-nearmpc-01.near",
+        18,
+        {
+         "tls_public_key": "ed25519:KfQywkbYRBwBR2sypA9uHqFNWqywNZUCNdw1zFmjnMh",
+         "url": "http://multichain-mainnet-01.klever.io"
+        }
+       ],
+       [
+        "nansen-ai-mpc.near",
+        19,
+        {
+         "tls_public_key": "ed25519:E59NQmrXbWNrKcrg5Fhxwa73FFyjRWquLsNTzakHD5aU",
+         "url": "http://mpc.near.staking.nansen.ai"
+        }
+       ],
+       [
+        "bitwise-mpc01.near",
+        20,
+        {
+         "tls_public_key": "ed25519:3R2RE7XSQepvkbbvkvpJ3iWGXgY6Ztpj1T3eguovMXZT",
+         "url": "http://near-mpc-mainnet01.mainnet.validators.bitwiseinvestments.com"
+        }
+       ]
+      ]
+     },
+     "threshold": 11
+    }
+   }
+  },
+  "mpc_version": "3.16.0",
+  "tee_accounts": [
+   {
+    "account_id": "mpc-lgns.near",
+    "account_public_key": "ed25519:6u7h8yLGDAmiUFNT42oQmJLdKoksRC1eDrc55PUxqiHx",
+    "tls_public_key": "ed25519:6xY2u5RHiBM5sdNnojwMjqKEBgFLmMesnyPovmSXqFFp"
+   },
+   {
+    "account_id": "near-mpc-staking4all-01.near",
+    "account_public_key": "ed25519:Dpc86JjawhRahHt4bfER5BATaVRoZiaTr3NaAWgAjpHR",
+    "tls_public_key": "ed25519:2CbEnbBQ9RA2oocc9a89Eck5d9ighfL7FGiEkMyQ7YB9"
+   },
+   {
+    "account_id": "blacksandtech.near",
+    "account_public_key": "ed25519:XiJaRDfvZg2E9F9kv2mdK2yPLDuaP5Kg9tkxPU18HBx",
+    "tls_public_key": "ed25519:2XPuwqhg71RXRiTUMKGapd8FYWgXnxVvydYBK9tS1ex2"
+   },
+   {
+    "account_id": "blacksandtech.near",
+    "account_public_key": "ed25519:6fjsasP13zhmwHv7xkB65bHiG4Lvn5TfMbJqCXkWCyNy",
+    "tls_public_key": "ed25519:6biR7HfytnWcjyrnE1eVFDKXxo5huz11uwxyMxKWPdvT"
+   },
+   {
+    "account_id": "astrostakers-mainnet.near",
+    "account_public_key": "ed25519:3WaocV9ryokGemNAdmcQbnu5nmm62sscj13vc4rnnsLu",
+    "tls_public_key": "ed25519:Fmv82fr5ALKs597ohcZMi7QXMrfQ3rDELVG231qDF4ME"
+   },
+   {
+    "account_id": "klever-nearmpc-01.near",
+    "account_public_key": "ed25519:2D5SEEd2TaFBPxwZc6QyJZaxRWN1Yf7uZwgFpPwN8am8",
+    "tls_public_key": "ed25519:KfQywkbYRBwBR2sypA9uHqFNWqywNZUCNdw1zFmjnMh"
+   },
+   {
+    "account_id": "multichain-mainnet-aurora.near",
+    "account_public_key": "ed25519:4dua6zR1Uv5cMjsUU4iLYqEs2GHo8Gfju2v7DuAZaLok",
+    "tls_public_key": "ed25519:9QAvLjfjDX7GYwJaT7Wzz9bjS4NzniaXukx8vYKaZZLG"
+   },
+   {
+    "account_id": "multichain-mainnet-aurora.near",
+    "account_public_key": "ed25519:BwScwquNZHrh566j4YHUdMRixP4D5CsLTa2RWAUf7JNi",
+    "tls_public_key": "ed25519:8eUhDQoWTTiqLjxAViAHXPK6VnT97YkjgFz7Hf2PQbfz"
+   },
+   {
+    "account_id": "mpc-lgns.near",
+    "account_public_key": "ed25519:69iDnQdYxQnKfQu8XJadNX3ST5acVwe4eYt2688NRq5J",
+    "tls_public_key": "ed25519:EFW6528i4iU1XK3Q53r6kyHEjjA7puJLhHLH3mG1YRZd"
+   },
+   {
+    "account_id": "mpch-01.near",
+    "account_public_key": "ed25519:tQJocahnjsXEs41aTbZocNSq242wW32BFPYfnytTqAn",
+    "tls_public_key": "ed25519:9FNunZGVJygvREcWxUzHZABCGi5A3gC43sizeKAcDpE4"
+   },
+   {
+    "account_id": "hashkeympc.near",
+    "account_public_key": "ed25519:CqPdKWDBsYHtVYbqqUpe7sqwADbkxf6dLqBaZjnFu6HP",
+    "tls_public_key": "ed25519:EUB6coGTMVia2rdjDB9Q18yVn4iu38fgVbHberzKC847"
+   },
+   {
+    "account_id": "n1-multichain.near",
+    "account_public_key": "ed25519:6qxdfaxVUhus17PYu6EAC85af5fxaMDnVQAu7RS2Afr8",
+    "tls_public_key": "ed25519:DA6z3Gza1fmo3wTxiV4B1Lnv6nMkS38fJuKPbBvKWSct"
+   },
+   {
+    "account_id": "svrn-01.near",
+    "account_public_key": "ed25519:6aLniuXcHiT59jAwDfiJyxhNXR7Kf3Kdj3kP5hf2hBNB",
+    "tls_public_key": "ed25519:9fLzNc3CSfMNiutiGvLDsVNJgWxaDEzj6iU4qwD9sgcQ"
+   },
+   {
+    "account_id": "greenfield-mpc01.near",
+    "account_public_key": "ed25519:2PdhtMKP7GQzqKX2DXLi53R7nJGsZny6waBcf392rxqK",
+    "tls_public_key": "ed25519:3RWgtpdVjuoRZsf3S73ipwVMRiYML37bLHKbokkWeGPq"
+   },
+   {
+    "account_id": "natsai-mpc.near",
+    "account_public_key": "ed25519:EBVzDPpx1mYG4K7D29erANMiqGRQRgHDgBwxn8syX8yA",
+    "tls_public_key": "ed25519:8Kwvcxvx3fjtAizVjMVMLBeQJHWCBJY7a9bjAMb4aiHd"
+   },
+   {
+    "account_id": "nansen-ai-mpc.near",
+    "account_public_key": "ed25519:954gwT3w4Ba83P4boJy8aCh3AVCapyTLTUXoXBG4SwZg",
+    "tls_public_key": "ed25519:E59NQmrXbWNrKcrg5Fhxwa73FFyjRWquLsNTzakHD5aU"
+   },
+   {
+    "account_id": "bitwise-mpc01.near",
+    "account_public_key": "ed25519:FAJ6YY5gmKG6bC3K8j2CzWiREZZHrWxEodBbtm9bAyPT",
+    "tls_public_key": "ed25519:3R2RE7XSQepvkbbvkvpJ3iWGXgY6Ztpj1T3eguovMXZT"
+   },
+   {
+    "account_id": "everstake-mpc-1.near",
+    "account_public_key": "ed25519:Cs8HhenpAYqH2D3TkiZNgjZHD9Ys3GM87m92W8vQqvQi",
+    "tls_public_key": "ed25519:2DkhuDvZrBWEYKjhKx9nekXNHkyeZxS2S3U5rHtHv2ca"
+   },
+   {
+    "account_id": "stakin-mpc.near",
+    "account_public_key": "ed25519:GJamGnKkYrWCNpHwSYJj6iRcK7HpzH67kqGAswXYatzu",
+    "tls_public_key": "ed25519:Fsofv4hmTbbxdBk9eQmM9aSX3xWgbzmKRyZjjxJE5ocF"
+   },
+   {
+    "account_id": "nodemonster.near",
+    "account_public_key": "ed25519:2zaHA3rth2wRwXTTnrRYooCFMNfR41nKvUvshVoeTZP9",
+    "tls_public_key": "ed25519:3nGFcBkefJVEgLqq7ScxRrcdxnVNSMRWqJokkRnb1AzW"
+   },
+   {
+    "account_id": "mpch-01.near",
+    "account_public_key": "ed25519:38EvBLV9uCQJ6RjVEcn2hnAPUbdqAGJyucSXbzmBHFBH",
+    "tls_public_key": "ed25519:nBTkCdyi3GQ9oqM8YsViRiiindkrv6f9yh9TX1HhDN6"
+   },
+   {
+    "account_id": "svrn-01.near",
+    "account_public_key": "ed25519:GdrMw9r1TSEQunU3XiCfH8JJ4LWueLWZe8QvtUbPfPnh",
+    "tls_public_key": "ed25519:FVAvAVSnPYB18TvapgBDbQyAdm5XrTcSjQoohe8pJa7Y"
+   },
+   {
+    "account_id": "near-mpc-staking4all-01.near",
+    "account_public_key": "ed25519:5WZpSFVA3rPgqs6F66pzbsGPUuuExBBtaQVKNqduSnnU",
+    "tls_public_key": "ed25519:6Jo3Q1qyjDy2b7r8eqKasckk5qfsnLfxKUS3FfS9R9MM"
+   }
+  ],
+  "timestamp_ns": 1792051184441481107,
+  "total_supply": "1309007329634151529810105426050565"
+ },
+ {
+  "buyback": {
+   "amount": "756606568542420223097809159114",
+   "block_hash": "DnY8s4bghEoUrkZ6gB2k7AjpWjRF4HJvct6dQqmT4WLj",
+   "block_height": 211725364,
+   "code_hash": "2v9kZJHN4sogHuKtKHaqYAqQBazkqH2cjY1rrjQYvNQa",
+   "locked": "0",
+   "storage_paid_at": 0,
+   "storage_usage": 356468
+  },
+  "height": 211725364,
+  "label": "-90d",
+  "mpc_state": {
+   "Running": {
+    "domains": {
+     "domains": [
+      {
+       "id": 0,
+       "protocol": "CaitSith",
+       "purpose": "Sign",
+       "reconstruction_threshold": 8
+      },
+      {
+       "id": 1,
+       "protocol": "Frost",
+       "purpose": "Sign",
+       "reconstruction_threshold": 8
+      },
+      {
+       "id": 2,
+       "protocol": "ConfidentialKeyDerivation",
+       "purpose": "CKD",
+       "reconstruction_threshold": 8
+      },
+      {
+       "id": 3,
+       "protocol": "CaitSith",
+       "purpose": "ForeignTx",
+       "reconstruction_threshold": 8
+      }
+     ],
+     "next_domain_id": 4
+    },
+    "parameters": {
+     "participants": {
+      "next_id": 17,
+      "participants": [
+       [
+        "blacksandtech.near",
+        0,
+        {
+         "tls_public_key": "ed25519:2XPuwqhg71RXRiTUMKGapd8FYWgXnxVvydYBK9tS1ex2",
+         "url": "https://multichain-mainnet-0.near.blksnd.xyz"
+        }
+       ],
+       [
+        "mpc-lgns.near",
+        4,
+        {
+         "tls_public_key": "ed25519:EFW6528i4iU1XK3Q53r6kyHEjjA7puJLhHLH3mG1YRZd",
+         "url": "https://near.mpc.lgns.net"
+        }
+       ],
+       [
+        "multichain-mainnet-aurora.near",
+        5,
+        {
+         "tls_public_key": "ed25519:9QAvLjfjDX7GYwJaT7Wzz9bjS4NzniaXukx8vYKaZZLG",
+         "url": "https://multichain-mainnet.aurora.dev"
+        }
+       ],
+       [
+        "near-mpc-staking4all-01.near",
+        6,
+        {
+         "tls_public_key": "ed25519:2CbEnbBQ9RA2oocc9a89Eck5d9ighfL7FGiEkMyQ7YB9",
+         "url": "https://multichain-mainnet-0.staking4all.org"
+        }
+       ],
+       [
+        "nodemonster.near",
+        7,
+        {
+         "tls_public_key": "ed25519:9mix9iNfMMtSAhzgHCisnjMJtiofn8cFkprgUTkRtPN",
+         "url": "https://near.node.monster"
+        }
+       ],
+       [
+        "n1-multichain.near",
+        8,
+        {
+         "tls_public_key": "ed25519:DA6z3Gza1fmo3wTxiV4B1Lnv6nMkS38fJuKPbBvKWSct",
+         "url": "https://57.129.86.53:80"
+        }
+       ],
+       [
+        "everstake-mpc-1.near",
+        10,
+        {
+         "tls_public_key": "ed25519:3TJzrbiwgZeTEDHk3yZqCFvAzYs9xfYEkUcpx2dMD7Qq",
+         "url": "http://nearmpc-mainnet.everstake.one"
+        }
+       ],
+       [
+        "stakin-mpc.near",
+        11,
+        {
+         "tls_public_key": "ed25519:9WiRNJ8Ci1RxfjdyGVdZHxUt5JJBgbfK87bZzgMd7ec4",
+         "url": "http://near-mpc-mainnet-1.stakin-nodes.com"
+        }
+       ],
+       [
+        "mpch-01.near",
+        12,
+        {
+         "tls_public_key": "ed25519:9FNunZGVJygvREcWxUzHZABCGi5A3gC43sizeKAcDpE4",
+         "url": "http://mpch-mpc-near-m-01.near.mainnet.mpch.io"
+        }
+       ],
+       [
+        "svrn-01.near",
+        13,
+        {
+         "tls_public_key": "ed25519:9fLzNc3CSfMNiutiGvLDsVNJgWxaDEzj6iU4qwD9sgcQ",
+         "url": "http://svrn-mpc-near-m-01.near.mainnet.ssgllc.io"
+        }
+       ],
+       [
+        "greenfield-mpc01.near",
+        14,
+        {
+         "tls_public_key": "ed25519:9CTUXHyyuf5SQwXGCjr6Pv1nFx6zxdtFb7AYhthaVTka",
+         "url": "http://near-mpc-mainnet1.greenfield.xyz"
+        }
+       ],
+       [
+        "natsai-mpc.near",
+        15,
+        {
+         "tls_public_key": "ed25519:8Kwvcxvx3fjtAizVjMVMLBeQJHWCBJY7a9bjAMb4aiHd",
+         "url": "http://near-mpc-mainnet-1.natsai.xyz:80"
+        }
+       ],
+       [
+        "hashkeympc.near",
+        16,
+        {
+         "tls_public_key": "ed25519:EUB6coGTMVia2rdjDB9Q18yVn4iu38fgVbHberzKC847",
+         "url": "http://near-mpc-mainnet-1.hashkey.cloud"
+        }
+       ]
+      ]
+     },
+     "threshold": 8
+    }
+   }
+  },
+  "mpc_version": "3.14.0",
+  "tee_accounts": [
+   {
+    "account_id": "nodemonster.near",
+    "account_public_key": "ed25519:WC9Njp4MpupWxf1UDeaENmNv9gCFtLVPGHqj3iSJHFD",
+    "tls_public_key": "ed25519:9mix9iNfMMtSAhzgHCisnjMJtiofn8cFkprgUTkRtPN"
+   },
+   {
+    "account_id": "near-mpc-staking4all-01.near",
+    "account_public_key": "ed25519:Dpc86JjawhRahHt4bfER5BATaVRoZiaTr3NaAWgAjpHR",
+    "tls_public_key": "ed25519:2CbEnbBQ9RA2oocc9a89Eck5d9ighfL7FGiEkMyQ7YB9"
+   },
+   {
+    "account_id": "blacksandtech.near",
+    "account_public_key": "ed25519:XiJaRDfvZg2E9F9kv2mdK2yPLDuaP5Kg9tkxPU18HBx",
+    "tls_public_key": "ed25519:2XPuwqhg71RXRiTUMKGapd8FYWgXnxVvydYBK9tS1ex2"
+   },
+   {
+    "account_id": "everstake-mpc-1.near",
+    "account_public_key": "ed25519:CjqJLP8zZJfc1yymBFW9iSj19p3RGEfHnkadjkceKeEw",
+    "tls_public_key": "ed25519:3TJzrbiwgZeTEDHk3yZqCFvAzYs9xfYEkUcpx2dMD7Qq"
+   },
+   {
+    "account_id": "chain-signatures-hot.near",
+    "account_public_key": "ed25519:2LVCPnkEJ461XSg2bHx3uMyvhBR3s2iDfNQQdQ9jHUgx",
+    "tls_public_key": "ed25519:6DRZqoWxdYiKEhmF391pdC8L4VUXY1S5AMHYBsVHSyYm"
+   },
+   {
+    "account_id": "n1-multichain.near",
+    "account_public_key": "ed25519:3WcoSJJmT17xz3U6ni7Ckp4Vxmk5AYqCcYGqgBcNJN9g",
+    "tls_public_key": "ed25519:8kjdkEUAD7kXc5aCYJdcSwNQESanvpbqSm325o7uSUQH"
+   },
+   {
+    "account_id": "multichain-mainnet-aurora.near",
+    "account_public_key": "ed25519:4dua6zR1Uv5cMjsUU4iLYqEs2GHo8Gfju2v7DuAZaLok",
+    "tls_public_key": "ed25519:9QAvLjfjDX7GYwJaT7Wzz9bjS4NzniaXukx8vYKaZZLG"
+   },
+   {
+    "account_id": "stakin-mpc.near",
+    "account_public_key": "ed25519:BjexDFkf12KoEiRkjj4LSpymiJqYwAidt1Ls2sZtGwpM",
+    "tls_public_key": "ed25519:9WiRNJ8Ci1RxfjdyGVdZHxUt5JJBgbfK87bZzgMd7ec4"
+   },
+   {
+    "account_id": "mpc-lgns.near",
+    "account_public_key": "ed25519:69iDnQdYxQnKfQu8XJadNX3ST5acVwe4eYt2688NRq5J",
+    "tls_public_key": "ed25519:EFW6528i4iU1XK3Q53r6kyHEjjA7puJLhHLH3mG1YRZd"
+   },
+   {
+    "account_id": "mpch-01.near",
+    "account_public_key": "ed25519:tQJocahnjsXEs41aTbZocNSq242wW32BFPYfnytTqAn",
+    "tls_public_key": "ed25519:9FNunZGVJygvREcWxUzHZABCGi5A3gC43sizeKAcDpE4"
+   },
+   {
+    "account_id": "sixways.near",
+    "account_public_key": "ed25519:JDwL4WBNsYgKjLD3Yj3PALv1QkLUqzZsgjLkPWr1S53C",
+    "tls_public_key": "ed25519:Ay2QhTMTcCJZ1nD6x128HcJAxHnQZUfAxxqYNztHbeyu"
+   },
+   {
+    "account_id": "n1-multichain.near",
+    "account_public_key": "ed25519:6qxdfaxVUhus17PYu6EAC85af5fxaMDnVQAu7RS2Afr8",
+    "tls_public_key": "ed25519:DA6z3Gza1fmo3wTxiV4B1Lnv6nMkS38fJuKPbBvKWSct"
+   },
+   {
+    "account_id": "svrn-01.near",
+    "account_public_key": "ed25519:6aLniuXcHiT59jAwDfiJyxhNXR7Kf3Kdj3kP5hf2hBNB",
+    "tls_public_key": "ed25519:9fLzNc3CSfMNiutiGvLDsVNJgWxaDEzj6iU4qwD9sgcQ"
+   },
+   {
+    "account_id": "greenfield-mpc01.near",
+    "account_public_key": "ed25519:9naTxeoyeLtLcorCRa2naaUfWus5sUDUaFZvb2rqGW4W",
+    "tls_public_key": "ed25519:9CTUXHyyuf5SQwXGCjr6Pv1nFx6zxdtFb7AYhthaVTka"
+   },
+   {
+    "account_id": "natsai-mpc.near",
+    "account_public_key": "ed25519:EBVzDPpx1mYG4K7D29erANMiqGRQRgHDgBwxn8syX8yA",
+    "tls_public_key": "ed25519:8Kwvcxvx3fjtAizVjMVMLBeQJHWCBJY7a9bjAMb4aiHd"
+   },
+   {
+    "account_id": "hashkeympc.near",
+    "account_public_key": "ed25519:CqPdKWDBsYHtVYbqqUpe7sqwADbkxf6dLqBaZjnFu6HP",
+    "tls_public_key": "ed25519:EUB6coGTMVia2rdjDB9Q18yVn4iu38fgVbHberzKC847"
+   },
+   {
+    "account_id": "klever-nearmpc-01.near",
+    "account_public_key": "ed25519:2D5SEEd2TaFBPxwZc6QyJZaxRWN1Yf7uZwgFpPwN8am8",
+    "tls_public_key": "ed25519:KfQywkbYRBwBR2sypA9uHqFNWqywNZUCNdw1zFmjnMh"
+   },
+   {
+    "account_id": "astrostakers-mainnet.near",
+    "account_public_key": "ed25519:3WaocV9ryokGemNAdmcQbnu5nmm62sscj13vc4rnnsLu",
+    "tls_public_key": "ed25519:Fmv82fr5ALKs597ohcZMi7QXMrfQ3rDELVG231qDF4ME"
+   }
+  ],
+  "timestamp_ns": 1786971131927110134,
+  "total_supply": "1303818453979969066470666928220355"
+ },
+ {
+  "buyback": {
+   "amount": "159129649480473525450331494218",
+   "block_hash": "vicmQYdxa6U7SyH6CzRhN8FVY6u9JfzTgTrcsGEWXGf",
+   "block_height": 199036300,
+   "code_hash": "5WFgvKK2DizfgEcey6xBkn4RdTe9cGNWzGK5VJuUtc8d",
+   "locked": "0",
+   "storage_paid_at": 0,
+   "storage_usage": 357967
+  },
+  "height": 199036300,
+  "label": "-180d",
+  "mpc_state": {
+   "Running": {
+    "domains": {
+     "domains": [
+      {
+       "curve": "Secp256k1",
+       "id": 0,
+       "purpose": "Sign"
+      },
+      {
+       "curve": "Edwards25519",
+       "id": 1,
+       "purpose": "Sign"
+      },
+      {
+       "curve": "Bls12381",
+       "id": 2,
+       "purpose": "CKD"
+      },
+      {
+       "curve": "Secp256k1",
+       "id": 3,
+       "purpose": "ForeignTx"
+      }
+     ],
+     "next_domain_id": 4
+    },
+    "parameters": {
+     "participants": {
+      "next_id": 13,
+      "participants": [
+       [
+        "blacksandtech.near",
+        0,
+        {
+         "sign_pk": "ed25519:2XPuwqhg71RXRiTUMKGapd8FYWgXnxVvydYBK9tS1ex2",
+         "url": "https://multichain-mainnet-0.near.blksnd.xyz"
+        }
+       ],
+       [
+        "mpc-lgns.near",
+        4,
+        {
+         "sign_pk": "ed25519:EFW6528i4iU1XK3Q53r6kyHEjjA7puJLhHLH3mG1YRZd",
+         "url": "https://near.mpc.lgns.net"
+        }
+       ],
+       [
+        "multichain-mainnet-aurora.near",
+        5,
+        {
+         "sign_pk": "ed25519:9QAvLjfjDX7GYwJaT7Wzz9bjS4NzniaXukx8vYKaZZLG",
+         "url": "https://multichain-mainnet.aurora.dev"
+        }
+       ],
+       [
+        "near-mpc-staking4all-01.near",
+        6,
+        {
+         "sign_pk": "ed25519:2CbEnbBQ9RA2oocc9a89Eck5d9ighfL7FGiEkMyQ7YB9",
+         "url": "https://multichain-mainnet-0.staking4all.org"
+        }
+       ],
+       [
+        "nodemonster.near",
+        7,
+        {
+         "sign_pk": "ed25519:9mix9iNfMMtSAhzgHCisnjMJtiofn8cFkprgUTkRtPN",
+         "url": "https://near.node.monster"
+        }
+       ],
+       [
+        "n1-multichain.near",
+        8,
+        {
+         "sign_pk": "ed25519:8kjdkEUAD7kXc5aCYJdcSwNQESanvpbqSm325o7uSUQH",
+         "url": "https://multichain-mainnet-0.nearone.org"
+        }
+       ],
+       [
+        "everstake-mpc-1.near",
+        10,
+        {
+         "sign_pk": "ed25519:3TJzrbiwgZeTEDHk3yZqCFvAzYs9xfYEkUcpx2dMD7Qq",
+         "url": "http://nearmpc-mainnet.everstake.one"
+        }
+       ],
+       [
+        "stakin-mpc.near",
+        11,
+        {
+         "sign_pk": "ed25519:9WiRNJ8Ci1RxfjdyGVdZHxUt5JJBgbfK87bZzgMd7ec4",
+         "url": "http://near-mpc-mainnet-1.stakin-nodes.com"
+        }
+       ],
+       [
+        "mpch-01.near",
+        12,
+        {
+         "sign_pk": "ed25519:9FNunZGVJygvREcWxUzHZABCGi5A3gC43sizeKAcDpE4",
+         "url": "http://mpch-mpc-near-m-01.near.mainnet.mpch.io"
+        }
+       ]
+      ]
+     },
+     "threshold": 6
+    }
+   }
+  },
+  "mpc_version": "3.9.1",
+  "tee_accounts": [
+   {
+    "account_id": "nodemonster.near",
+    "account_public_key": "ed25519:WC9Njp4MpupWxf1UDeaENmNv9gCFtLVPGHqj3iSJHFD",
+    "tls_public_key": "ed25519:9mix9iNfMMtSAhzgHCisnjMJtiofn8cFkprgUTkRtPN"
+   },
+   {
+    "account_id": "near-mpc-staking4all-01.near",
+    "account_public_key": "ed25519:Dpc86JjawhRahHt4bfER5BATaVRoZiaTr3NaAWgAjpHR",
+    "tls_public_key": "ed25519:2CbEnbBQ9RA2oocc9a89Eck5d9ighfL7FGiEkMyQ7YB9"
+   },
+   {
+    "account_id": "blacksandtech.near",
+    "account_public_key": "ed25519:XiJaRDfvZg2E9F9kv2mdK2yPLDuaP5Kg9tkxPU18HBx",
+    "tls_public_key": "ed25519:2XPuwqhg71RXRiTUMKGapd8FYWgXnxVvydYBK9tS1ex2"
+   },
+   {
+    "account_id": "everstake-mpc-1.near",
+    "account_public_key": "ed25519:CjqJLP8zZJfc1yymBFW9iSj19p3RGEfHnkadjkceKeEw",
+    "tls_public_key": "ed25519:3TJzrbiwgZeTEDHk3yZqCFvAzYs9xfYEkUcpx2dMD7Qq"
+   },
+   {
+    "account_id": "chain-signatures-hot.near",
+    "account_public_key": "ed25519:2LVCPnkEJ461XSg2bHx3uMyvhBR3s2iDfNQQdQ9jHUgx",
+    "tls_public_key": "ed25519:6DRZqoWxdYiKEhmF391pdC8L4VUXY1S5AMHYBsVHSyYm"
+   },
+   {
+    "account_id": "n1-multichain.near",
+    "account_public_key": "ed25519:3WcoSJJmT17xz3U6ni7Ckp4Vxmk5AYqCcYGqgBcNJN9g",
+    "tls_public_key": "ed25519:8kjdkEUAD7kXc5aCYJdcSwNQESanvpbqSm325o7uSUQH"
+   },
+   {
+    "account_id": "multichain-mainnet-aurora.near",
+    "account_public_key": "ed25519:4dua6zR1Uv5cMjsUU4iLYqEs2GHo8Gfju2v7DuAZaLok",
+    "tls_public_key": "ed25519:9QAvLjfjDX7GYwJaT7Wzz9bjS4NzniaXukx8vYKaZZLG"
+   },
+   {
+    "account_id": "stakin-mpc.near",
+    "account_public_key": "ed25519:BjexDFkf12KoEiRkjj4LSpymiJqYwAidt1Ls2sZtGwpM",
+    "tls_public_key": "ed25519:9WiRNJ8Ci1RxfjdyGVdZHxUt5JJBgbfK87bZzgMd7ec4"
+   },
+   {
+    "account_id": "mpc-lgns.near",
+    "account_public_key": "ed25519:69iDnQdYxQnKfQu8XJadNX3ST5acVwe4eYt2688NRq5J",
+    "tls_public_key": "ed25519:EFW6528i4iU1XK3Q53r6kyHEjjA7puJLhHLH3mG1YRZd"
+   },
+   {
+    "account_id": "mpch-01.near",
+    "account_public_key": "ed25519:tQJocahnjsXEs41aTbZocNSq242wW32BFPYfnytTqAn",
+    "tls_public_key": "ed25519:9FNunZGVJygvREcWxUzHZABCGi5A3gC43sizeKAcDpE4"
+   }
+  ],
+  "timestamp_ns": 1779218977554035528,
+  "total_supply": "1295924388914061354460046499068876"
+ },
+ {
+  "buyback": null,
+  "height": 172890275,
+  "label": "-365d",
+  "mpc_state": {
+   "Running": {
+    "domains": {
+     "domains": [
+      {
+       "id": 0,
+       "scheme": "Secp256k1"
+      },
+      {
+       "id": 1,
+       "scheme": "Ed25519"
+      }
+     ],
+     "next_domain_id": 2
+    },
+    "parameters": {
+     "participants": {
+      "next_id": 12,
+      "participants": [
+       [
+        "blacksandtech.near",
+        0,
+        {
+         "sign_pk": "ed25519:2XPuwqhg71RXRiTUMKGapd8FYWgXnxVvydYBK9tS1ex2",
+         "url": "https://multichain-mainnet-0.near.blksnd.xyz"
+        }
+       ],
+       [
+        "lifted-mainnet.near",
+        3,
+        {
+         "sign_pk": "ed25519:JBjY7yjbfQ51na3bStPPYMyfModUTFHco5xUNEem3uu6",
+         "url": "https://near-mpc.liftedinit.org"
+        }
+       ],
+       [
+        "mpc-lgns.near",
+        4,
+        {
+         "sign_pk": "ed25519:EFW6528i4iU1XK3Q53r6kyHEjjA7puJLhHLH3mG1YRZd",
+         "url": "https://near.mpc.lgns.net"
+        }
+       ],
+       [
+        "multichain-mainnet-aurora.near",
+        5,
+        {
+         "sign_pk": "ed25519:9QAvLjfjDX7GYwJaT7Wzz9bjS4NzniaXukx8vYKaZZLG",
+         "url": "https://multichain-mainnet.aurora.dev"
+        }
+       ],
+       [
+        "n1-multichain.near",
+        8,
+        {
+         "sign_pk": "ed25519:8kjdkEUAD7kXc5aCYJdcSwNQESanvpbqSm325o7uSUQH",
+         "url": "https://multichain-mainnet-0.nearone.org"
+        }
+       ],
+       [
+        "near-mpc-staking4all-01.near",
+        6,
+        {
+         "sign_pk": "ed25519:2CbEnbBQ9RA2oocc9a89Eck5d9ighfL7FGiEkMyQ7YB9",
+         "url": "https://multichain-mainnet-0.staking4all.org"
+        }
+       ],
+       [
+        "nodemonster.near",
+        7,
+        {
+         "sign_pk": "ed25519:9mix9iNfMMtSAhzgHCisnjMJtiofn8cFkprgUTkRtPN",
+         "url": "https://near.node.monster"
+        }
+       ],
+       [
+        "chain-signatures-hot.near",
+        9,
+        {
+         "sign_pk": "ed25519:6DRZqoWxdYiKEhmF391pdC8L4VUXY1S5AMHYBsVHSyYm",
+         "url": "http://chain-signature-mainnet.hotdao.ai"
+        }
+       ],
+       [
+        "everstake-mpc-1.near",
+        10,
+        {
+         "sign_pk": "ed25519:3TJzrbiwgZeTEDHk3yZqCFvAzYs9xfYEkUcpx2dMD7Qq",
+         "url": "http://nearmpc-mainnet.everstake.one"
+        }
+       ],
+       [
+        "stakin-mpc.near",
+        11,
+        {
+         "sign_pk": "ed25519:9WiRNJ8Ci1RxfjdyGVdZHxUt5JJBgbfK87bZzgMd7ec4",
+         "url": "http://near-mpc-mainnet-1.stakin-nodes.com"
+        }
+       ]
+      ]
+     },
+     "threshold": 7
+    }
+   }
+  },
+  "mpc_version": "2.2.0-rc.1",
+  "tee_accounts": null,
+  "timestamp_ns": 1763302942356716219,
+  "total_supply": "1280096647226786914191028106605881"
+ },
+ {
+  "buyback": null,
+  "height": 170222323,
+  "label": "-384d",
+  "mpc_state": {
+   "Running": {
+    "domains": {
+     "domains": [
+      {
+       "id": 0,
+       "scheme": "Secp256k1"
+      },
+      {
+       "id": 1,
+       "scheme": "Ed25519"
+      }
+     ],
+     "next_domain_id": 2
+    },
+    "parameters": {
+     "participants": {
+      "next_id": 12,
+      "participants": [
+       [
+        "blacksandtech.near",
+        0,
+        {
+         "sign_pk": "ed25519:2XPuwqhg71RXRiTUMKGapd8FYWgXnxVvydYBK9tS1ex2",
+         "url": "https://multichain-mainnet-0.near.blksnd.xyz"
+        }
+       ],
+       [
+        "lifted-mainnet.near",
+        3,
+        {
+         "sign_pk": "ed25519:JBjY7yjbfQ51na3bStPPYMyfModUTFHco5xUNEem3uu6",
+         "url": "https://near-mpc.liftedinit.org"
+        }
+       ],
+       [
+        "mpc-lgns.near",
+        4,
+        {
+         "sign_pk": "ed25519:EFW6528i4iU1XK3Q53r6kyHEjjA7puJLhHLH3mG1YRZd",
+         "url": "https://near.mpc.lgns.net"
+        }
+       ],
+       [
+        "multichain-mainnet-aurora.near",
+        5,
+        {
+         "sign_pk": "ed25519:9QAvLjfjDX7GYwJaT7Wzz9bjS4NzniaXukx8vYKaZZLG",
+         "url": "https://multichain-mainnet.aurora.dev"
+        }
+       ],
+       [
+        "n1-multichain.near",
+        8,
+        {
+         "sign_pk": "ed25519:8kjdkEUAD7kXc5aCYJdcSwNQESanvpbqSm325o7uSUQH",
+         "url": "https://multichain-mainnet-0.nearone.org"
+        }
+       ],
+       [
+        "near-mpc-staking4all-01.near",
+        6,
+        {
+         "sign_pk": "ed25519:2CbEnbBQ9RA2oocc9a89Eck5d9ighfL7FGiEkMyQ7YB9",
+         "url": "https://multichain-mainnet-0.staking4all.org"
+        }
+       ],
+       [
+        "nodemonster.near",
+        7,
+        {
+         "sign_pk": "ed25519:9mix9iNfMMtSAhzgHCisnjMJtiofn8cFkprgUTkRtPN",
+         "url": "https://near.node.monster"
+        }
+       ],
+       [
+        "chain-signatures-hot.near",
+        9,
+        {
+         "sign_pk": "ed25519:6DRZqoWxdYiKEhmF391pdC8L4VUXY1S5AMHYBsVHSyYm",
+         "url": "http://chain-signature-mainnet.hotdao.ai"
+        }
+       ],
+       [
+        "everstake-mpc-1.near",
+        10,
+        {
+         "sign_pk": "ed25519:3TJzrbiwgZeTEDHk3yZqCFvAzYs9xfYEkUcpx2dMD7Qq",
+         "url": "http://nearmpc-mainnet.everstake.one"
+        }
+       ],
+       [
+        "stakin-mpc.near",
+        11,
+        {
+         "sign_pk": "ed25519:9WiRNJ8Ci1RxfjdyGVdZHxUt5JJBgbfK87bZzgMd7ec4",
+         "url": "http://near-mpc-mainnet-1.stakin-nodes.com"
+        }
+       ]
+      ]
+     },
+     "threshold": 7
+    }
+   }
+  },
+  "mpc_version": "2.2.0-rc.1",
+  "tee_accounts": null,
+  "timestamp_ns": 1761653857940612255,
+  "total_supply": "1278424019385946218987086685580856"
+ },
+ {
+  "buyback": null,
+  "height": 166502448,
+  "label": "2025-10-01",
+  "mpc_state": {
+   "Running": {
+    "domains": {
+     "domains": [
+      {
+       "id": 0,
+       "scheme": "Secp256k1"
+      },
+      {
+       "id": 1,
+       "scheme": "Ed25519"
+      }
+     ],
+     "next_domain_id": 2
+    },
+    "parameters": {
+     "participants": {
+      "next_id": 12,
+      "participants": [
+       [
+        "blacksandtech.near",
+        0,
+        {
+         "sign_pk": "ed25519:2XPuwqhg71RXRiTUMKGapd8FYWgXnxVvydYBK9tS1ex2",
+         "url": "https://multichain-mainnet-0.near.blksnd.xyz"
+        }
+       ],
+       [
+        "lifted-mainnet.near",
+        3,
+        {
+         "sign_pk": "ed25519:JBjY7yjbfQ51na3bStPPYMyfModUTFHco5xUNEem3uu6",
+         "url": "https://near-mpc.liftedinit.org"
+        }
+       ],
+       [
+        "mpc-lgns.near",
+        4,
+        {
+         "sign_pk": "ed25519:EFW6528i4iU1XK3Q53r6kyHEjjA7puJLhHLH3mG1YRZd",
+         "url": "https://near.mpc.lgns.net"
+        }
+       ],
+       [
+        "multichain-mainnet-aurora.near",
+        5,
+        {
+         "sign_pk": "ed25519:9QAvLjfjDX7GYwJaT7Wzz9bjS4NzniaXukx8vYKaZZLG",
+         "url": "https://multichain-mainnet.aurora.dev"
+        }
+       ],
+       [
+        "n1-multichain.near",
+        8,
+        {
+         "sign_pk": "ed25519:8kjdkEUAD7kXc5aCYJdcSwNQESanvpbqSm325o7uSUQH",
+         "url": "https://multichain-mainnet-0.nearone.org"
+        }
+       ],
+       [
+        "near-mpc-staking4all-01.near",
+        6,
+        {
+         "sign_pk": "ed25519:2CbEnbBQ9RA2oocc9a89Eck5d9ighfL7FGiEkMyQ7YB9",
+         "url": "https://multichain-mainnet-0.staking4all.org"
+        }
+       ],
+       [
+        "nodemonster.near",
+        7,
+        {
+         "sign_pk": "ed25519:9mix9iNfMMtSAhzgHCisnjMJtiofn8cFkprgUTkRtPN",
+         "url": "https://near.node.monster"
+        }
+       ],
+       [
+        "chain-signatures-hot.near",
+        9,
+        {
+         "sign_pk": "ed25519:6DRZqoWxdYiKEhmF391pdC8L4VUXY1S5AMHYBsVHSyYm",
+         "url": "http://chain-signature-mainnet.hotdao.ai"
+        }
+       ],
+       [
+        "everstake-mpc-1.near",
+        10,
+        {
+         "sign_pk": "ed25519:3TJzrbiwgZeTEDHk3yZqCFvAzYs9xfYEkUcpx2dMD7Qq",
+         "url": "http://nearmpc-mainnet.everstake.one"
+        }
+       ],
+       [
+        "stakin-mpc.near",
+        11,
+        {
+         "sign_pk": "ed25519:9WiRNJ8Ci1RxfjdyGVdZHxUt5JJBgbfK87bZzgMd7ec4",
+         "url": "http://near-mpc-mainnet-1.stakin-nodes.com"
+        }
+       ]
+      ]
+     },
+     "threshold": 7
+    }
+   }
+  },
+  "mpc_version": "2.2.0-rc.1",
+  "tee_accounts": null,
+  "timestamp_ns": 1759377526789456481,
+  "total_supply": "1273859405691143944274586533404331"
+ },
+ {
+  "buyback": null,
+  "height": 170879392,
+  "label": "2025-11-01",
+  "mpc_state": {
+   "Running": {
+    "domains": {
+     "domains": [
+      {
+       "id": 0,
+       "scheme": "Secp256k1"
+      },
+      {
+       "id": 1,
+       "scheme": "Ed25519"
+      }
+     ],
+     "next_domain_id": 2
+    },
+    "parameters": {
+     "participants": {
+      "next_id": 12,
+      "participants": [
+       [
+        "blacksandtech.near",
+        0,
+        {
+         "sign_pk": "ed25519:2XPuwqhg71RXRiTUMKGapd8FYWgXnxVvydYBK9tS1ex2",
+         "url": "https://multichain-mainnet-0.near.blksnd.xyz"
+        }
+       ],
+       [
+        "lifted-mainnet.near",
+        3,
+        {
+         "sign_pk": "ed25519:JBjY7yjbfQ51na3bStPPYMyfModUTFHco5xUNEem3uu6",
+         "url": "https://near-mpc.liftedinit.org"
+        }
+       ],
+       [
+        "mpc-lgns.near",
+        4,
+        {
+         "sign_pk": "ed25519:EFW6528i4iU1XK3Q53r6kyHEjjA7puJLhHLH3mG1YRZd",
+         "url": "https://near.mpc.lgns.net"
+        }
+       ],
+       [
+        "multichain-mainnet-aurora.near",
+        5,
+        {
+         "sign_pk": "ed25519:9QAvLjfjDX7GYwJaT7Wzz9bjS4NzniaXukx8vYKaZZLG",
+         "url": "https://multichain-mainnet.aurora.dev"
+        }
+       ],
+       [
+        "n1-multichain.near",
+        8,
+        {
+         "sign_pk": "ed25519:8kjdkEUAD7kXc5aCYJdcSwNQESanvpbqSm325o7uSUQH",
+         "url": "https://multichain-mainnet-0.nearone.org"
+        }
+       ],
+       [
+        "near-mpc-staking4all-01.near",
+        6,
+        {
+         "sign_pk": "ed25519:2CbEnbBQ9RA2oocc9a89Eck5d9ighfL7FGiEkMyQ7YB9",
+         "url": "https://multichain-mainnet-0.staking4all.org"
+        }
+       ],
+       [
+        "nodemonster.near",
+        7,
+        {
+         "sign_pk": "ed25519:9mix9iNfMMtSAhzgHCisnjMJtiofn8cFkprgUTkRtPN",
+         "url": "https://near.node.monster"
+        }
+       ],
+       [
+        "chain-signatures-hot.near",
+        9,
+        {
+         "sign_pk": "ed25519:6DRZqoWxdYiKEhmF391pdC8L4VUXY1S5AMHYBsVHSyYm",
+         "url": "http://chain-signature-mainnet.hotdao.ai"
+        }
+       ],
+       [
+        "everstake-mpc-1.near",
+        10,
+        {
+         "sign_pk": "ed25519:3TJzrbiwgZeTEDHk3yZqCFvAzYs9xfYEkUcpx2dMD7Qq",
+         "url": "http://nearmpc-mainnet.everstake.one"
+        }
+       ],
+       [
+        "stakin-mpc.near",
+        11,
+        {
+         "sign_pk": "ed25519:9WiRNJ8Ci1RxfjdyGVdZHxUt5JJBgbfK87bZzgMd7ec4",
+         "url": "http://near-mpc-mainnet-1.stakin-nodes.com"
+        }
+       ]
+      ]
+     },
+     "threshold": 7
+    }
+   }
+  },
+  "mpc_version": "2.2.0-rc.1",
+  "tee_accounts": null,
+  "timestamp_ns": 1762064664011872603,
+  "total_supply": "1278901152309642308795341287279432"
+ },
+ {
+  "buyback": null,
+  "height": 175071643,
+  "label": "2025-12-01",
+  "mpc_state": {
+   "Running": {
+    "domains": {
+     "domains": [
+      {
+       "id": 0,
+       "scheme": "Secp256k1"
+      },
+      {
+       "id": 1,
+       "scheme": "Ed25519"
+      }
+     ],
+     "next_domain_id": 2
+    },
+    "parameters": {
+     "participants": {
+      "next_id": 12,
+      "participants": [
+       [
+        "blacksandtech.near",
+        0,
+        {
+         "sign_pk": "ed25519:2XPuwqhg71RXRiTUMKGapd8FYWgXnxVvydYBK9tS1ex2",
+         "url": "https://multichain-mainnet-0.near.blksnd.xyz"
+        }
+       ],
+       [
+        "mpc-lgns.near",
+        4,
+        {
+         "sign_pk": "ed25519:EFW6528i4iU1XK3Q53r6kyHEjjA7puJLhHLH3mG1YRZd",
+         "url": "https://near.mpc.lgns.net"
+        }
+       ],
+       [
+        "multichain-mainnet-aurora.near",
+        5,
+        {
+         "sign_pk": "ed25519:9QAvLjfjDX7GYwJaT7Wzz9bjS4NzniaXukx8vYKaZZLG",
+         "url": "https://multichain-mainnet.aurora.dev"
+        }
+       ],
+       [
+        "n1-multichain.near",
+        8,
+        {
+         "sign_pk": "ed25519:8kjdkEUAD7kXc5aCYJdcSwNQESanvpbqSm325o7uSUQH",
+         "url": "https://multichain-mainnet-0.nearone.org"
+        }
+       ],
+       [
+        "near-mpc-staking4all-01.near",
+        6,
+        {
+         "sign_pk": "ed25519:2CbEnbBQ9RA2oocc9a89Eck5d9ighfL7FGiEkMyQ7YB9",
+         "url": "https://multichain-mainnet-0.staking4all.org"
+        }
+       ],
+       [
+        "nodemonster.near",
+        7,
+        {
+         "sign_pk": "ed25519:9mix9iNfMMtSAhzgHCisnjMJtiofn8cFkprgUTkRtPN",
+         "url": "https://near.node.monster"
+        }
+       ],
+       [
+        "chain-signatures-hot.near",
+        9,
+        {
+         "sign_pk": "ed25519:6DRZqoWxdYiKEhmF391pdC8L4VUXY1S5AMHYBsVHSyYm",
+         "url": "http://chain-signature-mainnet.hotdao.ai"
+        }
+       ],
+       [
+        "everstake-mpc-1.near",
+        10,
+        {
+         "sign_pk": "ed25519:3TJzrbiwgZeTEDHk3yZqCFvAzYs9xfYEkUcpx2dMD7Qq",
+         "url": "http://nearmpc-mainnet.everstake.one"
+        }
+       ],
+       [
+        "stakin-mpc.near",
+        11,
+        {
+         "sign_pk": "ed25519:9WiRNJ8Ci1RxfjdyGVdZHxUt5JJBgbfK87bZzgMd7ec4",
+         "url": "http://near-mpc-mainnet-1.stakin-nodes.com"
+        }
+       ]
+      ]
+     },
+     "threshold": 6
+    }
+   }
+  },
+  "mpc_version": "3.0.2",
+  "tee_accounts": [
+   {
+    "account_id": "blacksandtech.near",
+    "account_public_key": "ed25519:XiJaRDfvZg2E9F9kv2mdK2yPLDuaP5Kg9tkxPU18HBx",
+    "tls_public_key": "ed25519:2XPuwqhg71RXRiTUMKGapd8FYWgXnxVvydYBK9tS1ex2"
+   },
+   {
+    "account_id": "lifted-mainnet.near",
+    "account_public_key": null,
+    "tls_public_key": "ed25519:JBjY7yjbfQ51na3bStPPYMyfModUTFHco5xUNEem3uu6"
+   },
+   {
+    "account_id": "mpc-lgns.near",
+    "account_public_key": "ed25519:69iDnQdYxQnKfQu8XJadNX3ST5acVwe4eYt2688NRq5J",
+    "tls_public_key": "ed25519:EFW6528i4iU1XK3Q53r6kyHEjjA7puJLhHLH3mG1YRZd"
+   },
+   {
+    "account_id": "multichain-mainnet-aurora.near",
+    "account_public_key": "ed25519:4dua6zR1Uv5cMjsUU4iLYqEs2GHo8Gfju2v7DuAZaLok",
+    "tls_public_key": "ed25519:9QAvLjfjDX7GYwJaT7Wzz9bjS4NzniaXukx8vYKaZZLG"
+   },
+   {
+    "account_id": "n1-multichain.near",
+    "account_public_key": "ed25519:3WcoSJJmT17xz3U6ni7Ckp4Vxmk5AYqCcYGqgBcNJN9g",
+    "tls_public_key": "ed25519:8kjdkEUAD7kXc5aCYJdcSwNQESanvpbqSm325o7uSUQH"
+   },
+   {
+    "account_id": "near-mpc-staking4all-01.near",
+    "account_public_key": "ed25519:Dpc86JjawhRahHt4bfER5BATaVRoZiaTr3NaAWgAjpHR",
+    "tls_public_key": "ed25519:2CbEnbBQ9RA2oocc9a89Eck5d9ighfL7FGiEkMyQ7YB9"
+   },
+   {
+    "account_id": "nodemonster.near",
+    "account_public_key": "ed25519:WC9Njp4MpupWxf1UDeaENmNv9gCFtLVPGHqj3iSJHFD",
+    "tls_public_key": "ed25519:9mix9iNfMMtSAhzgHCisnjMJtiofn8cFkprgUTkRtPN"
+   },
+   {
+    "account_id": "chain-signatures-hot.near",
+    "account_public_key": "ed25519:2LVCPnkEJ461XSg2bHx3uMyvhBR3s2iDfNQQdQ9jHUgx",
+    "tls_public_key": "ed25519:6DRZqoWxdYiKEhmF391pdC8L4VUXY1S5AMHYBsVHSyYm"
+   },
+   {
+    "account_id": "everstake-mpc-1.near",
+    "account_public_key": "ed25519:CjqJLP8zZJfc1yymBFW9iSj19p3RGEfHnkadjkceKeEw",
+    "tls_public_key": "ed25519:3TJzrbiwgZeTEDHk3yZqCFvAzYs9xfYEkUcpx2dMD7Qq"
+   },
+   {
+    "account_id": "stakin-mpc.near",
+    "account_public_key": "ed25519:BjexDFkf12KoEiRkjj4LSpymiJqYwAidt1Ls2sZtGwpM",
+    "tls_public_key": "ed25519:9WiRNJ8Ci1RxfjdyGVdZHxUt5JJBgbfK87bZzgMd7ec4"
+   }
+  ],
+  "timestamp_ns": 1764640352692999393,
+  "total_supply": "1281418096947213551100006440997569"
+ },
+ {
+  "buyback": null,
+  "height": 179388504,
+  "label": "2026-01-01",
+  "mpc_state": {
+   "Running": {
+    "domains": {
+     "domains": [
+      {
+       "id": 0,
+       "scheme": "Secp256k1"
+      },
+      {
+       "id": 1,
+       "scheme": "Ed25519"
+      }
+     ],
+     "next_domain_id": 2
+    },
+    "parameters": {
+     "participants": {
+      "next_id": 12,
+      "participants": [
+       [
+        "blacksandtech.near",
+        0,
+        {
+         "sign_pk": "ed25519:2XPuwqhg71RXRiTUMKGapd8FYWgXnxVvydYBK9tS1ex2",
+         "url": "https://multichain-mainnet-0.near.blksnd.xyz"
+        }
+       ],
+       [
+        "mpc-lgns.near",
+        4,
+        {
+         "sign_pk": "ed25519:EFW6528i4iU1XK3Q53r6kyHEjjA7puJLhHLH3mG1YRZd",
+         "url": "https://near.mpc.lgns.net"
+        }
+       ],
+       [
+        "multichain-mainnet-aurora.near",
+        5,
+        {
+         "sign_pk": "ed25519:9QAvLjfjDX7GYwJaT7Wzz9bjS4NzniaXukx8vYKaZZLG",
+         "url": "https://multichain-mainnet.aurora.dev"
+        }
+       ],
+       [
+        "n1-multichain.near",
+        8,
+        {
+         "sign_pk": "ed25519:8kjdkEUAD7kXc5aCYJdcSwNQESanvpbqSm325o7uSUQH",
+         "url": "https://multichain-mainnet-0.nearone.org"
+        }
+       ],
+       [
+        "near-mpc-staking4all-01.near",
+        6,
+        {
+         "sign_pk": "ed25519:2CbEnbBQ9RA2oocc9a89Eck5d9ighfL7FGiEkMyQ7YB9",
+         "url": "https://multichain-mainnet-0.staking4all.org"
+        }
+       ],
+       [
+        "nodemonster.near",
+        7,
+        {
+         "sign_pk": "ed25519:9mix9iNfMMtSAhzgHCisnjMJtiofn8cFkprgUTkRtPN",
+         "url": "https://near.node.monster"
+        }
+       ],
+       [
+        "chain-signatures-hot.near",
+        9,
+        {
+         "sign_pk": "ed25519:6DRZqoWxdYiKEhmF391pdC8L4VUXY1S5AMHYBsVHSyYm",
+         "url": "http://chain-signature-mainnet.hotdao.ai"
+        }
+       ],
+       [
+        "everstake-mpc-1.near",
+        10,
+        {
+         "sign_pk": "ed25519:3TJzrbiwgZeTEDHk3yZqCFvAzYs9xfYEkUcpx2dMD7Qq",
+         "url": "http://nearmpc-mainnet.everstake.one"
+        }
+       ],
+       [
+        "stakin-mpc.near",
+        11,
+        {
+         "sign_pk": "ed25519:9WiRNJ8Ci1RxfjdyGVdZHxUt5JJBgbfK87bZzgMd7ec4",
+         "url": "http://near-mpc-mainnet-1.stakin-nodes.com"
+        }
+       ]
+      ]
+     },
+     "threshold": 6
+    }
+   }
+  },
+  "mpc_version": "3.0.2",
+  "tee_accounts": [
+   {
+    "account_id": "blacksandtech.near",
+    "account_public_key": "ed25519:XiJaRDfvZg2E9F9kv2mdK2yPLDuaP5Kg9tkxPU18HBx",
+    "tls_public_key": "ed25519:2XPuwqhg71RXRiTUMKGapd8FYWgXnxVvydYBK9tS1ex2"
+   },
+   {
+    "account_id": "lifted-mainnet.near",
+    "account_public_key": null,
+    "tls_public_key": "ed25519:JBjY7yjbfQ51na3bStPPYMyfModUTFHco5xUNEem3uu6"
+   },
+   {
+    "account_id": "mpc-lgns.near",
+    "account_public_key": "ed25519:69iDnQdYxQnKfQu8XJadNX3ST5acVwe4eYt2688NRq5J",
+    "tls_public_key": "ed25519:EFW6528i4iU1XK3Q53r6kyHEjjA7puJLhHLH3mG1YRZd"
+   },
+   {
+    "account_id": "multichain-mainnet-aurora.near",
+    "account_public_key": "ed25519:4dua6zR1Uv5cMjsUU4iLYqEs2GHo8Gfju2v7DuAZaLok",
+    "tls_public_key": "ed25519:9QAvLjfjDX7GYwJaT7Wzz9bjS4NzniaXukx8vYKaZZLG"
+   },
+   {
+    "account_id": "n1-multichain.near",
+    "account_public_key": "ed25519:3WcoSJJmT17xz3U6ni7Ckp4Vxmk5AYqCcYGqgBcNJN9g",
+    "tls_public_key": "ed25519:8kjdkEUAD7kXc5aCYJdcSwNQESanvpbqSm325o7uSUQH"
+   },
+   {
+    "account_id": "near-mpc-staking4all-01.near",
+    "account_public_key": "ed25519:Dpc86JjawhRahHt4bfER5BATaVRoZiaTr3NaAWgAjpHR",
+    "tls_public_key": "ed25519:2CbEnbBQ9RA2oocc9a89Eck5d9ighfL7FGiEkMyQ7YB9"
+   },
+   {
+    "account_id": "nodemonster.near",
+    "account_public_key": "ed25519:WC9Njp4MpupWxf1UDeaENmNv9gCFtLVPGHqj3iSJHFD",
+    "tls_public_key": "ed25519:9mix9iNfMMtSAhzgHCisnjMJtiofn8cFkprgUTkRtPN"
+   },
+   {
+    "account_id": "chain-signatures-hot.near",
+    "account_public_key": "ed25519:2LVCPnkEJ461XSg2bHx3uMyvhBR3s2iDfNQQdQ9jHUgx",
+    "tls_public_key": "ed25519:6DRZqoWxdYiKEhmF391pdC8L4VUXY1S5AMHYBsVHSyYm"
+   },
+   {
+    "account_id": "everstake-mpc-1.near",
+    "account_public_key": "ed25519:CjqJLP8zZJfc1yymBFW9iSj19p3RGEfHnkadjkceKeEw",
+    "tls_public_key": "ed25519:3TJzrbiwgZeTEDHk3yZqCFvAzYs9xfYEkUcpx2dMD7Qq"
+   },
+   {
+    "account_id": "stakin-mpc.near",
+    "account_public_key": "ed25519:BjexDFkf12KoEiRkjj4LSpymiJqYwAidt1Ls2sZtGwpM",
+    "tls_public_key": "ed25519:9WiRNJ8Ci1RxfjdyGVdZHxUt5JJBgbfK87bZzgMd7ec4"
+   }
+  ],
+  "timestamp_ns": 1767341979306204652,
+  "total_supply": "1284072080519619187657321169226133"
+ },
+ {
+  "buyback": null,
+  "height": 183699345,
+  "label": "2026-02-01",
+  "mpc_state": {
+   "Running": {
+    "domains": {
+     "domains": [
+      {
+       "id": 0,
+       "scheme": "Secp256k1"
+      },
+      {
+       "id": 1,
+       "scheme": "Ed25519"
+      },
+      {
+       "id": 2,
+       "scheme": "Bls12381"
+      }
+     ],
+     "next_domain_id": 3
+    },
+    "parameters": {
+     "participants": {
+      "next_id": 12,
+      "participants": [
+       [
+        "blacksandtech.near",
+        0,
+        {
+         "sign_pk": "ed25519:2XPuwqhg71RXRiTUMKGapd8FYWgXnxVvydYBK9tS1ex2",
+         "url": "https://multichain-mainnet-0.near.blksnd.xyz"
+        }
+       ],
+       [
+        "mpc-lgns.near",
+        4,
+        {
+         "sign_pk": "ed25519:EFW6528i4iU1XK3Q53r6kyHEjjA7puJLhHLH3mG1YRZd",
+         "url": "https://near.mpc.lgns.net"
+        }
+       ],
+       [
+        "multichain-mainnet-aurora.near",
+        5,
+        {
+         "sign_pk": "ed25519:9QAvLjfjDX7GYwJaT7Wzz9bjS4NzniaXukx8vYKaZZLG",
+         "url": "https://multichain-mainnet.aurora.dev"
+        }
+       ],
+       [
+        "n1-multichain.near",
+        8,
+        {
+         "sign_pk": "ed25519:8kjdkEUAD7kXc5aCYJdcSwNQESanvpbqSm325o7uSUQH",
+         "url": "https://multichain-mainnet-0.nearone.org"
+        }
+       ],
+       [
+        "near-mpc-staking4all-01.near",
+        6,
+        {
+         "sign_pk": "ed25519:2CbEnbBQ9RA2oocc9a89Eck5d9ighfL7FGiEkMyQ7YB9",
+         "url": "https://multichain-mainnet-0.staking4all.org"
+        }
+       ],
+       [
+        "nodemonster.near",
+        7,
+        {
+         "sign_pk": "ed25519:9mix9iNfMMtSAhzgHCisnjMJtiofn8cFkprgUTkRtPN",
+         "url": "https://near.node.monster"
+        }
+       ],
+       [
+        "chain-signatures-hot.near",
+        9,
+        {
+         "sign_pk": "ed25519:6DRZqoWxdYiKEhmF391pdC8L4VUXY1S5AMHYBsVHSyYm",
+         "url": "http://chain-signature-mainnet.hotdao.ai"
+        }
+       ],
+       [
+        "everstake-mpc-1.near",
+        10,
+        {
+         "sign_pk": "ed25519:3TJzrbiwgZeTEDHk3yZqCFvAzYs9xfYEkUcpx2dMD7Qq",
+         "url": "http://nearmpc-mainnet.everstake.one"
+        }
+       ],
+       [
+        "stakin-mpc.near",
+        11,
+        {
+         "sign_pk": "ed25519:9WiRNJ8Ci1RxfjdyGVdZHxUt5JJBgbfK87bZzgMd7ec4",
+         "url": "http://near-mpc-mainnet-1.stakin-nodes.com"
+        }
+       ]
+      ]
+     },
+     "threshold": 6
+    }
+   }
+  },
+  "mpc_version": "3.3.2",
+  "tee_accounts": [
+   {
+    "account_id": "nodemonster.near",
+    "account_public_key": "ed25519:WC9Njp4MpupWxf1UDeaENmNv9gCFtLVPGHqj3iSJHFD",
+    "tls_public_key": "ed25519:9mix9iNfMMtSAhzgHCisnjMJtiofn8cFkprgUTkRtPN"
+   },
+   {
+    "account_id": "near-mpc-staking4all-01.near",
+    "account_public_key": "ed25519:Dpc86JjawhRahHt4bfER5BATaVRoZiaTr3NaAWgAjpHR",
+    "tls_public_key": "ed25519:2CbEnbBQ9RA2oocc9a89Eck5d9ighfL7FGiEkMyQ7YB9"
+   },
+   {
+    "account_id": "blacksandtech.near",
+    "account_public_key": "ed25519:XiJaRDfvZg2E9F9kv2mdK2yPLDuaP5Kg9tkxPU18HBx",
+    "tls_public_key": "ed25519:2XPuwqhg71RXRiTUMKGapd8FYWgXnxVvydYBK9tS1ex2"
+   },
+   {
+    "account_id": "everstake-mpc-1.near",
+    "account_public_key": "ed25519:CjqJLP8zZJfc1yymBFW9iSj19p3RGEfHnkadjkceKeEw",
+    "tls_public_key": "ed25519:3TJzrbiwgZeTEDHk3yZqCFvAzYs9xfYEkUcpx2dMD7Qq"
+   },
+   {
+    "account_id": "chain-signatures-hot.near",
+    "account_public_key": "ed25519:2LVCPnkEJ461XSg2bHx3uMyvhBR3s2iDfNQQdQ9jHUgx",
+    "tls_public_key": "ed25519:6DRZqoWxdYiKEhmF391pdC8L4VUXY1S5AMHYBsVHSyYm"
+   },
+   {
+    "account_id": "n1-multichain.near",
+    "account_public_key": "ed25519:3WcoSJJmT17xz3U6ni7Ckp4Vxmk5AYqCcYGqgBcNJN9g",
+    "tls_public_key": "ed25519:8kjdkEUAD7kXc5aCYJdcSwNQESanvpbqSm325o7uSUQH"
+   },
+   {
+    "account_id": "multichain-mainnet-aurora.near",
+    "account_public_key": "ed25519:4dua6zR1Uv5cMjsUU4iLYqEs2GHo8Gfju2v7DuAZaLok",
+    "tls_public_key": "ed25519:9QAvLjfjDX7GYwJaT7Wzz9bjS4NzniaXukx8vYKaZZLG"
+   },
+   {
+    "account_id": "stakin-mpc.near",
+    "account_public_key": "ed25519:BjexDFkf12KoEiRkjj4LSpymiJqYwAidt1Ls2sZtGwpM",
+    "tls_public_key": "ed25519:9WiRNJ8Ci1RxfjdyGVdZHxUt5JJBgbfK87bZzgMd7ec4"
+   },
+   {
+    "account_id": "mpc-lgns.near",
+    "account_public_key": "ed25519:69iDnQdYxQnKfQu8XJadNX3ST5acVwe4eYt2688NRq5J",
+    "tls_public_key": "ed25519:EFW6528i4iU1XK3Q53r6kyHEjjA7puJLhHLH3mG1YRZd"
+   }
+  ],
+  "timestamp_ns": 1769974082267463563,
+  "total_supply": "1286651008512664875430603492086876"
+ },
+ {
+  "buyback": null,
+  "height": 187662380,
+  "label": "2026-03-01",
+  "mpc_state": {
+   "Running": {
+    "domains": {
+     "domains": [
+      {
+       "id": 0,
+       "scheme": "Secp256k1"
+      },
+      {
+       "id": 1,
+       "scheme": "Ed25519"
+      },
+      {
+       "id": 2,
+       "scheme": "Bls12381"
+      }
+     ],
+     "next_domain_id": 3
+    },
+    "parameters": {
+     "participants": {
+      "next_id": 12,
+      "participants": [
+       [
+        "blacksandtech.near",
+        0,
+        {
+         "sign_pk": "ed25519:2XPuwqhg71RXRiTUMKGapd8FYWgXnxVvydYBK9tS1ex2",
+         "url": "https://multichain-mainnet-0.near.blksnd.xyz"
+        }
+       ],
+       [
+        "mpc-lgns.near",
+        4,
+        {
+         "sign_pk": "ed25519:EFW6528i4iU1XK3Q53r6kyHEjjA7puJLhHLH3mG1YRZd",
+         "url": "https://near.mpc.lgns.net"
+        }
+       ],
+       [
+        "multichain-mainnet-aurora.near",
+        5,
+        {
+         "sign_pk": "ed25519:9QAvLjfjDX7GYwJaT7Wzz9bjS4NzniaXukx8vYKaZZLG",
+         "url": "https://multichain-mainnet.aurora.dev"
+        }
+       ],
+       [
+        "n1-multichain.near",
+        8,
+        {
+         "sign_pk": "ed25519:8kjdkEUAD7kXc5aCYJdcSwNQESanvpbqSm325o7uSUQH",
+         "url": "https://multichain-mainnet-0.nearone.org"
+        }
+       ],
+       [
+        "near-mpc-staking4all-01.near",
+        6,
+        {
+         "sign_pk": "ed25519:2CbEnbBQ9RA2oocc9a89Eck5d9ighfL7FGiEkMyQ7YB9",
+         "url": "https://multichain-mainnet-0.staking4all.org"
+        }
+       ],
+       [
+        "nodemonster.near",
+        7,
+        {
+         "sign_pk": "ed25519:9mix9iNfMMtSAhzgHCisnjMJtiofn8cFkprgUTkRtPN",
+         "url": "https://near.node.monster"
+        }
+       ],
+       [
+        "chain-signatures-hot.near",
+        9,
+        {
+         "sign_pk": "ed25519:6DRZqoWxdYiKEhmF391pdC8L4VUXY1S5AMHYBsVHSyYm",
+         "url": "http://chain-signature-mainnet.hotdao.ai"
+        }
+       ],
+       [
+        "everstake-mpc-1.near",
+        10,
+        {
+         "sign_pk": "ed25519:3TJzrbiwgZeTEDHk3yZqCFvAzYs9xfYEkUcpx2dMD7Qq",
+         "url": "http://nearmpc-mainnet.everstake.one"
+        }
+       ],
+       [
+        "stakin-mpc.near",
+        11,
+        {
+         "sign_pk": "ed25519:9WiRNJ8Ci1RxfjdyGVdZHxUt5JJBgbfK87bZzgMd7ec4",
+         "url": "http://near-mpc-mainnet-1.stakin-nodes.com"
+        }
+       ]
+      ]
+     },
+     "threshold": 6
+    }
+   }
+  },
+  "mpc_version": "3.4.1",
+  "tee_accounts": [
+   {
+    "account_id": "nodemonster.near",
+    "account_public_key": "ed25519:WC9Njp4MpupWxf1UDeaENmNv9gCFtLVPGHqj3iSJHFD",
+    "tls_public_key": "ed25519:9mix9iNfMMtSAhzgHCisnjMJtiofn8cFkprgUTkRtPN"
+   },
+   {
+    "account_id": "near-mpc-staking4all-01.near",
+    "account_public_key": "ed25519:Dpc86JjawhRahHt4bfER5BATaVRoZiaTr3NaAWgAjpHR",
+    "tls_public_key": "ed25519:2CbEnbBQ9RA2oocc9a89Eck5d9ighfL7FGiEkMyQ7YB9"
+   },
+   {
+    "account_id": "blacksandtech.near",
+    "account_public_key": "ed25519:XiJaRDfvZg2E9F9kv2mdK2yPLDuaP5Kg9tkxPU18HBx",
+    "tls_public_key": "ed25519:2XPuwqhg71RXRiTUMKGapd8FYWgXnxVvydYBK9tS1ex2"
+   },
+   {
+    "account_id": "everstake-mpc-1.near",
+    "account_public_key": "ed25519:CjqJLP8zZJfc1yymBFW9iSj19p3RGEfHnkadjkceKeEw",
+    "tls_public_key": "ed25519:3TJzrbiwgZeTEDHk3yZqCFvAzYs9xfYEkUcpx2dMD7Qq"
+   },
+   {
+    "account_id": "chain-signatures-hot.near",
+    "account_public_key": "ed25519:2LVCPnkEJ461XSg2bHx3uMyvhBR3s2iDfNQQdQ9jHUgx",
+    "tls_public_key": "ed25519:6DRZqoWxdYiKEhmF391pdC8L4VUXY1S5AMHYBsVHSyYm"
+   },
+   {
+    "account_id": "n1-multichain.near",
+    "account_public_key": "ed25519:3WcoSJJmT17xz3U6ni7Ckp4Vxmk5AYqCcYGqgBcNJN9g",
+    "tls_public_key": "ed25519:8kjdkEUAD7kXc5aCYJdcSwNQESanvpbqSm325o7uSUQH"
+   },
+   {
+    "account_id": "multichain-mainnet-aurora.near",
+    "account_public_key": "ed25519:4dua6zR1Uv5cMjsUU4iLYqEs2GHo8Gfju2v7DuAZaLok",
+    "tls_public_key": "ed25519:9QAvLjfjDX7GYwJaT7Wzz9bjS4NzniaXukx8vYKaZZLG"
+   },
+   {
+    "account_id": "stakin-mpc.near",
+    "account_public_key": "ed25519:BjexDFkf12KoEiRkjj4LSpymiJqYwAidt1Ls2sZtGwpM",
+    "tls_public_key": "ed25519:9WiRNJ8Ci1RxfjdyGVdZHxUt5JJBgbfK87bZzgMd7ec4"
+   },
+   {
+    "account_id": "mpc-lgns.near",
+    "account_public_key": "ed25519:69iDnQdYxQnKfQu8XJadNX3ST5acVwe4eYt2688NRq5J",
+    "tls_public_key": "ed25519:EFW6528i4iU1XK3Q53r6kyHEjjA7puJLhHLH3mG1YRZd"
+   }
+  ],
+  "timestamp_ns": 1772377384609799458,
+  "total_supply": "1289043123797362596710640812812953"
+ },
+ {
+  "buyback": {
+   "amount": "39998442762078857400000000",
+   "block_hash": "J1vM4v9ZsstD5mq6e4e496ehmYqiCdhRpDPvmpyt68Fh",
+   "block_height": 192071500,
+   "code_hash": "5WFgvKK2DizfgEcey6xBkn4RdTe9cGNWzGK5VJuUtc8d",
+   "locked": "0",
+   "storage_paid_at": 0,
+   "storage_usage": 357967
+  },
+  "height": 192071500,
+  "label": "2026-04-01",
+  "mpc_state": {
+   "Running": {
+    "domains": {
+     "domains": [
+      {
+       "id": 0,
+       "purpose": "Sign",
+       "scheme": "Secp256k1"
+      },
+      {
+       "id": 1,
+       "purpose": "Sign",
+       "scheme": "Ed25519"
+      },
+      {
+       "id": 2,
+       "purpose": "CKD",
+       "scheme": "Bls12381"
+      },
+      {
+       "id": 3,
+       "purpose": "ForeignTx",
+       "scheme": "Secp256k1"
+      }
+     ],
+     "next_domain_id": 4
+    },
+    "parameters": {
+     "participants": {
+      "next_id": 12,
+      "participants": [
+       [
+        "blacksandtech.near",
+        0,
+        {
+         "sign_pk": "ed25519:2XPuwqhg71RXRiTUMKGapd8FYWgXnxVvydYBK9tS1ex2",
+         "url": "https://multichain-mainnet-0.near.blksnd.xyz"
+        }
+       ],
+       [
+        "mpc-lgns.near",
+        4,
+        {
+         "sign_pk": "ed25519:EFW6528i4iU1XK3Q53r6kyHEjjA7puJLhHLH3mG1YRZd",
+         "url": "https://near.mpc.lgns.net"
+        }
+       ],
+       [
+        "multichain-mainnet-aurora.near",
+        5,
+        {
+         "sign_pk": "ed25519:9QAvLjfjDX7GYwJaT7Wzz9bjS4NzniaXukx8vYKaZZLG",
+         "url": "https://multichain-mainnet.aurora.dev"
+        }
+       ],
+       [
+        "near-mpc-staking4all-01.near",
+        6,
+        {
+         "sign_pk": "ed25519:2CbEnbBQ9RA2oocc9a89Eck5d9ighfL7FGiEkMyQ7YB9",
+         "url": "https://multichain-mainnet-0.staking4all.org"
+        }
+       ],
+       [
+        "nodemonster.near",
+        7,
+        {
+         "sign_pk": "ed25519:9mix9iNfMMtSAhzgHCisnjMJtiofn8cFkprgUTkRtPN",
+         "url": "https://near.node.monster"
+        }
+       ],
+       [
+        "n1-multichain.near",
+        8,
+        {
+         "sign_pk": "ed25519:8kjdkEUAD7kXc5aCYJdcSwNQESanvpbqSm325o7uSUQH",
+         "url": "https://multichain-mainnet-0.nearone.org"
+        }
+       ],
+       [
+        "everstake-mpc-1.near",
+        10,
+        {
+         "sign_pk": "ed25519:3TJzrbiwgZeTEDHk3yZqCFvAzYs9xfYEkUcpx2dMD7Qq",
+         "url": "http://nearmpc-mainnet.everstake.one"
+        }
+       ],
+       [
+        "stakin-mpc.near",
+        11,
+        {
+         "sign_pk": "ed25519:9WiRNJ8Ci1RxfjdyGVdZHxUt5JJBgbfK87bZzgMd7ec4",
+         "url": "http://near-mpc-mainnet-1.stakin-nodes.com"
+        }
+       ]
+      ]
+     },
+     "threshold": 5
+    }
+   }
+  },
+  "mpc_version": "3.7.0",
+  "tee_accounts": [
+   {
+    "account_id": "nodemonster.near",
+    "account_public_key": "ed25519:WC9Njp4MpupWxf1UDeaENmNv9gCFtLVPGHqj3iSJHFD",
+    "tls_public_key": "ed25519:9mix9iNfMMtSAhzgHCisnjMJtiofn8cFkprgUTkRtPN"
+   },
+   {
+    "account_id": "near-mpc-staking4all-01.near",
+    "account_public_key": "ed25519:Dpc86JjawhRahHt4bfER5BATaVRoZiaTr3NaAWgAjpHR",
+    "tls_public_key": "ed25519:2CbEnbBQ9RA2oocc9a89Eck5d9ighfL7FGiEkMyQ7YB9"
+   },
+   {
+    "account_id": "blacksandtech.near",
+    "account_public_key": "ed25519:XiJaRDfvZg2E9F9kv2mdK2yPLDuaP5Kg9tkxPU18HBx",
+    "tls_public_key": "ed25519:2XPuwqhg71RXRiTUMKGapd8FYWgXnxVvydYBK9tS1ex2"
+   },
+   {
+    "account_id": "everstake-mpc-1.near",
+    "account_public_key": "ed25519:CjqJLP8zZJfc1yymBFW9iSj19p3RGEfHnkadjkceKeEw",
+    "tls_public_key": "ed25519:3TJzrbiwgZeTEDHk3yZqCFvAzYs9xfYEkUcpx2dMD7Qq"
+   },
+   {
+    "account_id": "chain-signatures-hot.near",
+    "account_public_key": "ed25519:2LVCPnkEJ461XSg2bHx3uMyvhBR3s2iDfNQQdQ9jHUgx",
+    "tls_public_key": "ed25519:6DRZqoWxdYiKEhmF391pdC8L4VUXY1S5AMHYBsVHSyYm"
+   },
+   {
+    "account_id": "n1-multichain.near",
+    "account_public_key": "ed25519:3WcoSJJmT17xz3U6ni7Ckp4Vxmk5AYqCcYGqgBcNJN9g",
+    "tls_public_key": "ed25519:8kjdkEUAD7kXc5aCYJdcSwNQESanvpbqSm325o7uSUQH"
+   },
+   {
+    "account_id": "multichain-mainnet-aurora.near",
+    "account_public_key": "ed25519:4dua6zR1Uv5cMjsUU4iLYqEs2GHo8Gfju2v7DuAZaLok",
+    "tls_public_key": "ed25519:9QAvLjfjDX7GYwJaT7Wzz9bjS4NzniaXukx8vYKaZZLG"
+   },
+   {
+    "account_id": "stakin-mpc.near",
+    "account_public_key": "ed25519:BjexDFkf12KoEiRkjj4LSpymiJqYwAidt1Ls2sZtGwpM",
+    "tls_public_key": "ed25519:9WiRNJ8Ci1RxfjdyGVdZHxUt5JJBgbfK87bZzgMd7ec4"
+   },
+   {
+    "account_id": "mpc-lgns.near",
+    "account_public_key": "ed25519:69iDnQdYxQnKfQu8XJadNX3ST5acVwe4eYt2688NRq5J",
+    "tls_public_key": "ed25519:EFW6528i4iU1XK3Q53r6kyHEjjA7puJLhHLH3mG1YRZd"
+   }
+  ],
+  "timestamp_ns": 1775035989277301281,
+  "total_supply": "1291686900305537896818906834335964"
+ },
+ {
+  "buyback": {
+   "amount": "35614988689358963646124661933",
+   "block_hash": "6cBTZxqkmsNZ6jAz7H24GexAVSCkD3fGDUUFy5kUchUF",
+   "block_height": 196381492,
+   "code_hash": "5WFgvKK2DizfgEcey6xBkn4RdTe9cGNWzGK5VJuUtc8d",
+   "locked": "0",
+   "storage_paid_at": 0,
+   "storage_usage": 357967
+  },
+  "height": 196381492,
+  "label": "2026-05-01",
+  "mpc_state": {
+   "Running": {
+    "domains": {
+     "domains": [
+      {
+       "curve": "Secp256k1",
+       "id": 0,
+       "purpose": "Sign"
+      },
+      {
+       "curve": "Edwards25519",
+       "id": 1,
+       "purpose": "Sign"
+      },
+      {
+       "curve": "Bls12381",
+       "id": 2,
+       "purpose": "CKD"
+      },
+      {
+       "curve": "Secp256k1",
+       "id": 3,
+       "purpose": "ForeignTx"
+      }
+     ],
+     "next_domain_id": 4
+    },
+    "parameters": {
+     "participants": {
+      "next_id": 12,
+      "participants": [
+       [
+        "blacksandtech.near",
+        0,
+        {
+         "sign_pk": "ed25519:2XPuwqhg71RXRiTUMKGapd8FYWgXnxVvydYBK9tS1ex2",
+         "url": "https://multichain-mainnet-0.near.blksnd.xyz"
+        }
+       ],
+       [
+        "mpc-lgns.near",
+        4,
+        {
+         "sign_pk": "ed25519:EFW6528i4iU1XK3Q53r6kyHEjjA7puJLhHLH3mG1YRZd",
+         "url": "https://near.mpc.lgns.net"
+        }
+       ],
+       [
+        "multichain-mainnet-aurora.near",
+        5,
+        {
+         "sign_pk": "ed25519:9QAvLjfjDX7GYwJaT7Wzz9bjS4NzniaXukx8vYKaZZLG",
+         "url": "https://multichain-mainnet.aurora.dev"
+        }
+       ],
+       [
+        "near-mpc-staking4all-01.near",
+        6,
+        {
+         "sign_pk": "ed25519:2CbEnbBQ9RA2oocc9a89Eck5d9ighfL7FGiEkMyQ7YB9",
+         "url": "https://multichain-mainnet-0.staking4all.org"
+        }
+       ],
+       [
+        "nodemonster.near",
+        7,
+        {
+         "sign_pk": "ed25519:9mix9iNfMMtSAhzgHCisnjMJtiofn8cFkprgUTkRtPN",
+         "url": "https://near.node.monster"
+        }
+       ],
+       [
+        "n1-multichain.near",
+        8,
+        {
+         "sign_pk": "ed25519:8kjdkEUAD7kXc5aCYJdcSwNQESanvpbqSm325o7uSUQH",
+         "url": "https://multichain-mainnet-0.nearone.org"
+        }
+       ],
+       [
+        "everstake-mpc-1.near",
+        10,
+        {
+         "sign_pk": "ed25519:3TJzrbiwgZeTEDHk3yZqCFvAzYs9xfYEkUcpx2dMD7Qq",
+         "url": "http://nearmpc-mainnet.everstake.one"
+        }
+       ],
+       [
+        "stakin-mpc.near",
+        11,
+        {
+         "sign_pk": "ed25519:9WiRNJ8Ci1RxfjdyGVdZHxUt5JJBgbfK87bZzgMd7ec4",
+         "url": "http://near-mpc-mainnet-1.stakin-nodes.com"
+        }
+       ]
+      ]
+     },
+     "threshold": 5
+    }
+   }
+  },
+  "mpc_version": "3.9.1",
+  "tee_accounts": [
+   {
+    "account_id": "nodemonster.near",
+    "account_public_key": "ed25519:WC9Njp4MpupWxf1UDeaENmNv9gCFtLVPGHqj3iSJHFD",
+    "tls_public_key": "ed25519:9mix9iNfMMtSAhzgHCisnjMJtiofn8cFkprgUTkRtPN"
+   },
+   {
+    "account_id": "near-mpc-staking4all-01.near",
+    "account_public_key": "ed25519:Dpc86JjawhRahHt4bfER5BATaVRoZiaTr3NaAWgAjpHR",
+    "tls_public_key": "ed25519:2CbEnbBQ9RA2oocc9a89Eck5d9ighfL7FGiEkMyQ7YB9"
+   },
+   {
+    "account_id": "blacksandtech.near",
+    "account_public_key": "ed25519:XiJaRDfvZg2E9F9kv2mdK2yPLDuaP5Kg9tkxPU18HBx",
+    "tls_public_key": "ed25519:2XPuwqhg71RXRiTUMKGapd8FYWgXnxVvydYBK9tS1ex2"
+   },
+   {
+    "account_id": "everstake-mpc-1.near",
+    "account_public_key": "ed25519:CjqJLP8zZJfc1yymBFW9iSj19p3RGEfHnkadjkceKeEw",
+    "tls_public_key": "ed25519:3TJzrbiwgZeTEDHk3yZqCFvAzYs9xfYEkUcpx2dMD7Qq"
+   },
+   {
+    "account_id": "chain-signatures-hot.near",
+    "account_public_key": "ed25519:2LVCPnkEJ461XSg2bHx3uMyvhBR3s2iDfNQQdQ9jHUgx",
+    "tls_public_key": "ed25519:6DRZqoWxdYiKEhmF391pdC8L4VUXY1S5AMHYBsVHSyYm"
+   },
+   {
+    "account_id": "n1-multichain.near",
+    "account_public_key": "ed25519:3WcoSJJmT17xz3U6ni7Ckp4Vxmk5AYqCcYGqgBcNJN9g",
+    "tls_public_key": "ed25519:8kjdkEUAD7kXc5aCYJdcSwNQESanvpbqSm325o7uSUQH"
+   },
+   {
+    "account_id": "multichain-mainnet-aurora.near",
+    "account_public_key": "ed25519:4dua6zR1Uv5cMjsUU4iLYqEs2GHo8Gfju2v7DuAZaLok",
+    "tls_public_key": "ed25519:9QAvLjfjDX7GYwJaT7Wzz9bjS4NzniaXukx8vYKaZZLG"
+   },
+   {
+    "account_id": "stakin-mpc.near",
+    "account_public_key": "ed25519:BjexDFkf12KoEiRkjj4LSpymiJqYwAidt1Ls2sZtGwpM",
+    "tls_public_key": "ed25519:9WiRNJ8Ci1RxfjdyGVdZHxUt5JJBgbfK87bZzgMd7ec4"
+   },
+   {
+    "account_id": "mpc-lgns.near",
+    "account_public_key": "ed25519:69iDnQdYxQnKfQu8XJadNX3ST5acVwe4eYt2688NRq5J",
+    "tls_public_key": "ed25519:EFW6528i4iU1XK3Q53r6kyHEjjA7puJLhHLH3mG1YRZd"
+   }
+  ],
+  "timestamp_ns": 1777620080117513994,
+  "total_supply": "1294313081171104268355920816983204"
+ },
+ {
+  "buyback": {
+   "amount": "263538770831091365014469134839",
+   "block_hash": "AN6XAKDpUnN17zWfTXigUAdeiGzeTmBijDrZm98mYbKj",
+   "block_height": 200826121,
+   "code_hash": "2v9kZJHN4sogHuKtKHaqYAqQBazkqH2cjY1rrjQYvNQa",
+   "locked": "0",
+   "storage_paid_at": 0,
+   "storage_usage": 356468
+  },
+  "height": 200826121,
+  "label": "2026-06-01",
+  "mpc_state": {
+   "Running": {
+    "domains": {
+     "domains": [
+      {
+       "id": 0,
+       "protocol": "CaitSith",
+       "purpose": "Sign",
+       "reconstruction_threshold": 6
+      },
+      {
+       "id": 1,
+       "protocol": "Frost",
+       "purpose": "Sign",
+       "reconstruction_threshold": 6
+      },
+      {
+       "id": 2,
+       "protocol": "ConfidentialKeyDerivation",
+       "purpose": "CKD",
+       "reconstruction_threshold": 6
+      },
+      {
+       "id": 3,
+       "protocol": "CaitSith",
+       "purpose": "ForeignTx",
+       "reconstruction_threshold": 6
+      }
+     ],
+     "next_domain_id": 4
+    },
+    "parameters": {
+     "participants": {
+      "next_id": 13,
+      "participants": [
+       [
+        "blacksandtech.near",
+        0,
+        {
+         "tls_public_key": "ed25519:2XPuwqhg71RXRiTUMKGapd8FYWgXnxVvydYBK9tS1ex2",
+         "url": "https://multichain-mainnet-0.near.blksnd.xyz"
+        }
+       ],
+       [
+        "mpc-lgns.near",
+        4,
+        {
+         "tls_public_key": "ed25519:EFW6528i4iU1XK3Q53r6kyHEjjA7puJLhHLH3mG1YRZd",
+         "url": "https://near.mpc.lgns.net"
+        }
+       ],
+       [
+        "multichain-mainnet-aurora.near",
+        5,
+        {
+         "tls_public_key": "ed25519:9QAvLjfjDX7GYwJaT7Wzz9bjS4NzniaXukx8vYKaZZLG",
+         "url": "https://multichain-mainnet.aurora.dev"
+        }
+       ],
+       [
+        "near-mpc-staking4all-01.near",
+        6,
+        {
+         "tls_public_key": "ed25519:2CbEnbBQ9RA2oocc9a89Eck5d9ighfL7FGiEkMyQ7YB9",
+         "url": "https://multichain-mainnet-0.staking4all.org"
+        }
+       ],
+       [
+        "nodemonster.near",
+        7,
+        {
+         "tls_public_key": "ed25519:9mix9iNfMMtSAhzgHCisnjMJtiofn8cFkprgUTkRtPN",
+         "url": "https://near.node.monster"
+        }
+       ],
+       [
+        "n1-multichain.near",
+        8,
+        {
+         "tls_public_key": "ed25519:8kjdkEUAD7kXc5aCYJdcSwNQESanvpbqSm325o7uSUQH",
+         "url": "https://multichain-mainnet-0.nearone.org"
+        }
+       ],
+       [
+        "everstake-mpc-1.near",
+        10,
+        {
+         "tls_public_key": "ed25519:3TJzrbiwgZeTEDHk3yZqCFvAzYs9xfYEkUcpx2dMD7Qq",
+         "url": "http://nearmpc-mainnet.everstake.one"
+        }
+       ],
+       [
+        "stakin-mpc.near",
+        11,
+        {
+         "tls_public_key": "ed25519:9WiRNJ8Ci1RxfjdyGVdZHxUt5JJBgbfK87bZzgMd7ec4",
+         "url": "http://near-mpc-mainnet-1.stakin-nodes.com"
+        }
+       ],
+       [
+        "mpch-01.near",
+        12,
+        {
+         "tls_public_key": "ed25519:9FNunZGVJygvREcWxUzHZABCGi5A3gC43sizeKAcDpE4",
+         "url": "http://mpch-mpc-near-m-01.near.mainnet.mpch.io"
+        }
+       ]
+      ]
+     },
+     "threshold": 6
+    }
+   }
+  },
+  "mpc_version": "3.10.1",
+  "tee_accounts": [
+   {
+    "account_id": "nodemonster.near",
+    "account_public_key": "ed25519:WC9Njp4MpupWxf1UDeaENmNv9gCFtLVPGHqj3iSJHFD",
+    "tls_public_key": "ed25519:9mix9iNfMMtSAhzgHCisnjMJtiofn8cFkprgUTkRtPN"
+   },
+   {
+    "account_id": "near-mpc-staking4all-01.near",
+    "account_public_key": "ed25519:Dpc86JjawhRahHt4bfER5BATaVRoZiaTr3NaAWgAjpHR",
+    "tls_public_key": "ed25519:2CbEnbBQ9RA2oocc9a89Eck5d9ighfL7FGiEkMyQ7YB9"
+   },
+   {
+    "account_id": "blacksandtech.near",
+    "account_public_key": "ed25519:XiJaRDfvZg2E9F9kv2mdK2yPLDuaP5Kg9tkxPU18HBx",
+    "tls_public_key": "ed25519:2XPuwqhg71RXRiTUMKGapd8FYWgXnxVvydYBK9tS1ex2"
+   },
+   {
+    "account_id": "everstake-mpc-1.near",
+    "account_public_key": "ed25519:CjqJLP8zZJfc1yymBFW9iSj19p3RGEfHnkadjkceKeEw",
+    "tls_public_key": "ed25519:3TJzrbiwgZeTEDHk3yZqCFvAzYs9xfYEkUcpx2dMD7Qq"
+   },
+   {
+    "account_id": "chain-signatures-hot.near",
+    "account_public_key": "ed25519:2LVCPnkEJ461XSg2bHx3uMyvhBR3s2iDfNQQdQ9jHUgx",
+    "tls_public_key": "ed25519:6DRZqoWxdYiKEhmF391pdC8L4VUXY1S5AMHYBsVHSyYm"
+   },
+   {
+    "account_id": "n1-multichain.near",
+    "account_public_key": "ed25519:3WcoSJJmT17xz3U6ni7Ckp4Vxmk5AYqCcYGqgBcNJN9g",
+    "tls_public_key": "ed25519:8kjdkEUAD7kXc5aCYJdcSwNQESanvpbqSm325o7uSUQH"
+   },
+   {
+    "account_id": "multichain-mainnet-aurora.near",
+    "account_public_key": "ed25519:4dua6zR1Uv5cMjsUU4iLYqEs2GHo8Gfju2v7DuAZaLok",
+    "tls_public_key": "ed25519:9QAvLjfjDX7GYwJaT7Wzz9bjS4NzniaXukx8vYKaZZLG"
+   },
+   {
+    "account_id": "stakin-mpc.near",
+    "account_public_key": "ed25519:BjexDFkf12KoEiRkjj4LSpymiJqYwAidt1Ls2sZtGwpM",
+    "tls_public_key": "ed25519:9WiRNJ8Ci1RxfjdyGVdZHxUt5JJBgbfK87bZzgMd7ec4"
+   },
+   {
+    "account_id": "mpc-lgns.near",
+    "account_public_key": "ed25519:69iDnQdYxQnKfQu8XJadNX3ST5acVwe4eYt2688NRq5J",
+    "tls_public_key": "ed25519:EFW6528i4iU1XK3Q53r6kyHEjjA7puJLhHLH3mG1YRZd"
+   },
+   {
+    "account_id": "mpch-01.near",
+    "account_public_key": "ed25519:tQJocahnjsXEs41aTbZocNSq242wW32BFPYfnytTqAn",
+    "tls_public_key": "ed25519:9FNunZGVJygvREcWxUzHZABCGi5A3gC43sizeKAcDpE4"
+   },
+   {
+    "account_id": "sixways.near",
+    "account_public_key": "ed25519:JDwL4WBNsYgKjLD3Yj3PALv1QkLUqzZsgjLkPWr1S53C",
+    "tls_public_key": "ed25519:Ay2QhTMTcCJZ1nD6x128HcJAxHnQZUfAxxqYNztHbeyu"
+   }
+  ],
+  "timestamp_ns": 1780303487179129771,
+  "total_supply": "1297041237161023868940353347409704"
+ },
+ {
+  "buyback": {
+   "amount": "487255019649191225960391185017",
+   "block_hash": "GfX6EpBCgQD8vmXTqzHW9W1nriA5pxFMBDYn5wZ2mvbJ",
+   "block_height": 205057932,
+   "code_hash": "2v9kZJHN4sogHuKtKHaqYAqQBazkqH2cjY1rrjQYvNQa",
+   "locked": "0",
+   "storage_paid_at": 0,
+   "storage_usage": 356468
+  },
+  "height": 205057932,
+  "label": "2026-07-01",
+  "mpc_state": {
+   "Running": {
+    "domains": {
+     "domains": [
+      {
+       "id": 0,
+       "protocol": "CaitSith",
+       "purpose": "Sign",
+       "reconstruction_threshold": 7
+      },
+      {
+       "id": 1,
+       "protocol": "Frost",
+       "purpose": "Sign",
+       "reconstruction_threshold": 7
+      },
+      {
+       "id": 2,
+       "protocol": "ConfidentialKeyDerivation",
+       "purpose": "CKD",
+       "reconstruction_threshold": 7
+      },
+      {
+       "id": 3,
+       "protocol": "CaitSith",
+       "purpose": "ForeignTx",
+       "reconstruction_threshold": 7
+      }
+     ],
+     "next_domain_id": 4
+    },
+    "parameters": {
+     "participants": {
+      "next_id": 14,
+      "participants": [
+       [
+        "blacksandtech.near",
+        0,
+        {
+         "tls_public_key": "ed25519:2XPuwqhg71RXRiTUMKGapd8FYWgXnxVvydYBK9tS1ex2",
+         "url": "https://multichain-mainnet-0.near.blksnd.xyz"
+        }
+       ],
+       [
+        "mpc-lgns.near",
+        4,
+        {
+         "tls_public_key": "ed25519:EFW6528i4iU1XK3Q53r6kyHEjjA7puJLhHLH3mG1YRZd",
+         "url": "https://near.mpc.lgns.net"
+        }
+       ],
+       [
+        "multichain-mainnet-aurora.near",
+        5,
+        {
+         "tls_public_key": "ed25519:9QAvLjfjDX7GYwJaT7Wzz9bjS4NzniaXukx8vYKaZZLG",
+         "url": "https://multichain-mainnet.aurora.dev"
+        }
+       ],
+       [
+        "near-mpc-staking4all-01.near",
+        6,
+        {
+         "tls_public_key": "ed25519:2CbEnbBQ9RA2oocc9a89Eck5d9ighfL7FGiEkMyQ7YB9",
+         "url": "https://multichain-mainnet-0.staking4all.org"
+        }
+       ],
+       [
+        "nodemonster.near",
+        7,
+        {
+         "tls_public_key": "ed25519:9mix9iNfMMtSAhzgHCisnjMJtiofn8cFkprgUTkRtPN",
+         "url": "https://near.node.monster"
+        }
+       ],
+       [
+        "n1-multichain.near",
+        8,
+        {
+         "tls_public_key": "ed25519:DA6z3Gza1fmo3wTxiV4B1Lnv6nMkS38fJuKPbBvKWSct",
+         "url": "https://57.129.86.53:80"
+        }
+       ],
+       [
+        "everstake-mpc-1.near",
+        10,
+        {
+         "tls_public_key": "ed25519:3TJzrbiwgZeTEDHk3yZqCFvAzYs9xfYEkUcpx2dMD7Qq",
+         "url": "http://nearmpc-mainnet.everstake.one"
+        }
+       ],
+       [
+        "stakin-mpc.near",
+        11,
+        {
+         "tls_public_key": "ed25519:9WiRNJ8Ci1RxfjdyGVdZHxUt5JJBgbfK87bZzgMd7ec4",
+         "url": "http://near-mpc-mainnet-1.stakin-nodes.com"
+        }
+       ],
+       [
+        "mpch-01.near",
+        12,
+        {
+         "tls_public_key": "ed25519:9FNunZGVJygvREcWxUzHZABCGi5A3gC43sizeKAcDpE4",
+         "url": "http://mpch-mpc-near-m-01.near.mainnet.mpch.io"
+        }
+       ],
+       [
+        "svrn-01.near",
+        13,
+        {
+         "tls_public_key": "ed25519:9fLzNc3CSfMNiutiGvLDsVNJgWxaDEzj6iU4qwD9sgcQ",
+         "url": "http://svrn-mpc-near-m-01.near.mainnet.ssgllc.io"
+        }
+       ]
+      ]
+     },
+     "threshold": 7
+    }
+   }
+  },
+  "mpc_version": "3.12.0",
+  "tee_accounts": [
+   {
+    "account_id": "nodemonster.near",
+    "account_public_key": "ed25519:WC9Njp4MpupWxf1UDeaENmNv9gCFtLVPGHqj3iSJHFD",
+    "tls_public_key": "ed25519:9mix9iNfMMtSAhzgHCisnjMJtiofn8cFkprgUTkRtPN"
+   },
+   {
+    "account_id": "near-mpc-staking4all-01.near",
+    "account_public_key": "ed25519:Dpc86JjawhRahHt4bfER5BATaVRoZiaTr3NaAWgAjpHR",
+    "tls_public_key": "ed25519:2CbEnbBQ9RA2oocc9a89Eck5d9ighfL7FGiEkMyQ7YB9"
+   },
+   {
+    "account_id": "blacksandtech.near",
+    "account_public_key": "ed25519:XiJaRDfvZg2E9F9kv2mdK2yPLDuaP5Kg9tkxPU18HBx",
+    "tls_public_key": "ed25519:2XPuwqhg71RXRiTUMKGapd8FYWgXnxVvydYBK9tS1ex2"
+   },
+   {
+    "account_id": "everstake-mpc-1.near",
+    "account_public_key": "ed25519:CjqJLP8zZJfc1yymBFW9iSj19p3RGEfHnkadjkceKeEw",
+    "tls_public_key": "ed25519:3TJzrbiwgZeTEDHk3yZqCFvAzYs9xfYEkUcpx2dMD7Qq"
+   },
+   {
+    "account_id": "chain-signatures-hot.near",
+    "account_public_key": "ed25519:2LVCPnkEJ461XSg2bHx3uMyvhBR3s2iDfNQQdQ9jHUgx",
+    "tls_public_key": "ed25519:6DRZqoWxdYiKEhmF391pdC8L4VUXY1S5AMHYBsVHSyYm"
+   },
+   {
+    "account_id": "n1-multichain.near",
+    "account_public_key": "ed25519:3WcoSJJmT17xz3U6ni7Ckp4Vxmk5AYqCcYGqgBcNJN9g",
+    "tls_public_key": "ed25519:8kjdkEUAD7kXc5aCYJdcSwNQESanvpbqSm325o7uSUQH"
+   },
+   {
+    "account_id": "multichain-mainnet-aurora.near",
+    "account_public_key": "ed25519:4dua6zR1Uv5cMjsUU4iLYqEs2GHo8Gfju2v7DuAZaLok",
+    "tls_public_key": "ed25519:9QAvLjfjDX7GYwJaT7Wzz9bjS4NzniaXukx8vYKaZZLG"
+   },
+   {
+    "account_id": "stakin-mpc.near",
+    "account_public_key": "ed25519:BjexDFkf12KoEiRkjj4LSpymiJqYwAidt1Ls2sZtGwpM",
+    "tls_public_key": "ed25519:9WiRNJ8Ci1RxfjdyGVdZHxUt5JJBgbfK87bZzgMd7ec4"
+   },
+   {
+    "account_id": "mpc-lgns.near",
+    "account_public_key": "ed25519:69iDnQdYxQnKfQu8XJadNX3ST5acVwe4eYt2688NRq5J",
+    "tls_public_key": "ed25519:EFW6528i4iU1XK3Q53r6kyHEjjA7puJLhHLH3mG1YRZd"
+   },
+   {
+    "account_id": "mpch-01.near",
+    "account_public_key": "ed25519:tQJocahnjsXEs41aTbZocNSq242wW32BFPYfnytTqAn",
+    "tls_public_key": "ed25519:9FNunZGVJygvREcWxUzHZABCGi5A3gC43sizeKAcDpE4"
+   },
+   {
+    "account_id": "sixways.near",
+    "account_public_key": "ed25519:JDwL4WBNsYgKjLD3Yj3PALv1QkLUqzZsgjLkPWr1S53C",
+    "tls_public_key": "ed25519:Ay2QhTMTcCJZ1nD6x128HcJAxHnQZUfAxxqYNztHbeyu"
+   },
+   {
+    "account_id": "n1-multichain.near",
+    "account_public_key": "ed25519:6qxdfaxVUhus17PYu6EAC85af5fxaMDnVQAu7RS2Afr8",
+    "tls_public_key": "ed25519:DA6z3Gza1fmo3wTxiV4B1Lnv6nMkS38fJuKPbBvKWSct"
+   },
+   {
+    "account_id": "svrn-01.near",
+    "account_public_key": "ed25519:6aLniuXcHiT59jAwDfiJyxhNXR7Kf3Kdj3kP5hf2hBNB",
+    "tls_public_key": "ed25519:9fLzNc3CSfMNiutiGvLDsVNJgWxaDEzj6iU4qwD9sgcQ"
+   }
+  ],
+  "timestamp_ns": 1782884989127976528,
+  "total_supply": "1299665072439458647953355521936193"
+ },
+ {
+  "buyback": {
+   "amount": "664078629787377119961499673135",
+   "block_hash": "6f68WeuZZyHxNjBa4mqouTvLKKg63RwXGe8J4uCxmMuy",
+   "block_height": 209432642,
+   "code_hash": "2v9kZJHN4sogHuKtKHaqYAqQBazkqH2cjY1rrjQYvNQa",
+   "locked": "0",
+   "storage_paid_at": 0,
+   "storage_usage": 356468
+  },
+  "height": 209432642,
+  "label": "2026-08-01",
+  "mpc_state": {
+   "Running": {
+    "domains": {
+     "domains": [
+      {
+       "id": 0,
+       "protocol": "CaitSith",
+       "purpose": "Sign",
+       "reconstruction_threshold": 7
+      },
+      {
+       "id": 1,
+       "protocol": "Frost",
+       "purpose": "Sign",
+       "reconstruction_threshold": 7
+      },
+      {
+       "id": 2,
+       "protocol": "ConfidentialKeyDerivation",
+       "purpose": "CKD",
+       "reconstruction_threshold": 7
+      },
+      {
+       "id": 3,
+       "protocol": "CaitSith",
+       "purpose": "ForeignTx",
+       "reconstruction_threshold": 7
+      }
+     ],
+     "next_domain_id": 4
+    },
+    "parameters": {
+     "participants": {
+      "next_id": 15,
+      "participants": [
+       [
+        "blacksandtech.near",
+        0,
+        {
+         "tls_public_key": "ed25519:2XPuwqhg71RXRiTUMKGapd8FYWgXnxVvydYBK9tS1ex2",
+         "url": "https://multichain-mainnet-0.near.blksnd.xyz"
+        }
+       ],
+       [
+        "mpc-lgns.near",
+        4,
+        {
+         "tls_public_key": "ed25519:EFW6528i4iU1XK3Q53r6kyHEjjA7puJLhHLH3mG1YRZd",
+         "url": "https://near.mpc.lgns.net"
+        }
+       ],
+       [
+        "multichain-mainnet-aurora.near",
+        5,
+        {
+         "tls_public_key": "ed25519:9QAvLjfjDX7GYwJaT7Wzz9bjS4NzniaXukx8vYKaZZLG",
+         "url": "https://multichain-mainnet.aurora.dev"
+        }
+       ],
+       [
+        "near-mpc-staking4all-01.near",
+        6,
+        {
+         "tls_public_key": "ed25519:2CbEnbBQ9RA2oocc9a89Eck5d9ighfL7FGiEkMyQ7YB9",
+         "url": "https://multichain-mainnet-0.staking4all.org"
+        }
+       ],
+       [
+        "nodemonster.near",
+        7,
+        {
+         "tls_public_key": "ed25519:9mix9iNfMMtSAhzgHCisnjMJtiofn8cFkprgUTkRtPN",
+         "url": "https://near.node.monster"
+        }
+       ],
+       [
+        "n1-multichain.near",
+        8,
+        {
+         "tls_public_key": "ed25519:DA6z3Gza1fmo3wTxiV4B1Lnv6nMkS38fJuKPbBvKWSct",
+         "url": "https://57.129.86.53:80"
+        }
+       ],
+       [
+        "everstake-mpc-1.near",
+        10,
+        {
+         "tls_public_key": "ed25519:3TJzrbiwgZeTEDHk3yZqCFvAzYs9xfYEkUcpx2dMD7Qq",
+         "url": "http://nearmpc-mainnet.everstake.one"
+        }
+       ],
+       [
+        "stakin-mpc.near",
+        11,
+        {
+         "tls_public_key": "ed25519:9WiRNJ8Ci1RxfjdyGVdZHxUt5JJBgbfK87bZzgMd7ec4",
+         "url": "http://near-mpc-mainnet-1.stakin-nodes.com"
+        }
+       ],
+       [
+        "mpch-01.near",
+        12,
+        {
+         "tls_public_key": "ed25519:9FNunZGVJygvREcWxUzHZABCGi5A3gC43sizeKAcDpE4",
+         "url": "http://mpch-mpc-near-m-01.near.mainnet.mpch.io"
+        }
+       ],
+       [
+        "svrn-01.near",
+        13,
+        {
+         "tls_public_key": "ed25519:9fLzNc3CSfMNiutiGvLDsVNJgWxaDEzj6iU4qwD9sgcQ",
+         "url": "http://svrn-mpc-near-m-01.near.mainnet.ssgllc.io"
+        }
+       ],
+       [
+        "greenfield-mpc01.near",
+        14,
+        {
+         "tls_public_key": "ed25519:9CTUXHyyuf5SQwXGCjr6Pv1nFx6zxdtFb7AYhthaVTka",
+         "url": "http://near-mpc-mainnet1.greenfield.xyz"
+        }
+       ]
+      ]
+     },
+     "threshold": 7
+    }
+   }
+  },
+  "mpc_version": "3.13.0",
+  "tee_accounts": [
+   {
+    "account_id": "nodemonster.near",
+    "account_public_key": "ed25519:WC9Njp4MpupWxf1UDeaENmNv9gCFtLVPGHqj3iSJHFD",
+    "tls_public_key": "ed25519:9mix9iNfMMtSAhzgHCisnjMJtiofn8cFkprgUTkRtPN"
+   },
+   {
+    "account_id": "near-mpc-staking4all-01.near",
+    "account_public_key": "ed25519:Dpc86JjawhRahHt4bfER5BATaVRoZiaTr3NaAWgAjpHR",
+    "tls_public_key": "ed25519:2CbEnbBQ9RA2oocc9a89Eck5d9ighfL7FGiEkMyQ7YB9"
+   },
+   {
+    "account_id": "blacksandtech.near",
+    "account_public_key": "ed25519:XiJaRDfvZg2E9F9kv2mdK2yPLDuaP5Kg9tkxPU18HBx",
+    "tls_public_key": "ed25519:2XPuwqhg71RXRiTUMKGapd8FYWgXnxVvydYBK9tS1ex2"
+   },
+   {
+    "account_id": "everstake-mpc-1.near",
+    "account_public_key": "ed25519:CjqJLP8zZJfc1yymBFW9iSj19p3RGEfHnkadjkceKeEw",
+    "tls_public_key": "ed25519:3TJzrbiwgZeTEDHk3yZqCFvAzYs9xfYEkUcpx2dMD7Qq"
+   },
+   {
+    "account_id": "chain-signatures-hot.near",
+    "account_public_key": "ed25519:2LVCPnkEJ461XSg2bHx3uMyvhBR3s2iDfNQQdQ9jHUgx",
+    "tls_public_key": "ed25519:6DRZqoWxdYiKEhmF391pdC8L4VUXY1S5AMHYBsVHSyYm"
+   },
+   {
+    "account_id": "n1-multichain.near",
+    "account_public_key": "ed25519:3WcoSJJmT17xz3U6ni7Ckp4Vxmk5AYqCcYGqgBcNJN9g",
+    "tls_public_key": "ed25519:8kjdkEUAD7kXc5aCYJdcSwNQESanvpbqSm325o7uSUQH"
+   },
+   {
+    "account_id": "multichain-mainnet-aurora.near",
+    "account_public_key": "ed25519:4dua6zR1Uv5cMjsUU4iLYqEs2GHo8Gfju2v7DuAZaLok",
+    "tls_public_key": "ed25519:9QAvLjfjDX7GYwJaT7Wzz9bjS4NzniaXukx8vYKaZZLG"
+   },
+   {
+    "account_id": "stakin-mpc.near",
+    "account_public_key": "ed25519:BjexDFkf12KoEiRkjj4LSpymiJqYwAidt1Ls2sZtGwpM",
+    "tls_public_key": "ed25519:9WiRNJ8Ci1RxfjdyGVdZHxUt5JJBgbfK87bZzgMd7ec4"
+   },
+   {
+    "account_id": "mpc-lgns.near",
+    "account_public_key": "ed25519:69iDnQdYxQnKfQu8XJadNX3ST5acVwe4eYt2688NRq5J",
+    "tls_public_key": "ed25519:EFW6528i4iU1XK3Q53r6kyHEjjA7puJLhHLH3mG1YRZd"
+   },
+   {
+    "account_id": "mpch-01.near",
+    "account_public_key": "ed25519:tQJocahnjsXEs41aTbZocNSq242wW32BFPYfnytTqAn",
+    "tls_public_key": "ed25519:9FNunZGVJygvREcWxUzHZABCGi5A3gC43sizeKAcDpE4"
+   },
+   {
+    "account_id": "sixways.near",
+    "account_public_key": "ed25519:JDwL4WBNsYgKjLD3Yj3PALv1QkLUqzZsgjLkPWr1S53C",
+    "tls_public_key": "ed25519:Ay2QhTMTcCJZ1nD6x128HcJAxHnQZUfAxxqYNztHbeyu"
+   },
+   {
+    "account_id": "n1-multichain.near",
+    "account_public_key": "ed25519:6qxdfaxVUhus17PYu6EAC85af5fxaMDnVQAu7RS2Afr8",
+    "tls_public_key": "ed25519:DA6z3Gza1fmo3wTxiV4B1Lnv6nMkS38fJuKPbBvKWSct"
+   },
+   {
+    "account_id": "svrn-01.near",
+    "account_public_key": "ed25519:6aLniuXcHiT59jAwDfiJyxhNXR7Kf3Kdj3kP5hf2hBNB",
+    "tls_public_key": "ed25519:9fLzNc3CSfMNiutiGvLDsVNJgWxaDEzj6iU4qwD9sgcQ"
+   },
+   {
+    "account_id": "greenfield-mpc01.near",
+    "account_public_key": "ed25519:9naTxeoyeLtLcorCRa2naaUfWus5sUDUaFZvb2rqGW4W",
+    "tls_public_key": "ed25519:9CTUXHyyuf5SQwXGCjr6Pv1nFx6zxdtFb7AYhthaVTka"
+   }
+  ],
+  "timestamp_ns": 1785566317680147413,
+  "total_supply": "1302386311079675561264946395589714"
+ },
+ {
+  "buyback": {
+   "amount": "941371501948072719482495787801",
+   "block_hash": "9wJhXbGBKeti2ByX6TjmmPUH25qrcPar4kzXhR4QQWj5",
+   "block_height": 213788089,
+   "code_hash": "2v9kZJHN4sogHuKtKHaqYAqQBazkqH2cjY1rrjQYvNQa",
+   "locked": "0",
+   "storage_paid_at": 0,
+   "storage_usage": 356468
+  },
+  "height": 213788089,
+  "label": "2026-09-01",
+  "mpc_state": {
+   "Running": {
+    "domains": {
+     "domains": [
+      {
+       "id": 0,
+       "protocol": "CaitSith",
+       "purpose": "Sign",
+       "reconstruction_threshold": 9
+      },
+      {
+       "id": 1,
+       "protocol": "Frost",
+       "purpose": "Sign",
+       "reconstruction_threshold": 9
+      },
+      {
+       "id": 2,
+       "protocol": "ConfidentialKeyDerivation",
+       "purpose": "CKD",
+       "reconstruction_threshold": 9
+      },
+      {
+       "id": 3,
+       "protocol": "CaitSith",
+       "purpose": "ForeignTx",
+       "reconstruction_threshold": 9
+      }
+     ],
+     "next_domain_id": 4
+    },
+    "parameters": {
+     "participants": {
+      "next_id": 19,
+      "participants": [
+       [
+        "blacksandtech.near",
+        0,
+        {
+         "tls_public_key": "ed25519:2XPuwqhg71RXRiTUMKGapd8FYWgXnxVvydYBK9tS1ex2",
+         "url": "https://multichain-mainnet-0.near.blksnd.xyz"
+        }
+       ],
+       [
+        "mpc-lgns.near",
+        4,
+        {
+         "tls_public_key": "ed25519:EFW6528i4iU1XK3Q53r6kyHEjjA7puJLhHLH3mG1YRZd",
+         "url": "https://near.mpc.lgns.net"
+        }
+       ],
+       [
+        "multichain-mainnet-aurora.near",
+        5,
+        {
+         "tls_public_key": "ed25519:9QAvLjfjDX7GYwJaT7Wzz9bjS4NzniaXukx8vYKaZZLG",
+         "url": "https://multichain-mainnet.aurora.dev"
+        }
+       ],
+       [
+        "near-mpc-staking4all-01.near",
+        6,
+        {
+         "tls_public_key": "ed25519:2CbEnbBQ9RA2oocc9a89Eck5d9ighfL7FGiEkMyQ7YB9",
+         "url": "https://multichain-mainnet-0.staking4all.org"
+        }
+       ],
+       [
+        "nodemonster.near",
+        7,
+        {
+         "tls_public_key": "ed25519:9mix9iNfMMtSAhzgHCisnjMJtiofn8cFkprgUTkRtPN",
+         "url": "https://near.node.monster"
+        }
+       ],
+       [
+        "n1-multichain.near",
+        8,
+        {
+         "tls_public_key": "ed25519:DA6z3Gza1fmo3wTxiV4B1Lnv6nMkS38fJuKPbBvKWSct",
+         "url": "https://57.129.86.53:80"
+        }
+       ],
+       [
+        "everstake-mpc-1.near",
+        10,
+        {
+         "tls_public_key": "ed25519:3TJzrbiwgZeTEDHk3yZqCFvAzYs9xfYEkUcpx2dMD7Qq",
+         "url": "http://nearmpc-mainnet.everstake.one"
+        }
+       ],
+       [
+        "stakin-mpc.near",
+        11,
+        {
+         "tls_public_key": "ed25519:9WiRNJ8Ci1RxfjdyGVdZHxUt5JJBgbfK87bZzgMd7ec4",
+         "url": "http://near-mpc-mainnet-1.stakin-nodes.com"
+        }
+       ],
+       [
+        "mpch-01.near",
+        12,
+        {
+         "tls_public_key": "ed25519:9FNunZGVJygvREcWxUzHZABCGi5A3gC43sizeKAcDpE4",
+         "url": "http://mpch-mpc-near-m-01.near.mainnet.mpch.io"
+        }
+       ],
+       [
+        "svrn-01.near",
+        13,
+        {
+         "tls_public_key": "ed25519:9fLzNc3CSfMNiutiGvLDsVNJgWxaDEzj6iU4qwD9sgcQ",
+         "url": "http://svrn-mpc-near-m-01.near.mainnet.ssgllc.io"
+        }
+       ],
+       [
+        "greenfield-mpc01.near",
+        14,
+        {
+         "tls_public_key": "ed25519:3RWgtpdVjuoRZsf3S73ipwVMRiYML37bLHKbokkWeGPq",
+         "url": "http://near-mpc-mainnet2.greenfield.xyz:80"
+        }
+       ],
+       [
+        "natsai-mpc.near",
+        15,
+        {
+         "tls_public_key": "ed25519:8Kwvcxvx3fjtAizVjMVMLBeQJHWCBJY7a9bjAMb4aiHd",
+         "url": "http://near-mpc-mainnet-1.natsai.xyz:80"
+        }
+       ],
+       [
+        "hashkeympc.near",
+        16,
+        {
+         "tls_public_key": "ed25519:EUB6coGTMVia2rdjDB9Q18yVn4iu38fgVbHberzKC847",
+         "url": "http://near-mpc-mainnet-1.hashkey.cloud"
+        }
+       ],
+       [
+        "astrostakers-mainnet.near",
+        17,
+        {
+         "tls_public_key": "ed25519:Fmv82fr5ALKs597ohcZMi7QXMrfQ3rDELVG231qDF4ME",
+         "url": "http://near-mainnet-mpc.astrostakers.com"
+        }
+       ],
+       [
+        "klever-nearmpc-01.near",
+        18,
+        {
+         "tls_public_key": "ed25519:KfQywkbYRBwBR2sypA9uHqFNWqywNZUCNdw1zFmjnMh",
+         "url": "http://multichain-mainnet-01.klever.io"
+        }
+       ]
+      ]
+     },
+     "threshold": 9
+    }
+   }
+  },
+  "mpc_version": "3.14.0",
+  "tee_accounts": [
+   {
+    "account_id": "nodemonster.near",
+    "account_public_key": "ed25519:WC9Njp4MpupWxf1UDeaENmNv9gCFtLVPGHqj3iSJHFD",
+    "tls_public_key": "ed25519:9mix9iNfMMtSAhzgHCisnjMJtiofn8cFkprgUTkRtPN"
+   },
+   {
+    "account_id": "near-mpc-staking4all-01.near",
+    "account_public_key": "ed25519:Dpc86JjawhRahHt4bfER5BATaVRoZiaTr3NaAWgAjpHR",
+    "tls_public_key": "ed25519:2CbEnbBQ9RA2oocc9a89Eck5d9ighfL7FGiEkMyQ7YB9"
+   },
+   {
+    "account_id": "blacksandtech.near",
+    "account_public_key": "ed25519:XiJaRDfvZg2E9F9kv2mdK2yPLDuaP5Kg9tkxPU18HBx",
+    "tls_public_key": "ed25519:2XPuwqhg71RXRiTUMKGapd8FYWgXnxVvydYBK9tS1ex2"
+   },
+   {
+    "account_id": "everstake-mpc-1.near",
+    "account_public_key": "ed25519:CjqJLP8zZJfc1yymBFW9iSj19p3RGEfHnkadjkceKeEw",
+    "tls_public_key": "ed25519:3TJzrbiwgZeTEDHk3yZqCFvAzYs9xfYEkUcpx2dMD7Qq"
+   },
+   {
+    "account_id": "astrostakers-mainnet.near",
+    "account_public_key": "ed25519:3WaocV9ryokGemNAdmcQbnu5nmm62sscj13vc4rnnsLu",
+    "tls_public_key": "ed25519:Fmv82fr5ALKs597ohcZMi7QXMrfQ3rDELVG231qDF4ME"
+   },
+   {
+    "account_id": "klever-nearmpc-01.near",
+    "account_public_key": "ed25519:2D5SEEd2TaFBPxwZc6QyJZaxRWN1Yf7uZwgFpPwN8am8",
+    "tls_public_key": "ed25519:KfQywkbYRBwBR2sypA9uHqFNWqywNZUCNdw1zFmjnMh"
+   },
+   {
+    "account_id": "multichain-mainnet-aurora.near",
+    "account_public_key": "ed25519:4dua6zR1Uv5cMjsUU4iLYqEs2GHo8Gfju2v7DuAZaLok",
+    "tls_public_key": "ed25519:9QAvLjfjDX7GYwJaT7Wzz9bjS4NzniaXukx8vYKaZZLG"
+   },
+   {
+    "account_id": "stakin-mpc.near",
+    "account_public_key": "ed25519:BjexDFkf12KoEiRkjj4LSpymiJqYwAidt1Ls2sZtGwpM",
+    "tls_public_key": "ed25519:9WiRNJ8Ci1RxfjdyGVdZHxUt5JJBgbfK87bZzgMd7ec4"
+   },
+   {
+    "account_id": "mpc-lgns.near",
+    "account_public_key": "ed25519:69iDnQdYxQnKfQu8XJadNX3ST5acVwe4eYt2688NRq5J",
+    "tls_public_key": "ed25519:EFW6528i4iU1XK3Q53r6kyHEjjA7puJLhHLH3mG1YRZd"
+   },
+   {
+    "account_id": "mpch-01.near",
+    "account_public_key": "ed25519:tQJocahnjsXEs41aTbZocNSq242wW32BFPYfnytTqAn",
+    "tls_public_key": "ed25519:9FNunZGVJygvREcWxUzHZABCGi5A3gC43sizeKAcDpE4"
+   },
+   {
+    "account_id": "hashkeympc.near",
+    "account_public_key": "ed25519:CqPdKWDBsYHtVYbqqUpe7sqwADbkxf6dLqBaZjnFu6HP",
+    "tls_public_key": "ed25519:EUB6coGTMVia2rdjDB9Q18yVn4iu38fgVbHberzKC847"
+   },
+   {
+    "account_id": "n1-multichain.near",
+    "account_public_key": "ed25519:6qxdfaxVUhus17PYu6EAC85af5fxaMDnVQAu7RS2Afr8",
+    "tls_public_key": "ed25519:DA6z3Gza1fmo3wTxiV4B1Lnv6nMkS38fJuKPbBvKWSct"
+   },
+   {
+    "account_id": "svrn-01.near",
+    "account_public_key": "ed25519:6aLniuXcHiT59jAwDfiJyxhNXR7Kf3Kdj3kP5hf2hBNB",
+    "tls_public_key": "ed25519:9fLzNc3CSfMNiutiGvLDsVNJgWxaDEzj6iU4qwD9sgcQ"
+   },
+   {
+    "account_id": "greenfield-mpc01.near",
+    "account_public_key": "ed25519:2PdhtMKP7GQzqKX2DXLi53R7nJGsZny6waBcf392rxqK",
+    "tls_public_key": "ed25519:3RWgtpdVjuoRZsf3S73ipwVMRiYML37bLHKbokkWeGPq"
+   },
+   {
+    "account_id": "natsai-mpc.near",
+    "account_public_key": "ed25519:EBVzDPpx1mYG4K7D29erANMiqGRQRgHDgBwxn8syX8yA",
+    "tls_public_key": "ed25519:8Kwvcxvx3fjtAizVjMVMLBeQJHWCBJY7a9bjAMb4aiHd"
+   }
+  ],
+  "timestamp_ns": 1788237317238315250,
+  "total_supply": "1305118967903655145106964725752493"
+ },
+ {
+  "buyback": {
+   "amount": "1847957216946443809059414784686",
+   "block_hash": "3fZs3ReMuga3ingEkoyqvFo1Rh3YVeQgJq5BSMBiy8KY",
+   "block_height": 217994519,
+   "code_hash": "2v9kZJHN4sogHuKtKHaqYAqQBazkqH2cjY1rrjQYvNQa",
+   "locked": "0",
+   "storage_paid_at": 0,
+   "storage_usage": 356468
+  },
+  "height": 217994519,
+  "label": "2026-10-01",
+  "mpc_state": {
+   "Running": {
+    "domains": {
+     "domains": [
+      {
+       "id": 0,
+       "protocol": "CaitSith",
+       "purpose": "Sign",
+       "reconstruction_threshold": 11
+      },
+      {
+       "id": 1,
+       "protocol": "Frost",
+       "purpose": "Sign",
+       "reconstruction_threshold": 11
+      },
+      {
+       "id": 2,
+       "protocol": "ConfidentialKeyDerivation",
+       "purpose": "CKD",
+       "reconstruction_threshold": 11
+      },
+      {
+       "id": 3,
+       "protocol": "CaitSith",
+       "purpose": "ForeignTx",
+       "reconstruction_threshold": 11
+      }
+     ],
+     "next_domain_id": 4
+    },
+    "parameters": {
+     "participants": {
+      "next_id": 21,
+      "participants": [
+       [
+        "blacksandtech.near",
+        0,
+        {
+         "tls_public_key": "ed25519:2XPuwqhg71RXRiTUMKGapd8FYWgXnxVvydYBK9tS1ex2",
+         "url": "https://multichain-mainnet-0.near.blksnd.xyz"
+        }
+       ],
+       [
+        "mpc-lgns.near",
+        4,
+        {
+         "tls_public_key": "ed25519:EFW6528i4iU1XK3Q53r6kyHEjjA7puJLhHLH3mG1YRZd",
+         "url": "https://near.mpc.lgns.net"
+        }
+       ],
+       [
+        "multichain-mainnet-aurora.near",
+        5,
+        {
+         "tls_public_key": "ed25519:9QAvLjfjDX7GYwJaT7Wzz9bjS4NzniaXukx8vYKaZZLG",
+         "url": "https://multichain-mainnet.aurora.dev"
+        }
+       ],
+       [
+        "near-mpc-staking4all-01.near",
+        6,
+        {
+         "tls_public_key": "ed25519:2CbEnbBQ9RA2oocc9a89Eck5d9ighfL7FGiEkMyQ7YB9",
+         "url": "https://multichain-mainnet-0.staking4all.org"
+        }
+       ],
+       [
+        "nodemonster.near",
+        7,
+        {
+         "tls_public_key": "ed25519:9mix9iNfMMtSAhzgHCisnjMJtiofn8cFkprgUTkRtPN",
+         "url": "https://near.node.monster"
+        }
+       ],
+       [
+        "n1-multichain.near",
+        8,
+        {
+         "tls_public_key": "ed25519:DA6z3Gza1fmo3wTxiV4B1Lnv6nMkS38fJuKPbBvKWSct",
+         "url": "https://57.129.86.53:80"
+        }
+       ],
+       [
+        "everstake-mpc-1.near",
+        10,
+        {
+         "tls_public_key": "ed25519:2DkhuDvZrBWEYKjhKx9nekXNHkyeZxS2S3U5rHtHv2ca",
+         "url": "http://nearmpc-mainnet-tdx.everstake.com:80"
+        }
+       ],
+       [
+        "stakin-mpc.near",
+        11,
+        {
+         "tls_public_key": "ed25519:9WiRNJ8Ci1RxfjdyGVdZHxUt5JJBgbfK87bZzgMd7ec4",
+         "url": "http://near-mpc-mainnet-1.stakin-nodes.com"
+        }
+       ],
+       [
+        "mpch-01.near",
+        12,
+        {
+         "tls_public_key": "ed25519:9FNunZGVJygvREcWxUzHZABCGi5A3gC43sizeKAcDpE4",
+         "url": "http://mpch-mpc-near-m-01.near.mainnet.mpch.io"
+        }
+       ],
+       [
+        "svrn-01.near",
+        13,
+        {
+         "tls_public_key": "ed25519:9fLzNc3CSfMNiutiGvLDsVNJgWxaDEzj6iU4qwD9sgcQ",
+         "url": "http://svrn-mpc-near-m-01.near.mainnet.ssgllc.io"
+        }
+       ],
+       [
+        "greenfield-mpc01.near",
+        14,
+        {
+         "tls_public_key": "ed25519:3RWgtpdVjuoRZsf3S73ipwVMRiYML37bLHKbokkWeGPq",
+         "url": "http://near-mpc-mainnet2.greenfield.xyz:80"
+        }
+       ],
+       [
+        "natsai-mpc.near",
+        15,
+        {
+         "tls_public_key": "ed25519:8Kwvcxvx3fjtAizVjMVMLBeQJHWCBJY7a9bjAMb4aiHd",
+         "url": "http://near-mpc-mainnet-1.natsai.xyz:80"
+        }
+       ],
+       [
+        "hashkeympc.near",
+        16,
+        {
+         "tls_public_key": "ed25519:EUB6coGTMVia2rdjDB9Q18yVn4iu38fgVbHberzKC847",
+         "url": "http://near-mpc-mainnet-1.hashkey.cloud"
+        }
+       ],
+       [
+        "astrostakers-mainnet.near",
+        17,
+        {
+         "tls_public_key": "ed25519:Fmv82fr5ALKs597ohcZMi7QXMrfQ3rDELVG231qDF4ME",
+         "url": "http://near-mainnet-mpc.astrostakers.com"
+        }
+       ],
+       [
+        "klever-nearmpc-01.near",
+        18,
+        {
+         "tls_public_key": "ed25519:KfQywkbYRBwBR2sypA9uHqFNWqywNZUCNdw1zFmjnMh",
+         "url": "http://multichain-mainnet-01.klever.io"
+        }
+       ],
+       [
+        "nansen-ai-mpc.near",
+        19,
+        {
+         "tls_public_key": "ed25519:E59NQmrXbWNrKcrg5Fhxwa73FFyjRWquLsNTzakHD5aU",
+         "url": "http://mpc.near.staking.nansen.ai"
+        }
+       ],
+       [
+        "bitwise-mpc01.near",
+        20,
+        {
+         "tls_public_key": "ed25519:3R2RE7XSQepvkbbvkvpJ3iWGXgY6Ztpj1T3eguovMXZT",
+         "url": "http://near-mpc-mainnet01.mainnet.validators.bitwiseinvestments.com"
+        }
+       ]
+      ]
+     },
+     "threshold": 11
+    }
+   }
+  },
+  "mpc_version": "3.16.0",
+  "tee_accounts": [
+   {
+    "account_id": "nodemonster.near",
+    "account_public_key": "ed25519:WC9Njp4MpupWxf1UDeaENmNv9gCFtLVPGHqj3iSJHFD",
+    "tls_public_key": "ed25519:9mix9iNfMMtSAhzgHCisnjMJtiofn8cFkprgUTkRtPN"
+   },
+   {
+    "account_id": "near-mpc-staking4all-01.near",
+    "account_public_key": "ed25519:Dpc86JjawhRahHt4bfER5BATaVRoZiaTr3NaAWgAjpHR",
+    "tls_public_key": "ed25519:2CbEnbBQ9RA2oocc9a89Eck5d9ighfL7FGiEkMyQ7YB9"
+   },
+   {
+    "account_id": "blacksandtech.near",
+    "account_public_key": "ed25519:XiJaRDfvZg2E9F9kv2mdK2yPLDuaP5Kg9tkxPU18HBx",
+    "tls_public_key": "ed25519:2XPuwqhg71RXRiTUMKGapd8FYWgXnxVvydYBK9tS1ex2"
+   },
+   {
+    "account_id": "everstake-mpc-1.near",
+    "account_public_key": "ed25519:CjqJLP8zZJfc1yymBFW9iSj19p3RGEfHnkadjkceKeEw",
+    "tls_public_key": "ed25519:3TJzrbiwgZeTEDHk3yZqCFvAzYs9xfYEkUcpx2dMD7Qq"
+   },
+   {
+    "account_id": "astrostakers-mainnet.near",
+    "account_public_key": "ed25519:3WaocV9ryokGemNAdmcQbnu5nmm62sscj13vc4rnnsLu",
+    "tls_public_key": "ed25519:Fmv82fr5ALKs597ohcZMi7QXMrfQ3rDELVG231qDF4ME"
+   },
+   {
+    "account_id": "klever-nearmpc-01.near",
+    "account_public_key": "ed25519:2D5SEEd2TaFBPxwZc6QyJZaxRWN1Yf7uZwgFpPwN8am8",
+    "tls_public_key": "ed25519:KfQywkbYRBwBR2sypA9uHqFNWqywNZUCNdw1zFmjnMh"
+   },
+   {
+    "account_id": "multichain-mainnet-aurora.near",
+    "account_public_key": "ed25519:4dua6zR1Uv5cMjsUU4iLYqEs2GHo8Gfju2v7DuAZaLok",
+    "tls_public_key": "ed25519:9QAvLjfjDX7GYwJaT7Wzz9bjS4NzniaXukx8vYKaZZLG"
+   },
+   {
+    "account_id": "stakin-mpc.near",
+    "account_public_key": "ed25519:BjexDFkf12KoEiRkjj4LSpymiJqYwAidt1Ls2sZtGwpM",
+    "tls_public_key": "ed25519:9WiRNJ8Ci1RxfjdyGVdZHxUt5JJBgbfK87bZzgMd7ec4"
+   },
+   {
+    "account_id": "mpc-lgns.near",
+    "account_public_key": "ed25519:69iDnQdYxQnKfQu8XJadNX3ST5acVwe4eYt2688NRq5J",
+    "tls_public_key": "ed25519:EFW6528i4iU1XK3Q53r6kyHEjjA7puJLhHLH3mG1YRZd"
+   },
+   {
+    "account_id": "mpch-01.near",
+    "account_public_key": "ed25519:tQJocahnjsXEs41aTbZocNSq242wW32BFPYfnytTqAn",
+    "tls_public_key": "ed25519:9FNunZGVJygvREcWxUzHZABCGi5A3gC43sizeKAcDpE4"
+   },
+   {
+    "account_id": "hashkeympc.near",
+    "account_public_key": "ed25519:CqPdKWDBsYHtVYbqqUpe7sqwADbkxf6dLqBaZjnFu6HP",
+    "tls_public_key": "ed25519:EUB6coGTMVia2rdjDB9Q18yVn4iu38fgVbHberzKC847"
+   },
+   {
+    "account_id": "n1-multichain.near",
+    "account_public_key": "ed25519:6qxdfaxVUhus17PYu6EAC85af5fxaMDnVQAu7RS2Afr8",
+    "tls_public_key": "ed25519:DA6z3Gza1fmo3wTxiV4B1Lnv6nMkS38fJuKPbBvKWSct"
+   },
+   {
+    "account_id": "svrn-01.near",
+    "account_public_key": "ed25519:6aLniuXcHiT59jAwDfiJyxhNXR7Kf3Kdj3kP5hf2hBNB",
+    "tls_public_key": "ed25519:9fLzNc3CSfMNiutiGvLDsVNJgWxaDEzj6iU4qwD9sgcQ"
+   },
+   {
+    "account_id": "greenfield-mpc01.near",
+    "account_public_key": "ed25519:2PdhtMKP7GQzqKX2DXLi53R7nJGsZny6waBcf392rxqK",
+    "tls_public_key": "ed25519:3RWgtpdVjuoRZsf3S73ipwVMRiYML37bLHKbokkWeGPq"
+   },
+   {
+    "account_id": "natsai-mpc.near",
+    "account_public_key": "ed25519:EBVzDPpx1mYG4K7D29erANMiqGRQRgHDgBwxn8syX8yA",
+    "tls_public_key": "ed25519:8Kwvcxvx3fjtAizVjMVMLBeQJHWCBJY7a9bjAMb4aiHd"
+   },
+   {
+    "account_id": "nansen-ai-mpc.near",
+    "account_public_key": "ed25519:954gwT3w4Ba83P4boJy8aCh3AVCapyTLTUXoXBG4SwZg",
+    "tls_public_key": "ed25519:E59NQmrXbWNrKcrg5Fhxwa73FFyjRWquLsNTzakHD5aU"
+   },
+   {
+    "account_id": "bitwise-mpc01.near",
+    "account_public_key": "ed25519:FAJ6YY5gmKG6bC3K8j2CzWiREZZHrWxEodBbtm9bAyPT",
+    "tls_public_key": "ed25519:3R2RE7XSQepvkbbvkvpJ3iWGXgY6Ztpj1T3eguovMXZT"
+   },
+   {
+    "account_id": "everstake-mpc-1.near",
+    "account_public_key": "ed25519:Cs8HhenpAYqH2D3TkiZNgjZHD9Ys3GM87m92W8vQqvQi",
+    "tls_public_key": "ed25519:2DkhuDvZrBWEYKjhKx9nekXNHkyeZxS2S3U5rHtHv2ca"
+   }
+  ],
+  "timestamp_ns": 1790818392376572920,
+  "total_supply": "1307742063980551710887391111494548"
+ },
+ {
+  "buyback": {
+   "amount": "2144976649835487232936209450114",
+   "block_hash": "oqstWdCWHxJqfv59y6yTBERTmYgMkmpqagrNyam7SeN",
+   "block_height": 222491355,
+   "code_hash": "2v9kZJHN4sogHuKtKHaqYAqQBazkqH2cjY1rrjQYvNQa",
+   "locked": "0",
+   "storage_paid_at": 0,
+   "storage_usage": 356468
+  },
+  "height": 222491355,
+  "label": "2026-11-01",
+  "mpc_state": {
+   "Running": {
+    "domains": {
+     "domains": [
+      {
+       "id": 0,
+       "protocol": "CaitSith",
+       "purpose": "Sign",
+       "reconstruction_threshold": 11
+      },
+      {
+       "id": 1,
+       "protocol": "Frost",
+       "purpose": "Sign",
+       "reconstruction_threshold": 11
+      },
+      {
+       "id": 2,
+       "protocol": "ConfidentialKeyDerivation",
+       "purpose": "CKD",
+       "reconstruction_threshold": 11
+      },
+      {
+       "id": 3,
+       "protocol": "CaitSith",
+       "purpose": "ForeignTx",
+       "reconstruction_threshold": 11
+      }
+     ],
+     "next_domain_id": 4
+    },
+    "parameters": {
+     "participants": {
+      "next_id": 21,
+      "participants": [
+       [
+        "mpc-lgns.near",
+        4,
+        {
+         "tls_public_key": "ed25519:6xY2u5RHiBM5sdNnojwMjqKEBgFLmMesnyPovmSXqFFp",
+         "url": "http://137.74.108.92:80"
+        }
+       ],
+       [
+        "multichain-mainnet-aurora.near",
+        5,
+        {
+         "tls_public_key": "ed25519:8eUhDQoWTTiqLjxAViAHXPK6VnT97YkjgFz7Hf2PQbfz",
+         "url": "http://multichain-mainnet.aurora.dev:80"
+        }
+       ],
+       [
+        "near-mpc-staking4all-01.near",
+        6,
+        {
+         "tls_public_key": "ed25519:6Jo3Q1qyjDy2b7r8eqKasckk5qfsnLfxKUS3FfS9R9MM",
+         "url": "http://multichain-mainnet-01.staking4all.org:80"
+        }
+       ],
+       [
+        "nodemonster.near",
+        7,
+        {
+         "tls_public_key": "ed25519:3nGFcBkefJVEgLqq7ScxRrcdxnVNSMRWqJokkRnb1AzW",
+         "url": "http://near-mpc-main.node.monster:80"
+        }
+       ],
+       [
+        "n1-multichain.near",
+        8,
+        {
+         "tls_public_key": "ed25519:DA6z3Gza1fmo3wTxiV4B1Lnv6nMkS38fJuKPbBvKWSct",
+         "url": "https://57.129.86.53:80"
+        }
+       ],
+       [
+        "everstake-mpc-1.near",
+        10,
+        {
+         "tls_public_key": "ed25519:2DkhuDvZrBWEYKjhKx9nekXNHkyeZxS2S3U5rHtHv2ca",
+         "url": "http://nearmpc-mainnet-tdx.everstake.com:80"
+        }
+       ],
+       [
+        "stakin-mpc.near",
+        11,
+        {
+         "tls_public_key": "ed25519:Fsofv4hmTbbxdBk9eQmM9aSX3xWgbzmKRyZjjxJE5ocF",
+         "url": "http://near-mpc-mainnet-1.stakin-nodes.com:80"
+        }
+       ],
+       [
+        "mpch-01.near",
+        12,
+        {
+         "tls_public_key": "ed25519:nBTkCdyi3GQ9oqM8YsViRiiindkrv6f9yh9TX1HhDN6",
+         "url": "http://mpch-mpc-near-m-01.near.mainnet.mpch.io"
+        }
+       ],
+       [
+        "svrn-01.near",
+        13,
+        {
+         "tls_public_key": "ed25519:FVAvAVSnPYB18TvapgBDbQyAdm5XrTcSjQoohe8pJa7Y",
+         "url": "http://svrn-mpc-near-m-01.near.mainnet.ssgllc.io"
+        }
+       ],
+       [
+        "greenfield-mpc01.near",
+        14,
+        {
+         "tls_public_key": "ed25519:3RWgtpdVjuoRZsf3S73ipwVMRiYML37bLHKbokkWeGPq",
+         "url": "http://near-mpc-mainnet2.greenfield.xyz:80"
+        }
+       ],
+       [
+        "natsai-mpc.near",
+        15,
+        {
+         "tls_public_key": "ed25519:8Kwvcxvx3fjtAizVjMVMLBeQJHWCBJY7a9bjAMb4aiHd",
+         "url": "http://near-mpc-mainnet-1.natsai.xyz:80"
+        }
+       ],
+       [
+        "hashkeympc.near",
+        16,
+        {
+         "tls_public_key": "ed25519:EUB6coGTMVia2rdjDB9Q18yVn4iu38fgVbHberzKC847",
+         "url": "http://near-mpc-mainnet-1.hashkey.cloud"
+        }
+       ],
+       [
+        "astrostakers-mainnet.near",
+        17,
+        {
+         "tls_public_key": "ed25519:Fmv82fr5ALKs597ohcZMi7QXMrfQ3rDELVG231qDF4ME",
+         "url": "http://near-mainnet-mpc.astrostakers.com"
+        }
+       ],
+       [
+        "klever-nearmpc-01.near",
+        18,
+        {
+         "tls_public_key": "ed25519:KfQywkbYRBwBR2sypA9uHqFNWqywNZUCNdw1zFmjnMh",
+         "url": "http://multichain-mainnet-01.klever.io"
+        }
+       ],
+       [
+        "nansen-ai-mpc.near",
+        19,
+        {
+         "tls_public_key": "ed25519:E59NQmrXbWNrKcrg5Fhxwa73FFyjRWquLsNTzakHD5aU",
+         "url": "http://mpc.near.staking.nansen.ai"
+        }
+       ],
+       [
+        "bitwise-mpc01.near",
+        20,
+        {
+         "tls_public_key": "ed25519:3R2RE7XSQepvkbbvkvpJ3iWGXgY6Ztpj1T3eguovMXZT",
+         "url": "http://near-mpc-mainnet01.mainnet.validators.bitwiseinvestments.com"
+        }
+       ]
+      ]
+     },
+     "threshold": 11
+    }
+   }
+  },
+  "mpc_version": "3.17.0",
+  "tee_accounts": [
+   {
+    "account_id": "mpc-lgns.near",
+    "account_public_key": "ed25519:6u7h8yLGDAmiUFNT42oQmJLdKoksRC1eDrc55PUxqiHx",
+    "tls_public_key": "ed25519:6xY2u5RHiBM5sdNnojwMjqKEBgFLmMesnyPovmSXqFFp"
+   },
+   {
+    "account_id": "stakin-mpc.near",
+    "account_public_key": "ed25519:GJamGnKkYrWCNpHwSYJj6iRcK7HpzH67kqGAswXYatzu",
+    "tls_public_key": "ed25519:Fsofv4hmTbbxdBk9eQmM9aSX3xWgbzmKRyZjjxJE5ocF"
+   },
+   {
+    "account_id": "near-mpc-staking4all-01.near",
+    "account_public_key": "ed25519:5WZpSFVA3rPgqs6F66pzbsGPUuuExBBtaQVKNqduSnnU",
+    "tls_public_key": "ed25519:6Jo3Q1qyjDy2b7r8eqKasckk5qfsnLfxKUS3FfS9R9MM"
+   },
+   {
+    "account_id": "blacksandtech.near",
+    "account_public_key": "ed25519:6fjsasP13zhmwHv7xkB65bHiG4Lvn5TfMbJqCXkWCyNy",
+    "tls_public_key": "ed25519:6biR7HfytnWcjyrnE1eVFDKXxo5huz11uwxyMxKWPdvT"
+   },
+   {
+    "account_id": "astrostakers-mainnet.near",
+    "account_public_key": "ed25519:3WaocV9ryokGemNAdmcQbnu5nmm62sscj13vc4rnnsLu",
+    "tls_public_key": "ed25519:Fmv82fr5ALKs597ohcZMi7QXMrfQ3rDELVG231qDF4ME"
+   },
+   {
+    "account_id": "klever-nearmpc-01.near",
+    "account_public_key": "ed25519:2D5SEEd2TaFBPxwZc6QyJZaxRWN1Yf7uZwgFpPwN8am8",
+    "tls_public_key": "ed25519:KfQywkbYRBwBR2sypA9uHqFNWqywNZUCNdw1zFmjnMh"
+   },
+   {
+    "account_id": "svrn-01.near",
+    "account_public_key": "ed25519:GdrMw9r1TSEQunU3XiCfH8JJ4LWueLWZe8QvtUbPfPnh",
+    "tls_public_key": "ed25519:FVAvAVSnPYB18TvapgBDbQyAdm5XrTcSjQoohe8pJa7Y"
+   },
+   {
+    "account_id": "multichain-mainnet-aurora.near",
+    "account_public_key": "ed25519:BwScwquNZHrh566j4YHUdMRixP4D5CsLTa2RWAUf7JNi",
+    "tls_public_key": "ed25519:8eUhDQoWTTiqLjxAViAHXPK6VnT97YkjgFz7Hf2PQbfz"
+   },
+   {
+    "account_id": "everstake-mpc-1.near",
+    "account_public_key": "ed25519:Cs8HhenpAYqH2D3TkiZNgjZHD9Ys3GM87m92W8vQqvQi",
+    "tls_public_key": "ed25519:2DkhuDvZrBWEYKjhKx9nekXNHkyeZxS2S3U5rHtHv2ca"
+   },
+   {
+    "account_id": "mpch-01.near",
+    "account_public_key": "ed25519:38EvBLV9uCQJ6RjVEcn2hnAPUbdqAGJyucSXbzmBHFBH",
+    "tls_public_key": "ed25519:nBTkCdyi3GQ9oqM8YsViRiiindkrv6f9yh9TX1HhDN6"
+   },
+   {
+    "account_id": "hashkeympc.near",
+    "account_public_key": "ed25519:CqPdKWDBsYHtVYbqqUpe7sqwADbkxf6dLqBaZjnFu6HP",
+    "tls_public_key": "ed25519:EUB6coGTMVia2rdjDB9Q18yVn4iu38fgVbHberzKC847"
+   },
+   {
+    "account_id": "n1-multichain.near",
+    "account_public_key": "ed25519:6qxdfaxVUhus17PYu6EAC85af5fxaMDnVQAu7RS2Afr8",
+    "tls_public_key": "ed25519:DA6z3Gza1fmo3wTxiV4B1Lnv6nMkS38fJuKPbBvKWSct"
+   },
+   {
+    "account_id": "nodemonster.near",
+    "account_public_key": "ed25519:2zaHA3rth2wRwXTTnrRYooCFMNfR41nKvUvshVoeTZP9",
+    "tls_public_key": "ed25519:3nGFcBkefJVEgLqq7ScxRrcdxnVNSMRWqJokkRnb1AzW"
+   },
+   {
+    "account_id": "greenfield-mpc01.near",
+    "account_public_key": "ed25519:2PdhtMKP7GQzqKX2DXLi53R7nJGsZny6waBcf392rxqK",
+    "tls_public_key": "ed25519:3RWgtpdVjuoRZsf3S73ipwVMRiYML37bLHKbokkWeGPq"
+   },
+   {
+    "account_id": "natsai-mpc.near",
+    "account_public_key": "ed25519:EBVzDPpx1mYG4K7D29erANMiqGRQRgHDgBwxn8syX8yA",
+    "tls_public_key": "ed25519:8Kwvcxvx3fjtAizVjMVMLBeQJHWCBJY7a9bjAMb4aiHd"
+   },
+   {
+    "account_id": "nansen-ai-mpc.near",
+    "account_public_key": "ed25519:954gwT3w4Ba83P4boJy8aCh3AVCapyTLTUXoXBG4SwZg",
+    "tls_public_key": "ed25519:E59NQmrXbWNrKcrg5Fhxwa73FFyjRWquLsNTzakHD5aU"
+   },
+   {
+    "account_id": "bitwise-mpc01.near",
+    "account_public_key": "ed25519:FAJ6YY5gmKG6bC3K8j2CzWiREZZHrWxEodBbtm9bAyPT",
+    "tls_public_key": "ed25519:3R2RE7XSQepvkbbvkvpJ3iWGXgY6Ztpj1T3eguovMXZT"
+   }
+  ],
+  "timestamp_ns": 1793491199613199537,
+  "total_supply": "1310472976202154732906070252726082"
+ }
+]

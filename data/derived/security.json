@@ -1,10 +1,10 @@
 {
  "governance": {
-  "access_keys_block": 224483336,
+  "access_keys_block": 224636174,
   "access_keys_now": 0,
   "current_version": "3.18.0",
   "pending_update_votes": {},
-  "rule": "Contract upgrades are approved once 11 participants (the threshold) vote for the same update; update_config is private; the account has 0 access keys (re-read at block 224483336).",
+  "rule": "Contract upgrades are approved once 11 participants (the threshold) vote for the same update; update_config is private; the account has 0 access keys (re-read at block 224636174).",
   "rule_sources": [
    "https://github.com/near/mpc/blob/e691bdb98d68dcf74653da58d043453a6318765f/crates/contract/src/api/update.rs#L82",
    "https://github.com/near/mpc/blob/e691bdb98d68dcf74653da58d043453a6318765f/crates/contract/src/api/update.rs#L152"
@@ -98,8 +98,8 @@
    },
    {
     "changed_after": "2026-11-01",
-    "first_seen": "2026-11-14",
-    "first_seen_block": 224483336,
+    "first_seen": "2026-11-15",
+    "first_seen_block": 224636174,
     "point": "head",
     "version": "3.18.0"
    }
@@ -263,8 +263,8 @@
     "version": "3.17.0"
    },
    {
-    "block": 224483336,
-    "date": "2026-11-14",
+    "block": 224636174,
+    "date": "2026-11-15",
     "margin": 5,
     "participants_n": 16,
     "point": "head",
@@ -308,39 +308,39 @@
  "value_vs_corruption": {
   "chain_breakdown_note": "as reported by DefiLlama; which of these addresses are MPC-controlled is not measured",
   "chain_breakdown_usd": {
-   "ADI": 395,
-   "Aptos": 42,
-   "Arbitrum": 4106166,
-   "Aurora": 97,
-   "Avalanche": 123398,
-   "Base": 2254610,
-   "Berachain": 47275,
-   "Binance": 3612188,
-   "Bitcoin": 5728609,
-   "Cardano": 99532,
-   "Dash": 293909,
-   "Doge": 378901,
-   "Ethereum": 56266326,
-   "Litecoin": 878425,
-   "Monad": 137635,
-   "Near": 81125496,
-   "Optimism": 232746,
-   "Polygon": 1511471,
-   "Ripple": 1095007,
-   "Solana": 83668,
-   "Stellar": 68624,
-   "Sui": 256835,
-   "TON": 816189,
-   "Tron": 9541862,
-   "X Layer": 23111,
-   "xDai": 1228940
+   "ADI": 387,
+   "Aptos": 38,
+   "Arbitrum": 4211595,
+   "Aurora": 91,
+   "Avalanche": 113484,
+   "Base": 2230364,
+   "Berachain": 45571,
+   "Binance": 3542757,
+   "Bitcoin": 5476710,
+   "Cardano": 92022,
+   "Dash": 285945,
+   "Doge": 261799,
+   "Ethereum": 54269024,
+   "Litecoin": 894083,
+   "Monad": 134254,
+   "Near": 77088555,
+   "Optimism": 247544,
+   "Polygon": 1511492,
+   "Ripple": 717207,
+   "Solana": 83664,
+   "Stellar": 67226,
+   "Sui": 237043,
+   "TON": 748648,
+   "Tron": 10867554,
+   "X Layer": 22039,
+   "xDai": 1241410
   },
-  "sentence": "≈$170M held in Intents; 11 of 16 signers must collude; bond at risk per signer: none found in contract. Security beyond that rests on TEE attestation (17 current entries) and operator identity.",
+  "sentence": "≈$164M held in Intents; 11 of 16 signers must collude; bond at risk per signer: none found in contract. Security beyond that rests on TEE attestation (17 current entries) and operator identity.",
   "signers_to_corrupt": 11,
   "tee_entries_now": 17,
-  "value_in_intents_usd": 169911455,
+  "value_in_intents_usd": 164390503,
   "value_label": "value held in NEAR Intents. Part of it depends on MPC-controlled addresses; that share is not measured here. Context, not a precise exposure.",
-  "value_per_corruptible_signer_usd": 15446495.909090908,
+  "value_per_corruptible_signer_usd": 14944591.181818182,
   "value_source": "https://api.llama.fi/protocol/near-intents"
  }
 }
