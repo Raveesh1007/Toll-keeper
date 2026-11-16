@@ -1,0 +1,35 @@
+{
+ "current_chain_tvls": {
+  "ADI": 370.35935,
+  "Aptos": 37.82364,
+  "Arbitrum": 3647309.25601,
+  "Aurora": 90.60427,
+  "Avalanche": 112775.64554,
+  "Base": 2275899.0964,
+  "Berachain": 44841.30463,
+  "Binance": 3539919.07614,
+  "Bitcoin": 5485870.18466,
+  "Cardano": 92729.01927,
+  "Dash": 286118.89982,
+  "Doge": 237626.79628,
+  "Ethereum": 56970287.33468,
+  "Litecoin": 669932.83689,
+  "Monad": 126986.07755,
+  "Near": 76219595.25972,
+  "Optimism": 224469.65143,
+  "Polygon": 1511108.68095,
+  "Ripple": 656744.84731,
+  "Solana": 83668.33613,
+  "Stellar": 67356.63993,
+  "Sui": 260766.35457,
+  "TON": 487190.08382,
+  "Tron": 11417308.32977,
+  "X Layer": 21085.87954,
+  "xDai": 1275654.07374
+ },
+ "latest": {
+  "date": 1794811439,
+  "totalLiquidityUSD": 165715742
+ },
+ "source": "https://api.llama.fi/protocol/near-intents"
+}
