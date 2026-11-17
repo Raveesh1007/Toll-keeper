@@ -1,10 +1,14 @@
 {
  "governance": {
-  "access_keys_block": 224788996,
+  "access_keys_block": 224942864,
   "access_keys_now": 0,
-  "current_version": "3.18.0",
-  "pending_update_votes": {},
-  "rule": "Contract upgrades are approved once 11 participants (the threshold) vote for the same update; update_config is private; the account has 0 access keys (re-read at block 224788996).",
+  "current_version": "3.19.0",
+  "pending_update_votes": {
+   "58a12887442c1c603d7f9787747fd214a5d65cb6f695adfa02e498fed9646e8c": [
+    "nansen-ai-mpc.near"
+   ]
+  },
+  "rule": "Contract upgrades are approved once 11 participants (the threshold) vote for the same update; update_config is private; the account has 0 access keys (re-read at block 224942864).",
   "rule_sources": [
    "https://github.com/near/mpc/blob/e691bdb98d68dcf74653da58d043453a6318765f/crates/contract/src/api/update.rs#L82",
    "https://github.com/near/mpc/blob/e691bdb98d68dcf74653da58d043453a6318765f/crates/contract/src/api/update.rs#L152"
@@ -98,10 +102,10 @@
    },
    {
     "changed_after": "2026-11-01",
-    "first_seen": "2026-11-16",
-    "first_seen_block": 224788996,
+    "first_seen": "2026-11-17",
+    "first_seen_block": 224942864,
     "point": "head",
-    "version": "3.18.0"
+    "version": "3.19.0"
    }
   ]
  },
@@ -263,15 +267,15 @@
     "version": "3.17.0"
    },
    {
-    "block": 224788996,
-    "date": "2026-11-16",
+    "block": 224942864,
+    "date": "2026-11-17",
     "margin": 5,
     "participants_n": 16,
     "point": "head",
-    "tee_accounts_n": 17,
+    "tee_accounts_n": 16,
     "tee_reason": null,
     "threshold": 11,
-    "version": "3.18.0"
+    "version": "3.19.0"
    }
   ],
   "text": "Liveness margin (participants minus threshold, first-of-month points): 3 from Oct 2025 to Jul 2026, then 4 (Aug 2026), then 6 (Sep 2026 to Oct 2026), then 5 (Nov 2026). Latest: 11-of-16, margin 5."
@@ -301,46 +305,47 @@
     "where": "https://github.com/near/mpc/blob/e691bdb98d68dcf74653da58d043453a6318765f/crates/near-mpc-contract-interface/src/deposits.rs#L4"
    }
   ],
-  "finding": "none found in contract source",
+  "finding": "unknown",
+  "reason": "deployed version 3.19.0 differs from the version read (3.18.0); re-read the source",
   "scope": "Contract source at tag 3.18.0 only; the deployed code hash is not matched to a build of this tag.",
-  "version_match": true
+  "version_match": false
  },
  "value_vs_corruption": {
   "chain_breakdown_note": "as reported by DefiLlama; which of these addresses are MPC-controlled is not measured",
   "chain_breakdown_usd": {
-   "ADI": 370,
+   "ADI": 371,
    "Aptos": 38,
-   "Arbitrum": 3647309,
-   "Aurora": 91,
-   "Avalanche": 112776,
-   "Base": 2275899,
-   "Berachain": 44841,
-   "Binance": 3539919,
-   "Bitcoin": 5485870,
-   "Cardano": 92729,
-   "Dash": 286119,
-   "Doge": 237627,
-   "Ethereum": 56970287,
-   "Litecoin": 669933,
-   "Monad": 126986,
-   "Near": 76219595,
-   "Optimism": 224470,
-   "Polygon": 1511109,
-   "Ripple": 656745,
-   "Solana": 83668,
-   "Stellar": 67357,
-   "Sui": 260766,
-   "TON": 487190,
-   "Tron": 11417308,
-   "X Layer": 21086,
-   "xDai": 1275654
+   "Arbitrum": 5161466,
+   "Aurora": 93,
+   "Avalanche": 71974,
+   "Base": 2214403,
+   "Berachain": 44863,
+   "Binance": 3520149,
+   "Bitcoin": 5481261,
+   "Cardano": 91781,
+   "Dash": 289175,
+   "Doge": 259399,
+   "Ethereum": 55001625,
+   "Litecoin": 504795,
+   "Monad": 125112,
+   "Near": 80845872,
+   "Optimism": 189986,
+   "Polygon": 1511080,
+   "Ripple": 734500,
+   "Solana": 83664,
+   "Stellar": 67212,
+   "Sui": 273296,
+   "TON": 184147,
+   "Tron": 9460253,
+   "X Layer": 21518,
+   "xDai": 1326061
   },
-  "sentence": "≈$166M held in Intents; 11 of 16 signers must collude; bond at risk per signer: none found in contract. Security beyond that rests on TEE attestation (17 current entries) and operator identity.",
+  "sentence": "≈$167M held in Intents; 11 of 16 signers must collude; bond at risk per signer: unknown. Security beyond that rests on TEE attestation (16 current entries) and operator identity.",
   "signers_to_corrupt": 11,
-  "tee_entries_now": 17,
-  "value_in_intents_usd": 165715742,
+  "tee_entries_now": 16,
+  "value_in_intents_usd": 167464092,
   "value_label": "value held in NEAR Intents. Part of it depends on MPC-controlled addresses; that share is not measured here. Context, not a precise exposure.",
-  "value_per_corruptible_signer_usd": 15065067.454545455,
+  "value_per_corruptible_signer_usd": 15224008.363636363,
   "value_source": "https://api.llama.fi/protocol/near-intents"
  }
 }
