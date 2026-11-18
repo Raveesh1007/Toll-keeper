@@ -1,43 +1,43 @@
 {
- "fetched_at_utc": "2026-11-17T09:13:04Z",
+ "fetched_at_utc": "2026-11-18T08:32:34Z",
  "label": "Descriptive. Added 2026-11-14, after pre-registration. Not a tripwire.",
  "new_days_since_snapshot": {
   "fees": [
-   "2026-11-16"
+   "2026-11-17"
   ],
   "revenue": [
-   "2026-11-16"
+   "2026-11-17"
   ],
   "volume": [
-   "2026-11-16"
+   "2026-11-17"
   ]
  },
  "rebuild_error": null,
  "revised_days": [
   {
-   "change_pct": 734.23,
-   "date": "2026-11-15",
-   "new": 371316,
-   "old": 44510,
+   "change_pct": 1242.35,
+   "date": "2026-11-16",
+   "new": 270872,
+   "old": 20179,
    "series": "fees"
   },
   {
-   "change_pct": -5.03,
-   "date": "2026-11-14",
-   "new": 65137,
-   "old": 68588,
+   "change_pct": 2.91,
+   "date": "2026-11-15",
+   "new": 36797,
+   "old": 35757,
    "series": "revenue"
   },
   {
-   "change_pct": -1.4,
-   "date": "2026-11-15",
-   "new": 35757,
-   "old": 36265,
+   "change_pct": 3.96,
+   "date": "2026-11-16",
+   "new": 38006,
+   "old": 36557,
    "series": "revenue"
   }
  ],
- "snapshot": "data/raw/2026-11-16/",
- "snapshot_defillama_sha256": "ea4c8927f6a0f7fae8595da9a0c4d49bef04276370c220a744d619721e9bb663",
+ "snapshot": "data/raw/2026-11-17/",
+ "snapshot_defillama_sha256": "06ec700ce940eb09949447513475b6603b24ce0a4f3d314cee4541eff6c51c3d",
  "threshold_pct": 0.5,
  "tripwire_state_changes": [],
  "verdict_committed": "ON TRACK, UNPROVEN",

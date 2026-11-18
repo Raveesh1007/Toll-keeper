@@ -1,48 +1,48 @@
 {
- "asof": "2026-11-17",
- "block": 224942864,
+ "asof": "2026-11-18",
+ "block": 225086194,
  "breakeven_variants": [
   {
-   "breakeven_vol_per_day": 438960214.308409,
-   "capture_bps": 4.231707,
-   "cost_usd": 67800614.212196,
+   "breakeven_vol_per_day": 455071554.798058,
+   "capture_bps": 4.221235,
+   "cost_usd": 70115182.704339,
    "variant": "ours: 1.6% target issuance, trailing 90-day capture",
    "vs_ours": 1.0
   },
   {
-   "breakeven_vol_per_day": 426176730.80727,
-   "capture_bps": 4.35864,
-   "cost_usd": 67800614.212196,
+   "breakeven_vol_per_day": 439797623.893174,
+   "capture_bps": 4.367836,
+   "cost_usd": 70115182.704339,
    "variant": "30-day revenue window (capture = 30-day revenue / 30-day volume)",
-   "vs_ours": 0.970878
+   "vs_ours": 0.966436
   },
   {
-   "breakeven_vol_per_day": 675149449.601984,
-   "capture_bps": 4.231707,
-   "cost_usd": 104281768.315064,
+   "breakeven_vol_per_day": 706112252.069675,
+   "capture_bps": 4.221235,
+   "cost_usd": 108794296.285137,
    "variant": "today's net issuance (31 d) instead of the 1.6% target",
-   "vs_ours": 1.538065
+   "vs_ours": 1.551651
   },
   {
-   "breakeven_vol_per_day": 655487617.917789,
-   "capture_bps": 4.35864,
-   "cost_usd": 104281768.315064,
+   "breakeven_vol_per_day": 682412441.269614,
+   "capture_bps": 4.367836,
+   "cost_usd": 108794296.285137,
    "variant": "today's net issuance + 30-day revenue window",
-   "vs_ours": 1.493273
+   "vs_ours": 1.499572
   },
   {
-   "breakeven_vol_per_day": 684819679.27682,
-   "capture_bps": 4.231707,
-   "cost_usd": 105775405.984619,
+   "breakeven_vol_per_day": 706522765.753849,
+   "capture_bps": 4.221235,
+   "cost_usd": 108857546.210703,
    "variant": "today's gross issuance (epoch mint, before burn)",
-   "vs_ours": 1.560095
+   "vs_ours": 1.552553
   },
   {
-   "breakeven_vol_per_day": 664876229.310441,
-   "capture_bps": 4.35864,
-   "cost_usd": 105775405.984619,
+   "breakeven_vol_per_day": 682809176.554365,
+   "capture_bps": 4.367836,
+   "cost_usd": 108857546.210703,
    "variant": "today's gross issuance + 30-day revenue window",
-   "vs_ours": 1.514662
+   "vs_ours": 1.500444
   }
  ],
  "budget_monthly": [
@@ -203,14 +203,14 @@
    "supply_start": 1307742063.980552
   },
   {
-   "avg_price": 3.687167,
-   "coverage": 0.152783,
-   "issuance_cost_usd": 5377412.935224,
-   "issuance_rate": 0.024793,
-   "issued_near": 1458413.352715,
+   "avg_price": 3.65608,
+   "coverage": 0.151181,
+   "issuance_cost_usd": 5713094.528209,
+   "issuance_rate": 0.025077,
+   "issued_near": 1562628.295213,
    "month": "2026-11",
    "partial": true,
-   "revenue_usd": 821576,
+   "revenue_usd": 863713,
    "supply_start": 1310472976.202155
   }
  ],
@@ -220,28 +220,28 @@
    "id": "P1.1",
    "source": "`api.llama.fi/summary/dexs/near-intents`",
    "status": "D",
-   "value": "**$3.9B** ($33B over 12 months)"
+   "value": "**$3.88B** ($33B over 12 months)"
   },
   {
    "claim": "Gross fees users paid, last 30 d",
    "id": "P1.2",
    "source": "`summary/fees/near-intents?dataType=dailyFees`",
    "status": "D",
-   "value": "**$6.56M** = 16.8 bps of volume = **$79.8M/yr**"
+   "value": "**$6.57M** = 16.9 bps of volume = **$79.9M/yr**"
   },
   {
-   "claim": "Gross fees vs security budget at 1.6% issuance ($67.8M/yr)",
+   "claim": "Gross fees vs security budget at 1.6% issuance ($70.1M/yr)",
    "id": "P1.3",
    "source": "P1.2 / (1.6% x supply x price)",
    "status": "arith",
-   "value": "**118%**"
+   "value": "**114%**"
   },
   {
    "claim": "NEAR's captured share of fees, last 30 d",
    "id": "P1.4",
    "source": "`dataType=dailyRevenue`",
    "status": "D",
-   "value": "**25.9%** ($1.7M of $6.56M)"
+   "value": "**25.8%** ($1.7M of $6.57M)"
   },
   {
    "claim": "Monthly revenue, first full month after the fee switch (Mar 2026) vs the latest full month (Oct 2026)",
@@ -265,11 +265,11 @@
    "value": "x2.03 (2.71 vs 5.49 bps); 52% of the growth in log terms"
   },
   {
-   "claim": "Details only: trailing 90 d vs the 90 d ending 180 d earlier (2026-02-20 to 2026-05-20). Includes pre-fee-switch base, see WEAKNESSES #1",
+   "claim": "Details only: trailing 90 d vs the 90 d ending 180 d earlier (2026-02-21 to 2026-05-21). Includes pre-fee-switch base, see WEAKNESSES #1",
    "id": "P2.4",
    "source": "`build.py` `growth_at()`",
    "status": "D+arith",
-   "value": "$59.1k vs $14.2k = x4.16; annualised +1703%/yr (not a forecast)"
+   "value": "$58.9k vs $14.4k = x4.09; annualised +1640%/yr (not a forecast)"
   },
   {
    "claim": "Fee switch to buybacks live since 2026-02-23",
@@ -290,7 +290,7 @@
    "id": "P2.6",
    "source": "`view_account buybacks.multisignature.near`",
    "status": "M",
-   "value": "2,318,368 NEAR now, 2,010,047 at -30 d; +313,973 over 31 d = 11% of net issuance in the same period"
+   "value": "2,330,740 NEAR now, 2,015,727 at -30 d; +320,693 over 31 d = 12% of net issuance in the same period"
   },
   {
    "claim": "Max issuance today",
@@ -302,16 +302,16 @@
   {
    "claim": "Realized net supply growth",
    "id": "P3.2",
-   "source": "`total_supply` at blocks 220348834, 170511957, 224942864",
+   "source": "`total_supply` at blocks 220489375, 170649667, 225086194",
    "status": "M",
-   "value": "2.46%/yr (31 d), 2.42%/yr (384 d)"
+   "value": "2.48%/yr (31 d), 2.42%/yr (384 d)"
   },
   {
    "claim": "Security budget",
    "id": "P3.3",
    "source": "P3.2 x price",
    "status": "M+arith",
-   "value": "32,285,377 NEAR/yr x $3.23 = **$104M/yr**"
+   "value": "32,573,143 NEAR/yr x $3.34 = **$109M/yr**"
   },
   {
    "claim": "Issuance path",
@@ -325,7 +325,7 @@
    "id": "P3.5",
    "source": "P3.3 vs P1.3",
    "status": "arith",
-   "value": "break-even revenue falls from **$104M to $67.8M/yr** with no growth at all"
+   "value": "break-even revenue falls from **$109M to $70.1M/yr** with no growth at all"
   },
   {
    "claim": "MPC threshold history (month starts)",
@@ -360,7 +360,7 @@
    "id": "P4.5",
    "source": "RPC `validators`",
    "status": "M",
-   "value": "353 validators; 44.57% of supply staked; 9 pools hold > 1/3 of stake"
+   "value": "354 validators; 45.44% of supply staked; 10 pools hold > 1/3 of stake"
   },
   {
    "claim": "Incidents in 2026, both outside the signing layer",
@@ -371,12 +371,6 @@
   }
  ],
  "daily_91d": [
-  {
-   "date": "2026-08-18",
-   "fees": 78925,
-   "revenue": 15352,
-   "volume": 80870447
-  },
   {
    "date": "2026-08-19",
    "fees": 179826,
@@ -907,15 +901,21 @@
   },
   {
    "date": "2026-11-15",
-   "fees": 371316,
-   "revenue": 35757,
+   "fees": 370010,
+   "revenue": 36797,
    "volume": 145358103
   },
   {
    "date": "2026-11-16",
-   "fees": 20179,
-   "revenue": 36557,
+   "fees": 270872,
+   "revenue": 38006,
    "volume": 122427474
+  },
+  {
+   "date": "2026-11-17",
+   "fees": 9381,
+   "revenue": 39648,
+   "volume": 121102378
   }
  ],
  "data_notes": {
@@ -925,47 +925,47 @@
   "source": "DefiLlama api.llama.fi",
   "volume_starts": "2024-12-10"
  },
- "defillama_through": "2026-11-16",
+ "defillama_through": "2026-11-17",
  "drift": {
-  "fetched_at_utc": "2026-11-17T09:13:04Z",
+  "fetched_at_utc": "2026-11-18T08:32:34Z",
   "label": "Descriptive. Added 2026-11-14, after pre-registration. Not a tripwire.",
   "new_days_since_snapshot": {
    "fees": [
-    "2026-11-16"
+    "2026-11-17"
    ],
    "revenue": [
-    "2026-11-16"
+    "2026-11-17"
    ],
    "volume": [
-    "2026-11-16"
+    "2026-11-17"
    ]
   },
   "rebuild_error": null,
   "revised_days": [
    {
-    "change_pct": 734.23,
-    "date": "2026-11-15",
-    "new": 371316,
-    "old": 44510,
+    "change_pct": 1242.35,
+    "date": "2026-11-16",
+    "new": 270872,
+    "old": 20179,
     "series": "fees"
    },
    {
-    "change_pct": -5.03,
-    "date": "2026-11-14",
-    "new": 65137,
-    "old": 68588,
+    "change_pct": 2.91,
+    "date": "2026-11-15",
+    "new": 36797,
+    "old": 35757,
     "series": "revenue"
    },
    {
-    "change_pct": -1.4,
-    "date": "2026-11-15",
-    "new": 35757,
-    "old": 36265,
+    "change_pct": 3.96,
+    "date": "2026-11-16",
+    "new": 38006,
+    "old": 36557,
     "series": "revenue"
    }
   ],
-  "snapshot": "data/raw/2026-11-16/",
-  "snapshot_defillama_sha256": "ea4c8927f6a0f7fae8595da9a0c4d49bef04276370c220a744d619721e9bb663",
+  "snapshot": "data/raw/2026-11-17/",
+  "snapshot_defillama_sha256": "06ec700ce940eb09949447513475b6603b24ce0a4f3d314cee4541eff6c51c3d",
   "threshold_pct": 0.5,
   "tripwire_state_changes": [],
   "verdict_committed": "ON TRACK, UNPROVEN",
@@ -1035,7 +1035,7 @@
     "month": "2026-10"
    },
    {
-    "annualized": 18742202.0,
+    "annualized": 18544426.0,
     "month": "2026-11"
    }
   ],
@@ -1046,141 +1046,141 @@
    {
     "month": "2026-11",
     "required_at_hurdle": 21062901.0,
-    "required_live": 21589446.0
+    "required_live": 21513627.0
    },
    {
     "month": "2026-12",
     "required_at_hurdle": 21685502.0,
-    "required_live": 22053910.0
+    "required_live": 21959989.0
    },
    {
     "month": "2027-01",
     "required_at_hurdle": 22741079.0,
-    "required_live": 23045709.0
+    "required_live": 22981596.0
    },
    {
     "month": "2027-02",
     "required_at_hurdle": 23848038.0,
-    "required_live": 24082110.0
+    "required_live": 24050730.0
    },
    {
     "month": "2027-03",
     "required_at_hurdle": 24894114.0,
-    "required_live": 25058218.0
+    "required_live": 25059086.0
    },
    {
     "month": "2027-04",
     "required_at_hurdle": 26105875.0,
-    "required_live": 26185126.0
+    "required_live": 26224868.0
    },
    {
     "month": "2027-05",
     "required_at_hurdle": 27334680.0,
-    "required_live": 27323911.0
+    "required_live": 27404655.0
    },
    {
     "month": "2027-06",
     "required_at_hurdle": 28665240.0,
-    "required_live": 28552710.0
+    "required_live": 28679556.0
    },
    {
     "month": "2027-07",
     "required_at_hurdle": 30014513.0,
-    "required_live": 29794461.0
+    "required_live": 29969773.0
    },
    {
     "month": "2027-08",
     "required_at_hurdle": 31475519.0,
-    "required_live": 31134364.0
+    "required_live": 31364006.0
    },
    {
     "month": "2027-09",
     "required_at_hurdle": 33007641.0,
-    "required_live": 32534525.0
+    "required_live": 32823100.0
    },
    {
     "month": "2027-10",
     "required_at_hurdle": 34561311.0,
-    "required_live": 33949444.0
+    "required_live": 34299725.0
    },
    {
     "month": "2027-11",
     "required_at_hurdle": 36243639.0,
-    "required_live": 35476204.0
+    "required_live": 35895392.0
    },
    {
     "month": "2027-12",
     "required_at_hurdle": 37949628.0,
-    "required_live": 37019056.0
+    "required_live": 37510231.0
    },
    {
     "month": "2028-01",
     "required_at_hurdle": 39796888.0,
-    "required_live": 38683861.0
+    "required_live": 39255256.0
    },
    {
     "month": "2028-02",
     "required_at_hurdle": 41734067.0,
-    "required_live": 40423535.0
+    "required_live": 41081462.0
    },
    {
     "month": "2028-03",
     "required_at_hurdle": 43631543.0,
-    "required_live": 42121731.0
+    "required_live": 42866684.0
    },
    {
     "month": "2028-04",
     "required_at_hurdle": 45755380.0,
-    "required_live": 44016011.0
+    "required_live": 44860898.0
    },
    {
     "month": "2028-05",
     "required_at_hurdle": 47909087.0,
-    "required_live": 45930258.0
+    "required_live": 46879071.0
    },
    {
     "month": "2028-06",
     "required_at_hurdle": 50241140.0,
-    "required_live": 47995813.0
+    "required_live": 49059947.0
    },
    {
     "month": "2028-07",
     "required_at_hurdle": 52605992.0,
-    "required_live": 50083140.0
+    "required_live": 51267024.0
    },
    {
     "month": "2028-08",
     "required_at_hurdle": 55166674.0,
-    "required_live": 52335457.0
+    "required_live": 53652033.0
    },
    {
     "month": "2028-09",
     "required_at_hurdle": 57852001.0,
-    "required_live": 54689065.0
+    "required_live": 56147995.0
    },
    {
     "month": "2028-10",
     "required_at_hurdle": 60575097.0,
-    "required_live": 57067480.0
+    "required_live": 58673945.0
    },
    {
     "month": "2028-11",
     "required_at_hurdle": 63523688.0,
-    "required_live": 59633893.0
+    "required_live": 61403533.0
    },
    {
     "month": "2028-12",
     "required_at_hurdle": 66513750.0,
-    "required_live": 62227358.0
+    "required_live": 64165916.0
    },
    {
     "month": "2029-01",
     "required_at_hurdle": 69751415.0,
-    "required_live": 65025820.0
+    "required_live": 67150998.0
    }
   ],
-  "run_rate_now": 21589446.0,
-  "target": 67800614.0
+  "run_rate_now": 21513627.0,
+  "target": 70115183.0
  },
  "incidents": {
   "label": "Descriptive. Added 2026-11-14, after pre-registration. Not a tripwire.",
@@ -1242,68 +1242,68 @@
   "summary": "2 incidents in the window; net holder/user loss: $0 (as recorded); n=2, no rate inferred."
  },
  "issuance_gross_vs_net": {
-  "burn_near": 181.15621591,
-  "burn_share_of_mint": 0.00700001,
+  "burn_near": 195.69853759,
+  "burn_share_of_mint": 0.00737631,
   "epoch_blocks": [
-   224869937,
-   224913136,
-   224913137
+   225042737,
+   225085936,
+   225085937
   ],
-  "epoch_hours": 6.92271127,
-  "gross_rate": 0.02496152,
-  "mint_near": 25879.40793371,
-  "net_rate": 0.02478679,
+  "epoch_hours": 7.13083772,
+  "gross_rate": 0.02484085,
+  "mint_near": 26530.68854499,
+  "net_rate": 0.02465762,
   "reason": null
  },
  "metrics": {
-  "breakeven_vol_per_day": 438960214.308409,
-  "buyback_delta_31d": 313973.256091,
-  "buyback_near": 2318367.52002,
-  "capture_bps_30d": 4.35864,
-  "capture_bps_t90": 4.231707,
-  "coverage_buyback": 0.114533,
+  "breakeven_vol_per_day": 455071554.798058,
+  "buyback_delta_31d": 320692.931948,
+  "buyback_near": 2330740.078319,
+  "capture_bps_30d": 4.367836,
+  "capture_bps_t90": 4.221235,
+  "coverage_buyback": 0.115946,
   "coverage_month_end_latest": 0.121543,
-  "coverage_usd": 0.20703,
-  "fees_30d": 6560219,
-  "growth_6m": 4.162643,
-  "growth_capture_ratio": 1.86756,
-  "growth_vol_ratio": 2.22892,
+  "coverage_usd": 0.197746,
+  "fees_30d": 6566891,
+  "growth_6m": 4.0904,
+  "growth_capture_ratio": 1.84203,
+  "growth_vol_ratio": 2.220594,
   "headline_growth_capture_ratio": 2.027624,
   "headline_growth_capture_share": 0.520771,
   "headline_growth_ratio": 3.88585,
   "headline_growth_volume_ratio": 1.916455,
-  "intents_tvl_usd": 167464092.246932,
-  "issuance_net_per_year_31d": 32285377.187326,
-  "issuance_net_per_year_384d": 31724584.819751,
-  "issuance_rate_31d": 0.024609,
+  "intents_tvl_usd": 169042817.109009,
+  "issuance_net_per_year_31d": 32573142.60034,
+  "issuance_net_per_year_384d": 31749451.393021,
+  "issuance_rate_31d": 0.024826,
   "max_inflation_rate": 0.025,
-  "months_to_full_cut": 26.513347,
+  "months_to_full_cut": 26.480493,
   "mpc_domains": 8,
   "mpc_margin": 5,
   "mpc_participants": 16,
   "mpc_threshold": 11,
-  "nakamoto_33": 9,
-  "price_usd": 3.23,
-  "required_cagr": 0.678571,
-  "rev_growth_annualized": 17.02781,
-  "revenue_30d": 1699818,
-  "revenue_per_day_t90": 59149.166667,
-  "revenue_run_rate": 21589445.833333,
-  "security_budget_target_usd": 67800614.212196,
-  "security_budget_usd": 104281768.315064,
+  "nakamoto_33": 10,
+  "price_usd": 3.34,
+  "required_cagr": 0.708117,
+  "rev_growth_annualized": 16.399034,
+  "revenue_30d": 1695671,
+  "revenue_per_day_t90": 58941.444444,
+  "revenue_run_rate": 21513627.222222,
+  "security_budget_target_usd": 70115182.704339,
+  "security_budget_usd": 108794296.285137,
   "signer_access_keys": 0,
-  "staked_pct": 0.445742,
+  "staked_pct": 0.454355,
   "target_issuance": 0.016,
   "tee_accounts_unique": 16,
   "tee_entries": 16,
-  "total_supply": 1311931389.554869,
+  "total_supply": 1312035604.497368,
   "treasury_share": 0.0,
-  "validators": 353,
-  "vol_yoy_90d": 1.851451,
-  "vol_yoy_mtd": 0.058597,
-  "volume_30d": 3899881345,
-  "volume_365d": 32992182739,
-  "volume_per_day_t90": 139776134.477778
+  "validators": 354,
+  "vol_yoy_90d": 1.778526,
+  "vol_yoy_mtd": 0.055033,
+  "volume_30d": 3882176406,
+  "volume_365d": 32991504932,
+  "volume_per_day_t90": 139630810.5
  },
  "monthly": [
   {
@@ -1537,14 +1537,14 @@
    "volume": 3985641601
   },
   {
-   "capture_bps": 3.747432,
-   "days": 16,
-   "fees": 3919007,
+   "capture_bps": 3.733404,
+   "days": 17,
+   "fees": 4177775,
    "month": "2026-11",
-   "note": "partial: through 2026-11-16",
-   "revenue": 821576,
-   "share_of_fees": 0.209639,
-   "volume": 2192370696
+   "note": "partial: through 2026-11-17",
+   "revenue": 863713,
+   "share_of_fees": 0.20674,
+   "volume": 2313473074
   }
  ],
  "mpc_history": [
@@ -1689,9 +1689,9 @@
    "version": "3.17.0"
   },
   {
-   "block": 224942864,
-   "buyback_near": 2318367.52002,
-   "date": "2026-11-17",
+   "block": 225086194,
+   "buyback_near": 2330740.078319,
+   "date": "2026-11-18",
    "margin": 5,
    "participants": 16,
    "tee_entries": 16,
@@ -1703,7 +1703,7 @@
   {
    "by": "2027-03-31",
    "metric": "revenue_per_day_t90",
-   "now": 59149.166667,
+   "now": 58941.444444,
    "op": ">=",
    "state": "pending, behind",
    "text": "trailing-90-day revenue >= $80k/day",
@@ -1712,7 +1712,7 @@
   {
    "by": "2027-03-31",
    "metric": "vol_yoy_90d",
-   "now": 1.851451,
+   "now": 1.778526,
    "op": ">",
    "state": "pending, on course",
    "text": "volume YoY > 0%",
@@ -1739,7 +1739,7 @@
   {
    "by": "2027-03-31",
    "metric": "staked_pct",
-   "now": 0.445742,
+   "now": 0.454355,
    "op": ">=",
    "state": "pending, on course",
    "text": "staked share >= 42%",
@@ -1750,7 +1750,7 @@
   "commit": "d5491d7e3e585dade85c7a6d914587c8ed10d8f3",
   "status": "unchanged since"
  },
- "raw_dir": "data/raw/2026-11-17/",
+ "raw_dir": "data/raw/2026-11-18/",
  "scoreboard": {
   "BEAR": 0,
   "BULL": 1,
@@ -1762,7 +1762,7 @@
  },
  "security": {
   "governance": {
-   "access_keys_block": 224942864,
+   "access_keys_block": 225086194,
    "access_keys_now": 0,
    "current_version": "3.19.0",
    "pending_update_votes": {
@@ -1770,7 +1770,7 @@
      "nansen-ai-mpc.near"
     ]
    },
-   "rule": "Contract upgrades are approved once 11 participants (the threshold) vote for the same update; update_config is private; the account has 0 access keys (re-read at block 224942864).",
+   "rule": "Contract upgrades are approved once 11 participants (the threshold) vote for the same update; update_config is private; the account has 0 access keys (re-read at block 225086194).",
    "rule_sources": [
     "https://github.com/near/mpc/blob/e691bdb98d68dcf74653da58d043453a6318765f/crates/contract/src/api/update.rs#L82",
     "https://github.com/near/mpc/blob/e691bdb98d68dcf74653da58d043453a6318765f/crates/contract/src/api/update.rs#L152"
@@ -1864,8 +1864,8 @@
     },
     {
      "changed_after": "2026-11-01",
-     "first_seen": "2026-11-17",
-     "first_seen_block": 224942864,
+     "first_seen": "2026-11-18",
+     "first_seen_block": 225086194,
      "point": "head",
      "version": "3.19.0"
     }
@@ -2029,8 +2029,8 @@
      "version": "3.17.0"
     },
     {
-     "block": 224942864,
-     "date": "2026-11-17",
+     "block": 225086194,
+     "date": "2026-11-18",
      "margin": 5,
      "participants_n": 16,
      "point": "head",
@@ -2075,39 +2075,39 @@
   "value_vs_corruption": {
    "chain_breakdown_note": "as reported by DefiLlama; which of these addresses are MPC-controlled is not measured",
    "chain_breakdown_usd": {
-    "ADI": 371,
-    "Aptos": 38,
-    "Arbitrum": 5161466,
-    "Aurora": 93,
-    "Avalanche": 71974,
-    "Base": 2214403,
-    "Berachain": 44863,
-    "Binance": 3520149,
-    "Bitcoin": 5481261,
-    "Cardano": 91781,
-    "Dash": 289175,
-    "Doge": 259399,
-    "Ethereum": 55001625,
-    "Litecoin": 504795,
-    "Monad": 125112,
-    "Near": 80845872,
-    "Optimism": 189986,
-    "Polygon": 1511080,
-    "Ripple": 734500,
-    "Solana": 83664,
-    "Stellar": 67212,
-    "Sui": 273296,
-    "TON": 184147,
-    "Tron": 9460253,
-    "X Layer": 21518,
-    "xDai": 1326061
+    "ADI": 370,
+    "Aptos": 36,
+    "Arbitrum": 4078681,
+    "Aurora": 97,
+    "Avalanche": 71680,
+    "Base": 2369469,
+    "Berachain": 43736,
+    "Binance": 3524682,
+    "Bitcoin": 5503177,
+    "Cardano": 92156,
+    "Dash": 290178,
+    "Doge": 356164,
+    "Ethereum": 55718900,
+    "Litecoin": 441750,
+    "Monad": 116255,
+    "Near": 82749190,
+    "Optimism": 237167,
+    "Polygon": 1510983,
+    "Ripple": 737366,
+    "Solana": 83662,
+    "Stellar": 67997,
+    "Sui": 266769,
+    "TON": 486197,
+    "Tron": 8913690,
+    "X Layer": 21379,
+    "xDai": 1361085
    },
-   "sentence": "≈$167M held in Intents; 11 of 16 signers must collude; bond at risk per signer: unknown. Security beyond that rests on TEE attestation (16 current entries) and operator identity.",
+   "sentence": "≈$169M held in Intents; 11 of 16 signers must collude; bond at risk per signer: unknown. Security beyond that rests on TEE attestation (16 current entries) and operator identity.",
    "signers_to_corrupt": 11,
    "tee_entries_now": 16,
-   "value_in_intents_usd": 167464092,
+   "value_in_intents_usd": 169042817,
    "value_label": "value held in NEAR Intents. Part of it depends on MPC-controlled addresses; that share is not measured here. Context, not a precise exposure.",
-   "value_per_corruptible_signer_usd": 15224008.363636363,
+   "value_per_corruptible_signer_usd": 15367528.818181818,
    "value_source": "https://api.llama.fi/protocol/near-intents"
   }
  },
@@ -2189,8 +2189,8 @@
    "bull": true,
    "bull_trigger": "> 50%",
    "id": "T2",
-   "note": "quarter-ends: 2025-12-31 n/a, 2026-03-31 > +10000%, 2026-06-30 +1816%, 2026-09-30 +825%. Base effect: the 90-day comparison window falls in Intents' 2025 ramp-up, which inflates it; month-to-date YoY (+5.9%) is the like-for-like figure. Threshold and state logic unchanged",
-   "now": "90-day YoY +185.1% · month-to-date YoY +5.9%",
+   "note": "quarter-ends: 2025-12-31 n/a, 2026-03-31 > +10000%, 2026-06-30 +1816%, 2026-09-30 +825%. Base effect: the 90-day comparison window falls in Intents' 2025 ramp-up, which inflates it; month-to-date YoY (+5.5%) is the like-for-like figure. Threshold and state logic unchanged",
+   "now": "90-day YoY +177.9% · month-to-date YoY +5.5%",
    "scoreboard_state": "BULL",
    "state": "BULL",
    "void": false,
@@ -2203,7 +2203,7 @@
    "bull_trigger": ">= 50%",
    "id": "T3",
    "note": "bear trigger reads the month-end series, bull trigger reads the run-rate. Month-end series: 2025-10 0%, 2025-11 5%, 2025-12 8%, 2026-01 11%, 2026-02 14%, 2026-03 16%, 2026-04 14%, 2026-05 10%, 2026-06 9%, 2026-07 12%, 2026-08 13%, 2026-09 12%, 2026-10 12%",
-   "now": "run-rate (trailing 90-day average × 365): 21% · month-end series (trigger input): 12% for Oct 2026",
+   "now": "run-rate (trailing 90-day average × 365): 20% · month-end series (trigger input): 12% for Oct 2026",
    "scoreboard_state": "neither",
    "state": "neither",
    "void": false,
@@ -2216,7 +2216,7 @@
    "bull_trigger": ">= 45% held through ramp",
    "id": "T4",
    "note": "ramp 2027-01-31 to 2029-01-31; 0 snapshots in ramp so far",
-   "now": "44.57%",
+   "now": "45.44%",
    "scoreboard_state": "neither",
    "state": "neither",
    "void": false,
